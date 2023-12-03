@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw76wt8c3lf35"]
+
+[sub_resource type="Curve2D" id="Curve2D_3ekch"]
+
+[node name="World" type="Node"]
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="TileMap Overlay?" type="CanvasLayer" parent="."]
+
+[node name="LevelManager" type="Node" parent="."]
+
+[node name="TileMap" type="TileMap" parent="LevelManager"]
+format = 2
+
+[node name="Camera2D" type="Camera2D" parent="LevelManager"]
+
+[node name="EnemySpawner" type="Node" parent="LevelManager"]
+
+[node name="EnemyPath" type="Path2D" parent="LevelManager/EnemySpawner"]
+curve = SubResource("Curve2D_3ekch")
+
+[node name="Enemy1" type="PathFollow2D" parent="LevelManager/EnemySpawner/EnemyPath"]
+
+[node name="_Timer_18143" type="Timer" parent="LevelManager/EnemySpawner/EnemyPath/Enemy1"]
+wait_time = 0.2
+one_shot = true
+
+[node name="Enemy2" type="PathFollow2D" parent="LevelManager/EnemySpawner/EnemyPath"]
+
+[node name="_Timer_18144" type="Timer" parent="LevelManager/EnemySpawner/EnemyPath/Enemy2"]
+wait_time = 0.2
+one_shot = true
+
+[node name="Plants" type="Node" parent="LevelManager"]
+
+[node name="Plant1" type="AnimatedSprite2D" parent="LevelManager/Plants"]
+
+[node name="Plant2" type="AnimatedSprite2D" parent="LevelManager/Plants"]
+
+[node name="LogicComponents" type="Node" parent="."]
+
+[node name="BulletHandler" type="Node" parent="LogicComponents"]

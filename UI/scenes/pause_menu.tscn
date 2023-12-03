@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://d1tkex44uudos"]
+
+[node name="PauseMenu" type="CanvasLayer"]

@@ -13,3 +13,13 @@ config_version=5
 config/name="Weather Report"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[file_customization]
+
+folder_colors={
+"res://UI/": "green",
+"res://characters/": "teal",
+"res://components/": "purple",
+"res://levels/": "blue",
+"res://objects/": "orange"
+}

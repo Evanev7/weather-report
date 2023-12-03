@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsvo1l53lwhuu"]
+
+[sub_resource type="Curve2D" id="Curve2D_3ekch"]
+
+[node name="Level1" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="EnemySpawner" type="Node" parent="."]
+
+[node name="EnemyPath" type="Path2D" parent="EnemySpawner"]
+curve = SubResource("Curve2D_3ekch")
+
+[node name="Enemy1" type="PathFollow2D" parent="EnemySpawner/EnemyPath"]
+
+[node name="_Timer_18143" type="Timer" parent="EnemySpawner/EnemyPath/Enemy1"]
+wait_time = 0.2
+one_shot = true
+
+[node name="Enemy2" type="PathFollow2D" parent="EnemySpawner/EnemyPath"]
+
+[node name="_Timer_18144" type="Timer" parent="EnemySpawner/EnemyPath/Enemy2"]
+wait_time = 0.2
+one_shot = true
+
+[node name="Plants" type="Node" parent="."]
+
+[node name="Plant1" type="AnimatedSprite2D" parent="Plants"]
+
+[node name="Plant2" type="AnimatedSprite2D" parent="Plants"]

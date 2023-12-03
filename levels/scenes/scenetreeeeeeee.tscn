@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bak4upbbov5bb"]
+
+[ext_resource type="PackedScene" uid="uid://b2euuv7n3vu4j" path="res://levels/scenes/main_menu.tscn" id="1_si0du"]
+[ext_resource type="PackedScene" uid="uid://d1tkex44uudos" path="res://UI/scenes/pause_menu.tscn" id="2_8hlqq"]
+[ext_resource type="PackedScene" uid="uid://b6uannl2v8fbc" path="res://UI/scenes/hud.tscn" id="3_tcvhi"]
+[ext_resource type="PackedScene" uid="uid://bsvo1l53lwhuu" path="res://UI/scenes/level_1.tscn" id="4_fciop"]
+[ext_resource type="PackedScene" uid="uid://cwpsktdymxjdj" path="res://components/scenes/bullet_handler.tscn" id="5_akffo"]
+
+[node name="root" type="Node"]
+
+[node name="GameState" type="Node" parent="."]
+
+[node name="StateManager" type="Node" parent="GameState"]
+
+[node name="Stats" type="Node" parent="."]
+
+[node name="SignalBus" type="Node" parent="."]
+
+[node name="main" type="Node" parent="."]
+
+[node name="MainMenu" parent="main" instance=ExtResource("1_si0du")]
+
+[node name="World" type="Node" parent="main"]
+
+[node name="PauseMenu" parent="main/World" instance=ExtResource("2_8hlqq")]
+
+[node name="HUD" parent="main/World" instance=ExtResource("3_tcvhi")]
+
+[node name="TileMap Overlay?" type="CanvasLayer" parent="main/World"]
+
+[node name="Camera2D" type="Camera2D" parent="main/World"]
+
+[node name="Level1" parent="main/World" instance=ExtResource("4_fciop")]
+
+[node name="LogicComponents" type="Node" parent="main/World"]
+
+[node name="BulletHandler" parent="main/World/LogicComponents" instance=ExtResource("5_akffo")]
