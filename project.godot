@@ -11,8 +11,15 @@ config_version=5
 [application]
 
 config/name="Weather Report"
+run/main_scene="res://levels/scenes/scenetreeeeeeee.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/aspect="expand"
 
 [file_customization]
 
