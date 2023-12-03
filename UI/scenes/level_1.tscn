@@ -341,6 +341,7 @@ sources/0 = SubResource("TileSetAtlasSource_5ss2m")
 [node name="Level1" type="Node"]
 
 [node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
 tile_set = SubResource("TileSet_j88dd")
 format = 2
 layer_0/y_sort_enabled = true
