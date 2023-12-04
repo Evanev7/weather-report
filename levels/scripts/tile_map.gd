@@ -46,8 +46,9 @@ func _input(_event):
 func tile_has_plant(coords, plant):
 	if plant_nodes.has(coords):
 		return true
-	plant_nodes[coords] = plant
-	return false
+	else:
+		plant_nodes[coords] = plant
+		return false
 
 #func _on_invasive_spread(origin_coords):
 	#for plant in plant_nodes.get_neighbours(origin_coords):

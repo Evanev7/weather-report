@@ -13,5 +13,5 @@ class_name PlantResource
 
 @export_category("Bullet Stats")
 @export var DAMAGE: float = 5
-@export var SHOT_SPEED: float = 1
+@export var SHOT_SPEED: float = 100
 @export var SIZE: Vector2 = Vector2(1, 1)

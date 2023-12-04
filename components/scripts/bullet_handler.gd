@@ -14,7 +14,7 @@ func _process(_delta):
 func fire_from(plant, direction):
 	var bullet = bullet_scene.instantiate()
 	bullet.global_position = plant.position
-	bullet.direction = direction
-	bullet.speed = plant.shot_speed / 5
+	bullet.direction = direction.normalized()
+	bullet.speed = plant.shot_speed * 10
 	add_child(bullet)
 	
