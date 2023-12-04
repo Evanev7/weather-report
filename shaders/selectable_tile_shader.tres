@@ -1,0 +1,25 @@
+[gd_resource type="Shader" format=3 uid="uid://cx2nextjcjhre"]
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+// Varyings
+varying flat vec2 vertex_pos;
+
+global uniform vec2 active_tile;
+
+const float tolerance = 0.05;
+
+void vertex() {
+	vertex_pos = (MODEL_MATRIX * vec4(VERTEX, 0.0, 1.0)).xy;
+}
+
+void fragment() {
+	if (active_tile.x - tolerance <= vertex_pos.x && vertex_pos.x <= active_tile.x + tolerance) {
+		if (active_tile.y - tolerance <= vertex_pos.y && vertex_pos.y <= active_tile.y + tolerance) {
+			COLOR.rgb /= 2.;
+		}
+	}
+}
+"
