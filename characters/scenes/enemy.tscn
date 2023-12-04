@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://df0c6lteqa8bs"]
 
 [ext_resource type="Script" path="res://characters/scripts/enemy.gd" id="1_ekha6"]
-[ext_resource type="SpriteFrames" uid="uid://c8gi8xke7tvt4" path="res://characters/assets/enemies/rat_spriteframes.tres" id="2_7lc52"]
+[ext_resource type="SpriteFrames" path="res://characters/assets/enemies/rat_spriteframes.tres" id="2_7lc52"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ttr6m"]
 radius = 50.0

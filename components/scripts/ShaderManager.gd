@@ -10,6 +10,8 @@ func _input(event):
 
 func _on_mouse_moved(pos):
 	pos *= camera.get_viewport_transform()
+	#hacky. dont like
+	pos /= camera.zoom*camera.zoom
 	pos = tilemap.to_local(pos)
 	var centre_pos = tilemap.to_global(quantize_tilemap(pos))
 	RenderingServer.global_shader_parameter_set("active_tile",centre_pos)
