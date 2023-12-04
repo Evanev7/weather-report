@@ -26,6 +26,7 @@ func set_plant_as_resource(resource: PlantResource):
 func _physics_process(_delta):
 	## Fire towards nearest enemy
 	if fire_timer >= 0:
+		#do we want to multiply this by delta?
 		fire_timer -= fire_rate
 	else:
 		can_fire = true
@@ -33,12 +34,13 @@ func _physics_process(_delta):
 	if enemy_array.size() != 0 and can_fire:
 		var targeted_enemy = select_enemy()
 		var direction = targeted_enemy.global_position - global_position
-		GameState._fire_from(position, direction)
+		GameState.fire_from.emit(position, direction)
 		can_fire = false
 		fire_timer = fire_timer_max
 	
 	
 	## Health
+	#do we want to multiply this by delta?
 	durability_bar.value -= 0.1
 	if durability_bar.value <= 0:
 		animation_player.play("wilt")
@@ -46,6 +48,7 @@ func _physics_process(_delta):
 
 func select_enemy() -> PathFollow2D:
 	var enemy_progress_array = []
+	#Should this be enemy_array? so it targets enemies in range?
 	for enemy in get_tree().get_nodes_in_group("enemy"):
 		enemy_progress_array.append(enemy.progress)
 	var max_offset = enemy_progress_array.max()
