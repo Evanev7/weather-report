@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bh38xjlsp4d3u"]
+
+[ext_resource type="Texture2D" uid="uid://d1bc2dv8dmaaq" path="res://objects/assets/heaven_tree.png" id="1_i3beo"]
+[ext_resource type="Script" path="res://objects/scripts/greenhouse.gd" id="1_t60c0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ldue"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_i3beo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Greenhouse" type="Node2D" node_paths=PackedStringArray("hp_bar")]
+script = ExtResource("1_t60c0")
+hp_bar = NodePath("HPBar")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2ldue")
+
+[node name="HPBar" type="ProgressBar" parent="."]
+modulate = Color(0, 1, 0, 1)
+offset_left = -321.0
+offset_right = 325.0
+offset_bottom = 27.0

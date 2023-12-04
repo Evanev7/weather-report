@@ -1,6 +1,8 @@
 extends Node
 class_name EnemySpawner
 
+signal attack_greenhouse(damage)
+
 @export var enemy_resource_list: Array[EnemyResource]
 @export var enemy_scene: PackedScene
 enum ENEMY_TYPE {Dog, Rat, Sog, Mog}
@@ -32,9 +34,14 @@ func spawn_enemies(wave):
 		var new_enemy = enemy_scene.instantiate()
 		new_enemy.set_enemy_as_resource(enemy_resource_list[wave[current_wave].enemy])
 		await get_tree().create_timer(wave[current_wave].spawn_gap).timeout
+		new_enemy.attack_greenhouse.connect(damage_greenhouse)
 		path.add_child(new_enemy)
 	await get_tree().create_timer(wave[current_wave].end_delay).timeout
 	end_wave()
+	
+func damage_greenhouse(damage):
+	attack_greenhouse.emit(damage)
+	
 	
 func end_wave():
 	pass

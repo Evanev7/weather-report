@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PlantResource" load_steps=4 format=3 uid="uid://pym6jr7pfd0i"]
+
+[ext_resource type="Script" path="res://characters/scripts/plant_resource.gd" id="1_8bk2i"]
+[ext_resource type="SpriteFrames" uid="uid://duly7wpbv6dvi" path="res://characters/assets/plants/daisies_spriteframes.tres" id="1_gqmx3"]
+[ext_resource type="SpriteFrames" uid="uid://im11bxrq38ls" path="res://objects/assets/bullets/bees_spriteframes.tres" id="2_jxp3l"]
+
+[resource]
+script = ExtResource("1_8bk2i")
+NAME = "Daisies"
+ANIMATION = ExtResource("1_gqmx3")
+FLIP_H = false
+COST = 10
+DURABILITY = 100.0
+RANGE = 500.0
+FIRE_RATE = 10.0
+BULLET_ANIMATION = ExtResource("2_jxp3l")
+DAMAGE = 5.0
+SHOT_SPEED = 10.0
+SIZE = Vector2(1, 1)

@@ -1,0 +1,23 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://duly7wpbv6dvi"]
+
+[ext_resource type="Texture2D" uid="uid://cf232tqissni5" path="res://characters/assets/plants/daisies_SE.png" id="1_ow8i6"]
+[ext_resource type="Texture2D" uid="uid://d0sopdjs3asnq" path="res://characters/assets/plants/shooting_daisies_SE.png" id="2_wkyj6"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ow8i6")
+}],
+"loop": true,
+"name": &"se",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wkyj6")
+}],
+"loop": true,
+"name": &"shooting_se",
+"speed": 5.0
+}]

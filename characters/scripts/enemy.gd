@@ -1,19 +1,31 @@
 extends PathFollow2D
+class_name Enemy
 
-@export var character: CharacterBody2D
+signal removed()
+signal attack_greenhouse(damage)
+
 @export var sprite: AnimatedSprite2D
 @export var collision: CollisionShape2D
+@export var hp_bar: ProgressBar
+@export var animation_player: AnimationPlayer
 
 @onready var path = get_parent()
 
+var health: float
 var speed: float
+var damage: float
 var move_direction = 0
 
 func _ready():
 	pass
 	
 func set_enemy_as_resource(resource: EnemyResource):
+	animation_player.play("RESET")
+	health = resource.MAX_HP
+	hp_bar.max_value = health
+	hp_bar.value = health
 	speed = resource.SPEED
+	damage = resource.DAMAGE
 	sprite.sprite_frames = resource.ANIMATION
 	sprite.flip_h = resource.FLIP_H
 	collision.shape.radius = resource.HITBOX_RADIUS
@@ -48,8 +60,23 @@ func animate():
 func move(delta):
 	set_progress(progress + speed * delta)
 	if progress_ratio >= 1.0:
+		attack_greenhouse.emit(damage)
 		remove()
 		
 func remove():
 	remove_from_group("enemy")
+	removed.emit()
 	queue_free()
+
+
+func _on_area_2d_area_entered(area):
+	if area is Bullet:
+		health -= area.damage
+		animation_player.play("hurt")
+		area.hit_success()
+		update_health()
+		
+func update_health():
+	hp_bar.value = health
+	if health <= 0:
+		remove()

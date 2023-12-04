@@ -1,13 +1,13 @@
 [gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://c8gi8xke7tvt4"]
 
-[ext_resource type="Texture2D" uid="uid://dwu4snytiw58l" path="res://characters/assets/enemies/rat_nw_1.png" id="1_psuwv"]
-[ext_resource type="Texture2D" uid="uid://cn5islrw47ovy" path="res://characters/assets/enemies/rat_sw_1.png" id="2_q45w3"]
+[ext_resource type="Texture2D" uid="uid://dleo0bxbxb3sw" path="res://characters/assets/enemies/rat_back_1.png" id="1_abcat"]
+[ext_resource type="Texture2D" uid="uid://omo184o2gt0q" path="res://characters/assets/enemies/rat_front_1.png" id="2_n7lqh"]
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_psuwv")
+"texture": ExtResource("1_abcat")
 }],
 "loop": true,
 "name": &"nw",
@@ -15,7 +15,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_q45w3")
+"texture": ExtResource("2_n7lqh")
 }],
 "loop": true,
 "name": &"sw",

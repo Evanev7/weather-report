@@ -39,17 +39,22 @@ func _input(_event):
 		var final_pos = to_global(map_to_local(tile_mouse_pos))
 		if not tile_has_plant(tile_mouse_pos, stored_plant):
 			plant_handler.place_plant_at_location(stored_plant, final_pos)
-		else:
-			print("plant already placed here!")
-			#replace with some UI popup
 
 func tile_has_plant(coords, plant):
-	if plant_nodes.has(coords):
-		return true
+	coords.x -= 1
+	coords.y += 2
+	if get_cell_tile_data(0, coords).get_custom_data("canPlacePlants"):
+		if plant_nodes.has(coords):
+			print("plant already placed here!")
+			#replace with some UI popup
+			return true
+		else:
+			plant_nodes[coords] = plant
+			return false
 	else:
-		plant_nodes[coords] = plant
-		return false
-
+		print("can't place plant here!")
+		return true
+		
 #func _on_invasive_spread(origin_coords):
 	#for plant in plant_nodes.get_neighbours(origin_coords):
 		#plant.do_the_thing()

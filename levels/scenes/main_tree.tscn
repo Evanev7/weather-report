@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d4klrgmrciins"]
+[gd_scene load_steps=9 format=3 uid="uid://d4klrgmrciins"]
 
 [ext_resource type="PackedScene" uid="uid://b2euuv7n3vu4j" path="res://levels/scenes/main_menu.tscn" id="1_vgi8s"]
 [ext_resource type="PackedScene" uid="uid://d1tkex44uudos" path="res://UI/scenes/pause_menu.tscn" id="2_ao0h5"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bsvo1l53lwhuu" path="res://levels/scenes/level_1.tscn" id="4_c6m40"]
 [ext_resource type="PackedScene" uid="uid://cwpsktdymxjdj" path="res://components/scenes/bullet_handler.tscn" id="5_74cye"]
 [ext_resource type="Script" path="res://components/scripts/ShaderManager.gd" id="6_74lkg"]
+[ext_resource type="PackedScene" uid="uid://cie2aurt3mq2y" path="res://components/scenes/weather_handler.tscn" id="8_dsu4c"]
 
 [node name="main" type="Node"]
 
@@ -35,3 +36,5 @@ zoom = Vector2(0.8, 0.8)
 script = ExtResource("6_74lkg")
 camera = NodePath("../../Camera2D")
 level = NodePath("../../Level1")
+
+[node name="WeatherHandler" parent="World/LogicComponents" instance=ExtResource("8_dsu4c")]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cie2aurt3mq2y"]
+
+[ext_resource type="Script" path="res://components/scripts/weather_handler.gd" id="1_ngx4e"]
+
+[node name="WeatherHandler" type="Node"]
+script = ExtResource("1_ngx4e")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
