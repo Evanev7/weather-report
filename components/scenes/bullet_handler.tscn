@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://cwpsktdymxjdj"]
+[gd_scene load_steps=3 format=3 uid="uid://cwpsktdymxjdj"]
+
+[ext_resource type="Script" path="res://components/scripts/bullet_handler.gd" id="1_lle1v"]
+[ext_resource type="PackedScene" uid="uid://lryc8r5xugog" path="res://objects/scenes/bullet.tscn" id="2_ldycy"]
 
 [node name="BulletHandler" type="Node"]
+script = ExtResource("1_lle1v")
+bullet_scene = ExtResource("2_ldycy")

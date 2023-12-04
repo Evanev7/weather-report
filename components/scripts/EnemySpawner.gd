@@ -3,12 +3,12 @@ class_name EnemySpawner
 
 @export var enemy_resource_list: Array[EnemyResource]
 @export var enemy_scene: PackedScene
-enum ENEMY_TYPE {Dog, Blog, Sog, Mog}
+enum ENEMY_TYPE {Dog, Rat, Sog, Mog}
 
 @onready var path: Path2D = $EnemyPath
 
 var current_wave: int
-var wave_data = [EnemyClump.new(ENEMY_TYPE.Dog, 1, 10, 0.5), EnemyClump.new(ENEMY_TYPE.Dog, 0.1, 5, 0.5)]
+var wave_data = [EnemyClump.new(ENEMY_TYPE.Dog, 1, 10, 0.5), EnemyClump.new(ENEMY_TYPE.Rat, 0.3, 20, 0.5)]
 
 
 # Called when the node enters the scene tree for the first time.
@@ -21,7 +21,7 @@ func _process(_delta):
 	pass
 	
 func reset():
-	current_wave = -1
+	current_wave = 0
 
 func start_wave():
 	current_wave += 1

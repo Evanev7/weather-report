@@ -1,22 +1,69 @@
-[gd_scene load_steps=4 format=3 uid="uid://df0c6lteqa8bs"]
+[gd_scene load_steps=6 format=3 uid="uid://df0c6lteqa8bs"]
 
 [ext_resource type="Script" path="res://characters/scripts/enemy.gd" id="1_ekha6"]
-[ext_resource type="SpriteFrames" uid="uid://br3lj7ociorgb" path="res://characters/assets/enemies/dog_spriteframes.tres" id="2_8jjl5"]
+[ext_resource type="SpriteFrames" uid="uid://c8gi8xke7tvt4" path="res://characters/assets/enemies/rat_spriteframes.tres" id="2_7lc52"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ttr6m"]
+radius = 50.0
 
-[node name="Enemy" type="PathFollow2D" node_paths=PackedStringArray("sprite", "collision")]
+[sub_resource type="Animation" id="Animation_c5gc0"]
+resource_name = "bounce"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(2.82843, 0.757858, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(0.12, 0.12), Vector2(0.1, 0.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(0.732043, 1.68179, 0.366021),
+"update": 0,
+"values": [0.349066, -0.0872665, 0.349066]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l1v7i"]
+_data = {
+"bounce": SubResource("Animation_c5gc0")
+}
+
+[node name="Enemy" type="PathFollow2D" node_paths=PackedStringArray("character", "sprite", "collision")]
+rotates = false
+loop = false
 script = ExtResource("1_ekha6")
+character = NodePath("CharacterBody2D")
 sprite = NodePath("CharacterBody2D/AnimatedSprite2D")
 collision = NodePath("CharacterBody2D/CollisionShape2D")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+y_sort_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(0, 48)
-scale = Vector2(0.1, 0.1)
-sprite_frames = ExtResource("2_8jjl5")
-autoplay = "default"
+y_sort_enabled = true
+position = Vector2(0, -24)
+rotation = -0.073571
+scale = Vector2(0.117282, 0.117282)
+sprite_frames = ExtResource("2_7lc52")
+animation = &"sw"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, -24)
 shape = SubResource("CircleShape2D_ttr6m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_l1v7i")
+}
+autoplay = "bounce"

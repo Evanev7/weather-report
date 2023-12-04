@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://lryc8r5xugog"]
+
+[ext_resource type="SpriteFrames" uid="uid://br3lj7ociorgb" path="res://characters/assets/enemies/dog_spriteframes.tres" id="1_mus8n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_83wxq"]
+radius = 60.8276
+
+[node name="Bullet" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_83wxq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = ExtResource("1_mus8n")
+autoplay = "default"

@@ -10,9 +10,10 @@ var decoratable_cells = []
 func _ready():
 	get_decoratable_cells()
 	randomise_decorations()
-	for i in range(20):
+	for i in range(200):
 		randomise_decorations()
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.1).timeout
+		
 
 func get_decoratable_cells():
 	var all_bottom_cells = get_used_cells(0)
@@ -23,4 +24,5 @@ func get_decoratable_cells():
 func randomise_decorations():
 	for cell in decoratable_cells:
 		set_cell(1, cell, 2, decorations[randi() % decorations.size()])
+		
 

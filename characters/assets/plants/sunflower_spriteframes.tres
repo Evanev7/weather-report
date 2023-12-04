@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://cu3qy4cbnjby1"]
+
+[ext_resource type="Texture2D" uid="uid://dm8rwggau2a3x" path="res://characters/assets/plants/sunflower_se.png" id="1_h1qb8"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_h1qb8")
+}],
+"loop": true,
+"name": &"se",
+"speed": 5.0
+}]

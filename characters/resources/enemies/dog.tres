@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://c02tdx26rtr44"]
+
+[ext_resource type="SpriteFrames" uid="uid://br3lj7ociorgb" path="res://characters/assets/enemies/dog_spriteframes.tres" id="1_rey7o"]
+[ext_resource type="Script" path="res://characters/scripts/enemy_resource.gd" id="2_fr2pt"]
+
+[resource]
+script = ExtResource("2_fr2pt")
+NAME = "Dog"
+ANIMATION = ExtResource("1_rey7o")
+FLIP_H = true
+FLOATING = false
+SPEED = 100.0
+MAX_HP = 5.0
+DAMAGE = 2.0
+VALUE = 5.0
+STRENGTH = 1.0
+SCALE = Vector2(1, 1)
+HITBOX_RADIUS = 50.0
+UNIQUE_MULTIPLIER = 1.0
+OVERALL_MULTIPLIER = 1.0

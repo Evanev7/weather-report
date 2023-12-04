@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="PlantResource" load_steps=3 format=3 uid="uid://d042sxrygxrhh"]
+
+[ext_resource type="Script" path="res://characters/scripts/plant_resource.gd" id="1_808h7"]
+[ext_resource type="SpriteFrames" uid="uid://cu3qy4cbnjby1" path="res://characters/assets/plants/sunflower_spriteframes.tres" id="1_nxh3d"]
+
+[resource]
+script = ExtResource("1_808h7")
+NAME = "Sunflower"
+ANIMATION = ExtResource("1_nxh3d")
+FLIP_H = false
+DURABILITY = 100.0
+RANGE = 500.0
+FIRE_RATE = 300.0
+DAMAGE = 5.0
+SHOT_SPEED = 5.0
+SIZE = Vector2(1, 1)

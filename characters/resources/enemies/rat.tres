@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://30wycomjos6g"]
+
+[ext_resource type="SpriteFrames" uid="uid://c8gi8xke7tvt4" path="res://characters/assets/enemies/rat_spriteframes.tres" id="1_cwsji"]
+[ext_resource type="Script" path="res://characters/scripts/enemy_resource.gd" id="2_wslvd"]
+
+[resource]
+script = ExtResource("2_wslvd")
+NAME = "Rat"
+ANIMATION = ExtResource("1_cwsji")
+FLIP_H = false
+FLOATING = false
+SPEED = 300.0
+MAX_HP = 5.0
+DAMAGE = 5.0
+VALUE = 5.0
+STRENGTH = 1.0
+SCALE = Vector2(1, 1)
+HITBOX_RADIUS = 50.0
+UNIQUE_MULTIPLIER = 1.0
+OVERALL_MULTIPLIER = 1.0

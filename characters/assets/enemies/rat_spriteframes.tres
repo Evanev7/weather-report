@@ -1,0 +1,23 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://c8gi8xke7tvt4"]
+
+[ext_resource type="Texture2D" uid="uid://dwu4snytiw58l" path="res://characters/assets/enemies/rat_nw_1.png" id="1_psuwv"]
+[ext_resource type="Texture2D" uid="uid://cn5islrw47ovy" path="res://characters/assets/enemies/rat_sw_1.png" id="2_q45w3"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_psuwv")
+}],
+"loop": true,
+"name": &"nw",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_q45w3")
+}],
+"loop": true,
+"name": &"sw",
+"speed": 5.0
+}]

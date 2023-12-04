@@ -32,6 +32,7 @@
 [node name="Level1" parent="main/World" instance=ExtResource("4_fciop")]
 
 [node name="Camera2D" type="Camera2D" parent="main/World"]
+zoom = Vector2(0.8, 0.8)
 
 [node name="LogicComponents" type="Node" parent="main/World"]
 
