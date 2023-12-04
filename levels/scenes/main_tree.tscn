@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://d4klrgmrciins"]
+
+[ext_resource type="PackedScene" uid="uid://b2euuv7n3vu4j" path="res://levels/scenes/main_menu.tscn" id="1_vgi8s"]
+[ext_resource type="PackedScene" uid="uid://d1tkex44uudos" path="res://UI/scenes/pause_menu.tscn" id="2_ao0h5"]
+[ext_resource type="PackedScene" uid="uid://b6uannl2v8fbc" path="res://UI/scenes/hud.tscn" id="3_cg7ry"]
+[ext_resource type="PackedScene" uid="uid://bsvo1l53lwhuu" path="res://levels/scenes/level_1.tscn" id="4_c6m40"]
+[ext_resource type="PackedScene" uid="uid://cwpsktdymxjdj" path="res://components/scenes/bullet_handler.tscn" id="5_74cye"]
+[ext_resource type="Script" path="res://components/scripts/ShaderManager.gd" id="6_74lkg"]
+
+[node name="main" type="Node"]
+
+[node name="MainMenu" parent="." instance=ExtResource("1_vgi8s")]
+
+[node name="World" type="Node" parent="."]
+
+[node name="PauseMenu" parent="World" instance=ExtResource("2_ao0h5")]
+
+[node name="HUD" parent="World" instance=ExtResource("3_cg7ry")]
+
+[node name="TileMap Overlay?" type="CanvasLayer" parent="World"]
+
+[node name="Level1" parent="World" instance=ExtResource("4_c6m40")]
+
+[node name="Camera2D" type="Camera2D" parent="World"]
+offset = Vector2(100, 0)
+zoom = Vector2(0.8, 0.8)
+
+[node name="LogicComponents" type="Node" parent="World"]
+
+[node name="BulletHandler" parent="World/LogicComponents" instance=ExtResource("5_74cye")]
+
+[node name="ShaderManager" type="Node" parent="World/LogicComponents" node_paths=PackedStringArray("camera", "level")]
+script = ExtResource("6_74lkg")
+camera = NodePath("../../Camera2D")
+level = NodePath("../../Level1")

@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://qfqjbjga6cf"]
 
-[ext_resource type="Shader" uid="uid://cx2nextjcjhre" path="res://shaders/selectable_tile_shader.tres" id="1_lw4si"]
+[ext_resource type="Shader" path="res://shaders/selectable_tile_shader.tres" id="1_lw4si"]
 
 [resource]
 shader = ExtResource("1_lw4si")

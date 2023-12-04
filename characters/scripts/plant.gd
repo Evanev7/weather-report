@@ -1,12 +1,17 @@
 extends AnimatedSprite2D
 
+signal remove_from_node_array(plant)
+
 @export var durability_bar: ProgressBar
 @export var animation_player: AnimationPlayer
-@export var range: CollisionShape2D
+@export var radius: CollisionShape2D
 @export var fire_timer_max: float = 1000
 
 var fire_timer: float
 var fire_rate: float
+var shot_speed: float
+var damage: float
+var shot_size: Vector2
 
 var enemy_array = []
 var can_fire: bool = false
@@ -19,8 +24,11 @@ func set_plant_as_resource(resource: PlantResource):
 	sprite_frames = resource.ANIMATION
 	durability_bar.max_value = resource.DURABILITY
 	durability_bar.value = resource.DURABILITY
-	range.shape.radius = resource.RANGE * 10
+	radius.shape.radius = resource.RANGE * 10
 	fire_rate = resource.FIRE_RATE
+	shot_speed = resource.SHOT_SPEED
+	damage = resource.DAMAGE
+	shot_size = resource.SIZE
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
@@ -34,7 +42,7 @@ func _physics_process(_delta):
 	if enemy_array.size() != 0 and can_fire:
 		var targeted_enemy = select_enemy()
 		var direction = targeted_enemy.global_position - global_position
-		GameState.fire_from.emit(position, direction)
+		GameState.fire_from.emit(self, direction)
 		can_fire = false
 		fire_timer = fire_timer_max
 	
@@ -66,6 +74,7 @@ func _on_area_2d_body_exited(body):
 
 
 func wilt():
+	remove_from_node_array.emit(self)
 	queue_free()
 
 

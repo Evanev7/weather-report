@@ -1,7 +1,7 @@
 extends Node
 
 var debug = true
-signal fire_from(position, direction)
+signal fire_from(plant, direction)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
