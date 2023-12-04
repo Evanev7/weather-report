@@ -1,5 +1,7 @@
 extends TileMap
 
+@export var plant_handler: Node
+
 var flower := Vector2i(0, 2)
 var grass_1 := Vector2i(0, 3)
 var grass_2 := Vector2i(0, 4)
@@ -24,5 +26,14 @@ func get_decoratable_cells():
 func randomise_decorations():
 	for cell in decoratable_cells:
 		set_cell(1, cell, 2, decorations[randi() % decorations.size()])
+		
+func _input(event):
+	if Input.is_action_just_pressed("left_click"):
+		var mouse_pos = to_local(get_global_mouse_position())
+		var tile_mouse_pos = local_to_map(mouse_pos)
+		tile_mouse_pos.x += 1
+		tile_mouse_pos.y -= 2
+		var final_pos = to_global(map_to_local(tile_mouse_pos))
+		plant_handler.place_plant_at_location(final_pos)
 		
 

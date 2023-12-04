@@ -57,10 +57,11 @@ func select_enemy() -> PathFollow2D:
 func _on_area_2d_body_entered(body):
 	enemy_array.append(body.get_parent())
 
+
 func _on_area_2d_body_exited(body):
 	enemy_array.remove_at(enemy_array.find(body.get_parent()))
-	
-	
+
+
 func wilt():
 	queue_free()
 

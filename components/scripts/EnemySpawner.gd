@@ -37,5 +37,5 @@ func spawn_enemies(wave):
 	end_wave()
 	
 func end_wave():
-	print("ended")
+	pass
 	

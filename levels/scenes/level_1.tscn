@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bsvo1l53lwhuu"]
+[gd_scene load_steps=12 format=3 uid="uid://bsvo1l53lwhuu"]
 
 [ext_resource type="Texture2D" uid="uid://4yihorsy6sqn" path="res://levels/assets/tilemaps/tilemap_grass_2.png" id="1_3m1wn"]
 [ext_resource type="Material" uid="uid://qfqjbjga6cf" path="res://shaders/selectable_tile_material.tres" id="1_6qmjh"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://c02tdx26rtr44" path="res://characters/resources/enemies/dog.tres" id="3_ldlrt"]
 [ext_resource type="PackedScene" uid="uid://df0c6lteqa8bs" path="res://characters/scenes/enemy.tscn" id="4_poe43"]
 [ext_resource type="Resource" uid="uid://30wycomjos6g" path="res://characters/resources/enemies/rat.tres" id="6_tud2y"]
+[ext_resource type="PackedScene" uid="uid://bms01k0kbhw52" path="res://components/scenes/plant_handler.tscn" id="8_brauw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qdw5j"]
 resource_name = "grass"
@@ -117,7 +118,7 @@ point_count = 33
 
 [node name="Level1" type="Node"]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="." node_paths=PackedStringArray("plant_handler")]
 y_sort_enabled = true
 scale = Vector2(0.1, 0.1)
 tile_set = SubResource("TileSet_k4fqb")
@@ -130,6 +131,7 @@ layer_1/enabled = false
 layer_1/y_sort_enabled = true
 layer_1/tile_data = PackedInt32Array()
 script = ExtResource("2_t7qm4")
+plant_handler = NodePath("../PlantHandler")
 
 [node name="EnemySpawner" type="Node" parent="."]
 script = ExtResource("2_ykttw")
@@ -140,8 +142,4 @@ enemy_scene = ExtResource("4_poe43")
 position = Vector2(-923, -488)
 curve = SubResource("Curve2D_3ekch")
 
-[node name="Plants" type="Node" parent="."]
-
-[node name="Plant1" type="AnimatedSprite2D" parent="Plants"]
-
-[node name="Plant2" type="AnimatedSprite2D" parent="Plants"]
+[node name="PlantHandler" parent="." instance=ExtResource("8_brauw")]
