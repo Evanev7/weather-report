@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bak4upbbov5bb"]
+[gd_scene load_steps=7 format=3 uid="uid://bak4upbbov5bb"]
 
 [ext_resource type="PackedScene" uid="uid://b2euuv7n3vu4j" path="res://levels/scenes/main_menu.tscn" id="1_si0du"]
 [ext_resource type="PackedScene" uid="uid://d1tkex44uudos" path="res://UI/scenes/pause_menu.tscn" id="2_8hlqq"]
 [ext_resource type="PackedScene" uid="uid://b6uannl2v8fbc" path="res://UI/scenes/hud.tscn" id="3_tcvhi"]
 [ext_resource type="PackedScene" uid="uid://bsvo1l53lwhuu" path="res://levels/scenes/level_1.tscn" id="4_fciop"]
 [ext_resource type="PackedScene" uid="uid://cwpsktdymxjdj" path="res://components/scenes/bullet_handler.tscn" id="5_akffo"]
+[ext_resource type="Script" path="res://components/scripts/ShaderManager.gd" id="6_uf5b5"]
 
 [node name="main_scene" type="Node"]
 
@@ -35,3 +36,8 @@
 [node name="LogicComponents" type="Node" parent="main/World"]
 
 [node name="BulletHandler" parent="main/World/LogicComponents" instance=ExtResource("5_akffo")]
+
+[node name="ShaderManager" type="Node" parent="main/World/LogicComponents" node_paths=PackedStringArray("camera", "level")]
+script = ExtResource("6_uf5b5")
+camera = NodePath("../../Camera2D")
+level = NodePath("../../Level1")

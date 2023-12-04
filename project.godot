@@ -30,3 +30,10 @@ folder_colors={
 "res://levels/": "blue",
 "res://objects/": "orange"
 }
+
+[shader_globals]
+
+active_tile={
+"type": "vec2",
+"value": Vector2(0, 0)
+}

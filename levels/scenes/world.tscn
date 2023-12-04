@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bw76wt8c3lf35"]
+[gd_scene load_steps=3 format=3 uid="uid://bw76wt8c3lf35"]
+
+[ext_resource type="Script" path="res://components/scripts/ShaderManager.gd" id="1_n47w8"]
 
 [sub_resource type="Curve2D" id="Curve2D_3ekch"]
 
@@ -43,3 +45,6 @@ one_shot = true
 [node name="LogicComponents" type="Node" parent="."]
 
 [node name="BulletHandler" type="Node" parent="LogicComponents"]
+
+[node name="ShaderManager" type="Node" parent="LogicComponents"]
+script = ExtResource("1_n47w8")
