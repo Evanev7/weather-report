@@ -1,12 +1,11 @@
 extends Node
 
-var weather: World.WEATHER
+var weather: int
 var weather_can_change: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	weather = World.WEATHER.Summer
-	print(weather)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

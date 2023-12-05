@@ -38,3 +38,5 @@ camera = NodePath("../../Camera2D")
 level = NodePath("../../Level1")
 
 [node name="WeatherHandler" parent="World/LogicComponents" instance=ExtResource("8_dsu4c")]
+
+[connection signal="update_hud_credits" from="World/Level1" to="World/HUD" method="update_credits"]

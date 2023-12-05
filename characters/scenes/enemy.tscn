@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://df0c6lteqa8bs"]
+[gd_scene load_steps=11 format=3 uid="uid://df0c6lteqa8bs"]
 
 [ext_resource type="Script" path="res://characters/scripts/enemy.gd" id="1_ekha6"]
 [ext_resource type="SpriteFrames" uid="uid://c8gi8xke7tvt4" path="res://characters/assets/enemies/rat_spriteframes.tres" id="2_7lc52"]
@@ -73,20 +73,57 @@ tracks/1/keys = {
 "values": [0.349066, -0.0872665, 0.349066]
 }
 
-[sub_resource type="Animation" id="Animation_g8fnl"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l1v7i"]
+_data = {
+"RESET": SubResource("Animation_r8jj2"),
+"bounce": SubResource("Animation_c5gc0")
+}
+
+[sub_resource type="Animation" id="Animation_nnfim"]
 resource_name = "hurt"
-length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 0.574349),
+"update": 0,
+"values": [Color(100, 100, 100, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0.02, 0.02), Vector2(0.05, 0.05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ibofy"]
+_data = {
+"hurt": SubResource("Animation_nnfim")
+}
+
+[sub_resource type="Animation" id="Animation_3yemo"]
+resource_name = "dead"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 0.258817, 0.329877, 1, 1, 1.07177),
+"update": 0,
+"values": [Vector2(-20, 10), Vector2(-5, -5), Vector2(10, 10), Vector2(-10, 10), Vector2(5, -5), Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -95,47 +132,95 @@ tracks/1/path = NodePath("AnimatedSprite2D:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.5),
-"transitions": PackedFloat32Array(1, 1, 0.574349),
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.0853776, 3.13833, 0.0915054, 1, 1),
 "update": 0,
-"values": [Color(100, 100, 100, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+"values": [Color(100, 100, 100, 1), Color(1, 0, 0, 1), Color(100, 100, 100, 1), Color(1, 1, 1, 0.388235), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(2.73208),
+"update": 0,
+"values": [Vector2(0.05, 0.05)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(2.54912),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"remove"
+}]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_l1v7i"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e0f7f"]
 _data = {
-"RESET": SubResource("Animation_r8jj2"),
-"bounce": SubResource("Animation_c5gc0"),
-"hurt": SubResource("Animation_g8fnl")
+"dead": SubResource("Animation_3yemo")
 }
 
-[node name="Enemy" type="PathFollow2D" node_paths=PackedStringArray("sprite", "collision", "hp_bar", "animation_player")]
+[node name="Enemy" type="PathFollow2D" node_paths=PackedStringArray("sprite", "collision", "hp_bar", "bounce_anim", "hurt_anim", "dead_anim")]
 rotates = false
 loop = false
 script = ExtResource("1_ekha6")
 sprite = NodePath("Area2D/AnimatedSprite2D")
 collision = NodePath("Area2D/CollisionShape2D")
 hp_bar = NodePath("Area2D/HP")
-animation_player = NodePath("Area2D/AnimationPlayer")
+bounce_anim = NodePath("Area2D/bounce")
+hurt_anim = NodePath("Area2D/hurt")
+dead_anim = NodePath("Area2D/dead")
 
 [node name="Area2D" type="Area2D" parent="."]
 y_sort_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
 y_sort_enabled = true
-position = Vector2(-2.075, -43.9816)
 scale = Vector2(0.05, 0.05)
 sprite_frames = ExtResource("2_7lc52")
 animation = &"sw"
+offset = Vector2(-14.535, -950)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -24)
 shape = SubResource("CircleShape2D_ttr6m")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
+[node name="bounce" type="AnimationPlayer" parent="Area2D"]
 libraries = {
 "": SubResource("AnimationLibrary_l1v7i")
 }
 autoplay = "bounce"
+
+[node name="hurt" type="AnimationPlayer" parent="Area2D"]
+libraries = {
+"": SubResource("AnimationLibrary_ibofy")
+}
+
+[node name="dead" type="AnimationPlayer" parent="Area2D"]
+libraries = {
+"": SubResource("AnimationLibrary_e0f7f")
+}
 
 [node name="HP" type="ProgressBar" parent="Area2D"]
 modulate = Color(1, 0, 0, 1)

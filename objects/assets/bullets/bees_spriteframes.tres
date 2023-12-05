@@ -1,3 +1,14 @@
-[gd_resource type="SpriteFrames" format=3 uid="uid://im11bxrq38ls"]
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://im11bxrq38ls"]
+
+[ext_resource type="Texture2D" uid="uid://c3hbq4chsj22a" path="res://objects/assets/bullets/bees.png" id="1_wnwmd"]
 
 [resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wnwmd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

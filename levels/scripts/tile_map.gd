@@ -31,7 +31,8 @@ func randomise_decorations():
 
 func _input(_event):
 	if Input.is_action_just_pressed("left_click"):
-		var stored_plant = plant_handler.sunflower
+		#var stored_plant = plant_handler.plant_resource_list[randi() % plant_handler.plant_resource_list.size()]
+		var stored_plant = plant_handler.plant_resource_list[1]
 		var mouse_pos = to_local(get_global_mouse_position())
 		var tile_mouse_pos = local_to_map(mouse_pos)
 		tile_mouse_pos.x += 1

@@ -1,3 +1,36 @@
-[gd_scene format=3 uid="uid://b6uannl2v8fbc"]
+[gd_scene load_steps=2 format=3 uid="uid://b6uannl2v8fbc"]
 
-[node name="HUD" type="CanvasLayer"]
+[ext_resource type="Script" path="res://UI/scripts/hud.gd" id="1_to378"]
+
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("credits_label")]
+script = ExtResource("1_to378")
+credits_label = NodePath("Credits")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 21.0
+offset_top = 22.0
+offset_right = 307.0
+offset_bottom = 81.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 39
+text = "Water Credits:"
+
+[node name="Credits" type="RichTextLabel" parent="."]
+offset_left = 289.0
+offset_top = 22.0
+offset_right = 408.0
+offset_bottom = 81.0
+theme_override_colors/default_color = Color(0.321569, 0.607843, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 39
+bbcode_enabled = true
+text = "[center]100[/center]"

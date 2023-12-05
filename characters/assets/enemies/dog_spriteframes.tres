@@ -1,14 +1,23 @@
-[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://br3lj7ociorgb"]
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://br3lj7ociorgb"]
 
-[ext_resource type="Texture2D" uid="uid://cjwws3pxwjwjt" path="res://objects/assets/bullets/sunflower_seed.png" id="1_8tgtt"]
+[ext_resource type="Texture2D" uid="uid://dwu4snytiw58l" path="res://characters/assets/enemies/rat_nw_1.png" id="1_0dv64"]
+[ext_resource type="Texture2D" uid="uid://cn5islrw47ovy" path="res://characters/assets/enemies/rat_sw_1.png" id="2_p7ef3"]
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_8tgtt")
+"texture": ExtResource("1_0dv64")
 }],
 "loop": true,
-"name": &"default",
+"name": &"nw",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p7ef3")
+}],
+"loop": true,
+"name": &"sw",
 "speed": 5.0
 }]

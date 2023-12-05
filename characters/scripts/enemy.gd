@@ -3,29 +3,36 @@ class_name Enemy
 
 signal removed()
 signal attack_greenhouse(damage)
+signal add_water_credits(value)
 
 @export var sprite: AnimatedSprite2D
 @export var collision: CollisionShape2D
 @export var hp_bar: ProgressBar
-@export var animation_player: AnimationPlayer
+@export var bounce_anim: AnimationPlayer
+@export var hurt_anim: AnimationPlayer
+@export var dead_anim: AnimationPlayer
 
 @onready var path = get_parent()
 
 var health: float
 var speed: float
 var damage: float
+var value: float
 var move_direction = 0
+
+var dead: bool = false
 
 func _ready():
 	pass
 	
 func set_enemy_as_resource(resource: EnemyResource):
-	animation_player.play("RESET")
+	bounce_anim.play("RESET")
 	health = resource.MAX_HP
 	hp_bar.max_value = health
 	hp_bar.value = health
 	speed = resource.SPEED
 	damage = resource.DAMAGE
+	value = resource.VALUE
 	sprite.sprite_frames = resource.ANIMATION
 	sprite.flip_h = resource.FLIP_H
 	collision.shape.radius = resource.HITBOX_RADIUS
@@ -63,20 +70,33 @@ func move(delta):
 		attack_greenhouse.emit(damage)
 		remove()
 		
-func remove():
-	remove_from_group("enemy")
-	removed.emit()
-	queue_free()
 
 
 func _on_area_2d_area_entered(area):
 	if area is Bullet:
-		health -= area.damage
-		animation_player.play("hurt")
-		area.hit_success()
+		area.check_hit(self)
+		
+func hurt(damage_taken):
+	if not dead:
+		health -= damage_taken
 		update_health()
+		hurt_anim.stop()
+		hurt_anim.play("hurt")
+	
 		
 func update_health():
 	hp_bar.value = health
 	if health <= 0:
-		remove()
+		dead = true
+		hurt_anim.stop()
+		bounce_anim.stop()
+		dead_anim.play("dead")
+		#set_physics_process(false)
+		#set_process(false)
+		add_water_credits.emit(value)
+		
+		
+func remove():
+	remove_from_group("enemy")
+	removed.emit()
+	queue_free()
