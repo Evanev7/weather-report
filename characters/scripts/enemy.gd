@@ -36,7 +36,6 @@ func set_enemy_as_resource(resource: EnemyResource):
 	sprite.sprite_frames = resource.ANIMATION
 	sprite.flip_h = resource.FLIP_H
 	collision.shape.radius = resource.HITBOX_RADIUS
-	add_to_group("enemy")
 	
 func _physics_process(delta):
 	var prepos = global_position

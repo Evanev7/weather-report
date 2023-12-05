@@ -44,6 +44,7 @@ func spawn_enemies(wave):
 			await get_tree().create_timer(wave[i].spawn_gap).timeout
 			new_enemy.attack_greenhouse.connect(damage_greenhouse)
 			new_enemy.add_water_credits.connect(add_water_credits)
+			new_enemy.add_to_group("enemy")
 			path.add_child(new_enemy)
 		await get_tree().create_timer(wave[i].end_delay).timeout
 	await get_tree().create_timer(2.0).timeout

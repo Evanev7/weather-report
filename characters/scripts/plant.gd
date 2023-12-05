@@ -1,4 +1,5 @@
 extends AnimatedSprite2D
+class_name Plant
 
 signal remove_from_node_array(plant)
 
@@ -6,6 +7,11 @@ signal remove_from_node_array(plant)
 @export var animation_player: AnimationPlayer
 @export var radius: CollisionShape2D
 @export var fire_timer_max: float = 1000
+
+@export var summer: Node
+@export var autumn: Node
+@export var winter: Node
+@export var spring: Node
 
 ## Bullet Stats
 var fire_timer: float
@@ -21,6 +27,8 @@ var piercing_cooldown: float
 ##
 
 var enemy_array = []
+var weather: GameState.WEATHER
+var firing_enabled: bool = true
 var can_fire: bool = false
 
 # Called when the node enters the scene tree for the first time.
@@ -28,6 +36,13 @@ func _ready():
 	pass # Replace with function body.
 
 func set_plant_as_resource(resource: PlantResource):
+	print(resource.SUMMER_SCRIPT)
+	summer.script = resource.SUMMER_SCRIPT
+	autumn.script = resource.AUTUMN_SCRIPT
+	winter.script = resource.WINTER_SCRIPT
+	spring.script = resource.SPRING_SCRIPT
+	#set_weather()
+	
 	sprite_frames = resource.ANIMATION
 	bullet_animation = resource.BULLET_ANIMATION
 	bullet_type = resource.TYPE
@@ -41,11 +56,23 @@ func set_plant_as_resource(resource: PlantResource):
 	lifetime = resource.BULLET_LIFETIME
 	piercing_amount = resource.PIERCING_AMOUNT
 	piercing_cooldown = resource.PIERCING_COOLDOWN
+	
+func set_weather():
+	weather = GameState.weather
+	match weather:
+		GameState.WEATHER.Summer:
+			summer.modify(self)
+		GameState.WEATHER.Autumn:
+			autumn.modify(self)
+		GameState.WEATHER.Winter:
+			winter.modify(self)
+		GameState.WEATHER.Spring:
+			spring.modify(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
 	## Fire towards nearest enemy
-	if fire_timer >= 0:
+	if fire_timer >= 0 and firing_enabled:
 		#do we want to multiply this by delta?
 		fire_timer -= fire_rate
 	else:
@@ -60,7 +87,7 @@ func _physics_process(_delta):
 	# why?
 	durability_bar.value -= 0.1
 	if durability_bar.value <= 0:
-		fire_timer = 1000000
+		firing_enabled = false
 		animation_player.play("wilt")
 
 func fire_bullet():
@@ -105,7 +132,7 @@ func _on_range_area_exited(area):
 
 func wilt():
 	remove_from_node_array.emit(self)
-	can_fire = false
+	remove_from_group("plant")
 	queue_free()
 
 

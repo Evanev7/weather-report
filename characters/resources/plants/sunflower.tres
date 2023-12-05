@@ -1,8 +1,31 @@
-[gd_resource type="Resource" script_class="PlantResource" load_steps=4 format=3 uid="uid://d042sxrygxrhh"]
+[gd_resource type="Resource" script_class="PlantResource" load_steps=8 format=3 uid="uid://d042sxrygxrhh"]
 
 [ext_resource type="Script" path="res://characters/scripts/plant_resource.gd" id="1_808h7"]
 [ext_resource type="SpriteFrames" uid="uid://cu3qy4cbnjby1" path="res://characters/assets/plants/sunflower_spriteframes.tres" id="1_nxh3d"]
 [ext_resource type="SpriteFrames" uid="uid://cvo7cnppm5o2u" path="res://objects/assets/bullets/sunflower_seed_spriteframes.tres" id="2_kdhfy"]
+
+[sub_resource type="GDScript" id="GDScript_n3ia1"]
+script/source = "func modify(plant: Plant):
+	plant.firing_enabled = false
+	
+"
+
+[sub_resource type="GDScript" id="GDScript_b1g8x"]
+script/source = "func modify(plant: Plant):
+	pass"
+
+[sub_resource type="GDScript" id="GDScript_aan4e"]
+script/source = "func modify(plant: Plant):
+	plant.damage *= 1.5
+	plant.fire_rate *= 2
+"
+
+[sub_resource type="GDScript" id="GDScript_c8t26"]
+script/source = "func modify(plant: Plant):
+	plant.firing_enabled = true
+	plant.damage /= 1.5
+	plant.firing_rate /= 2
+"
 
 [resource]
 script = ExtResource("1_808h7")
@@ -13,6 +36,10 @@ COST = 10
 DURABILITY = 100.0
 RANGE = 150.0
 FIRE_RATE = 10.0
+SUMMER_SCRIPT = SubResource("GDScript_aan4e")
+AUTUMN_SCRIPT = SubResource("GDScript_n3ia1")
+WINTER_SCRIPT = SubResource("GDScript_c8t26")
+SPRING_SCRIPT = SubResource("GDScript_b1g8x")
 BULLET_ANIMATION = ExtResource("2_kdhfy")
 TYPE = 0
 DAMAGE = 1.0

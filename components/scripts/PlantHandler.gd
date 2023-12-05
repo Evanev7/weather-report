@@ -25,6 +25,7 @@ func place_plant_at_location(plant_resource, pos):
 		update_hud_credits.emit(water_credits)
 		placed_plant.position = pos
 		placed_plant.connect("remove_from_node_array", remove_plant_from_tilemap)
+		placed_plant.add_to_group("plant")
 		add_child(placed_plant)
 	else:
 		print("can't buy this!")
