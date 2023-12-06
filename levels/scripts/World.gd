@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 class_name World
 
 
@@ -13,5 +13,5 @@ func _process(_delta):
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		$Camera2D.offset = (event.position - get_viewport_rect().size/2)/32
+		$Camera2D.offset = (event.position - $Camera2D.get_viewport_rect().size/2)/32
 

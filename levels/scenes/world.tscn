@@ -1,12 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bw76wt8c3lf35"]
+[gd_scene load_steps=4 format=3 uid="uid://bw76wt8c3lf35"]
 
+[ext_resource type="PackedScene" uid="uid://c2wpjv5nffmco" path="res://UI/scenes/pause_menu.tscn" id="1_ijcxh"]
 [ext_resource type="Script" path="res://components/scripts/ShaderManager.gd" id="1_n47w8"]
 
 [sub_resource type="Curve2D" id="Curve2D_3ekch"]
 
 [node name="World" type="Node"]
 
-[node name="PauseMenu" type="CanvasLayer" parent="."]
+[node name="PauseMenu" parent="." instance=ExtResource("1_ijcxh")]
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
