@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" path="res://UI/scripts/hud.gd" id="1_to378"]
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("credits_label")]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("credits_label", "weather_label")]
 script = ExtResource("1_to378")
 credits_label = NodePath("Credits")
+weather_label = NodePath("Weather")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 21.0
@@ -34,3 +35,22 @@ theme_override_constants/outline_size = 4
 theme_override_font_sizes/normal_font_size = 39
 bbcode_enabled = true
 text = "[center]100[/center]"
+
+[node name="Weather" type="RichTextLabel" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -213.0
+offset_top = 21.0
+offset_right = -22.0
+offset_bottom = 80.0
+grow_horizontal = 0
+theme_override_colors/default_color = Color(1, 0.843137, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 39
+bbcode_enabled = true
+text = "[right][wave]Summer[/wave][/right]"

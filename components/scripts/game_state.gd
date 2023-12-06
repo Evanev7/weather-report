@@ -1,5 +1,7 @@
 extends Node
 
+@onready var HUD: CanvasLayer = get_parent().get_node("main/World/HUD")
+
 var debug = true
 signal fire_from(plant, direction)
 
@@ -13,5 +15,6 @@ func _ready():
 	
 func set_weather(new_weather):
 	weather = new_weather
+	HUD.update_weather(weather)
 	get_tree().call_group("plant", "set_weather")
 	get_tree().call_group("enemy", "set_weather")

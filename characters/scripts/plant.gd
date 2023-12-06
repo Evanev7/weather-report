@@ -8,14 +8,10 @@ signal remove_from_node_array(plant)
 @export var radius: CollisionShape2D
 @export var fire_timer_max: float = 1000
 
-@export var summer: Node
-@export var autumn: Node
-@export var winter: Node
-@export var spring: Node
-
 ## Bullet Stats
 var fire_timer: float
 var fire_rate: float
+var wilting_rate: float = 1
 var shot_speed: float
 var damage: float
 var bullet_animation: SpriteFrames
@@ -28,6 +24,7 @@ var piercing_cooldown: float
 
 var enemy_array = []
 var weather: GameState.WEATHER
+var weather_script
 var firing_enabled: bool = true
 var can_fire: bool = false
 
@@ -36,12 +33,9 @@ func _ready():
 	pass # Replace with function body.
 
 func set_plant_as_resource(resource: PlantResource):
-	print(resource.SUMMER_SCRIPT)
-	summer.script = resource.SUMMER_SCRIPT
-	autumn.script = resource.AUTUMN_SCRIPT
-	winter.script = resource.WINTER_SCRIPT
-	spring.script = resource.SPRING_SCRIPT
-	#set_weather()
+	weather_script = resource.WEATHER_SCRIPT.new()
+	add_child(weather_script)
+	set_weather()
 	
 	sprite_frames = resource.ANIMATION
 	bullet_animation = resource.BULLET_ANIMATION
@@ -61,31 +55,31 @@ func set_weather():
 	weather = GameState.weather
 	match weather:
 		GameState.WEATHER.Summer:
-			summer.modify(self)
+			weather_script.modify_summer(self)
 		GameState.WEATHER.Autumn:
-			autumn.modify(self)
+			weather_script.modify_autumn(self)
 		GameState.WEATHER.Winter:
-			winter.modify(self)
+			weather_script.modify_winter(self)
 		GameState.WEATHER.Spring:
-			spring.modify(self)
+			weather_script.modify_spring(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
 	## Fire towards nearest enemy
-	if fire_timer >= 0 and firing_enabled:
+	if fire_timer >= 0:
 		#do we want to multiply this by delta?
 		fire_timer -= fire_rate
 	else:
 		can_fire = true
 		
-	if enemy_array.size() != 0 and can_fire:
+	if enemy_array.size() != 0 and can_fire and firing_enabled:
 		fire_bullet()
 	
 	
 	## Health
 	#do we want to multiply this by delta?
 	# why?
-	durability_bar.value -= 0.1
+	durability_bar.value -= 0.1 * wilting_rate
 	if durability_bar.value <= 0:
 		firing_enabled = false
 		animation_player.play("wilt")

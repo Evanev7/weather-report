@@ -14,11 +14,8 @@ enum BULLET_TYPE {Normal, AOE}
 @export var RANGE: float = 500
 @export var FIRE_RATE: float = 10
 
-@export_category("Weather Scripts")
-@export var SUMMER_SCRIPT: Script
-@export var AUTUMN_SCRIPT: Script
-@export var WINTER_SCRIPT: Script
-@export var SPRING_SCRIPT: Script
+@export_category("Weather Script")
+@export var WEATHER_SCRIPT: Script
 
 @export_category("Bullet Metadata")
 @export var BULLET_ANIMATION: SpriteFrames

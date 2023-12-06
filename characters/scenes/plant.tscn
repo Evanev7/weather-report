@@ -81,7 +81,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_6mpch"]
 radius = 2000.22
 
-[node name="Plant" type="AnimatedSprite2D" node_paths=PackedStringArray("durability_bar", "animation_player", "radius", "summer", "autumn", "winter", "spring")]
+[node name="Plant" type="AnimatedSprite2D" node_paths=PackedStringArray("durability_bar", "animation_player", "radius")]
 position = Vector2(5, 5)
 scale = Vector2(0.1, 0.1)
 sprite_frames = ExtResource("1_gn6eh")
@@ -90,10 +90,6 @@ script = ExtResource("2_nfrcv")
 durability_bar = NodePath("Durability")
 animation_player = NodePath("AnimationPlayer")
 radius = NodePath("Area2D/CollisionShape2D")
-summer = NodePath("Summer")
-autumn = NodePath("Autumn")
-winter = NodePath("Winter")
-spring = NodePath("Spring")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -118,14 +114,6 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_6mpch")
-
-[node name="Summer" type="Node" parent="."]
-
-[node name="Autumn" type="Node" parent="."]
-
-[node name="Winter" type="Node" parent="."]
-
-[node name="Spring" type="Node" parent="."]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_range_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_range_area_exited"]
