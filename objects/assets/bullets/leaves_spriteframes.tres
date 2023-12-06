@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://cqsyygaeoxoj"]
+
+[ext_resource type="Texture2D" uid="uid://dl1wjhpc0qgb8" path="res://objects/assets/particles/orange_leaf.png" id="1_p6xib"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_p6xib")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

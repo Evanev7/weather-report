@@ -12,7 +12,7 @@ func _ready():
 
 func refresh_labels():
 	var num_needed_label_pairs = stats_to_display.size()
-	while $VBoxContainer.get_child_count()/2 < num_needed_label_pairs:
+	while $VBoxContainer.get_child_count()/2.0 < num_needed_label_pairs:
 		var label_pair: Array[Label] = [label_scene.instantiate(), label_scene.instantiate()]
 		label_pair[1].horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 		$VBoxContainer.add_child(label_pair[0])

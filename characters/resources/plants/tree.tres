@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="PlantResource" load_steps=8 format=3 uid="uid://ckvmj6qai70fy"]
+
+[ext_resource type="Script" path="res://characters/scripts/plant_resource.gd" id="1_gd3py"]
+[ext_resource type="Texture2D" uid="uid://dllecr7ywwsty" path="res://characters/assets/plants/tree_autumn_SE.png" id="1_vy5l7"]
+[ext_resource type="Texture2D" uid="uid://dnhx4sr2x0o7i" path="res://characters/assets/plants/tree_warm_SE.png" id="2_k68lc"]
+[ext_resource type="Texture2D" uid="uid://ctrllke4rcuyn" path="res://characters/assets/plants/tree_winter_SE.png" id="3_j1vha"]
+[ext_resource type="SpriteFrames" uid="uid://cqsyygaeoxoj" path="res://objects/assets/bullets/leaves_spriteframes.tres" id="4_3e2e4"]
+[ext_resource type="Script" path="res://characters/resources/plants/tree_script.gd" id="5_n5p36"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yk5hh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vy5l7")
+}],
+"loop": true,
+"name": &"tree_autumn_SE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_k68lc")
+}],
+"loop": true,
+"name": &"tree_warm_SE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_j1vha")
+}],
+"loop": true,
+"name": &"tree_winter_SE",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_gd3py")
+NAME = "Tree"
+ANIMATION = SubResource("SpriteFrames_yk5hh")
+FLIP_H = false
+COST = 10
+DURABILITY = 100.0
+RANGE = 200.0
+FIRE_RATE = 10.0
+WEATHER_SCRIPT = ExtResource("5_n5p36")
+BULLET_ANIMATION = ExtResource("4_3e2e4")
+TYPE = 0
+DAMAGE = 5.0
+SHOT_SPEED = 100.0
+SIZE = Vector2(1, 1)
+BULLET_LIFETIME = 5.0
+PIERCING_AMOUNT = 1
+PIERCING_COOLDOWN = 0.0

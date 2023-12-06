@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://d4klrgmrciins"]
+[gd_scene load_steps=12 format=3 uid="uid://d4klrgmrciins"]
 
 [ext_resource type="PackedScene" uid="uid://b2euuv7n3vu4j" path="res://levels/scenes/main_menu.tscn" id="1_vgi8s"]
 [ext_resource type="PackedScene" uid="uid://c2wpjv5nffmco" path="res://UI/scenes/pause_menu.tscn" id="2_ao0h5"]
 [ext_resource type="Script" path="res://levels/scripts/World.gd" id="2_tkr4x"]
 [ext_resource type="PackedScene" uid="uid://b6uannl2v8fbc" path="res://UI/scenes/hud.tscn" id="3_cg7ry"]
+[ext_resource type="PackedScene" uid="uid://pk336fsowy4v" path="res://effects/particles/snow_particles.tscn" id="4_8v6di"]
 [ext_resource type="PackedScene" uid="uid://bsvo1l53lwhuu" path="res://levels/scenes/level_1.tscn" id="4_c6m40"]
+[ext_resource type="Script" path="res://effects/particles/Particles.gd" id="4_fmg75"]
 [ext_resource type="PackedScene" uid="uid://cwpsktdymxjdj" path="res://components/scenes/bullet_handler.tscn" id="5_74cye"]
+[ext_resource type="PackedScene" uid="uid://cb8hul50pmnly" path="res://effects/particles/leaf_particles.tscn" id="5_qxaxj"]
 [ext_resource type="Script" path="res://components/scripts/ShaderManager.gd" id="6_74lkg"]
 [ext_resource type="PackedScene" uid="uid://cie2aurt3mq2y" path="res://components/scenes/weather_handler.tscn" id="8_dsu4c"]
 
@@ -19,6 +22,21 @@ script = ExtResource("2_tkr4x")
 [node name="HUD" parent="World" instance=ExtResource("3_cg7ry")]
 
 [node name="TileMap Overlay?" type="CanvasLayer" parent="World"]
+
+[node name="Particles" type="Node2D" parent="World" node_paths=PackedStringArray("snow", "leaves")]
+script = ExtResource("4_fmg75")
+snow = NodePath("SnowParticles")
+leaves = NodePath("LeafParticles")
+
+[node name="SnowParticles" parent="World/Particles" instance=ExtResource("4_8v6di")]
+z_index = 5
+position = Vector2(0, -567)
+emitting = false
+
+[node name="LeafParticles" parent="World/Particles" instance=ExtResource("5_qxaxj")]
+z_index = 5
+position = Vector2(0, -567)
+emitting = false
 
 [node name="Level1" parent="World" instance=ExtResource("4_c6m40")]
 

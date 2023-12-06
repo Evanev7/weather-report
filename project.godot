@@ -32,9 +32,9 @@ folder_colors={
 "res://UI/": "green",
 "res://characters/": "teal",
 "res://components/": "purple",
+"res://effects/": "gray",
 "res://levels/": "blue",
-"res://objects/": "orange",
-"res://shaders/": "gray"
+"res://objects/": "orange"
 }
 
 [input]

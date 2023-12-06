@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bms01k0kbhw52"]
+[gd_scene load_steps=6 format=3 uid="uid://bms01k0kbhw52"]
 
 [ext_resource type="Script" path="res://components/scripts/PlantHandler.gd" id="1_cq6va"]
 [ext_resource type="PackedScene" uid="uid://crva7xrk1jbo4" path="res://characters/scenes/plant.tscn" id="2_ujc1w"]
 [ext_resource type="Resource" uid="uid://d042sxrygxrhh" path="res://characters/resources/plants/sunflower.tres" id="3_l2y2b"]
 [ext_resource type="Resource" uid="uid://pym6jr7pfd0i" path="res://characters/resources/plants/daisies.tres" id="3_yrpb4"]
+[ext_resource type="Resource" uid="uid://ckvmj6qai70fy" path="res://characters/resources/plants/tree.tres" id="5_xstbb"]
 
 [node name="PlantHandler" type="Node"]
 script = ExtResource("1_cq6va")
 plant_scene = ExtResource("2_ujc1w")
-plant_resource_list = Array[Resource("res://characters/scripts/plant_resource.gd")]([ExtResource("3_yrpb4"), ExtResource("3_l2y2b")])
+plant_resource_list = Array[Resource("res://characters/scripts/plant_resource.gd")]([ExtResource("3_yrpb4"), ExtResource("3_l2y2b"), ExtResource("5_xstbb")])

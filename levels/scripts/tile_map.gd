@@ -14,9 +14,6 @@ var plant_nodes: Dictionary = {}
 func _ready():
 	get_decoratable_cells()
 	randomise_decorations()
-	for i in range(200):
-		randomise_decorations()
-		await get_tree().create_timer(0.1).timeout
 
 func get_decoratable_cells():
 	var all_bottom_cells = get_used_cells(0)
@@ -24,10 +21,14 @@ func get_decoratable_cells():
 		if get_cell_tile_data(0, all_bottom_cells[i]).get_custom_data("canPlaceDecor"):
 			decoratable_cells.append(all_bottom_cells[i])
 
-func randomise_decorations():
-	for cell in decoratable_cells:
-		set_cell(1, cell, 2, decorations[randi() % decorations.size()])
+func randomise_decorations(percentage_covered: float = 1):
+	for i in (decoratable_cells.size() * percentage_covered):
+		set_cell(1, decoratable_cells[i], 2, decorations[randi() % decorations.size()])
+		print(i)
 
+func clear_decorations():
+	for cell in decoratable_cells:
+		set_cell(1, cell, -1, decorations[randi() % decorations.size()])
 
 func _input(_event):
 	if Input.is_action_just_pressed("left_click"):
@@ -61,6 +62,8 @@ func tile_has_plant(coords, plant):
 		
 func remove_plant_from_array(plant):
 	var plant_coords = local_to_map(to_local(plant.position))
+	plant_coords.x -= 1
+	plant_coords.y += 2
 	if plant_nodes.has(plant_coords):
 		plant_nodes.erase(plant_coords)
 

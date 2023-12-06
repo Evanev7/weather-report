@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://pk336fsowy4v"]
+
+[ext_resource type="Texture2D" uid="uid://m7jcwtv3njb1" path="res://objects/assets/particles/snowflake.png" id="1_adkbl"]
+
+[sub_resource type="Gradient" id="Gradient_swqh5"]
+offsets = PackedFloat32Array(0, 0.762431, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.772549, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_myq8l"]
+gradient = SubResource("Gradient_swqh5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bq1nq"]
+lifetime_randomness = 0.4
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1200, 30, 1)
+direction = Vector3(0.5, 1, 0)
+spread = 30.0
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+angular_velocity_min = 3.0
+angular_velocity_max = 200.0
+orbit_velocity_max = 0.01
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 0.2
+linear_accel_max = 0.4
+scale_min = 0.05
+scale_max = 0.1
+color_ramp = SubResource("GradientTexture1D_myq8l")
+turbulence_enabled = true
+turbulence_noise_scale = 1.097
+turbulence_noise_speed_random = 1.0
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.008
+
+[node name="SnowParticles" type="GPUParticles2D"]
+position = Vector2(860, -50)
+amount = 70
+process_material = SubResource("ParticleProcessMaterial_bq1nq")
+texture = ExtResource("1_adkbl")
+lifetime = 12.0
+preprocess = 1.0

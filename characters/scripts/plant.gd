@@ -35,7 +35,6 @@ func _ready():
 func set_plant_as_resource(resource: PlantResource):
 	weather_script = resource.WEATHER_SCRIPT.new()
 	add_child(weather_script)
-	set_weather()
 	
 	sprite_frames = resource.ANIMATION
 	bullet_animation = resource.BULLET_ANIMATION
@@ -50,6 +49,8 @@ func set_plant_as_resource(resource: PlantResource):
 	lifetime = resource.BULLET_LIFETIME
 	piercing_amount = resource.PIERCING_AMOUNT
 	piercing_cooldown = resource.PIERCING_COOLDOWN
+	
+	set_weather()
 	
 func set_weather():
 	weather = GameState.weather
@@ -90,6 +91,7 @@ func fire_bullet():
 	GameState.fire_from.emit(self, direction)
 	can_fire = false
 	fire_timer = fire_timer_max
+	
 	
 	play("shooting_se")
 	await get_tree().create_timer(10/fire_rate).timeout
