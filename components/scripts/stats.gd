@@ -9,7 +9,7 @@ func _ready():
 	GameState.level_completed.connect(_on_level_completed)
 	Stats.display_stats.connect(_on_display_stats)
 
-func _on_display_stats(who):
+func _on_display_stats(_who):
 	match GameState.pause_state:
 		GameState.PAUSE_STATES.MAIN_MENU:
 			pass

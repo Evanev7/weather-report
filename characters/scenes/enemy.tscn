@@ -194,6 +194,7 @@ dead_anim = NodePath("Area2D/dead")
 
 [node name="Area2D" type="Area2D" parent="."]
 y_sort_enabled = true
+monitoring = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
 y_sort_enabled = true

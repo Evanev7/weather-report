@@ -69,11 +69,6 @@ func move(delta):
 		attack_greenhouse.emit(damage)
 		remove()
 		
-
-
-func _on_area_2d_area_entered(area):
-	if area is Bullet:
-		area.check_hit(self)
 		
 func hurt(damage_taken):
 	if not dead:
@@ -90,8 +85,8 @@ func update_health():
 		hurt_anim.stop()
 		bounce_anim.stop()
 		dead_anim.play("dead")
-		#set_physics_process(false)
-		#set_process(false)
+		set_physics_process(false)
+		set_process(false)
 		add_water_credits.emit(value)
 		
 		

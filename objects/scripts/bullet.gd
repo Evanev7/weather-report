@@ -23,6 +23,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	transport(delta)
+	for area in get_overlapping_areas():
+		if area.owner is Enemy:
+			var target = area.owner
+			check_for_hit(target)
+			
 	current_piercing_cooldown += 1
 
 func transport(delta) -> void:
@@ -32,14 +37,18 @@ func transport(delta) -> void:
 	if lifetime >= max_lifetime:
 		remove()
 
-func check_hit(target):
+func check_for_hit(target):
 	if target in hit_targets:
 		if current_piercing_cooldown >= piercing_cooldown:
-			target.hurt(damage)
 			current_piercing_cooldown = 0
+			hit(target)
 		return
 		
 	hit_targets.append(target)
+	hit(target)
+
+
+func hit(target):
 	target.hurt(damage)
 	match type:
 		PlantResource.BULLET_TYPE.Normal:
