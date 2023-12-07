@@ -1,13 +1,17 @@
-[gd_scene load_steps=14 format=3 uid="uid://b6x3510ma53a"]
+[gd_scene load_steps=34 format=3 uid="uid://b6x3510ma53a"]
 
 [ext_resource type="Script" path="res://UI/scripts/plant_selector.gd" id="1_jjaxe"]
-[ext_resource type="ButtonGroup" uid="uid://bra1n4idaeiy7" path="res://UI/resources/plant_selector_group.tres" id="2_rf8w8"]
 [ext_resource type="Shader" path="res://effects/shaders/hahagarbage.gdshader" id="2_v7lw0"]
 [ext_resource type="Texture2D" uid="uid://cj4ptcbl42jbl" path="res://UI/assets/temp/pro grammar art x4.png" id="2_w68y1"]
 [ext_resource type="Texture2D" uid="uid://bbr80tabpdse7" path="res://UI/assets/Seasons_of_the_Year.1600p.eng2.jpg" id="3_krvok"]
-[ext_resource type="Texture2D" uid="uid://ccdxbd5inbili" path="res://UI/assets/temp/pause_menu_background.png" id="3_m3mtq"]
-[ext_resource type="Texture2D" uid="uid://beby686mql4ej" path="res://UI/assets/temp/pause_menu_bottom_button.png" id="4_sejhq"]
+[ext_resource type="PackedScene" uid="uid://cnyexo8p0o1f1" path="res://UI/scenes/selectable.tscn" id="3_pctsd"]
+[ext_resource type="Texture2D" uid="uid://dleo0bxbxb3sw" path="res://characters/assets/enemies/rat_back_1.png" id="6_tnoxp"]
+[ext_resource type="Texture2D" uid="uid://dwu4snytiw58l" path="res://characters/assets/enemies/rat_nw_1.png" id="7_m5alr"]
+[ext_resource type="Texture2D" uid="uid://5juxf7t345s2" path="res://levels/assets/S4_grass.png" id="7_tisxl"]
+[ext_resource type="Texture2D" uid="uid://c1t7mgit0x1mw" path="res://levels/assets/left_grass.png" id="7_u3mih"]
 [ext_resource type="Script" path="res://UI/scripts/wheel_spinny.gd" id="8_0iepn"]
+[ext_resource type="Texture2D" uid="uid://cn5islrw47ovy" path="res://characters/assets/enemies/rat_sw_1.png" id="8_58pui"]
+[ext_resource type="Texture2D" uid="uid://bcw34gpi3lovy" path="res://levels/assets/bottom_grass.png" id="12_p358b"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k62ln"]
 texture = ExtResource("2_w68y1")
@@ -18,11 +22,47 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 192, 256)
 
-[sub_resource type="InputEventAction" id="InputEventAction_yrvgk"]
-action = &"plant_1"
+[sub_resource type="InputEventAction" id="InputEventAction_3jut8"]
+action = &"plant_2"
 
-[sub_resource type="Shortcut" id="Shortcut_hvdgk"]
-events = [SubResource("InputEventAction_yrvgk")]
+[sub_resource type="Shortcut" id="Shortcut_adsfv"]
+events = [SubResource("InputEventAction_3jut8")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_6tdm4"]
+action = &"plant_3"
+
+[sub_resource type="Shortcut" id="Shortcut_ecky8"]
+events = [SubResource("InputEventAction_6tdm4")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_2efqe"]
+action = &"plant_4"
+
+[sub_resource type="Shortcut" id="Shortcut_mhq7t"]
+events = [SubResource("InputEventAction_2efqe")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_gfukc"]
+action = &"plant_5"
+
+[sub_resource type="Shortcut" id="Shortcut_dscpp"]
+events = [SubResource("InputEventAction_gfukc")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_ae1jr"]
+action = &"plant_6"
+
+[sub_resource type="Shortcut" id="Shortcut_m7yqk"]
+events = [SubResource("InputEventAction_ae1jr")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_jem85"]
+action = &"plant_7"
+
+[sub_resource type="Shortcut" id="Shortcut_e7ari"]
+events = [SubResource("InputEventAction_jem85")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_nytgi"]
+action = &"plant_8"
+
+[sub_resource type="Shortcut" id="Shortcut_m5jld"]
+events = [SubResource("InputEventAction_nytgi")]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v3eml"]
 texture = ExtResource("2_w68y1")
@@ -32,6 +72,18 @@ texture_margin_bottom = 64.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 64, 256, 192)
+
+[sub_resource type="InputEventAction" id="InputEventAction_2t7bu"]
+action = &"shovel"
+
+[sub_resource type="Shortcut" id="Shortcut_wu8xn"]
+events = [SubResource("InputEventAction_2t7bu")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_77ja1"]
+action = &"water"
+
+[sub_resource type="Shortcut" id="Shortcut_s2p8r"]
+events = [SubResource("InputEventAction_77ja1")]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_umjdv"]
 shader = ExtResource("2_v7lw0")
@@ -75,94 +127,43 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 columns = 2
 
-[node name="TextureButton1" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(90, 90)
+[node name="PlantSlot1" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
-toggle_mode = true
-action_mode = 0
-button_group = ExtResource("2_rf8w8")
-shortcut = SubResource("Shortcut_hvdgk")
-texture_normal = ExtResource("3_m3mtq")
-texture_pressed = ExtResource("4_sejhq")
-ignore_texture_size = true
-stretch_mode = 0
+thumbnail = ExtResource("12_p358b")
 
-[node name="TextureButton2" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(90, 90)
+[node name="PlantSlot2" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
-toggle_mode = true
-action_mode = 0
-button_group = ExtResource("2_rf8w8")
-texture_normal = ExtResource("3_m3mtq")
-texture_pressed = ExtResource("4_sejhq")
-ignore_texture_size = true
-stretch_mode = 0
+shortcut = SubResource("Shortcut_adsfv")
+selection = 1
+thumbnail = ExtResource("6_tnoxp")
 
-[node name="TextureButton3" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(90, 90)
+[node name="PlantSlot3" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
-toggle_mode = true
-action_mode = 0
-button_group = ExtResource("2_rf8w8")
-texture_normal = ExtResource("3_m3mtq")
-texture_pressed = ExtResource("4_sejhq")
-ignore_texture_size = true
-stretch_mode = 0
+shortcut = SubResource("Shortcut_ecky8")
+selection = 2
+thumbnail = ExtResource("7_m5alr")
 
-[node name="TextureButton4" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(90, 90)
+[node name="PlantSlot4" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
-toggle_mode = true
-action_mode = 0
-button_group = ExtResource("2_rf8w8")
-texture_normal = ExtResource("3_m3mtq")
-texture_pressed = ExtResource("4_sejhq")
-ignore_texture_size = true
-stretch_mode = 0
+shortcut = SubResource("Shortcut_mhq7t")
+selection = 3
+thumbnail = ExtResource("8_58pui")
 
-[node name="TextureButton5" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(90, 90)
+[node name="PlantSlot5" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
-toggle_mode = true
-action_mode = 0
-button_group = ExtResource("2_rf8w8")
-texture_normal = ExtResource("3_m3mtq")
-texture_pressed = ExtResource("4_sejhq")
-ignore_texture_size = true
-stretch_mode = 0
+shortcut = SubResource("Shortcut_dscpp")
 
-[node name="TextureButton6" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(90, 90)
+[node name="PlantSlot6" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
-toggle_mode = true
-action_mode = 0
-button_group = ExtResource("2_rf8w8")
-texture_normal = ExtResource("3_m3mtq")
-texture_pressed = ExtResource("4_sejhq")
-ignore_texture_size = true
-stretch_mode = 0
+shortcut = SubResource("Shortcut_m7yqk")
 
-[node name="TextureButton7" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(90, 90)
+[node name="PlantSlot7" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
-toggle_mode = true
-action_mode = 0
-button_group = ExtResource("2_rf8w8")
-texture_normal = ExtResource("3_m3mtq")
-texture_pressed = ExtResource("4_sejhq")
-ignore_texture_size = true
-stretch_mode = 0
+shortcut = SubResource("Shortcut_e7ari")
 
-[node name="TextureButton8" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(90, 90)
+[node name="PlantSlot8" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
-toggle_mode = true
-action_mode = 0
-button_group = ExtResource("2_rf8w8")
-texture_normal = ExtResource("3_m3mtq")
-texture_pressed = ExtResource("4_sejhq")
-ignore_texture_size = true
-stretch_mode = 0
+shortcut = SubResource("Shortcut_m5jld")
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 anchors_preset = 1
@@ -227,38 +228,20 @@ theme_override_constants/margin_bottom = 10
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer2"]
 layout_mode = 2
 
-[node name="TextureButton1" type="TextureButton" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(70, 70)
+[node name="ToolSlot1" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
-toggle_mode = true
-action_mode = 0
-button_group = ExtResource("2_rf8w8")
-texture_normal = ExtResource("3_m3mtq")
-texture_pressed = ExtResource("4_sejhq")
-ignore_texture_size = true
-stretch_mode = 0
+shortcut = SubResource("Shortcut_wu8xn")
+selection = 2
+thumbnail = ExtResource("7_tisxl")
 
-[node name="TextureButton2" type="TextureButton" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(70, 70)
+[node name="ToolSlot2" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
-toggle_mode = true
-action_mode = 0
-button_group = ExtResource("2_rf8w8")
-texture_normal = ExtResource("3_m3mtq")
-texture_pressed = ExtResource("4_sejhq")
-ignore_texture_size = true
-stretch_mode = 0
+shortcut = SubResource("Shortcut_s2p8r")
+thumbnail = ExtResource("7_u3mih")
 
-[node name="TextureButton3" type="TextureButton" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(70, 70)
+[node name="ToolSlot3" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
-toggle_mode = true
-action_mode = 0
-button_group = ExtResource("2_rf8w8")
-texture_normal = ExtResource("3_m3mtq")
-texture_pressed = ExtResource("4_sejhq")
-ignore_texture_size = true
-stretch_mode = 0
+shortcut = null
 
 [node name="Container" type="Control" parent="MarginContainer2/PanelContainer/HBoxContainer"]
 custom_minimum_size = Vector2(380, 0)
@@ -274,7 +257,7 @@ grow_horizontal = 0
 [node name="Sprite2D" type="Sprite2D" parent="Anchor"]
 material = SubResource("ShaderMaterial_umjdv")
 position = Vector2(-120, 40)
-rotation = 0.523599
+rotation = 2.0944
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("3_krvok")
 script = ExtResource("8_0iepn")

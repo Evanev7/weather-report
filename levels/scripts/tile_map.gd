@@ -1,6 +1,7 @@
 extends TileMap
 
 @export var plant_handler: Node
+@export var selector_buttongroup: ButtonGroup = preload("res://UI/resources/plant_selector_group.tres")
 
 var flower := Vector2i(0, 2)
 var grass_1 := Vector2i(0, 3)
@@ -15,7 +16,6 @@ func _ready():
 	get_decoratable_cells()
 	randomise_decorations()
 	GameState.weather_changed.connect(update_weather_decorations)
-
 
 
 
@@ -44,16 +44,28 @@ func clear_decorations():
 	for cell in decoratable_cells:
 		set_cell(1, cell, -1, decorations[randi() % decorations.size()])
 
-func _unhandled_input(_event):
-	if Input.is_action_just_pressed("left_click"):
-		var stored_plant = plant_handler.plant_resource_list[randi() % plant_handler.plant_resource_list.size()]
-		var tile_mouse_pos = global_to_grid(get_global_mouse_position())
-		var final_pos = grid_to_global(tile_mouse_pos)
-		if not tile_has_plant(tile_mouse_pos, stored_plant):
-			plant_nodes[tile_mouse_pos] = stored_plant
-			plant_handler.place_plant_at_location(stored_plant, final_pos)
+func _unhandled_input(event):
+	if event.is_action_pressed("left_click"):
+		var selection = get_selection()
+		if selection < plant_handler.plant_resource_list.size():
+			attempt_spawn_plant(get_global_mouse_position(), selection)
 
-func tile_has_plant(coords, plant) -> bool:
+func get_selection() -> int:
+	var button = selector_buttongroup.get_pressed_button()
+	
+	if not button or not button.selection:
+		return 0
+	return button.selection
+
+func attempt_spawn_plant(at_position, plant_id):
+	var stored_plant = plant_handler.plant_resource_list[plant_id]
+	var tile_mouse_pos = global_to_grid(at_position)
+	var final_pos = grid_to_global(tile_mouse_pos)
+	if not tile_has_plant(tile_mouse_pos, stored_plant):
+		plant_nodes[tile_mouse_pos] = stored_plant
+		plant_handler.place_plant_at_location(stored_plant, final_pos)
+
+func tile_has_plant(coords, _plant) -> bool:
 	if get_cell_tile_data(0, coords).get_custom_data("canPlacePlants"):
 		if plant_nodes.has(coords):
 			print("plant already placed here!")

@@ -9,5 +9,5 @@ func _on_weather_change(weather):
 	if not tween or not tween.is_valid():
 		tween = create_tween()
 	print(GameState.weather_names[weather])
-	tween.tween_property(self, "rotation", -PI/2.0 , 0.8).as_relative().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self, "rotation", -PI/2.0 , 1).as_relative().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
 	
