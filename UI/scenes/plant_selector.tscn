@@ -88,9 +88,10 @@ events = [SubResource("InputEventAction_77ja1")]
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_umjdv"]
 shader = ExtResource("2_v7lw0")
 
-[node name="TopBar" type="CanvasLayer" node_paths=PackedStringArray("credits_label")]
+[node name="TopBar" type="CanvasLayer" node_paths=PackedStringArray("credits_label", "grid_container")]
 script = ExtResource("1_jjaxe")
 credits_label = NodePath("MarginContainer2/PanelContainer/HBoxContainer/MarginContainer/HBoxContainer/Credits")
+grid_container = NodePath("MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 11
@@ -124,6 +125,7 @@ size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 columns = 2
 

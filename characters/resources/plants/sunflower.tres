@@ -1,14 +1,16 @@
-[gd_resource type="Resource" script_class="PlantResource" load_steps=5 format=3 uid="uid://d042sxrygxrhh"]
+[gd_resource type="Resource" script_class="PlantResource" load_steps=6 format=3 uid="uid://d042sxrygxrhh"]
 
 [ext_resource type="Script" path="res://characters/scripts/plant_resource.gd" id="1_808h7"]
 [ext_resource type="SpriteFrames" uid="uid://cu3qy4cbnjby1" path="res://characters/assets/plants/sunflower_spriteframes.tres" id="1_nxh3d"]
 [ext_resource type="SpriteFrames" uid="uid://cvo7cnppm5o2u" path="res://objects/assets/bullets/sunflower_seed_spriteframes.tres" id="2_kdhfy"]
+[ext_resource type="Texture2D" uid="uid://dgwkounu3ad5q" path="res://characters/assets/plants/sunnyflower_SE.png" id="3_2ye7b"]
 [ext_resource type="Script" path="res://characters/resources/plants/sunflower_script.gd" id="3_b2gk0"]
 
 [resource]
 script = ExtResource("1_808h7")
 NAME = "Sunflower"
 ANIMATION = ExtResource("1_nxh3d")
+ICON = ExtResource("3_2ye7b")
 FLIP_H = false
 COST = 10
 DURABILITY = 100.0

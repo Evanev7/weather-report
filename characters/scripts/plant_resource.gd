@@ -6,6 +6,7 @@ enum BULLET_TYPE {Normal, AOE}
 @export_category("Metadata")
 @export var NAME: String
 @export var ANIMATION: SpriteFrames
+@export var ICON: Texture2D
 @export var FLIP_H: bool
 
 @export_category("Plant Stats")

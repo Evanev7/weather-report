@@ -34,7 +34,6 @@ func _physics_process(delta):
 func transport(delta) -> void:
 	position += direction * speed * delta
 	if angular_velocity > 0:
-		print("rotatin")
 		rotation += angular_velocity
 	else:
 		rotation = direction.angle()

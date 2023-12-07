@@ -8,6 +8,8 @@ signal remove_from_node_array(plant)
 @export var radius: CollisionShape2D
 @export var fire_timer_max: float = 1000
 
+var icon: CompressedTexture2D
+
 ## Bullet Stats
 var fire_timer: float
 var fire_rate: float
@@ -39,6 +41,7 @@ func set_plant_as_resource(resource: PlantResource):
 
 	sprite_frames = resource.ANIMATION
 	bullet_animation = resource.BULLET_ANIMATION
+	icon = resource.ICON
 	bullet_type = resource.TYPE
 	durability_bar.max_value = resource.DURABILITY
 	durability_bar.value = resource.DURABILITY

@@ -38,6 +38,7 @@ animations = [{
 script = ExtResource("1_gd3py")
 NAME = "Tree"
 ANIMATION = SubResource("SpriteFrames_yk5hh")
+ICON = ExtResource("2_k68lc")
 FLIP_H = false
 COST = 10
 DURABILITY = 100.0
