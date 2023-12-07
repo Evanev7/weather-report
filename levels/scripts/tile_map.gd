@@ -24,7 +24,7 @@ func get_decoratable_cells():
 func randomise_decorations(percentage_covered: float = 1):
 	for i in (decoratable_cells.size() * percentage_covered):
 		set_cell(1, decoratable_cells[i], 2, decorations[randi() % decorations.size()])
-		print(i)
+		#print(i)
 
 func clear_decorations():
 	for cell in decoratable_cells:

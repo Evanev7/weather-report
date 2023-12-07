@@ -7,6 +7,7 @@ var debug = true
 signal fire_from(plant, direction)
 signal level_completed
 signal paused(state: PAUSE_STATES)
+signal weather_changed(weather: WEATHER)
 
 enum LEVEL {MAIN_MENU, LEVEL}
 var level: LEVEL
@@ -14,13 +15,17 @@ var level1
 
 enum WEATHER {Summer, Autumn, Winter, Spring}
 const weather_names = ["Summer", "Autumn", "Winter", "Spring"]
-var weather: WEATHER
+var weather: WEATHER:
+	set(value):
+		weather = value
+		weather_changed.emit(weather)
 
 
 enum PAUSE_STATES {MAIN_MENU, UNPAUSED, LEVEL_PAUSED}
 var pause_state: PAUSE_STATES = PAUSE_STATES.UNPAUSED
 
 func _ready():
+	weather_changed.connect(_on_weather_changed)
 	paused.connect(_on_paused)
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	## TEMPORARY
@@ -46,6 +51,9 @@ func _input(event):
 
 func set_weather(new_weather):
 	weather = new_weather
+
+
+func _on_weather_changed(_weather):
 	level1.update_weather_decorations(weather)
 	particles.update_weather(weather)
 	HUD.update_weather(weather)

@@ -30,7 +30,7 @@ var can_fire: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	GameState.weather_changed.connect(set_weather)
 
 func set_plant_as_resource(resource: PlantResource):
 	weather_script = resource.WEATHER_SCRIPT.new()
@@ -50,10 +50,9 @@ func set_plant_as_resource(resource: PlantResource):
 	piercing_amount = resource.PIERCING_AMOUNT
 	piercing_cooldown = resource.PIERCING_COOLDOWN
 	
-	set_weather()
+	set_weather(GameState.weather)
 	
-func set_weather():
-	weather = GameState.weather
+func set_weather(weather):
 	match weather:
 		GameState.WEATHER.Summer:
 			weather_script.modify_summer(self)

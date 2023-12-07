@@ -16,7 +16,7 @@ func _process(_delta):
 			weather = 0
 		weather_can_change = false
 		$Timer.start()
-		GameState.set_weather(weather)
+		GameState.weather_changed.emit(weather)
 
 
 func _on_timer_timeout():

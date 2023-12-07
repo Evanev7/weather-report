@@ -127,7 +127,6 @@ tilemap = NodePath("TileMap")
 
 [node name="TileMap" type="TileMap" parent="." node_paths=PackedStringArray("plant_handler")]
 y_sort_enabled = true
-position = Vector2(243, -9.1499)
 scale = Vector2(0.1, 0.1)
 tile_set = SubResource("TileSet_k4fqb")
 format = 2
