@@ -1,13 +1,22 @@
-[gd_scene load_steps=12 format=3 uid="uid://b6x3510ma53a"]
+[gd_scene load_steps=14 format=3 uid="uid://b6x3510ma53a"]
 
-[ext_resource type="Texture2D" uid="uid://cyxl0j87tpp2j" path="res://UI/assets/temp/pro grammar art.png" id="1_131v6"]
 [ext_resource type="Script" path="res://UI/scripts/plant_selector.gd" id="1_jjaxe"]
 [ext_resource type="ButtonGroup" uid="uid://bra1n4idaeiy7" path="res://UI/resources/plant_selector_group.tres" id="2_rf8w8"]
 [ext_resource type="Shader" path="res://effects/shaders/hahagarbage.gdshader" id="2_v7lw0"]
+[ext_resource type="Texture2D" uid="uid://cj4ptcbl42jbl" path="res://UI/assets/temp/pro grammar art x4.png" id="2_w68y1"]
 [ext_resource type="Texture2D" uid="uid://bbr80tabpdse7" path="res://UI/assets/Seasons_of_the_Year.1600p.eng2.jpg" id="3_krvok"]
 [ext_resource type="Texture2D" uid="uid://ccdxbd5inbili" path="res://UI/assets/temp/pause_menu_background.png" id="3_m3mtq"]
 [ext_resource type="Texture2D" uid="uid://beby686mql4ej" path="res://UI/assets/temp/pause_menu_bottom_button.png" id="4_sejhq"]
 [ext_resource type="Script" path="res://UI/scripts/wheel_spinny.gd" id="8_0iepn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k62ln"]
+texture = ExtResource("2_w68y1")
+texture_margin_left = 64.0
+texture_margin_top = 64.0
+texture_margin_bottom = 64.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 192, 256)
 
 [sub_resource type="InputEventAction" id="InputEventAction_yrvgk"]
 action = &"plant_1"
@@ -15,138 +24,59 @@ action = &"plant_1"
 [sub_resource type="Shortcut" id="Shortcut_hvdgk"]
 events = [SubResource("InputEventAction_yrvgk")]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v3eml"]
+texture = ExtResource("2_w68y1")
+texture_margin_left = 64.0
+texture_margin_right = 64.0
+texture_margin_bottom = 64.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 64, 256, 192)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_umjdv"]
 shader = ExtResource("2_v7lw0")
 
 [node name="TopBar" type="CanvasLayer" node_paths=PackedStringArray("credits_label")]
 script = ExtResource("1_jjaxe")
-credits_label = NodePath("MarginContainer2/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/Credits")
+credits_label = NodePath("MarginContainer2/PanelContainer/HBoxContainer/MarginContainer/HBoxContainer/Credits")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -332.0
+offset_left = -256.0
+offset_bottom = -265.0
 grow_horizontal = 0
 grow_vertical = 2
 pivot_offset = Vector2(-549, 193)
 
-[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
 layout_mode = 2
-texture = ExtResource("1_131v6")
-region_rect = Rect2(0, 96, 288, 192)
-patch_margin_left = 96
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_k62ln")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 90
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 alignment = 2
 
-[node name="Container" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 360)
+[node name="Container" type="Control" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_offset_y = 5
-theme_override_constants/shadow_outline_size = 5
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/normal_font_size = 39
-text = "WW"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="Credits" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_colors/default_color = Color(0.321569, 0.607843, 1, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_offset_y = 5
-theme_override_constants/shadow_outline_size = 5
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/normal_font_size = 39
-bbcode_enabled = true
-text = "[center]100[/center]"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer/MarginContainer2"]
-layout_mode = 2
-
-[node name="TextureButton1" type="TextureButton" parent="MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(70, 70)
-layout_mode = 2
-toggle_mode = true
-action_mode = 0
-button_group = ExtResource("2_rf8w8")
-texture_normal = ExtResource("3_m3mtq")
-texture_pressed = ExtResource("4_sejhq")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureButton2" type="TextureButton" parent="MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(70, 70)
-layout_mode = 2
-toggle_mode = true
-action_mode = 0
-button_group = ExtResource("2_rf8w8")
-texture_normal = ExtResource("3_m3mtq")
-texture_pressed = ExtResource("4_sejhq")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureButton3" type="TextureButton" parent="MarginContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(70, 70)
-layout_mode = 2
-toggle_mode = true
-action_mode = 0
-button_group = ExtResource("2_rf8w8")
-texture_normal = ExtResource("3_m3mtq")
-texture_pressed = ExtResource("4_sejhq")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 columns = 2
 
-[node name="TextureButton1" type="TextureButton" parent="MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
+[node name="TextureButton1" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 toggle_mode = true
 action_mode = 0
@@ -157,8 +87,8 @@ texture_pressed = ExtResource("4_sejhq")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="TextureButton2" type="TextureButton" parent="MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
+[node name="TextureButton2" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 toggle_mode = true
 action_mode = 0
@@ -168,8 +98,8 @@ texture_pressed = ExtResource("4_sejhq")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="TextureButton3" type="TextureButton" parent="MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
+[node name="TextureButton3" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 toggle_mode = true
 action_mode = 0
@@ -179,8 +109,8 @@ texture_pressed = ExtResource("4_sejhq")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="TextureButton4" type="TextureButton" parent="MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
+[node name="TextureButton4" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 toggle_mode = true
 action_mode = 0
@@ -190,8 +120,8 @@ texture_pressed = ExtResource("4_sejhq")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="TextureButton5" type="TextureButton" parent="MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
+[node name="TextureButton5" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 toggle_mode = true
 action_mode = 0
@@ -201,8 +131,8 @@ texture_pressed = ExtResource("4_sejhq")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="TextureButton6" type="TextureButton" parent="MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
+[node name="TextureButton6" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 toggle_mode = true
 action_mode = 0
@@ -212,8 +142,8 @@ texture_pressed = ExtResource("4_sejhq")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="TextureButton7" type="TextureButton" parent="MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
+[node name="TextureButton7" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 toggle_mode = true
 action_mode = 0
@@ -223,8 +153,8 @@ texture_pressed = ExtResource("4_sejhq")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="TextureButton8" type="TextureButton" parent="MarginContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
+[node name="TextureButton8" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 toggle_mode = true
 action_mode = 0
@@ -238,41 +168,29 @@ stretch_mode = 0
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -910.0
-offset_bottom = 130.0
+offset_left = -908.0
+offset_bottom = 154.0
 grow_horizontal = 0
 pivot_offset = Vector2(-549, 193)
 
-[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer2"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer2"]
 layout_mode = 2
-texture = ExtResource("1_131v6")
-region_rect = Rect2(0, 96, 288, 288)
-patch_margin_left = 96
-patch_margin_bottom = 96
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_v3eml")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2"]
-layout_mode = 2
-theme_override_constants/margin_left = 90
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 70
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/PanelContainer"]
 layout_mode = 2
 alignment = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/MarginContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/PanelContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 20
+theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer2/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
@@ -286,7 +204,7 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="Credits" type="RichTextLabel" parent="MarginContainer2/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
+[node name="Credits" type="RichTextLabel" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.321569, 0.607843, 1, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
@@ -301,15 +219,15 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer2/MarginContainer/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer2/PanelContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/MarginContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer2"]
 layout_mode = 2
 
-[node name="TextureButton1" type="TextureButton" parent="MarginContainer2/MarginContainer/HBoxContainer/MarginContainer2/HBoxContainer"]
+[node name="TextureButton1" type="TextureButton" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 toggle_mode = true
@@ -320,7 +238,7 @@ texture_pressed = ExtResource("4_sejhq")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="TextureButton2" type="TextureButton" parent="MarginContainer2/MarginContainer/HBoxContainer/MarginContainer2/HBoxContainer"]
+[node name="TextureButton2" type="TextureButton" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 toggle_mode = true
@@ -331,7 +249,7 @@ texture_pressed = ExtResource("4_sejhq")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="TextureButton3" type="TextureButton" parent="MarginContainer2/MarginContainer/HBoxContainer/MarginContainer2/HBoxContainer"]
+[node name="TextureButton3" type="TextureButton" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 toggle_mode = true
@@ -342,8 +260,8 @@ texture_pressed = ExtResource("4_sejhq")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Container" type="Control" parent="MarginContainer2/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(450, 0)
+[node name="Container" type="Control" parent="MarginContainer2/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
 
 [node name="Anchor" type="Control" parent="."]
@@ -357,6 +275,6 @@ grow_horizontal = 0
 material = SubResource("ShaderMaterial_umjdv")
 position = Vector2(-120, 40)
 rotation = 0.523599
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.35, 0.35)
 texture = ExtResource("3_krvok")
 script = ExtResource("8_0iepn")

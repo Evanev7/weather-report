@@ -1,8 +1,5 @@
 extends Node
 
-@onready var HUD: CanvasLayer = get_parent().get_node("main/World/HUD")
-@onready var particles: Node2D = get_parent().get_node("main/World/Particles")
-
 var debug = true
 signal fire_from(plant, direction)
 signal level_completed
@@ -54,8 +51,5 @@ func set_weather(new_weather):
 
 
 func _on_weather_changed(_weather):
-	level1.update_weather_decorations(weather)
-	particles.update_weather(weather)
-	HUD.update_weather(weather)
 	get_tree().call_group("plant", "set_weather")
 	get_tree().call_group("enemy", "set_weather")

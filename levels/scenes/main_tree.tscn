@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://d4klrgmrciins"]
+[gd_scene load_steps=12 format=3 uid="uid://d4klrgmrciins"]
 
 [ext_resource type="PackedScene" uid="uid://b2euuv7n3vu4j" path="res://levels/scenes/main_menu.tscn" id="1_vgi8s"]
 [ext_resource type="PackedScene" uid="uid://c2wpjv5nffmco" path="res://UI/scenes/pause_menu.tscn" id="2_ao0h5"]
 [ext_resource type="Script" path="res://levels/scripts/World.gd" id="2_tkr4x"]
-[ext_resource type="PackedScene" uid="uid://b6uannl2v8fbc" path="res://UI/scenes/hud.tscn" id="3_cg7ry"]
 [ext_resource type="PackedScene" uid="uid://pk336fsowy4v" path="res://effects/particles/snow_particles.tscn" id="4_8v6di"]
 [ext_resource type="PackedScene" uid="uid://bsvo1l53lwhuu" path="res://levels/scenes/level_1.tscn" id="4_c6m40"]
 [ext_resource type="Script" path="res://effects/particles/Particles.gd" id="4_fmg75"]
@@ -20,12 +19,7 @@
 [node name="World" type="Node" parent="."]
 script = ExtResource("2_tkr4x")
 
-[node name="HUD" parent="World" instance=ExtResource("3_cg7ry")]
-visible = false
-
-[node name="TopBar" parent="World" instance=ExtResource("4_uudau")]
-
-[node name="TileMap Overlay?" type="CanvasLayer" parent="World"]
+[node name="Level1" parent="World" instance=ExtResource("4_c6m40")]
 
 [node name="Particles" type="Node2D" parent="World" node_paths=PackedStringArray("snow", "leaves")]
 script = ExtResource("4_fmg75")
@@ -42,7 +36,7 @@ z_index = 5
 position = Vector2(0, -567)
 emitting = false
 
-[node name="Level1" parent="World" instance=ExtResource("4_c6m40")]
+[node name="TopBar" parent="World" instance=ExtResource("4_uudau")]
 
 [node name="PauseMenu" parent="World" instance=ExtResource("2_ao0h5")]
 unique_name_in_owner = true
@@ -55,12 +49,12 @@ offset = Vector2(100, 0)
 
 [node name="BulletHandler" parent="World/LogicComponents" instance=ExtResource("5_74cye")]
 
-[node name="ShaderManager" type="Node" parent="World/LogicComponents" node_paths=PackedStringArray("camera", "level")]
+[node name="ShaderManager" type="Node" parent="World/LogicComponents" node_paths=PackedStringArray("world", "camera", "level")]
 script = ExtResource("6_74lkg")
+world = NodePath("../..")
 camera = NodePath("../../Camera2D")
 level = NodePath("../../Level1")
 
 [node name="WeatherHandler" parent="World/LogicComponents" instance=ExtResource("8_dsu4c")]
 
-[connection signal="update_hud_credits" from="World/Level1" to="World/HUD" method="update_credits"]
 [connection signal="update_hud_credits" from="World/Level1" to="World/TopBar" method="_on_level_1_update_hud_credits"]

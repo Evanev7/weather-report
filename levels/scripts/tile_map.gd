@@ -14,6 +14,21 @@ var plant_nodes: Dictionary = {}
 func _ready():
 	get_decoratable_cells()
 	randomise_decorations()
+	GameState.weather_changed.connect(update_weather_decorations)
+
+
+
+
+func update_weather_decorations(weather):
+	match weather:
+		GameState.WEATHER.Summer:
+			randomise_decorations()
+		GameState.WEATHER.Autumn:
+			randomise_decorations(0.1)
+		GameState.WEATHER.Winter:
+			clear_decorations()
+		GameState.WEATHER.Spring:
+			randomise_decorations(0.1)
 
 func get_decoratable_cells():
 	var all_bottom_cells = get_used_cells(0)
@@ -33,24 +48,19 @@ func clear_decorations():
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("left_click"):
 		var stored_plant = plant_handler.plant_resource_list[randi() % plant_handler.plant_resource_list.size()]
-		var mouse_pos = to_local(get_global_mouse_position())
-		var tile_mouse_pos = local_to_map(mouse_pos)
-		tile_mouse_pos.x += 1
-		tile_mouse_pos.y -= 2
-		var final_pos = to_global(map_to_local(tile_mouse_pos))
+		var tile_mouse_pos = global_to_grid(get_global_mouse_position())
+		var final_pos = grid_to_global(tile_mouse_pos)
 		if not tile_has_plant(tile_mouse_pos, stored_plant):
+			plant_nodes[tile_mouse_pos] = stored_plant
 			plant_handler.place_plant_at_location(stored_plant, final_pos)
 
-func tile_has_plant(coords, plant):
-	coords.x -= 1
-	coords.y += 2
+func tile_has_plant(coords, plant) -> bool:
 	if get_cell_tile_data(0, coords).get_custom_data("canPlacePlants"):
 		if plant_nodes.has(coords):
 			print("plant already placed here!")
 			#replace with some UI popup
 			return true
 		else:
-			plant_nodes[coords] = plant
 			return false
 	else:
 		print("can't place plant here!")
@@ -61,10 +71,13 @@ func tile_has_plant(coords, plant):
 		#plant.do_the_thing()
 		
 func remove_plant_from_array(plant):
-	var plant_coords = local_to_map(to_local(plant.position))
-	plant_coords.x -= 1
-	plant_coords.y += 2
+	var plant_coords = global_to_grid(plant.position)
 	if plant_nodes.has(plant_coords):
 		plant_nodes.erase(plant_coords)
 
+func global_to_grid(coords: Vector2i) -> Vector2i:
+	return local_to_map(to_local(coords))
+
+func grid_to_global(coords: Vector2i) -> Vector2i:
+	return to_global(map_to_local(coords + Vector2i(1,-2)))
 

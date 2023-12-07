@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://c2wpjv5nffmco"]
 
 [ext_resource type="Script" path="res://UI/scripts/pause_menu.gd" id="1_c8wnc"]
-[ext_resource type="Texture2D" uid="uid://cyxl0j87tpp2j" path="res://UI/assets/temp/pro grammar art.png" id="1_dkned"]
+[ext_resource type="StyleBox" uid="uid://tll1gc4qn0rd" path="res://UI/resources/ui_stylebox_texture.tres" id="2_bfwer"]
 [ext_resource type="Texture2D" uid="uid://ccdxbd5inbili" path="res://UI/assets/temp/pause_menu_background.png" id="2_xrl41"]
 [ext_resource type="LabelSettings" uid="uid://cxhnob11v1ncv" path="res://UI/resources/label_settings.tres" id="3_odvfv"]
 [ext_resource type="Texture2D" uid="uid://cda5x36kr5tgy" path="res://UI/assets/temp/pause_menu_top_button.png" id="4_p7vys"]
@@ -21,36 +21,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PauseMenu"]
+[node name="PanelContainer" type="PanelContainer" parent="PauseMenu"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_bfwer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/PanelContainer"]
 layout_mode = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="PauseMenu/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("1_dkned")
-patch_margin_left = 96
-patch_margin_top = 96
-patch_margin_right = 96
-patch_margin_bottom = 96
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="PauseMenu/MarginContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 100
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/MarginContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PauseMenu/MarginContainer/MarginContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="PauseMenu/PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 texture = ExtResource("2_xrl41")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="PauseMenu/MarginContainer/MarginContainer/VBoxContainer/TextureRect"]
+[node name="Label" type="Label" parent="PauseMenu/PanelContainer/VBoxContainer/TextureRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -67,20 +51,20 @@ text = "Game Paused!!"
 label_settings = ExtResource("3_odvfv")
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu/MarginContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu/PanelContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="StatScreen??" parent="PauseMenu/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_t8koj")]
+[node name="StatScreen??" parent="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_t8koj")]
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="PauseMenu/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="ContinueButton" type="TextureButton" parent="PauseMenu/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+[node name="ContinueButton" type="TextureButton" parent="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(345, 108)
 layout_mode = 2
 texture_normal = ExtResource("5_vop03")
@@ -88,7 +72,7 @@ ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("7_7y1dh")
 
-[node name="ContinueLabel" type="Label" parent="PauseMenu/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/ContinueButton"]
+[node name="ContinueLabel" type="Label" parent="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/ContinueButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -107,14 +91,14 @@ label_settings = ExtResource("3_odvfv")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="PauseMenu/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+[node name="TextureButton" type="TextureButton" parent="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(345, 108)
 layout_mode = 2
 texture_normal = ExtResource("4_p7vys")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="RestartLabel" type="Label" parent="PauseMenu/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/TextureButton"]
+[node name="RestartLabel" type="Label" parent="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/TextureButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -132,14 +116,14 @@ label_settings = ExtResource("3_odvfv")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureButton3" type="TextureButton" parent="PauseMenu/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+[node name="TextureButton3" type="TextureButton" parent="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(345, 108)
 layout_mode = 2
 texture_normal = ExtResource("6_btm5h")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="OptionsLabel" type="Label" parent="PauseMenu/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/TextureButton3"]
+[node name="OptionsLabel" type="Label" parent="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/TextureButton3"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -157,4 +141,4 @@ label_settings = ExtResource("3_odvfv")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="PauseMenu/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/ContinueButton" to="PauseMenu/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/ContinueButton" method="_on_pressed"]
+[connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/ContinueButton" to="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/ContinueButton" method="_on_pressed"]

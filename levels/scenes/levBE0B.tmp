@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://bsvo1l53lwhuu"]
+[gd_scene load_steps=13 format=3 uid="uid://bsvo1l53lwhuu"]
 
 [ext_resource type="Texture2D" uid="uid://4yihorsy6sqn" path="res://levels/assets/tilemaps/tilemap_grass_2.png" id="1_3m1wn"]
-[ext_resource type="Script" path="res://levels/scripts/level_1.gd" id="1_6b08r"]
 [ext_resource type="Material" uid="uid://qfqjbjga6cf" path="res://effects/shaders/selectable_tile_material.tres" id="2_fdy44"]
 [ext_resource type="Script" path="res://levels/scripts/tile_map.gd" id="2_t7qm4"]
 [ext_resource type="Script" path="res://components/scripts/EnemySpawner.gd" id="2_ykttw"]
@@ -122,7 +121,6 @@ _data = {
 point_count = 33
 
 [node name="Level1" type="Node"]
-script = ExtResource("1_6b08r")
 
 [node name="TileMap" type="TileMap" parent="." node_paths=PackedStringArray("plant_handler")]
 z_index = -2
@@ -157,6 +155,6 @@ position = Vector2(-701, 13)
 scale = Vector2(1, 1)
 
 [connection signal="remove_plant_from_array" from="TileMap/PlantHandler" to="TileMap" method="remove_plant_from_array"]
-[connection signal="update_hud_credits" from="TileMap/PlantHandler" to="." method="_on_plant_handler_update_hud_credits"]
+[connection signal="update_hud_credits" from="TileMap/PlantHandler" to="TileMap" method="_on_plant_handler_update_hud_credits"]
 [connection signal="add_credits" from="EnemySpawner" to="TileMap/PlantHandler" method="add_credits"]
 [connection signal="attack_greenhouse" from="EnemySpawner" to="Greenhouse" method="take_damage"]

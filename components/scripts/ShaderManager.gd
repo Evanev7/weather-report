@@ -1,8 +1,13 @@
 extends Node
 
+@export var world: Node
 @export var camera: Camera2D
 @export var level: Node
-@onready var tilemap: TileMap = level.get_node("TileMap")
+var tilemap: TileMap
+
+func _ready():
+	if not tilemap:
+		tilemap = level.get_node("TileMap")
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -21,7 +26,7 @@ func _on_mouse_moved(pos):
 #	RenderingServer.global_shader_parameter_set("player_position", normalized_screen_coords)
 
 func _connect_tilemap(node: TileMap):
-	tilemap = node
+	level = node.get_node("TileMap")
 
 func quantize_tilemap(pos: Vector2):
 	return tilemap.map_to_local(tilemap.local_to_map(pos) - Vector2i(0,1))

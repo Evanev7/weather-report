@@ -3,6 +3,9 @@ extends Node2D
 @export var snow: GPUParticles2D
 @export var leaves: GPUParticles2D
 
+func _ready():
+	GameState.weather_changed.connect(update_weather)
+
 func update_weather(weather):
 	match weather:
 		GameState.WEATHER.Summer:
