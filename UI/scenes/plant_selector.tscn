@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b6x3510ma53a"]
+[gd_scene load_steps=33 format=3 uid="uid://b6x3510ma53a"]
 
 [ext_resource type="Script" path="res://UI/scripts/plant_selector.gd" id="1_jjaxe"]
 [ext_resource type="Shader" path="res://effects/shaders/hahagarbage.gdshader" id="2_v7lw0"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://5juxf7t345s2" path="res://levels/assets/S4_grass.png" id="7_tisxl"]
 [ext_resource type="Texture2D" uid="uid://c1t7mgit0x1mw" path="res://levels/assets/left_grass.png" id="7_u3mih"]
 [ext_resource type="Script" path="res://UI/scripts/wheel_spinny.gd" id="8_0iepn"]
-[ext_resource type="Texture2D" uid="uid://cn5islrw47ovy" path="res://characters/assets/enemies/rat_sw_1.png" id="8_58pui"]
 [ext_resource type="Texture2D" uid="uid://bcw34gpi3lovy" path="res://levels/assets/bottom_grass.png" id="12_p358b"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k62ln"]
@@ -149,7 +148,6 @@ thumbnail = ExtResource("7_m5alr")
 layout_mode = 2
 shortcut = SubResource("Shortcut_mhq7t")
 selection = 3
-thumbnail = ExtResource("8_58pui")
 
 [node name="PlantSlot5" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2

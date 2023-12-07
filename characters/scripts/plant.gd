@@ -55,11 +55,9 @@ func set_plant_as_resource(resource: PlantResource):
 	piercing_amount = resource.PIERCING_AMOUNT
 	piercing_cooldown = resource.PIERCING_COOLDOWN
 	
-	print(GameState.weather)
 	set_weather(GameState.weather)
 	
 func set_weather(weather):
-	print(weather)
 	match weather:
 		GameState.WEATHER.Summer:
 			weather_script.modify_summer(self)

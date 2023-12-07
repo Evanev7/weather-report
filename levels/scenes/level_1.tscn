@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://bsvo1l53lwhuu"]
+[gd_scene load_steps=16 format=3 uid="uid://bsvo1l53lwhuu"]
 
 [ext_resource type="Texture2D" uid="uid://4yihorsy6sqn" path="res://levels/assets/tilemaps/tilemap_grass_2.png" id="1_3m1wn"]
 [ext_resource type="Script" path="res://levels/scripts/level_1.gd" id="1_6b08r"]
 [ext_resource type="Material" uid="uid://qfqjbjga6cf" path="res://effects/shaders/selectable_tile_material.tres" id="1_6qmjh"]
+[ext_resource type="Resource" uid="uid://bjed70l5ndw4a" path="res://characters/resources/waves/level_1_waves/wave_1.tres" id="2_lksn5"]
 [ext_resource type="Script" path="res://levels/scripts/tile_map.gd" id="2_t7qm4"]
 [ext_resource type="Script" path="res://components/scripts/EnemySpawner.gd" id="2_ykttw"]
+[ext_resource type="Resource" uid="uid://bli8u0w3s3lk" path="res://characters/resources/waves/level_1_waves/wave_2.tres" id="3_bwpoa"]
 [ext_resource type="Resource" uid="uid://c02tdx26rtr44" path="res://characters/resources/enemies/dog.tres" id="3_ldlrt"]
 [ext_resource type="PackedScene" uid="uid://df0c6lteqa8bs" path="res://characters/scenes/enemy.tscn" id="4_poe43"]
 [ext_resource type="Resource" uid="uid://30wycomjos6g" path="res://characters/resources/enemies/rat.tres" id="6_tud2y"]
@@ -123,6 +125,7 @@ point_count = 33
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_6b08r")
+waves = Array[Resource("res://characters/scripts/enemy_wave.gd")]([ExtResource("2_lksn5"), ExtResource("3_bwpoa")])
 
 [node name="TileMap" type="TileMap" parent="." node_paths=PackedStringArray("plant_handler")]
 y_sort_enabled = true

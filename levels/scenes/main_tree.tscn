@@ -57,5 +57,5 @@ level = NodePath("../../Level1")
 
 [node name="WeatherHandler" parent="World/LogicComponents" instance=ExtResource("8_dsu4c")]
 
-[connection signal="send_resource_list" from="World/Level1" to="World/TopBar" method="set_thumbnails"]
+[connection signal="send_plant_resource_list" from="World/Level1" to="World/TopBar" method="set_thumbnails"]
 [connection signal="update_hud_credits" from="World/Level1" to="World/TopBar" method="_on_level_1_update_hud_credits"]

@@ -1,8 +1,11 @@
 extends WeatherScript
 
+var leaf: Texture2D = preload("res://objects/assets/particles/orange_leaf.png")
+var branch: Texture2D = preload("res://objects/assets/bullets/branch.png")
+
 func modify_summer(plant: Plant):
 	plant.play("tree_warm_SE")
-	plant.bullet_animation.set_animation_loop("branch", false)
+	plant.bullet_animation.set_frame("leaves", 0, branch)
 	plant.damage = 1.5
 	plant.shot_speed = 3
 	plant.angular_velocity = 3
@@ -14,7 +17,7 @@ func modify_summer(plant: Plant):
 
 func modify_autumn(plant: Plant):
 	plant.play("tree_autumn_SE")
-	plant.bullet_animation.set_animation_loop("leaves", false)
+	plant.bullet_animation.set_frame("leaves", 0, leaf)
 	plant.damage = 0.5
 	plant.shot_speed = 200
 	plant.fire_rate = 50
@@ -29,7 +32,7 @@ func modify_winter(plant: Plant):
 	
 func modify_spring(plant: Plant):
 	plant.play("tree_warm_SE")
-	plant.bullet_animation.set_animation_loop("branch", false)
+	plant.bullet_animation.set_frame("leaves", 0, branch)
 	plant.firing_enabled = true
 	plant.damage = 1.5
 	plant.shot_speed = 3

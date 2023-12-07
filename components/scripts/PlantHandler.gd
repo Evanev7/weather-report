@@ -7,7 +7,7 @@ signal update_hud_credits(credits)
 var position = Vector2(0, 0)
 @export var plant_resource_list: Array[PlantResource]
 
-@export var water_credits: float = 50
+var water_credits: float
 
 func place_plant_at_location(plant_resource, pos):
 	if water_credits >= plant_resource.COST:
