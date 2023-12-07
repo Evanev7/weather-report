@@ -7,6 +7,7 @@ var type: PlantResource.BULLET_TYPE
 var damage: float
 var direction: Vector2 = Vector2(0, 0)
 var speed: float
+var angular_velocity: float
 var max_lifetime: float
 var piercing_amount: int
 var piercing_cooldown: float
@@ -32,7 +33,11 @@ func _physics_process(delta):
 
 func transport(delta) -> void:
 	position += direction * speed * delta
-	rotation = direction.angle()
+	if angular_velocity > 0:
+		print("rotatin")
+		rotation += angular_velocity
+	else:
+		rotation = direction.angle()
 	lifetime += delta
 	if lifetime >= max_lifetime:
 		remove()

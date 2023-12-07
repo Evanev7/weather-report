@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://pk336fsowy4v" path="res://effects/particles/snow_particles.tscn" id="4_8v6di"]
 [ext_resource type="PackedScene" uid="uid://bsvo1l53lwhuu" path="res://levels/scenes/level_1.tscn" id="4_c6m40"]
 [ext_resource type="Script" path="res://effects/particles/Particles.gd" id="4_fmg75"]
-[ext_resource type="PackedScene" uid="uid://b6x3510ma53a" path="res://UI/scenes/plant_selector.tscn" id="4_uudau"]
+[ext_resource type="PackedScene" path="res://UI/scenes/plant_selector.tscn" id="4_uudau"]
 [ext_resource type="PackedScene" uid="uid://cwpsktdymxjdj" path="res://components/scenes/bullet_handler.tscn" id="5_74cye"]
 [ext_resource type="PackedScene" uid="uid://cb8hul50pmnly" path="res://effects/particles/leaf_particles.tscn" id="5_qxaxj"]
 [ext_resource type="Script" path="res://components/scripts/ShaderManager.gd" id="6_74lkg"]

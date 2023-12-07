@@ -19,6 +19,7 @@ func fire_from(plant, direction):
 	bullet.sprite.sprite_frames = plant.bullet_animation
 	bullet.type = plant.bullet_type
 	bullet.speed = plant.shot_speed * 10
+	bullet.angular_velocity = plant.angular_velocity / 100
 	bullet.piercing_amount = plant.piercing_amount
 	bullet.piercing_cooldown = plant.piercing_cooldown
 	bullet.max_lifetime = plant.lifetime

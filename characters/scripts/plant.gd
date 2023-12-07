@@ -13,6 +13,7 @@ var fire_timer: float
 var fire_rate: float
 var wilting_rate: float = 1
 var shot_speed: float
+var angular_velocity: float
 var damage: float
 var bullet_animation: SpriteFrames
 var bullet_type: PlantResource.BULLET_TYPE
@@ -23,7 +24,6 @@ var piercing_cooldown: float
 ##
 
 var enemy_array = []
-var weather: GameState.WEATHER
 var weather_script
 var firing_enabled: bool = true
 var can_fire: bool = false
@@ -36,6 +36,7 @@ func set_plant_as_resource(resource: PlantResource):
 	weather_script = resource.WEATHER_SCRIPT.new()
 	add_child(weather_script)
 	
+
 	sprite_frames = resource.ANIMATION
 	bullet_animation = resource.BULLET_ANIMATION
 	bullet_type = resource.TYPE
@@ -44,15 +45,18 @@ func set_plant_as_resource(resource: PlantResource):
 	radius.shape.radius = resource.RANGE * 10
 	fire_rate = resource.FIRE_RATE
 	shot_speed = resource.SHOT_SPEED
+	angular_velocity = resource.ANGULAR_VELOCITY
 	damage = resource.DAMAGE
 	shot_size = resource.SIZE
 	lifetime = resource.BULLET_LIFETIME
 	piercing_amount = resource.PIERCING_AMOUNT
 	piercing_cooldown = resource.PIERCING_COOLDOWN
 	
+	print(GameState.weather)
 	set_weather(GameState.weather)
 	
 func set_weather(weather):
+	print(weather)
 	match weather:
 		GameState.WEATHER.Summer:
 			weather_script.modify_summer(self)
@@ -91,10 +95,11 @@ func fire_bullet():
 	can_fire = false
 	fire_timer = fire_timer_max
 	
-	
-	play("shooting_se")
+	if sprite_frames.has_animation("shooting_se"):
+		play("shooting_se")
 	await get_tree().create_timer(10/fire_rate).timeout
-	play("se")
+	if sprite_frames.has_animation("se"):
+		play("se")
 
 func select_enemy() -> PathFollow2D:
 	var enemy_progress_array = []

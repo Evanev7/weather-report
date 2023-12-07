@@ -24,7 +24,8 @@ enum BULLET_TYPE {Normal, AOE}
 @export_category("Bullet Stats")
 @export var DAMAGE: float = 5
 @export var SHOT_SPEED: float = 100
+@export var ANGULAR_VELOCITY: float = 0
 @export var SIZE: Vector2 = Vector2(1, 1)
-@export var BULLET_LIFETIME: float = 5
+@export var BULLET_LIFETIME: float = 1
 @export var PIERCING_AMOUNT: int = 1
 @export var PIERCING_COOLDOWN: float = 0
