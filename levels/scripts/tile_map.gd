@@ -30,7 +30,7 @@ func clear_decorations():
 	for cell in decoratable_cells:
 		set_cell(1, cell, -1, decorations[randi() % decorations.size()])
 
-func _input(_event):
+func _unhandled_input(_event):
 	if Input.is_action_just_pressed("left_click"):
 		var stored_plant = plant_handler.plant_resource_list[randi() % plant_handler.plant_resource_list.size()]
 		var mouse_pos = to_local(get_global_mouse_position())
