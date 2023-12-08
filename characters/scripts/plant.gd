@@ -55,7 +55,17 @@ func set_plant_as_resource(resource: PlantResource):
 	piercing_amount = resource.PIERCING_AMOUNT
 	piercing_cooldown = resource.PIERCING_COOLDOWN
 	
-	set_weather(GameState.weather)
+	set_weather(GameState.WEATHER.Summer)
+	match GameState.weather:
+		GameState.WEATHER.Autumn:
+			set_weather(GameState.WEATHER.Autumn)
+		GameState.WEATHER.Winter:
+			set_weather(GameState.WEATHER.Autumn)
+			set_weather(GameState.WEATHER.Winter)
+		GameState.WEATHER.Spring:
+			set_weather(GameState.WEATHER.Autumn)
+			set_weather(GameState.WEATHER.Winter)
+			set_weather(GameState.WEATHER.Spring)
 	
 func set_weather(weather):
 	match weather:
