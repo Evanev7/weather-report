@@ -57,5 +57,8 @@ level = NodePath("../../Level1")
 
 [node name="WeatherHandler" parent="World/LogicComponents" instance=ExtResource("8_dsu4c")]
 
+[connection signal="enable_wave_button" from="World/Level1" to="World/TopBar" method="end_wave"]
 [connection signal="send_plant_resource_list" from="World/Level1" to="World/TopBar" method="set_thumbnails"]
 [connection signal="update_hud_credits" from="World/Level1" to="World/TopBar" method="_on_level_1_update_hud_credits"]
+[connection signal="update_wave_label" from="World/Level1" to="World/TopBar" method="update_wave_label"]
+[connection signal="next_wave" from="World/TopBar" to="World/Level1" method="next_wave"]

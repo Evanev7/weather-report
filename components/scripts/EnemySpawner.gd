@@ -3,6 +3,8 @@ class_name EnemySpawner
 
 signal attack_greenhouse(damage)
 signal add_credits(value)
+signal update_wave_label_on_HUD(wave)
+signal wave_ended()
 
 @export var enemy_resource_list: Array[EnemyResource]
 @export var enemy_scene: PackedScene
@@ -28,6 +30,7 @@ func reset(level_wave_data):
 	start_wave()
 
 func start_wave():
+	update_wave_label_on_HUD.emit(current_batch)
 	if current_batch < wave_data.size():
 		spawn_enemies(wave_data[current_batch].waves)
 	else:
@@ -57,6 +60,5 @@ func add_water_credits(value):
 	
 func end_wave():
 	current_batch += 1
-	await get_tree().create_timer(4.0).timeout
-	start_wave()
+	wave_ended.emit()
 	

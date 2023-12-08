@@ -83,6 +83,8 @@ func tile_has_plant(coords, _plant) -> bool:
 		
 func remove_plant_from_array(plant):
 	var plant_coords = global_to_grid(plant.position)
+	plant_coords.x -= 1
+	plant_coords.y += 2
 	if plant_nodes.has(plant_coords):
 		plant_nodes.erase(plant_coords)
 

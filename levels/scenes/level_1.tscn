@@ -159,5 +159,7 @@ position = Vector2(-701, 13)
 
 [connection signal="add_credits" from="EnemySpawner" to="PlantHandler" method="add_credits"]
 [connection signal="attack_greenhouse" from="EnemySpawner" to="Greenhouse" method="take_damage"]
+[connection signal="update_wave_label_on_HUD" from="EnemySpawner" to="." method="update_wave_label_on_hud"]
+[connection signal="wave_ended" from="EnemySpawner" to="." method="end_wave"]
 [connection signal="remove_plant_from_array" from="PlantHandler" to="TileMap" method="remove_plant_from_array"]
 [connection signal="update_hud_credits" from="PlantHandler" to="." method="_on_plant_handler_update_hud_credits"]
