@@ -1,6 +1,8 @@
 extends Node
 
 var debug = true
+
+signal spawn_error(msg)
 signal fire_from(plant, direction)
 signal level_completed
 signal paused(state: PAUSE_STATES)
@@ -45,6 +47,8 @@ func _input(event):
 				get_tree().paused = false
 				paused.emit(PAUSE_STATES.UNPAUSED)
 
+func show_error(msg):
+	spawn_error.emit(msg)
 
 func set_weather(new_weather):
 	weather = new_weather

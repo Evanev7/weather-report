@@ -157,6 +157,9 @@ curve = SubResource("Curve2D_3ekch")
 z_index = 1
 position = Vector2(-701, 13)
 
+[node name="ErrorSpawner" type="Marker2D" parent="."]
+position = Vector2(2, 374)
+
 [connection signal="add_credits" from="EnemySpawner" to="PlantHandler" method="add_credits"]
 [connection signal="attack_greenhouse" from="EnemySpawner" to="Greenhouse" method="take_damage"]
 [connection signal="update_wave_label_on_HUD" from="EnemySpawner" to="." method="update_wave_label_on_hud"]

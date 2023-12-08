@@ -1,0 +1,89 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn4p6k1ntjewn"]
+
+[ext_resource type="Script" path="res://components/scripts/error_message.gd" id="1_h170e"]
+
+[sub_resource type="Animation" id="Animation_wprva"]
+resource_name = "rise_and_fade"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LabelContainer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.7, 1.5),
+"transitions": PackedFloat32Array(0.450625, 1, 3, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LabelContainer:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.7, 1.5),
+"transitions": PackedFloat32Array(0.450625, 1, 3, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"remove"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ugrtd"]
+_data = {
+"rise_and_fade": SubResource("Animation_wprva")
+}
+
+[node name="ErrorMessage" type="Node2D" node_paths=PackedStringArray("ap", "label", "label_container")]
+script = ExtResource("1_h170e")
+ap = NodePath("AnimationPlayer")
+label = NodePath("LabelContainer/Label")
+label_container = NodePath("LabelContainer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ugrtd")
+}
+
+[node name="LabelContainer" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(1e-05, 1e-05)
+
+[node name="Label" type="RichTextLabel" parent="LabelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.0
+offset_top = -20.0
+offset_right = 151.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.639216, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.415686, 0.341176, 1)
+theme_override_constants/shadow_outline_size = 6
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]Plant already placed here![/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

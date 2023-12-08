@@ -19,4 +19,4 @@ func take_damage(damage):
 		game_over()
 		
 func game_over():
-	print("ded")
+	GameState.show_error("You died!")

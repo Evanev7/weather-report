@@ -1,10 +1,13 @@
 extends Level
 
+signal spawn_error(error_msg, location)
 signal send_plant_resource_list(resource_list)
 signal update_wave_label(wave)
 signal enable_wave_button()
 
 @onready var plant_resource_list: Array[PlantResource] = $PlantHandler.plant_resource_list
+
+
 
 @export_category("Level Start Stats")
 
@@ -19,6 +22,7 @@ func start():
 	send_plant_resource_list.emit(plant_resource_list)
 	$EnemySpawner.reset(waves)
 	$PlantHandler.water_credits = starting_credits
+
 
 func end_wave():
 	enable_wave_button.emit()

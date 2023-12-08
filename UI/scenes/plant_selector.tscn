@@ -1,6 +1,7 @@
-[gd_scene load_steps=36 format=3 uid="uid://b6x3510ma53a"]
+[gd_scene load_steps=37 format=3 uid="uid://b6x3510ma53a"]
 
 [ext_resource type="Script" path="res://UI/scripts/plant_selector.gd" id="1_jjaxe"]
+[ext_resource type="PackedScene" uid="uid://dn4p6k1ntjewn" path="res://components/scenes/error_message.tscn" id="2_586kn"]
 [ext_resource type="Shader" path="res://effects/shaders/hahagarbage.gdshader" id="2_v7lw0"]
 [ext_resource type="Texture2D" uid="uid://cj4ptcbl42jbl" path="res://UI/assets/temp/pro grammar art x4.png" id="2_w68y1"]
 [ext_resource type="Texture2D" uid="uid://bbr80tabpdse7" path="res://UI/assets/Seasons_of_the_Year.1600p.eng2.jpg" id="3_krvok"]
@@ -92,6 +93,7 @@ shader = ExtResource("2_v7lw0")
 
 [node name="TopBar" type="CanvasLayer" node_paths=PackedStringArray("credits_label", "waves_label", "next_wave_button", "grid_container")]
 script = ExtResource("1_jjaxe")
+error_scene = ExtResource("2_586kn")
 credits_label = NodePath("MarginContainer2/PanelContainer/HBoxContainer/MarginContainer/HBoxContainer/Credits")
 waves_label = NodePath("MarginContainer3/Waves")
 next_wave_button = NodePath("MarginContainer4/TextureButton")
@@ -319,5 +321,8 @@ rotation = 2.0944
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("3_krvok")
 script = ExtResource("8_0iepn")
+
+[node name="ErrorSpawner" type="Marker2D" parent="."]
+position = Vector2(960, 960)
 
 [connection signal="pressed" from="MarginContainer4/TextureButton" to="." method="start_wave"]

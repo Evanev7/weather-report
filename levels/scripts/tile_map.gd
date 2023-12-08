@@ -68,13 +68,12 @@ func attempt_spawn_plant(at_position, plant_id):
 func tile_has_plant(coords, _plant) -> bool:
 	if get_cell_tile_data(0, coords).get_custom_data("canPlacePlants"):
 		if plant_nodes.has(coords):
-			print("plant already placed here!")
-			#replace with some UI popup
+			GameState.show_error("A plant is already in this location!")
 			return true
 		else:
 			return false
 	else:
-		print("can't place plant here!")
+		GameState.show_error("You can't place plants here!")
 		return true
 		
 #func _on_invasive_spread(origin_coords):

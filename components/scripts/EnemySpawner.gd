@@ -34,7 +34,7 @@ func start_wave():
 	if current_batch < wave_data.size():
 		spawn_enemies(wave_data[current_batch].waves)
 	else:
-		print("no more waves!")
+		GameState.show_error("No more waves to spawn!")
 	
 func spawn_enemies(wave):
 	for clump in wave:
