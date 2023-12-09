@@ -2,8 +2,8 @@ extends PathFollow2D
 class_name Enemy
 
 signal removed()
-signal attack_greenhouse(damage)
-signal add_water_credits(value)
+signal attack_greenhouse(damage: float)
+signal add_water_credits(value: int)
 
 @export var sprite: AnimatedSprite2D
 @export var collision: CollisionShape2D
@@ -80,7 +80,7 @@ func hurt(damage_taken):
 		
 func update_health():
 	hp_bar.value = health
-	if health <= 0:
+	if health <= 0 and not dead:
 		dead = true
 		hurt_anim.stop()
 		bounce_anim.stop()

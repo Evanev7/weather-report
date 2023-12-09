@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://banxbdg3vds6r"]
+
+[ext_resource type="Shader" path="res://effects/shaders/hahagarbage.gdshader" id="1_3rtgf"]
+[ext_resource type="Texture2D" uid="uid://bbr80tabpdse7" path="res://UI/assets/Seasons_of_the_Year.1600p.eng2.jpg" id="2_gw4i0"]
+[ext_resource type="Script" path="res://UI/scripts/wheel_spinny.gd" id="3_4wygv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_umjdv"]
+shader = ExtResource("1_3rtgf")
+
+[node name="Sprite2D" type="Sprite2D"]
+material = SubResource("ShaderMaterial_umjdv")
+position = Vector2(-120, 40)
+rotation = 2.0944
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_gw4i0")
+script = ExtResource("3_4wygv")

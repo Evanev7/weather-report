@@ -1,18 +1,14 @@
 extends Node
 class_name World
 
+@export var levels: Array[PackedScene]
 var level
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+var _autoplay = false
 
 func _input(event):
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and !_autoplay:
 		$Camera2D.offset = (event.position - $Camera2D.get_viewport_rect().size/2)/32
 
+func autoplay(enabled: bool):
+	_autoplay = enabled
+	$TopBar.visible = !enabled

@@ -14,7 +14,9 @@
 
 [node name="main" type="Node"]
 
-[node name="MainMenu" parent="." instance=ExtResource("1_vgi8s")]
+[node name="MainMenu" parent="." node_paths=PackedStringArray("world") instance=ExtResource("1_vgi8s")]
+visible = false
+world = NodePath("../World")
 
 [node name="World" type="Node" parent="."]
 script = ExtResource("2_tkr4x")

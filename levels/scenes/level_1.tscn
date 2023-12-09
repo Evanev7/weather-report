@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bsvo1l53lwhuu"]
+[gd_scene load_steps=19 format=3 uid="uid://bsvo1l53lwhuu"]
 
 [ext_resource type="Texture2D" uid="uid://4yihorsy6sqn" path="res://levels/assets/tilemaps/tilemap_grass_2.png" id="1_3m1wn"]
 [ext_resource type="Script" path="res://levels/scripts/level_1.gd" id="1_6b08r"]
@@ -10,8 +10,11 @@
 [ext_resource type="Resource" uid="uid://c02tdx26rtr44" path="res://characters/resources/enemies/dog.tres" id="3_ldlrt"]
 [ext_resource type="PackedScene" uid="uid://df0c6lteqa8bs" path="res://characters/scenes/enemy.tscn" id="4_poe43"]
 [ext_resource type="Resource" uid="uid://30wycomjos6g" path="res://characters/resources/enemies/rat.tres" id="6_tud2y"]
-[ext_resource type="PackedScene" uid="uid://bms01k0kbhw52" path="res://components/scenes/plant_handler.tscn" id="8_brauw"]
+[ext_resource type="PackedScene" uid="uid://crva7xrk1jbo4" path="res://characters/scenes/plant.tscn" id="7_j2yqn"]
+[ext_resource type="Resource" uid="uid://pym6jr7pfd0i" path="res://characters/resources/plants/daisies.tres" id="8_2jwpq"]
 [ext_resource type="PackedScene" uid="uid://bh38xjlsp4d3u" path="res://objects/scenes/greenhouse.tscn" id="9_ptxtb"]
+[ext_resource type="Resource" uid="uid://d042sxrygxrhh" path="res://characters/resources/plants/sunflower.tres" id="9_xxp8h"]
+[ext_resource type="Resource" uid="uid://ckvmj6qai70fy" path="res://characters/resources/plants/tree.tres" id="10_ba4rx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qdw5j"]
 resource_name = "grass"
@@ -140,18 +143,16 @@ layer_1/y_sort_enabled = true
 layer_1/navigation_enabled = false
 layer_1/tile_data = PackedInt32Array()
 script = ExtResource("2_t7qm4")
-plant_handler = NodePath("../PlantHandler")
+plant_handler = NodePath("")
+plant_scene = ExtResource("7_j2yqn")
+plant_resource_list = Array[Resource("res://characters/scripts/plant_resource.gd")]([ExtResource("8_2jwpq"), ExtResource("9_xxp8h"), ExtResource("10_ba4rx")])
 
-[node name="EnemySpawner" type="Node" parent="."]
+[node name="EnemySpawner" type="Path2D" parent="."]
+position = Vector2(-923, -488)
+curve = SubResource("Curve2D_3ekch")
 script = ExtResource("2_ykttw")
 enemy_resource_list = Array[Resource("res://characters/scripts/enemy_resource.gd")]([ExtResource("3_ldlrt"), ExtResource("6_tud2y")])
 enemy_scene = ExtResource("4_poe43")
-
-[node name="EnemyPath" type="Path2D" parent="EnemySpawner"]
-position = Vector2(-923, -488)
-curve = SubResource("Curve2D_3ekch")
-
-[node name="PlantHandler" parent="." instance=ExtResource("8_brauw")]
 
 [node name="Greenhouse" parent="." instance=ExtResource("9_ptxtb")]
 z_index = 1
@@ -159,10 +160,3 @@ position = Vector2(-701, 13)
 
 [node name="ErrorSpawner" type="Marker2D" parent="."]
 position = Vector2(2, 374)
-
-[connection signal="add_credits" from="EnemySpawner" to="PlantHandler" method="add_credits"]
-[connection signal="attack_greenhouse" from="EnemySpawner" to="Greenhouse" method="take_damage"]
-[connection signal="update_wave_label_on_HUD" from="EnemySpawner" to="." method="update_wave_label_on_hud"]
-[connection signal="wave_ended" from="EnemySpawner" to="." method="end_wave"]
-[connection signal="remove_plant_from_array" from="PlantHandler" to="TileMap" method="remove_plant_from_array"]
-[connection signal="update_hud_credits" from="PlantHandler" to="." method="_on_plant_handler_update_hud_credits"]

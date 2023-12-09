@@ -2,6 +2,10 @@ extends TileMap
 
 @export var plant_handler: Node
 @export var selector_buttongroup: ButtonGroup = preload("res://UI/resources/plant_selector_group.tres")
+@export var plant_scene: PackedScene
+@export var plant_resource_list: Array[PlantResource]
+
+
 
 var flower := Vector2i(0, 2)
 var grass_1 := Vector2i(0, 3)
@@ -18,6 +22,19 @@ func _ready():
 	GameState.weather_changed.connect(update_weather_decorations)
 
 
+
+func place_plant_at_location(plant_resource, pos):
+	var placed_plant = plant_scene.instantiate()
+	placed_plant.position = pos
+	if owner.water_credits >= plant_resource.COST:
+		owner.add_water_credits(-plant_resource.COST)
+		placed_plant.set_plant_as_resource(plant_resource)
+		placed_plant.connect("remove_from_node_array", remove_plant_from_array)
+		placed_plant.add_to_group("plant")
+		owner.add_child(placed_plant)
+	else:
+		remove_plant_from_array(placed_plant)
+		GameState.show_error("You can't afford this!")
 
 func update_weather_decorations(weather):
 	match weather:
@@ -47,7 +64,7 @@ func clear_decorations():
 func _unhandled_input(event):
 	if event.is_action_pressed("left_click"):
 		var selection = get_selection()
-		if selection < plant_handler.plant_resource_list.size():
+		if selection < plant_resource_list.size():
 			attempt_spawn_plant(get_global_mouse_position(), selection)
 
 func get_selection() -> int:
@@ -58,12 +75,12 @@ func get_selection() -> int:
 	return button.selection
 
 func attempt_spawn_plant(at_position, plant_id):
-	var stored_plant = plant_handler.plant_resource_list[plant_id]
+	var stored_plant = plant_resource_list[plant_id]
 	var tile_mouse_pos = global_to_grid(at_position)
 	var final_pos = grid_to_global(tile_mouse_pos)
 	if not tile_has_plant(tile_mouse_pos, stored_plant):
 		plant_nodes[tile_mouse_pos] = stored_plant
-		plant_handler.place_plant_at_location(stored_plant, final_pos)
+		place_plant_at_location(stored_plant, final_pos)
 
 func tile_has_plant(coords, _plant) -> bool:
 	if get_cell_tile_data(0, coords).get_custom_data("canPlacePlants"):
@@ -89,6 +106,9 @@ func remove_plant_from_array(plant):
 
 func global_to_grid(coords: Vector2i) -> Vector2i:
 	return local_to_map(to_local(coords))
+
+func grid_to_local(coords: Vector2i) -> Vector2i:
+	return map_to_local(coords + Vector2i(1,-2))
 
 func grid_to_global(coords: Vector2i) -> Vector2i:
 	return to_global(map_to_local(coords + Vector2i(1,-2)))

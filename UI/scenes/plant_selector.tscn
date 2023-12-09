@@ -1,20 +1,18 @@
-[gd_scene load_steps=37 format=3 uid="uid://b6x3510ma53a"]
+[gd_scene load_steps=34 format=3 uid="uid://b6x3510ma53a"]
 
 [ext_resource type="Script" path="res://UI/scripts/plant_selector.gd" id="1_jjaxe"]
 [ext_resource type="PackedScene" uid="uid://dn4p6k1ntjewn" path="res://components/scenes/error_message.tscn" id="2_586kn"]
-[ext_resource type="Shader" path="res://effects/shaders/hahagarbage.gdshader" id="2_v7lw0"]
 [ext_resource type="Texture2D" uid="uid://cj4ptcbl42jbl" path="res://UI/assets/temp/pro grammar art x4.png" id="2_w68y1"]
-[ext_resource type="Texture2D" uid="uid://bbr80tabpdse7" path="res://UI/assets/Seasons_of_the_Year.1600p.eng2.jpg" id="3_krvok"]
 [ext_resource type="PackedScene" uid="uid://cnyexo8p0o1f1" path="res://UI/scenes/selectable.tscn" id="3_pctsd"]
 [ext_resource type="Texture2D" uid="uid://dleo0bxbxb3sw" path="res://characters/assets/enemies/rat_back_1.png" id="6_tnoxp"]
 [ext_resource type="Texture2D" uid="uid://dwu4snytiw58l" path="res://characters/assets/enemies/rat_nw_1.png" id="7_m5alr"]
 [ext_resource type="Texture2D" uid="uid://5juxf7t345s2" path="res://levels/assets/S4_grass.png" id="7_tisxl"]
 [ext_resource type="Texture2D" uid="uid://c1t7mgit0x1mw" path="res://levels/assets/left_grass.png" id="7_u3mih"]
-[ext_resource type="Script" path="res://UI/scripts/wheel_spinny.gd" id="8_0iepn"]
 [ext_resource type="Texture2D" uid="uid://cda5x36kr5tgy" path="res://UI/assets/temp/pause_menu_top_button.png" id="9_73php"]
 [ext_resource type="Texture2D" uid="uid://cdt1wfeg2mswb" path="res://UI/assets/temp/pause_menu_middle_button.png" id="10_g1753"]
 [ext_resource type="Texture2D" uid="uid://ccdxbd5inbili" path="res://UI/assets/temp/pause_menu_background.png" id="10_hxi27"]
 [ext_resource type="Texture2D" uid="uid://bcw34gpi3lovy" path="res://levels/assets/bottom_grass.png" id="12_p358b"]
+[ext_resource type="PackedScene" uid="uid://banxbdg3vds6r" path="res://UI/scenes/season_wheel.tscn" id="13_mdogf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k62ln"]
 texture = ExtResource("2_w68y1")
@@ -87,9 +85,6 @@ action = &"water"
 
 [sub_resource type="Shortcut" id="Shortcut_s2p8r"]
 events = [SubResource("InputEventAction_77ja1")]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_umjdv"]
-shader = ExtResource("2_v7lw0")
 
 [node name="TopBar" type="CanvasLayer" node_paths=PackedStringArray("credits_label", "waves_label", "next_wave_button", "grid_container")]
 script = ExtResource("1_jjaxe")
@@ -314,13 +309,7 @@ anchor_left = 1.0
 anchor_right = 1.0
 grow_horizontal = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="Anchor"]
-material = SubResource("ShaderMaterial_umjdv")
-position = Vector2(-120, 40)
-rotation = 2.0944
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("3_krvok")
-script = ExtResource("8_0iepn")
+[node name="Sprite2D" parent="Anchor" instance=ExtResource("13_mdogf")]
 
 [node name="ErrorSpawner" type="Marker2D" parent="."]
 position = Vector2(960, 960)

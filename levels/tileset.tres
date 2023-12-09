@@ -1,0 +1,37 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://buqh1ddp3t6av"]
+
+[ext_resource type="Texture2D" uid="uid://4yihorsy6sqn" path="res://levels/assets/tilemaps/tilemap_grass_2.png" id="1_jth28"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i3f2i"]
+texture = ExtResource("1_jth28")
+texture_region_size = Vector2i(1260, 631)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+0:4/0 = 0
+0:5/0 = 0
+0:6/0 = 0
+0:7/0 = 0
+0:8/0 = 0
+0:9/0 = 0
+0:10/0 = 0
+0:11/0 = 0
+0:12/0 = 0
+
+[resource]
+tile_shape = 1
+tile_layout = 2
+tile_size = Vector2i(1260, 631)
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "Path"
+terrain_set_0/terrain_0/color = Color(0.8, 0.607843, 0.494118, 1)
+terrain_set_0/terrain_1/name = "Grass 1"
+terrain_set_0/terrain_1/color = Color(0.00784314, 0.639216, 0, 1)
+custom_data_layer_0/name = "isDecor"
+custom_data_layer_0/type = 1
+custom_data_layer_1/name = "canPlaceDecor"
+custom_data_layer_1/type = 1
+custom_data_layer_2/name = "canPlacePlants"
+custom_data_layer_2/type = 1
+sources/0 = SubResource("TileSetAtlasSource_i3f2i")

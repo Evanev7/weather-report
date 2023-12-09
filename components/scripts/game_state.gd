@@ -32,8 +32,9 @@ func _ready():
 
 func _on_paused(state):
 	pause_state = state
-	if state == PAUSE_STATES.UNPAUSED:
-		get_tree().paused = false
+	match state:
+		PAUSE_STATES.UNPAUSED, PAUSE_STATES.MAIN_MENU:
+			get_tree().paused = false
 
 func _input(event):
 	if event.is_action_pressed("escape"):
