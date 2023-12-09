@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="PlantResource" load_steps=6 format=3 uid="uid://pym6jr7pfd0i"]
+[gd_resource type="Resource" script_class="PlantResource" load_steps=7 format=3 uid="uid://pym6jr7pfd0i"]
 
 [ext_resource type="Script" path="res://characters/scripts/plant_resource.gd" id="1_8bk2i"]
 [ext_resource type="SpriteFrames" uid="uid://duly7wpbv6dvi" path="res://characters/assets/plants/daisies_spriteframes.tres" id="1_gqmx3"]
-[ext_resource type="SpriteFrames" uid="uid://im11bxrq38ls" path="res://objects/assets/bullets/bees_spriteframes.tres" id="2_jxp3l"]
 [ext_resource type="Script" path="res://characters/resources/plants/daisies_script.gd" id="3_hkm2b"]
 [ext_resource type="Texture2D" uid="uid://cf232tqissni5" path="res://characters/assets/plants/daisies_SE.png" id="3_l1sbw"]
+[ext_resource type="Material" uid="uid://c6krn65d8vijh" path="res://objects/resources/bee_particles.tres" id="3_tlhhy"]
+[ext_resource type="Texture2D" uid="uid://c3hbq4chsj22a" path="res://objects/assets/bullets/bees.png" id="4_lqc3v"]
 
 [resource]
 script = ExtResource("1_8bk2i")
@@ -14,15 +15,19 @@ ICON = ExtResource("3_l1sbw")
 FLIP_H = false
 COST = 10
 DURABILITY = 100.0
-RANGE = 500.0
+RANGE = 100.0
 FIRE_RATE = 5.0
 WEATHER_SCRIPT = ExtResource("3_hkm2b")
-BULLET_ANIMATION = ExtResource("2_jxp3l")
 TYPE = 1
+COLLISION_RADIUS = 50.0
+BULLET_PARTICLES = ExtResource("3_tlhhy")
+BULLET_PARTICLE_LIFETIME = 2.8
+BULLET_PARTICLE_TEXTURE = ExtResource("4_lqc3v")
+STARTING_DISTANCE = 80.0
 DAMAGE = 0.3
-SHOT_SPEED = 10.0
+SHOT_SPEED = 0.0
 ANGULAR_VELOCITY = 0.0
-SIZE = Vector2(2, 2)
+SIZE = Vector2(1.5, 1.5)
 BULLET_LIFETIME = 5.0
 PIERCING_AMOUNT = 1
 PIERCING_COOLDOWN = 15.0

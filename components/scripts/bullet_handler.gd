@@ -13,13 +13,20 @@ func _process(_delta):
 
 func fire_from(plant, direction):
 	var bullet = bullet_scene.instantiate()
-	bullet.global_position = plant.position
 	bullet.damage = plant.damage
 	bullet.direction = direction.normalized()
+	bullet.global_position = plant.position + bullet.direction * plant.starting_distance
+	bullet.collision.shape.radius = plant.bullet_collision_radius
 	bullet.sprite.sprite_frames = plant.bullet_animation
+	bullet.particles.process_material = plant.bullet_particles
+	bullet.particles.lifetime = plant.bullet_particle_lifetime
+	bullet.particles.texture = plant.bullet_particle_texture
 	bullet.type = plant.bullet_type
 	bullet.speed = plant.shot_speed * 10
-	bullet.angular_velocity = plant.angular_velocity / 100
+	if bullet.direction.x < 0:
+		bullet.angular_velocity = (plant.angular_velocity * -1) / 100
+	else:
+		bullet.angular_velocity = plant.angular_velocity / 100
 	bullet.piercing_amount = plant.piercing_amount
 	bullet.piercing_cooldown = plant.piercing_cooldown
 	bullet.max_lifetime = plant.lifetime

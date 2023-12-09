@@ -2,6 +2,8 @@ extends Area2D
 class_name Bullet
 
 @export var sprite: AnimatedSprite2D
+@export var collision: CollisionShape2D
+@export var particles: GPUParticles2D
 
 var type: PlantResource.BULLET_TYPE
 var damage: float
@@ -18,7 +20,8 @@ var hit_targets: Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if particles.process_material:
+		particles.emitting = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,7 +36,7 @@ func _physics_process(delta):
 
 func transport(delta) -> void:
 	position += direction * speed * delta
-	if angular_velocity > 0:
+	if angular_velocity != 0:
 		rotation += angular_velocity
 	else:
 		rotation = direction.angle()

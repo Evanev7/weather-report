@@ -130,7 +130,7 @@ point_count = 33
 script = ExtResource("1_6b08r")
 waves = Array[Resource("res://characters/scripts/enemy_wave.gd")]([ExtResource("2_lksn5"), ExtResource("3_bwpoa")])
 
-[node name="TileMap" type="TileMap" parent="." node_paths=PackedStringArray("plant_handler")]
+[node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
 scale = Vector2(0.1, 0.1)
 tile_set = SubResource("TileSet_k4fqb")
@@ -143,7 +143,6 @@ layer_1/y_sort_enabled = true
 layer_1/navigation_enabled = false
 layer_1/tile_data = PackedInt32Array()
 script = ExtResource("2_t7qm4")
-plant_handler = NodePath("")
 plant_scene = ExtResource("7_j2yqn")
 plant_resource_list = Array[Resource("res://characters/scripts/plant_resource.gd")]([ExtResource("8_2jwpq"), ExtResource("9_xxp8h"), ExtResource("10_ba4rx")])
 

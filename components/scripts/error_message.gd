@@ -11,7 +11,7 @@ func set_text_and_animate(text: String, start_pos: Vector2) -> void:
 	ap.play("rise_and_fade")
 	
 	var tween: Tween = create_tween()
-	var end_pos = Vector2(0, randf_range(0, -5)) + start_pos
+	var end_pos = Vector2(0, randf_range(-50, -100)) + start_pos
 	var tween_length = ap.get_animation("rise_and_fade").length
 	
 	tween.tween_property(label_container, "global_position", end_pos, tween_length).from(start_pos)

@@ -21,8 +21,13 @@ enum BULLET_TYPE {Normal, AOE}
 @export_category("Bullet Metadata")
 @export var BULLET_ANIMATION: SpriteFrames
 @export var TYPE: PlantResource.BULLET_TYPE = BULLET_TYPE.Normal
+@export var COLLISION_RADIUS: float = 10
+@export var BULLET_PARTICLES: ParticleProcessMaterial
+@export var BULLET_PARTICLE_LIFETIME: float = 1
+@export var BULLET_PARTICLE_TEXTURE: Texture
 
 @export_category("Bullet Stats")
+@export var STARTING_DISTANCE: float = 0
 @export var DAMAGE: float = 5
 @export var SHOT_SPEED: float = 100
 @export var ANGULAR_VELOCITY: float = 0

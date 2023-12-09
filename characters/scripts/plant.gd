@@ -11,6 +11,11 @@ signal remove_from_node_array(plant)
 var icon: CompressedTexture2D
 
 ## Bullet Stats
+var starting_distance: float
+var bullet_collision_radius: float
+var bullet_particles: ParticleProcessMaterial
+var bullet_particle_lifetime: float
+var bullet_particle_texture
 var fire_timer: float
 var fire_rate: float
 var wilting_rate: float = 1
@@ -40,12 +45,18 @@ func set_plant_as_resource(resource: PlantResource):
 	
 
 	sprite_frames = resource.ANIMATION
-	bullet_animation = resource.BULLET_ANIMATION
 	icon = resource.ICON
-	bullet_type = resource.TYPE
 	durability_bar.max_value = resource.DURABILITY
 	durability_bar.value = resource.DURABILITY
 	radius.shape.radius = resource.RANGE * 10
+	
+	starting_distance = resource.STARTING_DISTANCE
+	bullet_collision_radius = resource.COLLISION_RADIUS
+	bullet_animation = resource.BULLET_ANIMATION
+	bullet_particles = resource.BULLET_PARTICLES
+	bullet_particle_lifetime = resource.BULLET_PARTICLE_LIFETIME
+	bullet_particle_texture = resource.BULLET_PARTICLE_TEXTURE
+	bullet_type = resource.TYPE
 	fire_rate = resource.FIRE_RATE
 	shot_speed = resource.SHOT_SPEED
 	angular_velocity = resource.ANGULAR_VELOCITY

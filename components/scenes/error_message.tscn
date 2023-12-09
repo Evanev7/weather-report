@@ -24,8 +24,8 @@ tracks/1/path = NodePath("LabelContainer:modulate:a")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.7, 1.5),
-"transitions": PackedFloat32Array(0.450625, 1, 3, 1),
+"times": PackedFloat32Array(0, 0.2, 0.8, 1.5),
+"transitions": PackedFloat32Array(0.450625, 1, 0.494816, 1),
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0]
 }
@@ -78,7 +78,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0.639216, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 0.415686, 0.341176, 1)
+theme_override_colors/font_outline_color = Color(1, 0.882353, 0.862745, 1)
 theme_override_constants/shadow_outline_size = 6
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/normal_font_size = 40

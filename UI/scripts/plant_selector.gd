@@ -17,6 +17,7 @@ func _ready():
 	
 func show_error(error_msg):
 	var new_error = error_scene.instantiate()
+	error_location.add_child(new_error)
 	new_error.set_text_and_animate(error_msg, error_location.global_position)
 	
 func _on_level_1_update_hud_credits(credits):
