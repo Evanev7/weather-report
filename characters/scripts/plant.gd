@@ -45,6 +45,7 @@ func set_plant_as_resource(resource: PlantResource):
 	
 
 	sprite_frames = resource.ANIMATION
+	flip_h = resource.FLIP_H
 	icon = resource.ICON
 	durability_bar.max_value = resource.DURABILITY
 	durability_bar.value = resource.DURABILITY

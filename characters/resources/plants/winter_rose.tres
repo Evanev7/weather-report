@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="PlantResource" load_steps=6 format=3 uid="uid://0y0fcpqvn35u"]
+
+[ext_resource type="Texture2D" uid="uid://dewupjxm780rc" path="res://characters/assets/plants/winter_rose_SW.png" id="1_3q71b"]
+[ext_resource type="Script" path="res://characters/scripts/plant_resource.gd" id="1_8qybv"]
+[ext_resource type="SpriteFrames" uid="uid://cou6pcwipeaet" path="res://characters/assets/plants/winter_rose_spriteframes.tres" id="1_npwx3"]
+[ext_resource type="SpriteFrames" uid="uid://xjm0ru8vhva5" path="res://objects/assets/bullets/rose_thorn_spriteframes.tres" id="3_7u5wm"]
+[ext_resource type="Script" path="res://characters/resources/plants/winter_rose_script.gd" id="4_ntciy"]
+
+[resource]
+script = ExtResource("1_8qybv")
+NAME = "Winter Rose"
+ANIMATION = ExtResource("1_npwx3")
+ICON = ExtResource("1_3q71b")
+FLIP_H = true
+COST = 20
+DURABILITY = 100.0
+RANGE = 200.0
+FIRE_RATE = 30.0
+WEATHER_SCRIPT = ExtResource("4_ntciy")
+BULLET_ANIMATION = ExtResource("3_7u5wm")
+TYPE = 0
+COLLISION_RADIUS = 20.0
+BULLET_PARTICLE_LIFETIME = 1.0
+STARTING_DISTANCE = 0.0
+DAMAGE = 1.0
+SHOT_SPEED = 200.0
+ANGULAR_VELOCITY = 0.0
+SIZE = Vector2(1, 1)
+BULLET_LIFETIME = 1.0
+PIERCING_AMOUNT = 5
+PIERCING_COOLDOWN = 30.0

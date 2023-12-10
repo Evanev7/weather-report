@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://lryc8r5xugog"]
 
 [ext_resource type="Script" path="res://objects/scripts/bullet.gd" id="1_d6xvb"]
-[ext_resource type="SpriteFrames" uid="uid://cqsyygaeoxoj" path="res://objects/assets/bullets/leaves_spriteframes.tres" id="2_l1m8w"]
+[ext_resource type="SpriteFrames" uid="uid://xjm0ru8vhva5" path="res://objects/assets/bullets/rose_thorn_spriteframes.tres" id="2_gbm17"]
 [ext_resource type="Material" uid="uid://c6krn65d8vijh" path="res://objects/resources/bee_particles.tres" id="3_7wao3"]
 [ext_resource type="Texture2D" uid="uid://c3hbq4chsj22a" path="res://objects/assets/bullets/bees.png" id="4_7ujv7"]
 
@@ -20,9 +20,7 @@ shape = SubResource("CircleShape2D_83wxq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
-sprite_frames = ExtResource("2_l1m8w")
-animation = &"leaves"
-frame_progress = 0.91568
+sprite_frames = ExtResource("2_gbm17")
 
 [node name="Particles" type="GPUParticles2D" parent="."]
 emitting = false

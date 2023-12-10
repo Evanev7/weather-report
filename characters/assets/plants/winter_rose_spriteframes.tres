@@ -1,0 +1,23 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://cou6pcwipeaet"]
+
+[ext_resource type="Texture2D" uid="uid://dewupjxm780rc" path="res://characters/assets/plants/winter_rose_SW.png" id="1_kq8ca"]
+[ext_resource type="Texture2D" uid="uid://usii7mu3wpx3" path="res://characters/assets/plants/winter_rose_summer_SW.png" id="2_itmnu"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kq8ca")
+}],
+"loop": true,
+"name": &"cold_sw",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_itmnu")
+}],
+"loop": true,
+"name": &"warm_sw",
+"speed": 5.0
+}]

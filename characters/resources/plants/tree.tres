@@ -1,44 +1,18 @@
-[gd_resource type="Resource" script_class="PlantResource" load_steps=8 format=3 uid="uid://ckvmj6qai70fy"]
+[gd_resource type="Resource" script_class="PlantResource" load_steps=6 format=3 uid="uid://ckvmj6qai70fy"]
 
 [ext_resource type="Script" path="res://characters/scripts/plant_resource.gd" id="1_gd3py"]
-[ext_resource type="Texture2D" uid="uid://dllecr7ywwsty" path="res://characters/assets/plants/tree_autumn_SE.png" id="1_vy5l7"]
-[ext_resource type="Texture2D" uid="uid://dnhx4sr2x0o7i" path="res://characters/assets/plants/tree_warm_SE.png" id="2_k68lc"]
-[ext_resource type="Texture2D" uid="uid://ctrllke4rcuyn" path="res://characters/assets/plants/tree_winter_SE.png" id="3_j1vha"]
 [ext_resource type="SpriteFrames" uid="uid://cqsyygaeoxoj" path="res://objects/assets/bullets/leaves_spriteframes.tres" id="4_3e2e4"]
+[ext_resource type="SpriteFrames" uid="uid://cfa2gxoywb38n" path="res://characters/assets/plants/tree_spriteframes.tres" id="5_8hb7a"]
 [ext_resource type="Script" path="res://characters/resources/plants/tree_script.gd" id="5_n5p36"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_yk5hh"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_vy5l7")
-}],
-"loop": true,
-"name": &"tree_autumn_SE",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_k68lc")
-}],
-"loop": true,
-"name": &"tree_warm_SE",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_j1vha")
-}],
-"loop": true,
-"name": &"tree_winter_SE",
-"speed": 5.0
-}]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2cyxo"]
+load_path = "res://.godot/imported/tree_warm_SE.png-ff31c398c62931acb92b422ca43d806f.ctex"
 
 [resource]
 script = ExtResource("1_gd3py")
 NAME = "Tree"
-ANIMATION = SubResource("SpriteFrames_yk5hh")
-ICON = ExtResource("2_k68lc")
+ANIMATION = ExtResource("5_8hb7a")
+ICON = SubResource("CompressedTexture2D_2cyxo")
 FLIP_H = false
 COST = 10
 DURABILITY = 100.0
@@ -48,6 +22,7 @@ WEATHER_SCRIPT = ExtResource("5_n5p36")
 BULLET_ANIMATION = ExtResource("4_3e2e4")
 TYPE = 0
 COLLISION_RADIUS = 20.0
+BULLET_PARTICLE_LIFETIME = 1.0
 STARTING_DISTANCE = 0.0
 DAMAGE = 0.5
 SHOT_SPEED = 200.0

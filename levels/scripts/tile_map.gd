@@ -1,6 +1,5 @@
 extends TileMap
 
-@export var plant_handler: Node
 @export var selector_buttongroup: ButtonGroup = preload("res://UI/resources/plant_selector_group.tres")
 @export var plant_scene: PackedScene
 @export var plant_resource_list: Array[PlantResource]

@@ -4,7 +4,7 @@ var leaf: Texture2D = preload("res://objects/assets/particles/orange_leaf.png")
 var branch: Texture2D = preload("res://objects/assets/bullets/branch.png")
 
 func modify_summer(plant: Plant):
-	plant.play("tree_warm_SE")
+	plant.play("warm_SE")
 	plant.bullet_animation.set_frame("leaves", 0, branch)
 	plant.bullet_collision_radius = 35
 	plant.starting_distance = 50
@@ -18,7 +18,7 @@ func modify_summer(plant: Plant):
 	plant.piercing_cooldown = 100
 
 func modify_autumn(plant: Plant):
-	plant.play("tree_autumn_SE")
+	plant.play("autumn_SE")
 	plant.bullet_animation.set_frame("leaves", 0, leaf)
 	plant.starting_distance = 0
 	plant.bullet_collision_radius = 20
@@ -31,11 +31,11 @@ func modify_autumn(plant: Plant):
 	plant.piercing_cooldown = 0
 	
 func modify_winter(plant: Plant):
-	plant.play("tree_winter_SE")
+	plant.play("winter_SE")
 	plant.firing_enabled = false
 	
 func modify_spring(plant: Plant):
-	plant.play("tree_warm_SE")
+	plant.play("warm_SE")
 	plant.bullet_animation.set_frame("leaves", 0, branch)
 	plant.bullet_collision_radius = 35
 	plant.starting_distance = 50

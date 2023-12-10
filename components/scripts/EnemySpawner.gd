@@ -21,7 +21,6 @@ func _process(_delta):
 func reset(level_wave_data):
 	current_batch = 0
 	wave_data = level_wave_data
-	start_wave()
 
 func start_wave():
 	owner.update_wave_label_on_hud(current_batch)
@@ -43,7 +42,6 @@ func spawn_enemies(wave):
 		await get_tree().create_timer(clump.end_delay).timeout
 	await get_tree().create_timer(2.0).timeout
 	end_wave()
-	
 	
 	
 func end_wave():
