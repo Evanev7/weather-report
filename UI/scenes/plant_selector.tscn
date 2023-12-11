@@ -304,6 +304,8 @@ anchor_right = 1.0
 grow_horizontal = 0
 
 [node name="Sprite2D" parent="Anchor" instance=ExtResource("13_mdogf")]
+position = Vector2(-121, 40)
+rotation = 0.0
 
 [node name="ErrorSpawner" type="Marker2D" parent="."]
 position = Vector2(960, 960)

@@ -42,6 +42,7 @@ position = Vector2(0, -567)
 emitting = false
 
 [node name="TopBar" parent="World" instance=ExtResource("4_uudau")]
+visible = false
 
 [node name="PauseMenu" parent="World" instance=ExtResource("2_ao0h5")]
 unique_name_in_owner = true

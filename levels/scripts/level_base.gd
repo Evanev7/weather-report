@@ -27,6 +27,7 @@ func start():
 	get_tree().call_group("enemy", "remove")
 	get_tree().call_group("bullet", "remove")
 	
+	GameState.weather = starting_weather
 	send_plant_resource_list.emit(plant_resource_list)
 	$EnemySpawner.spawning_disabled = true
 	$EnemySpawner.reset(waves)
