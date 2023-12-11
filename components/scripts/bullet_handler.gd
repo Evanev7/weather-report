@@ -13,7 +13,13 @@ func _process(_delta):
 
 func fire_from(plant, direction):
 	var bullet = bullet_scene.instantiate()
+	
 	bullet.damage = plant.damage
+	bullet.poison_damage = plant.poison_damage
+	bullet.poison_duration = plant.poison_duration
+	bullet.slow_amount = plant.slow_amount
+	bullet.slow_duration = plant.slow_duration
+
 	bullet.direction = direction.normalized()
 	bullet.global_position = plant.position + bullet.direction * plant.starting_distance
 	bullet.collision.shape.radius = plant.bullet_collision_radius

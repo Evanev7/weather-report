@@ -27,8 +27,15 @@ enum BULLET_TYPE {Normal, AOE}
 @export var BULLET_PARTICLE_TEXTURE: Texture
 
 @export_category("Bullet Stats")
-@export var STARTING_DISTANCE: float = 0
+@export_group("Damage Types")
 @export var DAMAGE: float = 5
+@export var POISON_DAMAGE: float = 0
+@export var POISON_DURATION: float = 0
+@export var SLOW_AMOUNT: float = 0
+@export var SLOW_DURATION: float = 0
+
+@export_group("Other")
+@export var STARTING_DISTANCE: float = 0
 @export var SHOT_SPEED: float = 100
 @export var ANGULAR_VELOCITY: float = 0
 @export var SIZE: Vector2 = Vector2(1, 1)

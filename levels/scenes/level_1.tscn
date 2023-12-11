@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bsvo1l53lwhuu"]
+[gd_scene load_steps=22 format=3 uid="uid://bsvo1l53lwhuu"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_1.gd" id="1_6b08r"]
 [ext_resource type="Resource" uid="uid://bjed70l5ndw4a" path="res://characters/resources/waves/level_1_waves/wave_1.tres" id="2_lksn5"]
@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://bh38xjlsp4d3u" path="res://objects/scenes/greenhouse.tscn" id="9_ptxtb"]
 [ext_resource type="Resource" uid="uid://ckvmj6qai70fy" path="res://characters/resources/plants/tree.tres" id="10_43x0v"]
 [ext_resource type="Resource" uid="uid://0y0fcpqvn35u" path="res://characters/resources/plants/winter_rose.tres" id="11_yhddu"]
+[ext_resource type="Resource" uid="uid://ddvq654420x1b" path="res://characters/resources/plants/mushroom.tres" id="12_hwyqg"]
+[ext_resource type="Resource" uid="uid://dqfvvrdm40p5e" path="res://characters/resources/plants/flytrap.tres" id="13_6pvds"]
+[ext_resource type="Resource" uid="uid://bso3djdfaftsd" path="res://characters/resources/plants/vines.tres" id="14_0tdqd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_087hg"]
 shader = ExtResource("4_ff3wl")
@@ -46,7 +49,7 @@ layer_1/navigation_enabled = false
 layer_1/tile_data = PackedInt32Array()
 script = ExtResource("2_t7qm4")
 plant_scene = ExtResource("7_j2yqn")
-plant_resource_list = Array[Resource("res://characters/scripts/plant_resource.gd")]([ExtResource("8_ycy8m"), ExtResource("8_2jwpq"), ExtResource("10_43x0v"), ExtResource("11_yhddu")])
+plant_resource_list = Array[Resource("res://characters/scripts/plant_resource.gd")]([ExtResource("8_ycy8m"), ExtResource("8_2jwpq"), ExtResource("10_43x0v"), ExtResource("11_yhddu"), ExtResource("12_hwyqg"), ExtResource("13_6pvds"), ExtResource("14_0tdqd")])
 
 [node name="EnemySpawner" type="Path2D" parent="."]
 position = Vector2(-716, -520)

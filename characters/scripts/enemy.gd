@@ -11,14 +11,23 @@ signal add_water_credits(value: int)
 @export var bounce_anim: AnimationPlayer
 @export var hurt_anim: AnimationPlayer
 @export var dead_anim: AnimationPlayer
+@export var poison_timer: Timer
+@export var slow_timer: Timer
 
 @onready var path = get_parent()
 
 var health: float
+var default_speed: float
 var speed: float
-var damage: float
 var value: float
 var move_direction = 0
+
+var damage: float
+var poisoned: bool = false
+var poison_damage: float = 0
+var poison_time: float = 0
+
+var poison_tween: Tween
 
 var dead: bool = false
 
@@ -30,7 +39,8 @@ func set_enemy_as_resource(resource: EnemyResource):
 	health = resource.MAX_HP
 	hp_bar.max_value = health
 	hp_bar.value = health
-	speed = resource.SPEED
+	default_speed = resource.SPEED
+	speed = default_speed
 	damage = resource.DAMAGE
 	value = resource.VALUE
 	sprite.sprite_frames = resource.ANIMATION
@@ -42,6 +52,12 @@ func _physics_process(delta):
 	move(delta)
 	var pos = global_position
 	move_direction = (pos.angle_to_point(prepos) / PI) * 180
+	
+	if poisoned == true:
+		poison_time += delta
+		if poison_time > 0.5:
+			poison(poison_damage)
+			poison_time -= 0.5
 	
 func _process(_delta):
 	animate()
@@ -70,14 +86,33 @@ func move(delta):
 		remove()
 		
 		
-func hurt(damage_taken):
+func hurt(damage_taken, _poison_damage: float = 0, poison_duration: float = 0, slow_amount: float = 0, slow_duration: float = 0):
 	if not dead:
 		health -= damage_taken
 		update_health()
 		hurt_anim.stop()
 		hurt_anim.play("hurt")
-	
 		
+		if _poison_damage:
+			poison_damage = _poison_damage
+			poisoned = true
+			poison_timer.start(poison_duration)
+		
+		if slow_amount:
+			speed = default_speed/slow_amount
+			slow_timer.start(slow_duration)
+	
+func poison(damage_taken):
+	hurt(damage_taken)
+	poison_tween = create_tween()
+	poison_tween.tween_property(sprite, "modulate", Color(1, 1, 1), 0.3).from(Color(0, 1, 0))
+	
+func _on_poison_timer_timeout():
+	poisoned = false
+	
+func _on_slow_timer_timeout():
+	speed = default_speed
+	
 func update_health():
 	hp_bar.value = health
 	if health <= 0 and not dead:
@@ -94,3 +129,9 @@ func remove():
 	remove_from_group("enemy")
 	removed.emit()
 	queue_free()
+
+
+
+
+
+

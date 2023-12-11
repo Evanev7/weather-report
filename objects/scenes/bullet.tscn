@@ -1,12 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://lryc8r5xugog"]
+[gd_scene load_steps=9 format=3 uid="uid://lryc8r5xugog"]
 
 [ext_resource type="Script" path="res://objects/scripts/bullet.gd" id="1_d6xvb"]
 [ext_resource type="SpriteFrames" uid="uid://xjm0ru8vhva5" path="res://objects/assets/bullets/rose_thorn_spriteframes.tres" id="2_gbm17"]
 [ext_resource type="Material" uid="uid://c6krn65d8vijh" path="res://objects/resources/bee_particles.tres" id="3_7wao3"]
-[ext_resource type="Texture2D" uid="uid://c3hbq4chsj22a" path="res://objects/assets/bullets/bees.png" id="4_7ujv7"]
+[ext_resource type="Texture2D" uid="uid://jf04s1bjd8lx" path="res://objects/assets/bullets/pollen 1.png" id="4_aj7of"]
+[ext_resource type="Texture2D" uid="uid://djn8qjox4u26f" path="res://objects/assets/bullets/pollen 2.png" id="5_xyi3f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_83wxq"]
 radius = 35.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8bm7c"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_vq36u"]
+frames = 2
+frame_0/texture = ExtResource("4_aj7of")
+frame_1/texture = ExtResource("5_xyi3f")
+frame_1/duration = 1.0
 
 [node name="Bullet" type="Area2D" node_paths=PackedStringArray("sprite", "collision", "particles")]
 z_index = 1
@@ -24,8 +37,10 @@ scale = Vector2(0.1, 0.1)
 sprite_frames = ExtResource("2_gbm17")
 
 [node name="Particles" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_8bm7c")
 emitting = false
 amount = 10
 process_material = ExtResource("3_7wao3")
-texture = ExtResource("4_7ujv7")
+texture = SubResource("AnimatedTexture_vq36u")
+lifetime = 3.0
 one_shot = true

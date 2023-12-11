@@ -6,7 +6,13 @@ class_name Bullet
 @export var particles: GPUParticles2D
 
 var type: PlantResource.BULLET_TYPE
+
 var damage: float
+var poison_damage: float = 0
+var poison_duration: float = 0
+var slow_amount: float = 0
+var slow_duration: float = 0
+
 var direction: Vector2 = Vector2(0, 0)
 var speed: float
 var angular_velocity: float
@@ -56,7 +62,7 @@ func check_for_hit(target):
 
 
 func hit(target):
-	target.hurt(damage)
+	target.hurt(damage, poison_damage, poison_duration, slow_amount, slow_duration)
 	match type:
 		PlantResource.BULLET_TYPE.Normal:
 			piercing_amount -= 1

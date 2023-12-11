@@ -1,7 +1,7 @@
 @tool
 extends TextureButton
 
-enum SELECTION {plant, potato, garbage_hole}
+enum SELECTION {sunflower, daisies, tree, rose, mushroom, flytrap, vines}
 @export var selection: SELECTION
 @export var thumbnail: Texture2D
 

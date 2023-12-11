@@ -22,6 +22,10 @@ var wilting_rate: float = 1
 var shot_speed: float
 var angular_velocity: float
 var damage: float
+var poison_damage: float
+var poison_duration: float
+var slow_amount: float
+var slow_duration: float
 var bullet_animation: SpriteFrames
 var bullet_type: PlantResource.BULLET_TYPE
 var shot_size: Vector2
@@ -62,6 +66,10 @@ func set_plant_as_resource(resource: PlantResource):
 	shot_speed = resource.SHOT_SPEED
 	angular_velocity = resource.ANGULAR_VELOCITY
 	damage = resource.DAMAGE
+	poison_damage = resource.POISON_DAMAGE
+	poison_duration = resource.POISON_DURATION
+	slow_amount = resource.SLOW_AMOUNT
+	slow_duration = resource.SLOW_DURATION
 	shot_size = resource.SIZE
 	lifetime = resource.BULLET_LIFETIME
 	piercing_amount = resource.PIERCING_AMOUNT

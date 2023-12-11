@@ -1,0 +1,27 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://dfrv5rrn0lhrb"]
+
+[ext_resource type="Texture2D" uid="uid://mfdylkwbof2" path="res://characters/assets/plants/mushroom_SE.png" id="1_y3kwt"]
+[ext_resource type="Texture2D" uid="uid://r4s4q3i3ifia" path="res://characters/assets/plants/mushroom_shooting_SE_1.png" id="2_obky3"]
+[ext_resource type="Texture2D" uid="uid://dy5lfvn6fh1d2" path="res://characters/assets/plants/mushroom_shooting_SE_2.png" id="3_xgpwg"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y3kwt")
+}],
+"loop": true,
+"name": &"se",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_obky3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xgpwg")
+}],
+"loop": true,
+"name": &"shooting_se",
+"speed": 5.0
+}]

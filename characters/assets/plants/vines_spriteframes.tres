@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://dodpry2fi0ctf"]
+
+[ext_resource type="Texture2D" uid="uid://d2d7gknf25w6k" path="res://characters/assets/plants/vines_SE.png" id="1_fgdjb"]
+[ext_resource type="Texture2D" uid="uid://de2g00qnu3b42" path="res://characters/assets/plants/vines_shooting_SE.png" id="2_q7koa"]
+[ext_resource type="Texture2D" uid="uid://d88ovkf5us8r" path="res://characters/assets/plants/vines_winter_SE.png" id="3_kwjjw"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fgdjb")
+}],
+"loop": true,
+"name": &"se",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_q7koa")
+}],
+"loop": true,
+"name": &"shooting_se",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_kwjjw")
+}],
+"loop": true,
+"name": &"winter_se",
+"speed": 5.0
+}]

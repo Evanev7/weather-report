@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://crva7xrk1jbo4"]
 
-[ext_resource type="SpriteFrames" uid="uid://cu3qy4cbnjby1" path="res://characters/assets/plants/sunflower_spriteframes.tres" id="1_gn6eh"]
+[ext_resource type="SpriteFrames" uid="uid://dfrv5rrn0lhrb" path="res://characters/assets/plants/mushroom_spriteframes.tres" id="1_b7uoe"]
 [ext_resource type="Script" path="res://characters/scripts/plant.gd" id="2_nfrcv"]
 
 [sub_resource type="Animation" id="Animation_n2q3f"]
@@ -83,9 +83,9 @@ resource_local_to_scene = true
 radius = 2000.22
 
 [node name="Plant" type="AnimatedSprite2D" node_paths=PackedStringArray("durability_bar", "animation_player", "radius")]
-position = Vector2(5, 5)
+position = Vector2(1.66893e-06, 2.38419e-07)
 scale = Vector2(0.1, 0.1)
-sprite_frames = ExtResource("1_gn6eh")
+sprite_frames = ExtResource("1_b7uoe")
 animation = &"se"
 script = ExtResource("2_nfrcv")
 durability_bar = NodePath("Durability")

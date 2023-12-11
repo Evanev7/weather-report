@@ -1,11 +1,17 @@
-[gd_resource type="Resource" script_class="PlantResource" load_steps=7 format=3 uid="uid://pym6jr7pfd0i"]
+[gd_resource type="Resource" script_class="PlantResource" load_steps=8 format=3 uid="uid://pym6jr7pfd0i"]
 
 [ext_resource type="Script" path="res://characters/scripts/plant_resource.gd" id="1_8bk2i"]
 [ext_resource type="SpriteFrames" uid="uid://duly7wpbv6dvi" path="res://characters/assets/plants/daisies_spriteframes.tres" id="1_gqmx3"]
 [ext_resource type="Script" path="res://characters/resources/plants/daisies_script.gd" id="3_hkm2b"]
 [ext_resource type="Texture2D" uid="uid://cf232tqissni5" path="res://characters/assets/plants/daisies_SE.png" id="3_l1sbw"]
+[ext_resource type="Texture2D" uid="uid://jf04s1bjd8lx" path="res://objects/assets/bullets/pollen 1.png" id="3_t6dk2"]
 [ext_resource type="Material" uid="uid://c6krn65d8vijh" path="res://objects/resources/bee_particles.tres" id="3_tlhhy"]
-[ext_resource type="Texture2D" uid="uid://c3hbq4chsj22a" path="res://objects/assets/bullets/bees.png" id="4_lqc3v"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_hmr0u"]
+frames = 2
+frame_0/texture = ExtResource("3_t6dk2")
+frame_1/texture = ExtResource("3_t6dk2")
+frame_1/duration = 1.0
 
 [resource]
 script = ExtResource("1_8bk2i")
@@ -22,9 +28,13 @@ TYPE = 1
 COLLISION_RADIUS = 50.0
 BULLET_PARTICLES = ExtResource("3_tlhhy")
 BULLET_PARTICLE_LIFETIME = 2.8
-BULLET_PARTICLE_TEXTURE = ExtResource("4_lqc3v")
-STARTING_DISTANCE = 80.0
+BULLET_PARTICLE_TEXTURE = SubResource("AnimatedTexture_hmr0u")
 DAMAGE = 0.3
+POISON_DAMAGE = 0.0
+POISON_DURATION = 0.0
+SLOW_AMOUNT = 0.0
+SLOW_DURATION = 0.0
+STARTING_DISTANCE = 80.0
 SHOT_SPEED = 0.0
 ANGULAR_VELOCITY = 0.0
 SIZE = Vector2(1.5, 1.5)

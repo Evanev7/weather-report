@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="PlantResource" load_steps=6 format=3 uid="uid://bso3djdfaftsd"]
+
+[ext_resource type="SpriteFrames" uid="uid://dodpry2fi0ctf" path="res://characters/assets/plants/vines_spriteframes.tres" id="1_nerla"]
+[ext_resource type="Script" path="res://characters/scripts/plant_resource.gd" id="1_w33hy"]
+[ext_resource type="Texture2D" uid="uid://d2d7gknf25w6k" path="res://characters/assets/plants/vines_SE.png" id="2_jdk1q"]
+[ext_resource type="SpriteFrames" uid="uid://crpxit1g221g4" path="res://objects/assets/bullets/vines_spriteframes.tres" id="2_p1w3u"]
+[ext_resource type="Script" path="res://characters/resources/plants/vines_script.gd" id="4_2tqqf"]
+
+[resource]
+script = ExtResource("1_w33hy")
+NAME = "Vines"
+ANIMATION = ExtResource("1_nerla")
+ICON = ExtResource("2_jdk1q")
+FLIP_H = false
+COST = 10
+DURABILITY = 100.0
+RANGE = 100.0
+FIRE_RATE = 3.0
+WEATHER_SCRIPT = ExtResource("4_2tqqf")
+BULLET_ANIMATION = ExtResource("2_p1w3u")
+TYPE = 1
+COLLISION_RADIUS = 50.0
+BULLET_PARTICLE_LIFETIME = 1.0
+DAMAGE = 0.1
+POISON_DAMAGE = 0.0
+POISON_DURATION = 0.0
+SLOW_AMOUNT = 2.0
+SLOW_DURATION = 3.0
+STARTING_DISTANCE = 70.0
+SHOT_SPEED = 0.0
+ANGULAR_VELOCITY = 0.0
+SIZE = Vector2(1, 1)
+BULLET_LIFETIME = 4.0
+PIERCING_AMOUNT = 1
+PIERCING_COOLDOWN = 30.0

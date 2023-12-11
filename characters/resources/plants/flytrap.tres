@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="PlantResource" load_steps=5 format=3 uid="uid://dqfvvrdm40p5e"]
+
+[ext_resource type="Script" path="res://characters/scripts/plant_resource.gd" id="1_efxw0"]
+[ext_resource type="SpriteFrames" uid="uid://cmwd753714otd" path="res://characters/assets/plants/flytrap_spriteframes.tres" id="1_o63k3"]
+[ext_resource type="Texture2D" uid="uid://dkc7kpiaijxqx" path="res://characters/assets/plants/flytrap_winter_SE.png" id="2_k4ett"]
+[ext_resource type="Script" path="res://characters/resources/plants/flytrap_script.gd" id="3_tn3hp"]
+
+[resource]
+script = ExtResource("1_efxw0")
+NAME = "Flytrap"
+ANIMATION = ExtResource("1_o63k3")
+ICON = ExtResource("2_k4ett")
+FLIP_H = false
+COST = 10
+DURABILITY = 100.0
+RANGE = 70.0
+FIRE_RATE = 4.0
+WEATHER_SCRIPT = ExtResource("3_tn3hp")
+TYPE = 0
+COLLISION_RADIUS = 10.0
+BULLET_PARTICLE_LIFETIME = 1.0
+DAMAGE = 30.0
+POISON_DAMAGE = 0.0
+POISON_DURATION = 0.0
+SLOW_AMOUNT = 0.0
+SLOW_DURATION = 0.0
+STARTING_DISTANCE = 70.0
+SHOT_SPEED = 0.0
+ANGULAR_VELOCITY = 0.0
+SIZE = Vector2(1, 1)
+BULLET_LIFETIME = 2.0
+PIERCING_AMOUNT = 1
+PIERCING_COOLDOWN = 0.0
