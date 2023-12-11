@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://UI/scripts/plant_selector.gd" id="1_jjaxe"]
 [ext_resource type="PackedScene" uid="uid://dn4p6k1ntjewn" path="res://components/scenes/error_message.tscn" id="2_586kn"]
-[ext_resource type="Texture2D" uid="uid://cj4ptcbl42jbl" path="res://UI/assets/temp/pro grammar art x4.png" id="2_w68y1"]
+[ext_resource type="Texture2D" uid="uid://b3fhgrn2kl8q2" path="res://UI/assets/ui_box_half.png" id="3_j7n8a"]
 [ext_resource type="PackedScene" uid="uid://cnyexo8p0o1f1" path="res://UI/scenes/selectable.tscn" id="3_pctsd"]
 [ext_resource type="Texture2D" uid="uid://5juxf7t345s2" path="res://levels/assets/S4_grass.png" id="7_tisxl"]
 [ext_resource type="Texture2D" uid="uid://c1t7mgit0x1mw" path="res://levels/assets/left_grass.png" id="7_u3mih"]
@@ -11,14 +11,18 @@
 [ext_resource type="Texture2D" uid="uid://ccdxbd5inbili" path="res://UI/assets/temp/pause_menu_background.png" id="10_hxi27"]
 [ext_resource type="PackedScene" uid="uid://banxbdg3vds6r" path="res://UI/scenes/season_wheel.tscn" id="13_mdogf"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k62ln"]
-texture = ExtResource("2_w68y1")
-texture_margin_left = 64.0
-texture_margin_top = 64.0
-texture_margin_bottom = 64.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_165ra"]
+content_margin_left = 30.0
+content_margin_top = 30.0
+content_margin_right = 30.0
+content_margin_bottom = 30.0
+texture = ExtResource("3_j7n8a")
+texture_margin_left = 116.0
+texture_margin_top = 119.0
+texture_margin_bottom = 124.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 192, 256)
+region_rect = Rect2(0, 0, 164, 483)
 
 [sub_resource type="InputEventAction" id="InputEventAction_3jut8"]
 action = &"plant_2"
@@ -62,14 +66,18 @@ action = &"plant_8"
 [sub_resource type="Shortcut" id="Shortcut_m5jld"]
 events = [SubResource("InputEventAction_nytgi")]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v3eml"]
-texture = ExtResource("2_w68y1")
-texture_margin_left = 64.0
-texture_margin_right = 64.0
-texture_margin_bottom = 64.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g0a44"]
+content_margin_left = 30.0
+content_margin_top = 30.0
+content_margin_right = 30.0
+content_margin_bottom = 30.0
+texture = ExtResource("3_j7n8a")
+texture_margin_left = 116.0
+texture_margin_right = 127.0
+texture_margin_bottom = 124.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
-region_rect = Rect2(0, 64, 256, 192)
+region_rect = Rect2(0, 311, 483, 172)
 
 [sub_resource type="InputEventAction" id="InputEventAction_2t7bu"]
 action = &"shovel"
@@ -103,8 +111,9 @@ grow_vertical = 2
 pivot_offset = Vector2(-549, 193)
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+self_modulate = Color(1, 1, 1, 0.764706)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_k62ln")
+theme_override_styles/panel = SubResource("StyleBoxTexture_165ra")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
 layout_mode = 2
@@ -114,7 +123,7 @@ layout_mode = 2
 alignment = 2
 
 [node name="Container" type="Control" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 300)
+custom_minimum_size = Vector2(0, 375)
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
@@ -171,8 +180,9 @@ grow_horizontal = 0
 pivot_offset = Vector2(-549, 193)
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer2"]
+self_modulate = Color(1, 1, 1, 0.764706)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_v3eml")
+theme_override_styles/panel = SubResource("StyleBoxTexture_g0a44")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/PanelContainer"]
 layout_mode = 2
@@ -306,6 +316,7 @@ grow_horizontal = 0
 [node name="Sprite2D" parent="Anchor" instance=ExtResource("13_mdogf")]
 position = Vector2(-121, 40)
 rotation = 0.0
+rotation_offset = 3.927
 
 [node name="ErrorSpawner" type="Marker2D" parent="."]
 position = Vector2(960, 960)
