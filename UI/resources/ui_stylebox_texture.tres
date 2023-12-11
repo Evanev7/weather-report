@@ -1,13 +1,17 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://tll1gc4qn0rd"]
 
-[ext_resource type="Texture2D" uid="uid://cj4ptcbl42jbl" path="res://UI/assets/temp/pro grammar art x4.png" id="1_kmoi2"]
+[ext_resource type="Texture2D" uid="uid://b3fhgrn2kl8q2" path="res://UI/assets/ui_box_half.png" id="1_icxgn"]
 
 [resource]
-texture = ExtResource("1_kmoi2")
-texture_margin_left = 64.0
-texture_margin_top = 64.0
-texture_margin_right = 64.0
-texture_margin_bottom = 64.0
+content_margin_left = 50.0
+content_margin_top = 50.0
+content_margin_right = 50.0
+content_margin_bottom = 50.0
+texture = ExtResource("1_icxgn")
+texture_margin_left = 116.0
+texture_margin_top = 119.0
+texture_margin_right = 127.0
+texture_margin_bottom = 124.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 256, 256)
+region_rect = Rect2(0, 0, 483, 483)
