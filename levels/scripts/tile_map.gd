@@ -5,10 +5,12 @@ extends TileMap
 @export var plant_resource_list: Array[PlantResource]
 #var plant_resource_list: Array[PlantResource]
 
-var flower := Vector2i(0, 2)
-var grass_1 := Vector2i(0, 3)
-var grass_2 := Vector2i(0, 4)
-var decorations = [flower, grass_1, grass_2]
+var flower1 := Vector2i(0, 2)
+var flower2 := Vector2i(0, 3)
+var flower3 := Vector2i(0, 4)
+var grass_1 := Vector2i(0, 5)
+var grass_2 := Vector2i(0, 6)
+var decorations = [flower1, grass_1, grass_2, flower2, flower3]
 var decoratable_cells = []
 
 var plant_nodes: Dictionary = {}
@@ -38,11 +40,12 @@ func update_weather_decorations(weather):
 		GameState.WEATHER.Summer:
 			randomise_decorations()
 		GameState.WEATHER.Autumn:
-			randomise_decorations(0.1)
+			clear_decorations()
+			randomise_decorations(0.4)
 		GameState.WEATHER.Winter:
 			clear_decorations()
 		GameState.WEATHER.Spring:
-			randomise_decorations(0.1)
+			randomise_decorations(0.7)
 
 func get_decoratable_cells():
 	var all_bottom_cells = get_used_cells(0)
@@ -51,12 +54,14 @@ func get_decoratable_cells():
 			decoratable_cells.append(all_bottom_cells[i])
 
 func randomise_decorations(percentage_covered: float = 1):
-	for i in (decoratable_cells.size() * percentage_covered):
-		set_cell(1, decoratable_cells[i], 0, decorations[randi() % decorations.size()])
-
+	for i in (decoratable_cells.size()):
+		if randf() < percentage_covered:
+			var decoration_index = randi() % (decorations.size() if GameState.weather == GameState.WEATHER.Spring else 3)
+			set_cell(1, decoratable_cells[i], 0, decorations[decoration_index])
+				
 func clear_decorations():
 	for cell in decoratable_cells:
-		set_cell(1, cell, -1, decorations[randi() % decorations.size()])
+		set_cell(1, cell, -1, decorations[randi() % decorations.size() - 2])
 
 func _unhandled_input(event):
 	if event.is_action_pressed("left_click"):

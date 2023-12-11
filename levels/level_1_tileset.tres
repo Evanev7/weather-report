@@ -1,6 +1,31 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://c8jgsqve4dnfx"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://c8jgsqve4dnfx"]
 
 [ext_resource type="Texture2D" uid="uid://4yihorsy6sqn" path="res://levels/assets/tilemaps/tilemap_grass_2.png" id="1_gh5xb"]
+[ext_resource type="Texture2D" uid="uid://cdpa3yd6btnyi" path="res://levels/assets/tilemaps/tilemap_grass_3.png" id="1_ukukm"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kkedh"]
+texture = ExtResource("1_ukukm")
+margins = Vector2i(9, 6)
+separation = Vector2i(0, 13)
+texture_region_size = Vector2i(1260, 631)
+0:0/0 = 0
+0:0/0/custom_data_1 = true
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+0:4/0 = 0
+0:5/0 = 0
+0:6/0 = 0
+0:7/0 = 0
+0:8/0 = 0
+0:9/0 = 0
+0:10/0 = 0
+0:11/0 = 0
+0:12/0 = 0
+0:13/0 = 0
+0:14/0 = 0
+0:14/0/custom_data_2 = true
+0:15/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u7pb8"]
 texture = ExtResource("1_gh5xb")
@@ -38,4 +63,5 @@ custom_data_layer_1/name = "canPlaceDecor"
 custom_data_layer_1/type = 1
 custom_data_layer_2/name = "canPlacePlants"
 custom_data_layer_2/type = 1
-sources/0 = SubResource("TileSetAtlasSource_u7pb8")
+sources/2 = SubResource("TileSetAtlasSource_u7pb8")
+sources/0 = SubResource("TileSetAtlasSource_kkedh")

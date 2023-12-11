@@ -2,15 +2,15 @@
 
 importer="texture_atlas"
 type="Texture2D"
-uid="uid://ctubrwt4lkdg2"
-path="res://.godot/imported/flower_deco_1_grass.png-0d39d04459fc76547a9d3e7d57ee7202.res"
+uid="uid://dlvymm1hxw016"
+path="res://.godot/imported/soil_grass.png-640e8939f4863b8f6c6c1d19bc6d5c5c.res"
 group_file="res://levels/assets/tilemaps/tilemap_grass_3.png"
 valid=true
 [deps]
 
 
-source_file="res://levels/assets/flower_deco_1_grass.png"
-dest_files=["res://.godot/imported/flower_deco_1_grass.png-0d39d04459fc76547a9d3e7d57ee7202.res"]
+source_file="res://levels/assets/soil_grass.png"
+dest_files=["res://.godot/imported/soil_grass.png-640e8939f4863b8f6c6c1d19bc6d5c5c.res"]
 
 [params]
 

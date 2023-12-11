@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://b2euuv7n3vu4j"]
 
-[ext_resource type="StyleBox" uid="uid://tll1gc4qn0rd" path="res://UI/resources/ui_stylebox_texture.tres" id="1_bw0ho"]
+[ext_resource type="StyleBox" uid="uid://diqqusgcws1uy" path="res://UI/resources/ui_stylebox_texture.tres" id="1_bw0ho"]
 [ext_resource type="Script" path="res://UI/scripts/main_menu.gd" id="1_oem0o"]
 [ext_resource type="Texture2D" uid="uid://ccdxbd5inbili" path="res://UI/assets/temp/pause_menu_background.png" id="2_bw7fn"]
-[ext_resource type="PackedScene" uid="uid://cqo7w1trsg30l" path="res://UI/scenes/label.tscn" id="3_5bi1t"]
+[ext_resource type="PackedScene" path="res://UI/scenes/label.tscn" id="3_5bi1t"]
 [ext_resource type="Texture2D" uid="uid://cda5x36kr5tgy" path="res://UI/assets/temp/pause_menu_top_button.png" id="4_prh7n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_manth"]
