@@ -8,6 +8,7 @@ radius = 50.0
 
 [sub_resource type="Animation" id="Animation_r8jj2"]
 resource_name = "RESET"
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -81,6 +82,7 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_nnfim"]
 resource_name = "hurt"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -113,6 +115,7 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_3yemo"]
 resource_name = "dead"
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -178,6 +181,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_13ya0"]
 resource_name = "spawn"
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -226,7 +230,6 @@ monitoring = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
 y_sort_enabled = true
-position = Vector2(-2.74181e-06, 3.45707e-06)
 scale = Vector2(0.05, 0.05)
 sprite_frames = ExtResource("2_7lc52")
 animation = &"sw"

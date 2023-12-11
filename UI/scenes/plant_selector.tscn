@@ -1,17 +1,14 @@
-[gd_scene load_steps=34 format=3 uid="uid://b6x3510ma53a"]
+[gd_scene load_steps=31 format=3 uid="uid://b6x3510ma53a"]
 
 [ext_resource type="Script" path="res://UI/scripts/plant_selector.gd" id="1_jjaxe"]
 [ext_resource type="PackedScene" uid="uid://dn4p6k1ntjewn" path="res://components/scenes/error_message.tscn" id="2_586kn"]
 [ext_resource type="Texture2D" uid="uid://cj4ptcbl42jbl" path="res://UI/assets/temp/pro grammar art x4.png" id="2_w68y1"]
 [ext_resource type="PackedScene" uid="uid://cnyexo8p0o1f1" path="res://UI/scenes/selectable.tscn" id="3_pctsd"]
-[ext_resource type="Texture2D" uid="uid://dleo0bxbxb3sw" path="res://characters/assets/enemies/rat_back_1.png" id="6_tnoxp"]
-[ext_resource type="Texture2D" uid="uid://dwu4snytiw58l" path="res://characters/assets/enemies/rat_nw_1.png" id="7_m5alr"]
 [ext_resource type="Texture2D" uid="uid://5juxf7t345s2" path="res://levels/assets/S4_grass.png" id="7_tisxl"]
 [ext_resource type="Texture2D" uid="uid://c1t7mgit0x1mw" path="res://levels/assets/left_grass.png" id="7_u3mih"]
 [ext_resource type="Texture2D" uid="uid://cda5x36kr5tgy" path="res://UI/assets/temp/pause_menu_top_button.png" id="9_73php"]
 [ext_resource type="Texture2D" uid="uid://cdt1wfeg2mswb" path="res://UI/assets/temp/pause_menu_middle_button.png" id="10_g1753"]
 [ext_resource type="Texture2D" uid="uid://ccdxbd5inbili" path="res://UI/assets/temp/pause_menu_background.png" id="10_hxi27"]
-[ext_resource type="Texture2D" uid="uid://bcw34gpi3lovy" path="res://levels/assets/bottom_grass.png" id="12_p358b"]
 [ext_resource type="PackedScene" uid="uid://banxbdg3vds6r" path="res://UI/scenes/season_wheel.tscn" id="13_mdogf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k62ln"]
@@ -132,19 +129,16 @@ columns = 2
 
 [node name="PlantSlot1" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
-thumbnail = ExtResource("12_p358b")
 
 [node name="PlantSlot2" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_adsfv")
 selection = 1
-thumbnail = ExtResource("6_tnoxp")
 
 [node name="PlantSlot3" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_ecky8")
 selection = 2
-thumbnail = ExtResource("7_m5alr")
 
 [node name="PlantSlot4" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
@@ -255,7 +249,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -690.0
 offset_top = 18.0
-offset_right = -431.0
+offset_right = -387.0
 offset_bottom = 101.0
 grow_horizontal = 2
 
@@ -268,7 +262,8 @@ theme_override_constants/shadow_outline_size = 4
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/normal_font_size = 49
 bbcode_enabled = true
-text = "[center][wave]Wave 1[/wave][/center]"
+text = "[center][wave]Start Wave![/wave][/center]"
+fit_content = true
 
 [node name="MarginContainer4" type="MarginContainer" parent="."]
 offset_left = 9.0

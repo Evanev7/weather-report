@@ -31,5 +31,6 @@ func fire_from(plant, direction):
 	bullet.piercing_cooldown = plant.piercing_cooldown
 	bullet.max_lifetime = plant.lifetime
 	bullet.scale = plant.shot_size
+	bullet.add_to_group("bullet")
 	add_child(bullet)
 	

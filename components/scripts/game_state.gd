@@ -27,8 +27,6 @@ func _ready():
 	weather_changed.connect(_on_weather_changed)
 	paused.connect(_on_paused)
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	## TEMPORARY
-	level1 = get_parent().get_node("main/World/Level1")
 
 func _on_paused(state):
 	pause_state = state

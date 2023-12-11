@@ -1,0 +1,256 @@
+[gd_scene load_steps=8 format=3 uid="uid://drs23karvcl7n"]
+
+[ext_resource type="Script" path="res://UI/scripts/level_select.gd" id="1_f4112"]
+[ext_resource type="StyleBox" path="res://UI/resources/ui_stylebox_texture.tres" id="2_ej6qy"]
+[ext_resource type="Texture2D" uid="uid://ccdxbd5inbili" path="res://UI/assets/temp/pause_menu_background.png" id="3_pkmbv"]
+[ext_resource type="PackedScene" path="res://UI/scenes/label.tscn" id="4_hqa2r"]
+[ext_resource type="Texture2D" uid="uid://c2h8pa4o5yr6i" path="res://UI/assets/temp/selected!.png" id="5_2a84y"]
+[ext_resource type="Texture2D" uid="uid://cda5x36kr5tgy" path="res://UI/assets/temp/pause_menu_top_button.png" id="6_m7ipd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0bv1f"]
+font_size = 60
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="LevelSelect" type="CanvasLayer"]
+script = ExtResource("1_f4112")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(15.385, 6.509, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_ej6qy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(900, 190)
+layout_mode = 2
+texture = ExtResource("3_pkmbv")
+expand_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/PanelContainer/VBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label1" parent="CenterContainer/PanelContainer/VBoxContainer/TextureRect/CenterContainer" instance=ExtResource("4_hqa2r")]
+layout_mode = 2
+text = "Level Select"
+label_settings = SubResource("LabelSettings_0bv1f")
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/PanelContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+columns = 4
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/PanelContainer/VBoxContainer/CenterContainer/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_2a84y")
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/CenterContainer/GridContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -11.5
+offset_right = 27.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 21
+text = "Level 1"
+
+[node name="TextureButton2" type="TextureButton" parent="CenterContainer/PanelContainer/VBoxContainer/CenterContainer/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_2a84y")
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/CenterContainer/GridContainer/TextureButton2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -11.5
+offset_right = 27.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 21
+text = "Level 2"
+
+[node name="TextureButton3" type="TextureButton" parent="CenterContainer/PanelContainer/VBoxContainer/CenterContainer/GridContainer"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("5_2a84y")
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/CenterContainer/GridContainer/TextureButton3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -11.5
+offset_right = 27.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 21
+text = "Level 3"
+
+[node name="TextureButton4" type="TextureButton" parent="CenterContainer/PanelContainer/VBoxContainer/CenterContainer/GridContainer"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("5_2a84y")
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/CenterContainer/GridContainer/TextureButton4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -11.5
+offset_right = 27.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 21
+text = "Level 4"
+
+[node name="TextureButton5" type="TextureButton" parent="CenterContainer/PanelContainer/VBoxContainer/CenterContainer/GridContainer"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("5_2a84y")
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/CenterContainer/GridContainer/TextureButton5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -11.5
+offset_right = 27.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 21
+text = "Level 5"
+
+[node name="TextureButton6" type="TextureButton" parent="CenterContainer/PanelContainer/VBoxContainer/CenterContainer/GridContainer"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("5_2a84y")
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/CenterContainer/GridContainer/TextureButton6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -11.5
+offset_right = 27.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 21
+text = "Level 6"
+
+[node name="TextureButton7" type="TextureButton" parent="CenterContainer/PanelContainer/VBoxContainer/CenterContainer/GridContainer"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("5_2a84y")
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/CenterContainer/GridContainer/TextureButton7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -11.5
+offset_right = 27.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 21
+text = "Level 7"
+
+[node name="TextureButton8" type="TextureButton" parent="CenterContainer/PanelContainer/VBoxContainer/CenterContainer/GridContainer"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("5_2a84y")
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/CenterContainer/GridContainer/TextureButton8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -11.5
+offset_right = 27.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 21
+text = "Level 8"
+
+[node name="QuitButton" type="TextureButton" parent="CenterContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 2
+texture_normal = ExtResource("6_m7ipd")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/PanelContainer/VBoxContainer/QuitButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label1" parent="CenterContainer/PanelContainer/VBoxContainer/QuitButton/CenterContainer" instance=ExtResource("4_hqa2r")]
+layout_mode = 2
+text = "Back"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/CenterContainer/GridContainer/TextureButton" to="." method="go_to_level" binds= [0]]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/CenterContainer/GridContainer/TextureButton2" to="." method="go_to_level" binds= [1]]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

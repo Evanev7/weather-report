@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://b2euuv7n3vu4j"]
 
-[ext_resource type="StyleBox" uid="uid://tll1gc4qn0rd" path="res://UI/resources/ui_stylebox_texture.tres" id="1_bw0ho"]
+[ext_resource type="StyleBox" path="res://UI/resources/ui_stylebox_texture.tres" id="1_bw0ho"]
 [ext_resource type="Script" path="res://UI/scripts/main_menu.gd" id="1_oem0o"]
 [ext_resource type="Texture2D" uid="uid://ccdxbd5inbili" path="res://UI/assets/temp/pause_menu_background.png" id="2_bw7fn"]
-[ext_resource type="PackedScene" uid="uid://cqo7w1trsg30l" path="res://UI/scenes/label.tscn" id="3_5bi1t"]
+[ext_resource type="PackedScene" path="res://UI/scenes/label.tscn" id="3_5bi1t"]
 [ext_resource type="Texture2D" uid="uid://cda5x36kr5tgy" path="res://UI/assets/temp/pause_menu_top_button.png" id="4_prh7n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_manth"]
@@ -14,6 +14,14 @@ shadow_color = Color(0, 0, 0, 1)
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_oem0o")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(15.385, 6.509, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
@@ -109,4 +117,5 @@ layout_mode = 2
 text = "Quit"
 horizontal_alignment = 1
 
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/LevelSelect" to="." method="_on_level_select_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

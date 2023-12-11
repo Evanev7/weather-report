@@ -3,8 +3,7 @@ extends TileMap
 @export var selector_buttongroup: ButtonGroup = preload("res://UI/resources/plant_selector_group.tres")
 @export var plant_scene: PackedScene
 @export var plant_resource_list: Array[PlantResource]
-
-
+#var plant_resource_list: Array[PlantResource]
 
 var flower := Vector2i(0, 2)
 var grass_1 := Vector2i(0, 3)
@@ -19,8 +18,7 @@ func _ready():
 	get_decoratable_cells()
 	randomise_decorations()
 	GameState.weather_changed.connect(update_weather_decorations)
-
-
+	
 
 func place_plant_at_location(plant_resource, pos):
 	var placed_plant = plant_scene.instantiate()
@@ -54,7 +52,7 @@ func get_decoratable_cells():
 
 func randomise_decorations(percentage_covered: float = 1):
 	for i in (decoratable_cells.size() * percentage_covered):
-		set_cell(1, decoratable_cells[i], 2, decorations[randi() % decorations.size()])
+		set_cell(1, decoratable_cells[i], 0, decorations[randi() % decorations.size()])
 
 func clear_decorations():
 	for cell in decoratable_cells:

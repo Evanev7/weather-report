@@ -26,7 +26,7 @@ func _ready():
 	pass
 	
 func set_enemy_as_resource(resource: EnemyResource):
-	bounce_anim.play("RESET")
+	dead_anim.play("spawn")
 	health = resource.MAX_HP
 	hp_bar.max_value = health
 	hp_bar.value = health

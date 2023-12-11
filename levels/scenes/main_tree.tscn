@@ -1,11 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://d4klrgmrciins"]
+[gd_scene load_steps=14 format=3 uid="uid://d4klrgmrciins"]
 
 [ext_resource type="PackedScene" uid="uid://b2euuv7n3vu4j" path="res://levels/scenes/main_menu.tscn" id="1_vgi8s"]
 [ext_resource type="PackedScene" uid="uid://c2wpjv5nffmco" path="res://UI/scenes/pause_menu.tscn" id="2_ao0h5"]
+[ext_resource type="PackedScene" uid="uid://drs23karvcl7n" path="res://UI/scenes/level_select.tscn" id="2_supt6"]
 [ext_resource type="Script" path="res://levels/scripts/World.gd" id="2_tkr4x"]
 [ext_resource type="PackedScene" uid="uid://pk336fsowy4v" path="res://effects/particles/snow_particles.tscn" id="4_8v6di"]
 [ext_resource type="PackedScene" uid="uid://bsvo1l53lwhuu" path="res://levels/scenes/level_1.tscn" id="4_c6m40"]
 [ext_resource type="Script" path="res://effects/particles/Particles.gd" id="4_fmg75"]
+[ext_resource type="PackedScene" uid="uid://c5glc0adl8ujl" path="res://levels/scenes/level_2.tscn" id="4_tffey"]
 [ext_resource type="PackedScene" uid="uid://b6x3510ma53a" path="res://UI/scenes/plant_selector.tscn" id="4_uudau"]
 [ext_resource type="PackedScene" uid="uid://cwpsktdymxjdj" path="res://components/scenes/bullet_handler.tscn" id="5_74cye"]
 [ext_resource type="PackedScene" uid="uid://cb8hul50pmnly" path="res://effects/particles/leaf_particles.tscn" id="5_qxaxj"]
@@ -15,13 +17,14 @@
 [node name="main" type="Node"]
 
 [node name="MainMenu" parent="." node_paths=PackedStringArray("world") instance=ExtResource("1_vgi8s")]
-visible = false
 world = NodePath("../World")
+
+[node name="LevelSelect" parent="." instance=ExtResource("2_supt6")]
+visible = false
 
 [node name="World" type="Node" parent="."]
 script = ExtResource("2_tkr4x")
-
-[node name="Level1" parent="World" instance=ExtResource("4_c6m40")]
+levels = Array[PackedScene]([ExtResource("4_c6m40"), ExtResource("4_tffey")])
 
 [node name="Particles" type="Node2D" parent="World" node_paths=PackedStringArray("snow", "leaves")]
 script = ExtResource("4_fmg75")
@@ -51,16 +54,11 @@ offset = Vector2(100, 0)
 
 [node name="BulletHandler" parent="World/LogicComponents" instance=ExtResource("5_74cye")]
 
-[node name="ShaderManager" type="Node" parent="World/LogicComponents" node_paths=PackedStringArray("world", "camera", "level")]
+[node name="ShaderManager" type="Node" parent="World/LogicComponents" node_paths=PackedStringArray("world", "camera")]
 script = ExtResource("6_74lkg")
 world = NodePath("../..")
 camera = NodePath("../../Camera2D")
-level = NodePath("../../Level1")
 
 [node name="WeatherHandler" parent="World/LogicComponents" instance=ExtResource("8_dsu4c")]
 
-[connection signal="enable_wave_button" from="World/Level1" to="World/TopBar" method="end_wave"]
-[connection signal="send_plant_resource_list" from="World/Level1" to="World/TopBar" method="set_thumbnails"]
-[connection signal="update_hud_credits" from="World/Level1" to="World/TopBar" method="_on_level_1_update_hud_credits"]
-[connection signal="update_wave_label" from="World/Level1" to="World/TopBar" method="update_wave_label"]
-[connection signal="next_wave" from="World/TopBar" to="World/Level1" method="next_wave"]
+[connection signal="set_level" from="LevelSelect" to="MainMenu" method="set_level"]

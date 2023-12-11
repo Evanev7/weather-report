@@ -15,7 +15,7 @@ script = ExtResource("2_q6y77")
 enemy = 1
 spawn_gap = 1.0
 quantity = 10
-end_delay = 1.0
+end_delay = 5.0
 
 [resource]
 script = ExtResource("1_7denc")
