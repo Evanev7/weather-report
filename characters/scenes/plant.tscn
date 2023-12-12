@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://crva7xrk1jbo4"]
 
-[ext_resource type="SpriteFrames" uid="uid://dfrv5rrn0lhrb" path="res://characters/assets/plants/mushroom_spriteframes.tres" id="1_b7uoe"]
+[ext_resource type="SpriteFrames" path="res://characters/assets/plants/mushroom_spriteframes.tres" id="1_b7uoe"]
 [ext_resource type="Script" path="res://characters/scripts/plant.gd" id="2_nfrcv"]
 
 [sub_resource type="Animation" id="Animation_n2q3f"]

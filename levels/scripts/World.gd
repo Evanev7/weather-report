@@ -19,6 +19,7 @@ func set_level(level):
 	HUD.next_wave.connect(level_to_set.next_wave)
 	$LogicComponents/ShaderManager.tilemap = level_to_set.get_node("TileMap")
 	add_child(level_to_set)
+	move_child(level_to_set, 0)
 	$TopBar.visible = true
 
 func _input(event):

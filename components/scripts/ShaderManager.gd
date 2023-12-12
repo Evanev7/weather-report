@@ -6,6 +6,7 @@ var level: Node
 var tilemap: TileMap
 
 func _ready():
+	GameState.weather_changed.connect(_on_weather_changed)
 	#if not tilemap:
 		#level = GameState.level1
 		#tilemap = level.get_node("TileMap")
@@ -23,6 +24,9 @@ func _on_mouse_moved(pos):
 		pos = tilemap.to_local(pos)
 		var centre_pos = tilemap.to_global(quantize_tilemap(pos))
 		RenderingServer.global_shader_parameter_set("active_tile",centre_pos)
+
+func _on_weather_changed(weather):
+	RenderingServer.global_shader_parameter_set("season", weather)
 
 #	var screen_coords = get_viewport_transform() * global_position
 #	var normalized_screen_coords = screen_coords / Vector2(DisplayServer.screen_get_size())

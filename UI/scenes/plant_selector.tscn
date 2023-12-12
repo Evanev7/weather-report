@@ -157,17 +157,14 @@ selection = 3
 [node name="PlantSlot5" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_dscpp")
-selection = 4
 
 [node name="PlantSlot6" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_m7yqk")
-selection = 5
 
 [node name="PlantSlot7" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_e7ari")
-selection = 6
 
 [node name="PlantSlot8" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2

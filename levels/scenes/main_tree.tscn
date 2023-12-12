@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d4klrgmrciins"]
+[gd_scene load_steps=17 format=3 uid="uid://d4klrgmrciins"]
 
 [ext_resource type="PackedScene" uid="uid://b2euuv7n3vu4j" path="res://levels/scenes/main_menu.tscn" id="1_vgi8s"]
 [ext_resource type="PackedScene" uid="uid://c2wpjv5nffmco" path="res://UI/scenes/pause_menu.tscn" id="2_ao0h5"]
@@ -13,6 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://cb8hul50pmnly" path="res://effects/particles/leaf_particles.tscn" id="5_qxaxj"]
 [ext_resource type="Script" path="res://components/scripts/ShaderManager.gd" id="6_74lkg"]
 [ext_resource type="PackedScene" uid="uid://cie2aurt3mq2y" path="res://components/scenes/weather_handler.tscn" id="8_dsu4c"]
+[ext_resource type="Shader" uid="uid://3mu66g31a6ja" path="res://effects/shaders/season_shader.tres" id="11_0k2lg"]
+[ext_resource type="Texture2D" uid="uid://dm0i0csgslhuh" path="res://icon.svg" id="11_4o0rh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_131c2"]
+shader = ExtResource("11_0k2lg")
 
 [node name="main" type="Node"]
 
@@ -49,7 +54,20 @@ unique_name_in_owner = true
 visible = false
 
 [node name="Camera2D" type="Camera2D" parent="World"]
-offset = Vector2(100, 0)
+
+[node name="SeasonShader" type="TextureRect" parent="World"]
+material = SubResource("ShaderMaterial_131c2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1646.0
+offset_top = -827.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1770, 2891)
+texture = ExtResource("11_4o0rh")
 
 [node name="LogicComponents" type="Node" parent="World"]
 
@@ -61,5 +79,8 @@ world = NodePath("../..")
 camera = NodePath("../../Camera2D")
 
 [node name="WeatherHandler" parent="World/LogicComponents" instance=ExtResource("8_dsu4c")]
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+copy_mode = 2
 
 [connection signal="set_level" from="LevelSelect" to="MainMenu" method="set_level"]

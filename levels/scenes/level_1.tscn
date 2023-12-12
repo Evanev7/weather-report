@@ -17,8 +17,8 @@
 [ext_resource type="Resource" uid="uid://ckvmj6qai70fy" path="res://characters/resources/plants/tree.tres" id="10_43x0v"]
 [ext_resource type="Resource" uid="uid://0y0fcpqvn35u" path="res://characters/resources/plants/winter_rose.tres" id="11_yhddu"]
 [ext_resource type="Resource" uid="uid://ddvq654420x1b" path="res://characters/resources/plants/mushroom.tres" id="12_hwyqg"]
-[ext_resource type="Resource" uid="uid://dqfvvrdm40p5e" path="res://characters/resources/plants/flytrap.tres" id="13_6pvds"]
-[ext_resource type="Resource" uid="uid://bso3djdfaftsd" path="res://characters/resources/plants/vines.tres" id="14_0tdqd"]
+[ext_resource type="Resource" path="res://characters/resources/plants/flytrap.tres" id="13_6pvds"]
+[ext_resource type="Resource" path="res://characters/resources/plants/vines.tres" id="14_0tdqd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_087hg"]
 shader = ExtResource("4_ff3wl")

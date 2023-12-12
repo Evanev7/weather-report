@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="PlantResource" load_steps=9 format=3 uid="uid://ddvq654420x1b"]
 
 [ext_resource type="Script" path="res://characters/scripts/plant_resource.gd" id="1_a420h"]
-[ext_resource type="SpriteFrames" uid="uid://dfrv5rrn0lhrb" path="res://characters/assets/plants/mushroom_spriteframes.tres" id="1_qob1i"]
+[ext_resource type="SpriteFrames" path="res://characters/assets/plants/mushroom_spriteframes.tres" id="1_qob1i"]
 [ext_resource type="Material" uid="uid://chw0nuf1elgqp" path="res://objects/resources/mushroom_particles.tres" id="2_2q7ok"]
 [ext_resource type="Texture2D" uid="uid://mfdylkwbof2" path="res://characters/assets/plants/mushroom_SE.png" id="2_4m6xn"]
 [ext_resource type="Script" path="res://characters/resources/plants/mushroom_script.gd" id="3_1mu2c"]
