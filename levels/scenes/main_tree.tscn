@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cb8hul50pmnly" path="res://effects/particles/leaf_particles.tscn" id="5_qxaxj"]
 [ext_resource type="Script" path="res://components/scripts/ShaderManager.gd" id="6_74lkg"]
 [ext_resource type="PackedScene" uid="uid://cie2aurt3mq2y" path="res://components/scenes/weather_handler.tscn" id="8_dsu4c"]
-[ext_resource type="Shader" uid="uid://3mu66g31a6ja" path="res://effects/shaders/season_shader.tres" id="11_0k2lg"]
+[ext_resource type="Shader" uid="uid://o1ssx2ckepn0" path="res://effects/shaders/season_shader.tres" id="11_0k2lg"]
 [ext_resource type="Texture2D" uid="uid://dm0i0csgslhuh" path="res://icon.svg" id="11_4o0rh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_131c2"]

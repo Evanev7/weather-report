@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyWave" load_steps=5 format=3 uid="uid://bli8u0w3s3lk"]
+[gd_resource type="Resource" script_class="EnemyWave" load_steps=6 format=3 uid="uid://bli8u0w3s3lk"]
 
 [ext_resource type="Script" path="res://characters/scripts/enemy_wave.gd" id="1_fkujt"]
 [ext_resource type="Script" path="res://characters/scripts/enemy_spawn_clump.gd" id="2_x831j"]
@@ -17,6 +17,13 @@ spawn_gap = 0.2
 quantity = 10
 end_delay = 5.0
 
+[sub_resource type="Resource" id="Resource_l08ys"]
+script = ExtResource("2_x831j")
+enemy = 1
+spawn_gap = 0.2
+quantity = 10
+end_delay = 1.0
+
 [resource]
 script = ExtResource("1_fkujt")
-waves = Array[ExtResource("2_x831j")]([SubResource("Resource_is6hs"), SubResource("Resource_6xb3b")])
+waves = Array[ExtResource("2_x831j")]([SubResource("Resource_is6hs"), SubResource("Resource_6xb3b"), SubResource("Resource_l08ys")])

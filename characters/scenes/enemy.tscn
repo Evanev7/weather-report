@@ -236,6 +236,7 @@ position = Vector2(-20, 10)
 scale = Vector2(0.05, 0.05)
 sprite_frames = ExtResource("2_7lc52")
 animation = &"sw"
+frame_progress = 0.417991
 offset = Vector2(-14.535, -950)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

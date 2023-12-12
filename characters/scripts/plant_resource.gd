@@ -1,7 +1,7 @@
 extends Resource
 class_name PlantResource
 
-enum BULLET_TYPE {Normal, AOE}
+enum BULLET_TYPE {Normal, AOE, ACTIVATED}
 
 @export_category("Metadata")
 @export var NAME: String

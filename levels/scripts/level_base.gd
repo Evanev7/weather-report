@@ -29,7 +29,7 @@ func start():
 	
 	GameState.weather = starting_weather
 	send_plant_resource_list.emit(plant_resource_list)
-	$EnemySpawner.spawning_disabled = true
+	$EnemySpawner.end_wave()
 	$EnemySpawner.reset(waves)
 	update_wave_label_on_hud(0)
 	water_credits = starting_credits

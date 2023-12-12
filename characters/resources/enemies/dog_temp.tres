@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=6 format=3 uid="uid://bmxhhjq4w35fj"]
+
+[ext_resource type="Texture2D" uid="uid://pd38q8htc5xs" path="res://characters/assets/enemies/demon_dog_1.png" id="1_dehuk"]
+[ext_resource type="Script" path="res://characters/scripts/enemy_resource.gd" id="1_fu5c2"]
+[ext_resource type="Texture2D" uid="uid://bewkg1dfhjdu6" path="res://characters/assets/enemies/demon_dog_2.png" id="2_tv8g6"]
+[ext_resource type="Texture2D" uid="uid://cp5du8rmh545t" path="res://characters/assets/enemies/demon_dog_3.png" id="3_vemng"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_alq6t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dehuk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tv8g6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vemng")
+}],
+"loop": true,
+"name": &"nw",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dehuk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tv8g6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vemng")
+}],
+"loop": true,
+"name": &"sw",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_fu5c2")
+NAME = "Dog_temp"
+ANIMATION = SubResource("SpriteFrames_alq6t")
+FLIP_H = true
+FLOATING = false
+SPEED = 50.0
+MAX_HP = 100.0
+DAMAGE = 10.0
+VALUE = 10.0
+STRENGTH = 1.0
+SCALE = Vector2(1, 1)
+HITBOX_RADIUS = 50.0
+UNIQUE_MULTIPLIER = 1.0
+OVERALL_MULTIPLIER = 1.0

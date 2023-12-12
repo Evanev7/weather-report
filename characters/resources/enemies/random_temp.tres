@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=4 format=3 uid="uid://box6hexbg3o2b"]
+
+[ext_resource type="Script" path="res://characters/scripts/enemy_resource.gd" id="1_vlpxk"]
+[ext_resource type="Texture2D" uid="uid://dm8rwggau2a3x" path="res://characters/assets/plants/sunflower_se.png" id="1_w6bh1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ty3v6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_w6bh1")
+}],
+"loop": true,
+"name": &"nw",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_w6bh1")
+}],
+"loop": true,
+"name": &"sw",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_vlpxk")
+NAME = "Random"
+ANIMATION = SubResource("SpriteFrames_ty3v6")
+FLIP_H = true
+FLOATING = false
+SPEED = 400.0
+MAX_HP = 1.0
+DAMAGE = 1.0
+VALUE = 1.0
+STRENGTH = 1.0
+SCALE = Vector2(1, 1)
+HITBOX_RADIUS = 50.0
+UNIQUE_MULTIPLIER = 1.0
+OVERALL_MULTIPLIER = 1.0

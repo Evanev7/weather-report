@@ -1,14 +1,16 @@
-[gd_scene load_steps=22 format=3 uid="uid://bsvo1l53lwhuu"]
+[gd_scene load_steps=36 format=3 uid="uid://bsvo1l53lwhuu"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_1.gd" id="1_6b08r"]
 [ext_resource type="Resource" uid="uid://bjed70l5ndw4a" path="res://characters/resources/waves/level_1_waves/wave_1.tres" id="2_lksn5"]
 [ext_resource type="Script" path="res://levels/scripts/tile_map.gd" id="2_t7qm4"]
 [ext_resource type="Script" path="res://components/scripts/EnemySpawner.gd" id="2_ykttw"]
 [ext_resource type="Resource" uid="uid://bli8u0w3s3lk" path="res://characters/resources/waves/level_1_waves/wave_2.tres" id="3_bwpoa"]
-[ext_resource type="Resource" uid="uid://c02tdx26rtr44" path="res://characters/resources/enemies/dog.tres" id="3_ldlrt"]
+[ext_resource type="Resource" uid="uid://c02tdx26rtr44" path="res://characters/resources/enemies/rat_old.tres" id="3_ldlrt"]
 [ext_resource type="Shader" uid="uid://cx2nextjcjhre" path="res://effects/shaders/selectable_tile_shader.tres" id="4_ff3wl"]
+[ext_resource type="Script" path="res://characters/scripts/enemy_wave.gd" id="4_j2ewg"]
 [ext_resource type="PackedScene" uid="uid://df0c6lteqa8bs" path="res://characters/scenes/enemy.tscn" id="4_poe43"]
 [ext_resource type="TileSet" uid="uid://c8jgsqve4dnfx" path="res://levels/level_1_tileset.tres" id="5_3wjyb"]
+[ext_resource type="Script" path="res://characters/scripts/enemy_spawn_clump.gd" id="5_spy1r"]
 [ext_resource type="Resource" uid="uid://30wycomjos6g" path="res://characters/resources/enemies/rat.tres" id="6_tud2y"]
 [ext_resource type="PackedScene" uid="uid://crva7xrk1jbo4" path="res://characters/scenes/plant.tscn" id="7_j2yqn"]
 [ext_resource type="Resource" uid="uid://pym6jr7pfd0i" path="res://characters/resources/plants/daisies.tres" id="8_2jwpq"]
@@ -17,8 +19,74 @@
 [ext_resource type="Resource" uid="uid://ckvmj6qai70fy" path="res://characters/resources/plants/tree.tres" id="10_43x0v"]
 [ext_resource type="Resource" uid="uid://0y0fcpqvn35u" path="res://characters/resources/plants/winter_rose.tres" id="11_yhddu"]
 [ext_resource type="Resource" uid="uid://ddvq654420x1b" path="res://characters/resources/plants/mushroom.tres" id="12_hwyqg"]
-[ext_resource type="Resource" path="res://characters/resources/plants/flytrap.tres" id="13_6pvds"]
-[ext_resource type="Resource" path="res://characters/resources/plants/vines.tres" id="14_0tdqd"]
+[ext_resource type="Resource" uid="uid://dqfvvrdm40p5e" path="res://characters/resources/plants/flytrap.tres" id="13_6pvds"]
+[ext_resource type="Resource" uid="uid://bso3djdfaftsd" path="res://characters/resources/plants/vines.tres" id="14_0tdqd"]
+[ext_resource type="Resource" uid="uid://bmxhhjq4w35fj" path="res://characters/resources/enemies/dog_temp.tres" id="20_gajni"]
+[ext_resource type="Resource" uid="uid://box6hexbg3o2b" path="res://characters/resources/enemies/random_temp.tres" id="21_omura"]
+
+[sub_resource type="Resource" id="Resource_oadwl"]
+script = ExtResource("5_spy1r")
+enemy = 0
+spawn_gap = 0.2
+quantity = 50
+end_delay = 1.0
+
+[sub_resource type="Resource" id="Resource_vgwvh"]
+script = ExtResource("5_spy1r")
+enemy = 1
+spawn_gap = 0.2
+quantity = 50
+end_delay = 1.0
+
+[sub_resource type="Resource" id="Resource_xyvwj"]
+script = ExtResource("5_spy1r")
+enemy = 3
+spawn_gap = 0.1
+quantity = 100
+end_delay = 1.0
+
+[sub_resource type="Resource" id="Resource_par4q"]
+script = ExtResource("4_j2ewg")
+waves = Array[ExtResource("5_spy1r")]([SubResource("Resource_oadwl"), SubResource("Resource_vgwvh"), SubResource("Resource_xyvwj")])
+
+[sub_resource type="Resource" id="Resource_01ba3"]
+script = ExtResource("5_spy1r")
+enemy = 2
+spawn_gap = 3.0
+quantity = 5
+end_delay = 2.0
+
+[sub_resource type="Resource" id="Resource_6ofyj"]
+script = ExtResource("5_spy1r")
+enemy = 1
+spawn_gap = 1.0
+quantity = 30
+end_delay = 1.0
+
+[sub_resource type="Resource" id="Resource_6qv5i"]
+script = ExtResource("5_spy1r")
+enemy = 0
+spawn_gap = 0.5
+quantity = 30
+end_delay = 1.0
+
+[sub_resource type="Resource" id="Resource_jnact"]
+script = ExtResource("5_spy1r")
+enemy = 3
+spawn_gap = 0.2
+quantity = 100
+end_delay = 1.0
+
+[sub_resource type="Resource" id="Resource_12f7b"]
+script = ExtResource("5_spy1r")
+enemy = 2
+spawn_gap = 1.0
+quantity = 5
+end_delay = 1.0
+
+[sub_resource type="Resource" id="Resource_pmul4"]
+script = ExtResource("4_j2ewg")
+waves = Array[ExtResource("5_spy1r")]([SubResource("Resource_01ba3"), SubResource("Resource_6ofyj"), SubResource("Resource_6qv5i"), SubResource("Resource_jnact"), SubResource("Resource_12f7b")])
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_087hg"]
 shader = ExtResource("4_ff3wl")
@@ -31,7 +99,8 @@ point_count = 8
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_6b08r")
-waves = Array[Resource("res://characters/scripts/enemy_wave.gd")]([ExtResource("2_lksn5"), ExtResource("3_bwpoa")])
+starting_credits = 20
+waves = Array[ExtResource("4_j2ewg")]([ExtResource("2_lksn5"), ExtResource("3_bwpoa"), SubResource("Resource_par4q"), SubResource("Resource_pmul4")])
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -55,7 +124,7 @@ plant_resource_list = Array[Resource("res://characters/scripts/plant_resource.gd
 position = Vector2(-716, -520)
 curve = SubResource("Curve2D_3ekch")
 script = ExtResource("2_ykttw")
-enemy_resource_list = Array[Resource("res://characters/scripts/enemy_resource.gd")]([ExtResource("3_ldlrt"), ExtResource("6_tud2y")])
+enemy_resource_list = Array[Resource("res://characters/scripts/enemy_resource.gd")]([ExtResource("3_ldlrt"), ExtResource("6_tud2y"), ExtResource("20_gajni"), ExtResource("21_omura")])
 enemy_scene = ExtResource("4_poe43")
 
 [node name="Greenhouse" parent="." instance=ExtResource("9_ptxtb")]

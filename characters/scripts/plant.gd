@@ -37,6 +37,7 @@ var piercing_cooldown: float
 var enemy_array = []
 var weather_script
 var firing_enabled: bool = true
+var wilting_enabled: bool = true
 var can_fire: bool = false
 
 # Called when the node enters the scene tree for the first time.
@@ -110,11 +111,17 @@ func _physics_process(_delta):
 	if enemy_array.size() != 0 and can_fire and firing_enabled:
 		fire_bullet()
 	
+	if get_tree().get_nodes_in_group("enemy").size() == 0:
+		wilting_enabled = false
+	else:
+		wilting_enabled = true
 	
 	## Health
 	#do we want to multiply this by delta?
 	# why?
-	durability_bar.value -= 0.05 * wilting_rate
+	if wilting_enabled:
+		durability_bar.value -= 0.05 * wilting_rate
+		
 	if durability_bar.value <= 0:
 		firing_enabled = false
 		animation_player.play("wilt")

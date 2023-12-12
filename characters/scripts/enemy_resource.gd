@@ -17,7 +17,7 @@ class_name EnemyResource
 @export_category("Collision")
 ## Affects sprite and collision size
 @export var SCALE: Vector2 = Vector2(1, 1)
-@export var HITBOX_RADIUS: float = 530
+@export var HITBOX_RADIUS: float = 50
 
 @export_category("Multipliers")
 @export var UNIQUE_MULTIPLIER: float = 1

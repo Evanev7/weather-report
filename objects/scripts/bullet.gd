@@ -26,7 +26,7 @@ var hit_targets: Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if particles.process_material:
+	if particles.process_material and type != PlantResource.BULLET_TYPE.ACTIVATED:
 		particles.emitting = true
 
 
@@ -62,14 +62,17 @@ func check_for_hit(target):
 
 
 func hit(target):
-	target.hurt(damage, poison_damage, poison_duration, slow_amount, slow_duration)
 	match type:
 		PlantResource.BULLET_TYPE.Normal:
+			target.hurt(damage, poison_damage, poison_duration, slow_amount, slow_duration)
 			piercing_amount -= 1
 			if piercing_amount <= 0:
 				remove()
 		PlantResource.BULLET_TYPE.AOE:
-			pass
+			target.hurt(damage, poison_damage, poison_duration, slow_amount, slow_duration)
+		PlantResource.BULLET_TYPE.ACTIVATED:
+			await get_tree().create_timer(2.0).timeout
+			target.hurt(damage, poison_damage, poison_duration, slow_amount, slow_duration)
 	
 func remove():
 	queue_free()

@@ -4,7 +4,7 @@ class_name EnemySpawner
 
 @export var enemy_resource_list: Array[EnemyResource]
 @export var enemy_scene: PackedScene
-enum ENEMY_TYPE {Dog, Rat}
+enum ENEMY_TYPE {Rat_old, Rat, dog, temp}
 
 var spawning_disabled: bool
 var current_batch: int
@@ -25,7 +25,6 @@ func reset(level_wave_data):
 
 func start_wave():
 	current_batch += 1
-	spawning_disabled = false
 	owner.update_wave_label_on_hud(current_batch)
 	if current_batch < wave_data.size():
 		spawn_enemies(wave_data[current_batch].waves)
@@ -52,5 +51,6 @@ func spawn_enemies(wave):
 	
 	
 func end_wave():
+	spawning_disabled = false
 	owner.end_wave()
 	
