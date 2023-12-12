@@ -1,5 +1,7 @@
 extends Node
 
+@export var shader_switch_duration: float = 1
+
 @export var world: Node
 @export var camera: Camera2D
 var level: Node
@@ -26,7 +28,12 @@ func _on_mouse_moved(pos):
 		RenderingServer.global_shader_parameter_set("active_tile",centre_pos)
 
 func _on_weather_changed(weather):
-	RenderingServer.global_shader_parameter_set("season", weather)
+	var tween = get_tree().create_tween()
+	tween.tween_method(set_shader, float(weather-1), float(weather), shader_switch_duration)
+	
+func set_shader(weather: float):
+	print(weather)
+	RenderingServer.global_shader_parameter_set("weather", weather)
 
 #	var screen_coords = get_viewport_transform() * global_position
 #	var normalized_screen_coords = screen_coords / Vector2(DisplayServer.screen_get_size())

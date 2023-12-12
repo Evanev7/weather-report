@@ -116,7 +116,7 @@ active_tile={
 "type": "vec2",
 "value": Vector2(0, 0)
 }
-season={
-"type": "int",
-"value": 0
+weather={
+"type": "float",
+"value": 0.0
 }

@@ -9,6 +9,11 @@ func _ready():
 
 func _on_weather_change(_weather):
 	tween = create_tween()
+	var overshoot = randf_range(PI/24, PI/12)
 	var target_rotation = -PI/2.0 * GameState.weather + rotation_offset
-	tween.tween_property(self, "rotation", target_rotation, 1).from(target_rotation+PI/2.0)\
+	tween.tween_property(self, "rotation", target_rotation, 0.6).from(target_rotation+PI/2.0)\
 		.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self, "rotation", - overshoot, 0.1).as_relative()\
+		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self, "rotation", overshoot, 0.3).as_relative()\
+		.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
