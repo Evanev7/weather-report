@@ -6,6 +6,8 @@ signal next_wave()
 
 @onready var error_location: Marker2D = $ErrorSpawner
 
+@export var weather_upgrades: CanvasLayer
+
 @export var credits_label: RichTextLabel
 @export var waves_label: RichTextLabel
 @export var next_wave_button: TextureButton
@@ -37,3 +39,8 @@ func end_wave():
 func start_wave():
 	next_wave.emit()
 	next_wave_button.disabled = true
+
+
+func open_weather_tree():
+	weather_upgrades.show()
+	GameState.paused.emit(GameState.PAUSE_STATES.SHOW_WEATHER_TREE)

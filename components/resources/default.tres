@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="WeatherResource" load_steps=2 format=3 uid="uid://dmwx4ufoqc7k1"]
+
+[ext_resource type="Script" path="res://components/scripts/weather_handler_resource.gd" id="1_o6skh"]
+
+[resource]
+script = ExtResource("1_o6skh")
+damage_multiplier = 1.0
+fire_rate_multiplier = 1.0
+range_multiplier = 1.0
+size_multiplier = 1.0

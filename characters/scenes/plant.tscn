@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://crva7xrk1jbo4"]
+[gd_scene load_steps=6 format=3 uid="uid://crva7xrk1jbo4"]
 
 [ext_resource type="SpriteFrames" uid="uid://dfrv5rrn0lhrb" path="res://characters/assets/plants/mushroom_spriteframes.tres" id="1_b7uoe"]
 [ext_resource type="Script" path="res://characters/scripts/plant.gd" id="2_nfrcv"]
@@ -78,19 +78,15 @@ _data = {
 "wilt": SubResource("Animation_4xnp8")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6mpch"]
-resource_local_to_scene = true
-radius = 2000.22
-
 [node name="Plant" type="AnimatedSprite2D" node_paths=PackedStringArray("durability_bar", "animation_player", "radius")]
 position = Vector2(1.66893e-06, 2.38419e-07)
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.08, 0.08)
 sprite_frames = ExtResource("1_b7uoe")
 animation = &"se"
 script = ExtResource("2_nfrcv")
 durability_bar = NodePath("Durability")
 animation_player = NodePath("AnimationPlayer")
-radius = NodePath("Area2D/CollisionShape2D")
+radius = NodePath("Area2D/CollisionPolygon2D")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -113,8 +109,8 @@ show_percentage = false
 [node name="Area2D" type="Area2D" parent="."]
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_6mpch")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(0, -470, -520, -440, -1020, -330, -1420, -170, -1750, 40, -1940, 280, -2000, 530, -1930, 790, -1720, 1040, -1410, 1240, -1000, 1400, -510, 1500, 9.99998, 1530, 520, 1500, 1020, 1390, 1430, 1230, 1740, 1020, 1930, 790, 2000, 520, 1940, 260, 1740, 30, 1420, -170, 990, -340, 530, -430)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_range_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_range_area_exited"]

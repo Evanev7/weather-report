@@ -2,9 +2,12 @@ extends TileMap
 
 @export var selector_buttongroup: ButtonGroup = preload("res://UI/resources/plant_selector_group.tres")
 @export var plant_scene: PackedScene
-@export var plant_resource_list: Array[PlantResource]
-#var plant_resource_list: Array[PlantResource]
+@export var default_plant_resource_list: Array[PlantResource]
+var plant_resource_list: Array[PlantResource]
+@export var ghost: AnimatedSprite2D
+@export var ghost_radius: Sprite2D
 
+var show_ghost: bool = false
 var flower1 := Vector2i(0, 2)
 var flower2 := Vector2i(0, 3)
 var flower3 := Vector2i(0, 4)
@@ -17,10 +20,27 @@ var plant_nodes: Dictionary = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	reset_resource_list()
 	get_decoratable_cells()
 	randomise_decorations()
 	GameState.weather_changed.connect(update_weather_decorations)
 	
+func reset_resource_list():
+	plant_resource_list = default_plant_resource_list.duplicate(true)
+	
+	
+func _process(_delta):
+	var mouse_pos = get_global_mouse_position()
+	var tile_pos = global_to_grid(mouse_pos)
+	var tile_data = get_cell_tile_data(0, tile_pos)
+	
+	if tile_data is TileData:
+		if tile_data.get_custom_data("canPlacePlants"):
+			var selection = get_selection()
+			if selection < plant_resource_list.size():
+				show_plant_ghost(tile_pos, selection)
+		else:
+			ghost.hide()
 
 func place_plant_at_location(plant_resource, pos):
 	var placed_plant = plant_scene.instantiate()
@@ -36,6 +56,7 @@ func place_plant_at_location(plant_resource, pos):
 		GameState.show_error("You can't afford this!")
 
 func update_weather_decorations(weather):
+	#set_tileset()
 	match weather:
 		GameState.WEATHER.Summer:
 			randomise_decorations()
@@ -84,6 +105,16 @@ func attempt_spawn_plant(at_position, plant_id):
 		plant_nodes[tile_mouse_pos] = stored_plant
 		place_plant_at_location(stored_plant, final_pos)
 
+func show_plant_ghost(at_tile_position, plant_id):
+	var stored_plant = plant_resource_list[plant_id]
+	var final_pos = grid_to_global(at_tile_position)
+	ghost.show()
+	ghost.sprite_frames = stored_plant.ANIMATION
+	ghost_radius.scale.x = stored_plant.RANGE * 42
+	ghost_radius.scale.y = stored_plant.RANGE * 21
+	ghost.global_position = final_pos
+	
+	
 func tile_has_plant(coords, _plant) -> bool:
 	if get_cell_tile_data(0, coords).get_custom_data("canPlacePlants"):
 		if plant_nodes.has(coords):

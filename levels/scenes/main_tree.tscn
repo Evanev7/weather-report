@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d4klrgmrciins"]
+[gd_scene load_steps=18 format=3 uid="uid://d4klrgmrciins"]
 
 [ext_resource type="PackedScene" uid="uid://b2euuv7n3vu4j" path="res://levels/scenes/main_menu.tscn" id="1_vgi8s"]
 [ext_resource type="PackedScene" uid="uid://c2wpjv5nffmco" path="res://UI/scenes/pause_menu.tscn" id="2_ao0h5"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cb8hul50pmnly" path="res://effects/particles/leaf_particles.tscn" id="5_qxaxj"]
 [ext_resource type="Script" path="res://components/scripts/ShaderManager.gd" id="6_74lkg"]
 [ext_resource type="PackedScene" uid="uid://cie2aurt3mq2y" path="res://components/scenes/weather_handler.tscn" id="8_dsu4c"]
+[ext_resource type="PackedScene" uid="uid://b4nyijv5gecll" path="res://UI/scenes/weather_upgrade.tscn" id="9_bj4nl"]
 [ext_resource type="Shader" uid="uid://o1ssx2ckepn0" path="res://effects/shaders/season_shader.tres" id="11_0k2lg"]
 [ext_resource type="Texture2D" uid="uid://dm0i0csgslhuh" path="res://icon.svg" id="11_4o0rh"]
 
@@ -46,16 +47,23 @@ z_index = 5
 position = Vector2(0, -567)
 emitting = false
 
-[node name="TopBar" parent="World" instance=ExtResource("4_uudau")]
+[node name="TopBar" parent="World" node_paths=PackedStringArray("weather_upgrades") instance=ExtResource("4_uudau")]
 visible = false
+weather_upgrades = NodePath("../WeatherUpgrade")
 
 [node name="PauseMenu" parent="World" instance=ExtResource("2_ao0h5")]
 unique_name_in_owner = true
 visible = false
 
+[node name="WeatherUpgrade" parent="World" instance=ExtResource("9_bj4nl")]
+process_mode = 2
+visible = false
+
 [node name="Camera2D" type="Camera2D" parent="World"]
+zoom = Vector2(1.2, 1.2)
 
 [node name="SeasonShader" type="TextureRect" parent="World"]
+visible = false
 material = SubResource("ShaderMaterial_131c2")
 anchors_preset = 15
 anchor_right = 1.0

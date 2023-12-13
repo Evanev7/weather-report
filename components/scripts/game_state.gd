@@ -20,7 +20,7 @@ var weather: WEATHER:
 		weather_changed.emit(weather)
 
 
-enum PAUSE_STATES {MAIN_MENU, UNPAUSED, LEVEL_PAUSED}
+enum PAUSE_STATES {MAIN_MENU, UNPAUSED, LEVEL_PAUSED, SHOW_WEATHER_TREE}
 var pause_state: PAUSE_STATES = PAUSE_STATES.UNPAUSED
 
 func _ready():
@@ -30,9 +30,12 @@ func _ready():
 
 func _on_paused(state):
 	pause_state = state
+	print(pause_state)
 	match state:
 		PAUSE_STATES.UNPAUSED, PAUSE_STATES.MAIN_MENU:
 			get_tree().paused = false
+		PAUSE_STATES.SHOW_WEATHER_TREE:
+			get_tree().paused = true
 
 func _input(event):
 	if event.is_action_pressed("escape"):

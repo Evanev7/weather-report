@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://c8jgsqve4dnfx" path="res://levels/level_1_tileset.tres" id="3_c54yw"]
 [ext_resource type="Script" path="res://levels/scripts/tile_map.gd" id="4_ft64c"]
 [ext_resource type="PackedScene" uid="uid://crva7xrk1jbo4" path="res://characters/scenes/plant.tscn" id="5_s8enx"]
-[ext_resource type="Resource" uid="uid://pym6jr7pfd0i" path="res://characters/resources/plants/daisies.tres" id="6_60mvi"]
+[ext_resource type="Texture2D" uid="uid://c2q0if4ne2t8m" path="res://UI/assets/temp/plant_ghost_radius.png" id="7_luhic"]
 [ext_resource type="Script" path="res://components/scripts/EnemySpawner.gd" id="7_ptumx"]
 [ext_resource type="Resource" uid="uid://c02tdx26rtr44" path="res://characters/resources/enemies/rat_old.tres" id="8_7bhfa"]
 [ext_resource type="Resource" uid="uid://30wycomjos6g" path="res://characters/resources/enemies/rat.tres" id="9_7jknr"]
@@ -25,9 +25,10 @@ point_count = 10
 script = ExtResource("1_1wdwm")
 starting_weather = 2
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="." node_paths=PackedStringArray("ghost", "ghost_radius")]
 y_sort_enabled = true
 material = SubResource("ShaderMaterial_sxp5w")
+position = Vector2(187, -29.9)
 scale = Vector2(0.1, 0.1)
 tile_set = ExtResource("3_c54yw")
 format = 2
@@ -40,10 +41,21 @@ layer_1/navigation_enabled = false
 layer_1/tile_data = PackedInt32Array()
 script = ExtResource("4_ft64c")
 plant_scene = ExtResource("5_s8enx")
-plant_resource_list = Array[Resource("res://characters/scripts/plant_resource.gd")]([ExtResource("6_60mvi")])
+ghost = NodePath("../PlantGhost")
+ghost_radius = NodePath("../PlantGhost/Sprite2D")
+
+[node name="PlantGhost" type="AnimatedSprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.478431)
+scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlantGhost"]
+position = Vector2(0, 530)
+scale = Vector2(1, 0.5)
+texture = ExtResource("7_luhic")
 
 [node name="EnemySpawner" type="Path2D" parent="."]
-position = Vector2(-923, -488)
+position = Vector2(-736, -517.9)
 curve = SubResource("Curve2D_u8bjo")
 script = ExtResource("7_ptumx")
 enemy_resource_list = Array[Resource("res://characters/scripts/enemy_resource.gd")]([ExtResource("8_7bhfa"), ExtResource("9_7jknr")])
@@ -51,7 +63,7 @@ enemy_scene = ExtResource("10_l1h4w")
 
 [node name="Greenhouse" parent="." instance=ExtResource("11_0gdpa")]
 z_index = 1
-position = Vector2(-701, 13)
+position = Vector2(-514, -16.9)
 
 [node name="ErrorSpawner" type="Marker2D" parent="."]
 position = Vector2(2, 374)

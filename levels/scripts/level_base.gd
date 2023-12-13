@@ -16,6 +16,8 @@ signal enable_wave_button()
 @export var starting_weather: GameState.WEATHER = GameState.WEATHER.Summer
 @export var waves: Array[EnemyWave] = []
 
+var weather_handler: Node
+
 var water_credits
 @onready var greenhouse = $Greenhouse
 
@@ -29,6 +31,8 @@ func start():
 	
 	GameState.weather = starting_weather
 	send_plant_resource_list.emit(plant_resource_list)
+	weather_handler.reset_weather_resources()
+	$TileMap.reset_resource_list()
 	$EnemySpawner.end_wave()
 	$EnemySpawner.reset(waves)
 	update_wave_label_on_hud(0)

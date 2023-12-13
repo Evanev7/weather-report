@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bsvo1l53lwhuu"]
+[gd_scene load_steps=37 format=3 uid="uid://bsvo1l53lwhuu"]
 
 [ext_resource type="Script" path="res://levels/scripts/level_1.gd" id="1_6b08r"]
 [ext_resource type="Resource" uid="uid://bjed70l5ndw4a" path="res://characters/resources/waves/level_1_waves/wave_1.tres" id="2_lksn5"]
@@ -21,6 +21,7 @@
 [ext_resource type="Resource" uid="uid://ddvq654420x1b" path="res://characters/resources/plants/mushroom.tres" id="12_hwyqg"]
 [ext_resource type="Resource" uid="uid://dqfvvrdm40p5e" path="res://characters/resources/plants/flytrap.tres" id="13_6pvds"]
 [ext_resource type="Resource" uid="uid://bso3djdfaftsd" path="res://characters/resources/plants/vines.tres" id="14_0tdqd"]
+[ext_resource type="Texture2D" uid="uid://c2q0if4ne2t8m" path="res://UI/assets/temp/plant_ghost_radius.png" id="17_07vus"]
 [ext_resource type="Resource" uid="uid://bmxhhjq4w35fj" path="res://characters/resources/enemies/dog_temp.tres" id="20_gajni"]
 [ext_resource type="Resource" uid="uid://box6hexbg3o2b" path="res://characters/resources/enemies/random_temp.tres" id="21_omura"]
 
@@ -102,7 +103,7 @@ script = ExtResource("1_6b08r")
 starting_credits = 20
 waves = Array[ExtResource("4_j2ewg")]([ExtResource("2_lksn5"), ExtResource("3_bwpoa"), SubResource("Resource_par4q"), SubResource("Resource_pmul4")])
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="." node_paths=PackedStringArray("ghost", "ghost_radius")]
 y_sort_enabled = true
 material = SubResource("ShaderMaterial_087hg")
 position = Vector2(208, -28.6)
@@ -118,7 +119,19 @@ layer_1/navigation_enabled = false
 layer_1/tile_data = PackedInt32Array()
 script = ExtResource("2_t7qm4")
 plant_scene = ExtResource("7_j2yqn")
-plant_resource_list = Array[Resource("res://characters/scripts/plant_resource.gd")]([ExtResource("8_ycy8m"), ExtResource("8_2jwpq"), ExtResource("10_43x0v"), ExtResource("11_yhddu"), ExtResource("12_hwyqg"), ExtResource("13_6pvds"), ExtResource("14_0tdqd")])
+default_plant_resource_list = Array[Resource("res://characters/scripts/plant_resource.gd")]([ExtResource("8_ycy8m"), ExtResource("8_2jwpq"), ExtResource("10_43x0v"), ExtResource("11_yhddu"), ExtResource("13_6pvds"), ExtResource("14_0tdqd"), ExtResource("12_hwyqg")])
+ghost = NodePath("../PlantGhost")
+ghost_radius = NodePath("../PlantGhost/Sprite2D")
+
+[node name="PlantGhost" type="AnimatedSprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.478431)
+scale = Vector2(0.08, 0.08)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlantGhost"]
+position = Vector2(0, 530)
+scale = Vector2(10, 5)
+texture = ExtResource("17_07vus")
 
 [node name="EnemySpawner" type="Path2D" parent="."]
 position = Vector2(-716, -520)

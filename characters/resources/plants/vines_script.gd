@@ -1,9 +1,9 @@
 extends WeatherScript
 
-func modify_summer(plant: Plant):
+func modify_summer(_plant: Plant):
 	pass
 
-func modify_autumn(plant: Plant):
+func modify_autumn(_plant: Plant):
 	pass
 	
 func modify_winter(plant: Plant):

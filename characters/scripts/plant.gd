@@ -5,7 +5,7 @@ signal remove_from_node_array(plant)
 
 @export var durability_bar: ProgressBar
 @export var animation_player: AnimationPlayer
-@export var radius: CollisionShape2D
+@export var radius: CollisionPolygon2D
 @export var fire_timer_max: float = 1000
 
 var icon: CompressedTexture2D
@@ -54,7 +54,8 @@ func set_plant_as_resource(resource: PlantResource):
 	icon = resource.ICON
 	durability_bar.max_value = resource.DURABILITY
 	durability_bar.value = resource.DURABILITY
-	radius.shape.radius = resource.RANGE * 10
+	radius.scale *= resource.RANGE
+	radius.position.y += (1 / (resource.RANGE ** 8))
 	
 	starting_distance = resource.STARTING_DISTANCE
 	bullet_collision_radius = resource.COLLISION_RADIUS

@@ -12,7 +12,7 @@ enum BULLET_TYPE {Normal, AOE, ACTIVATED}
 @export_category("Plant Stats")
 @export var COST: int = 10
 @export var DURABILITY: float = 100
-@export var RANGE: float = 200
+@export var RANGE: float = 0.5
 @export var FIRE_RATE: float = 10
 
 @export_category("Weather Script")
