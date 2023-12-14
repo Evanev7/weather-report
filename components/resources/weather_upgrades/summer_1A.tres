@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WeatherUpgrade" load_steps=4 format=3 uid="uid://bo62ruvf85332"]
+[gd_resource type="Resource" script_class="WeatherUpgradeResource" load_steps=4 format=3 uid="uid://bo62ruvf85332"]
 
 [ext_resource type="Script" path="res://components/scripts/weather_upgrade_resource.gd" id="1_eigce"]
 [ext_resource type="Texture2D" uid="uid://dl20aoca0mb6k" path="res://UI/assets/ui_box.png" id="1_qls44"]
@@ -12,3 +12,4 @@ credit_value = 100
 icon = ExtResource("1_qls44")
 description = "Increases Damage multiplier for Summer Plants
 by 50%."
+displayed_stats = {}

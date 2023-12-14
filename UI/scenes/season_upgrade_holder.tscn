@@ -92,3 +92,65 @@ unique_name_in_owner = true
 layout_mode = 2
 upgrade_resource = ExtResource("6_1gj37")
 index = 4
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="."]
+use_parent_material = true
+layout_mode = 2
+
+[node name="Button4A" parent="HBoxContainer5" instance=ExtResource("5_gcith")]
+unique_name_in_owner = true
+layout_mode = 2
+upgrade_resource = ExtResource("6_1gj37")
+
+[node name="Button4B" parent="HBoxContainer5" instance=ExtResource("5_gcith")]
+unique_name_in_owner = true
+layout_mode = 2
+upgrade_resource = ExtResource("6_1gj37")
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="."]
+use_parent_material = true
+layout_mode = 2
+
+[node name="Button5A" parent="HBoxContainer6" instance=ExtResource("5_gcith")]
+unique_name_in_owner = true
+layout_mode = 2
+upgrade_resource = ExtResource("6_1gj37")
+index = 2
+
+[node name="Button5B" parent="HBoxContainer6" instance=ExtResource("5_gcith")]
+unique_name_in_owner = true
+layout_mode = 2
+upgrade_resource = ExtResource("6_1gj37")
+index = 2
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="."]
+use_parent_material = true
+layout_mode = 2
+
+[node name="Button6A" parent="HBoxContainer7" instance=ExtResource("5_gcith")]
+unique_name_in_owner = true
+layout_mode = 2
+upgrade_resource = ExtResource("6_1gj37")
+index = 3
+
+[node name="Button6B" parent="HBoxContainer7" instance=ExtResource("5_gcith")]
+unique_name_in_owner = true
+layout_mode = 2
+upgrade_resource = ExtResource("6_1gj37")
+index = 3
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="."]
+use_parent_material = true
+layout_mode = 2
+
+[node name="Button7A" parent="HBoxContainer8" instance=ExtResource("5_gcith")]
+unique_name_in_owner = true
+layout_mode = 2
+upgrade_resource = ExtResource("6_1gj37")
+index = 4
+
+[node name="Button7B" parent="HBoxContainer8" instance=ExtResource("5_gcith")]
+unique_name_in_owner = true
+layout_mode = 2
+upgrade_resource = ExtResource("6_1gj37")
+index = 4

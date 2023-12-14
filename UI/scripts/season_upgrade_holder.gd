@@ -1,11 +1,13 @@
 extends VBoxContainer
 
+signal display_resource(resource)
+
 @export var upgrade_group: UpgradeGroup = UpgradeGroup.new()
-@export var upgrades_array_a: Array[WeatherUpgradeResource] = [preload("res://components/resources/weather_upgrades/summer_1A.tres"),preload("res://components/resources/weather_upgrades/summer_1A.tres"),preload("res://components/resources/weather_upgrades/summer_1A.tres"),preload("res://components/resources/weather_upgrades/summer_1A.tres")]
-@export var upgrades_array_b: Array[WeatherUpgradeResource] = [preload("res://components/resources/weather_upgrades/summer_1A.tres"),preload("res://components/resources/weather_upgrades/summer_1A.tres"),preload("res://components/resources/weather_upgrades/summer_1A.tres"),preload("res://components/resources/weather_upgrades/summer_1A.tres")]
+@export var upgrades_array_a: Array[WeatherUpgradeResource] = [preload("res://components/resources/weather_upgrades/summer_1A.tres"),preload("res://components/resources/weather_upgrades/summer_1A.tres"),preload("res://components/resources/weather_upgrades/summer_1A.tres"),preload("res://components/resources/weather_upgrades/summer_1A.tres"),preload("res://components/resources/weather_upgrades/summer_1A.tres"),preload("res://components/resources/weather_upgrades/summer_1A.tres"),preload("res://components/resources/weather_upgrades/summer_1A.tres"),preload("res://components/resources/weather_upgrades/summer_1A.tres")]
+@export var upgrades_array_b: Array[WeatherUpgradeResource] = [preload("res://components/resources/weather_upgrades/summer_1A.tres"),preload("res://components/resources/weather_upgrades/summer_1A.tres"),preload("res://components/resources/weather_upgrades/summer_1A.tres"),preload("res://components/resources/weather_upgrades/summer_1A.tres"),preload("res://components/resources/weather_upgrades/summer_1A.tres"),preload("res://components/resources/weather_upgrades/summer_1A.tres"),preload("res://components/resources/weather_upgrades/summer_1A.tres"),preload("res://components/resources/weather_upgrades/summer_1A.tres")]
 
 func _ready():
-	for index in range(0,4):
+	for index in range(8):
 		var button_a = get_node("%Button"+str(index)+"A")
 		button_a.upgrade_resource = upgrades_array_a[index]
 		button_a.index = index
@@ -20,3 +22,7 @@ func _ready():
 		button_b.button_group = button_group
 		button_a.parent_ready()
 		button_b.parent_ready()
+
+
+func _on_lock_shop():
+	upgrade_group.locked_index = upgrade_group.size()

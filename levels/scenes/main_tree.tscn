@@ -93,7 +93,4 @@ camera = NodePath("../../Camera2D")
 
 [node name="WeatherHandler" parent="World/LogicComponents" instance=ExtResource("8_dsu4c")]
 
-[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
-copy_mode = 2
-
 [connection signal="set_level" from="LevelSelect" to="MainMenu" method="set_level"]

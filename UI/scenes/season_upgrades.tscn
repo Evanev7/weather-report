@@ -39,7 +39,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(1149, 408)
+pivot_offset = Vector2(449, 285)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
 layout_mode = 2
@@ -52,29 +52,43 @@ theme_override_styles/panel = ExtResource("1_nubsw")
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer/ScrollContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="VBoxContainer" parent="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_1s32d")]
+[node name="VBoxContainer" parent="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("2_1s32d")]
 material = SubResource("ShaderMaterial_8fs83")
 layout_mode = 2
 upgrade_group = ExtResource("5_bqqg5")
 
-[node name="VBoxContainer2" parent="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_1s32d")]
+[node name="VBoxContainer2" parent="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("2_1s32d")]
 material = SubResource("ShaderMaterial_jl565")
 layout_mode = 2
 upgrade_group = ExtResource("6_7k2yk")
 
-[node name="VBoxContainer3" parent="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_1s32d")]
+[node name="VBoxContainer3" parent="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("2_1s32d")]
 material = SubResource("ShaderMaterial_vfvqk")
 layout_mode = 2
 upgrade_group = ExtResource("7_1hw12")
 
-[node name="VBoxContainer4" parent="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_1s32d")]
+[node name="VBoxContainer4" parent="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("2_1s32d")]
 material = SubResource("ShaderMaterial_41188")
 layout_mode = 2
 upgrade_group = ExtResource("8_te2it")
 
 [node name="PanelContainer" parent="CenterContainer/HBoxContainer" instance=ExtResource("3_8yve7")]
 layout_mode = 2
+
+[connection signal="display_resource" from="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer" to="CenterContainer/HBoxContainer/PanelContainer" method="_on_display_resource"]
+[connection signal="display_resource" from="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer2" to="CenterContainer/HBoxContainer/PanelContainer" method="_on_display_resource"]
+[connection signal="display_resource" from="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer3" to="CenterContainer/HBoxContainer/PanelContainer" method="_on_display_resource"]
+[connection signal="display_resource" from="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer4" to="CenterContainer/HBoxContainer/PanelContainer" method="_on_display_resource"]
+[connection signal="lock_shop" from="CenterContainer/HBoxContainer/PanelContainer" to="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer" method="_on_lock_shop"]
+[connection signal="lock_shop" from="CenterContainer/HBoxContainer/PanelContainer" to="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer2" method="_on_lock_shop"]
+[connection signal="lock_shop" from="CenterContainer/HBoxContainer/PanelContainer" to="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer3" method="_on_lock_shop"]
+[connection signal="lock_shop" from="CenterContainer/HBoxContainer/PanelContainer" to="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer4" method="_on_lock_shop"]
