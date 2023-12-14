@@ -3,6 +3,7 @@ class_name World
 
 @export var levels: Array[PackedScene]
 @onready var HUD: CanvasLayer = $TopBar
+@onready var weather_handler: Node = $LogicComponents/WeatherHandler
 var _autoplay = false
 
 func _ready():
@@ -15,7 +16,7 @@ func set_level(level):
 	level_to_set.send_plant_resource_list.connect(HUD.set_thumbnails)
 	level_to_set.update_wave_label.connect(HUD.update_wave_label)
 	level_to_set.enable_wave_button.connect(HUD.end_wave)
-	level_to_set.weather_handler = $LogicComponents/WeatherHandler
+	level_to_set.weather_handler = weather_handler
 	%PauseMenu.restart_level.connect(level_to_set.start)
 	HUD.next_wave.connect(level_to_set.next_wave)
 	$LogicComponents/ShaderManager.tilemap = level_to_set.get_node("TileMap")

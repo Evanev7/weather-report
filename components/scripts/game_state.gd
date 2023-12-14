@@ -2,6 +2,8 @@ extends Node
 
 var debug = true
 
+@onready var weather_handler: Node = get_parent().get_node("main/World/LogicComponents/WeatherHandler")
+
 signal spawn_error(msg)
 signal fire_from(plant, direction)
 signal level_completed
@@ -30,7 +32,6 @@ func _ready():
 
 func _on_paused(state):
 	pause_state = state
-	print(pause_state)
 	match state:
 		PAUSE_STATES.UNPAUSED, PAUSE_STATES.MAIN_MENU:
 			get_tree().paused = false

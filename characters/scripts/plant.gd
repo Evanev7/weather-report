@@ -10,6 +10,9 @@ signal remove_from_node_array(plant)
 
 var icon: CompressedTexture2D
 
+var default_resource: PlantResource
+var personal_weather: GameState.WEATHER
+
 ## Bullet Stats
 var starting_distance: float
 var bullet_collision_radius: float
@@ -44,11 +47,34 @@ var can_fire: bool = false
 func _ready():
 	GameState.weather_changed.connect(set_weather)
 
-func set_plant_as_resource(resource: PlantResource):
-	weather_script = resource.WEATHER_SCRIPT.new()
+func set_plant_as_resource(_resource: PlantResource):
+	weather_script = _resource.WEATHER_SCRIPT.new()
 	add_child(weather_script)
 	
+	default_resource = _resource
+	reset_resource(default_resource)
+	
+	personal_weather = -1
+	set_weather(GameState.weather)
+	
+func set_weather(weather):
+	reset_resource(default_resource)
+	while (personal_weather % 4) != weather:
+		personal_weather += 1
+		modify_weather(personal_weather)
 
+func modify_weather(_weather = GameState.weather):
+	match (_weather % 4):
+		GameState.WEATHER.Summer:
+			weather_script.modify_summer(self)
+		GameState.WEATHER.Autumn:
+			weather_script.modify_autumn(self)
+		GameState.WEATHER.Winter:
+			weather_script.modify_winter(self)
+		GameState.WEATHER.Spring:
+			weather_script.modify_spring(self)
+
+func reset_resource(resource = default_resource):
 	sprite_frames = resource.ANIMATION
 	flip_h = resource.FLIP_H
 	icon = resource.ICON
@@ -76,29 +102,6 @@ func set_plant_as_resource(resource: PlantResource):
 	lifetime = resource.BULLET_LIFETIME
 	piercing_amount = resource.PIERCING_AMOUNT
 	piercing_cooldown = resource.PIERCING_COOLDOWN
-	
-	set_weather(GameState.WEATHER.Summer)
-	match GameState.weather:
-		GameState.WEATHER.Autumn:
-			set_weather(GameState.WEATHER.Autumn)
-		GameState.WEATHER.Winter:
-			set_weather(GameState.WEATHER.Autumn)
-			set_weather(GameState.WEATHER.Winter)
-		GameState.WEATHER.Spring:
-			set_weather(GameState.WEATHER.Autumn)
-			set_weather(GameState.WEATHER.Winter)
-			set_weather(GameState.WEATHER.Spring)
-	
-func set_weather(weather):
-	match weather:
-		GameState.WEATHER.Summer:
-			weather_script.modify_summer(self)
-		GameState.WEATHER.Autumn:
-			weather_script.modify_autumn(self)
-		GameState.WEATHER.Winter:
-			weather_script.modify_winter(self)
-		GameState.WEATHER.Spring:
-			weather_script.modify_spring(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):

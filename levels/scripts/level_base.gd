@@ -30,6 +30,7 @@ func start():
 	get_tree().call_group("bullet", "remove")
 	
 	GameState.weather = starting_weather
+	GameState.weather_handler.reset_weather_resources()
 	send_plant_resource_list.emit(plant_resource_list)
 	weather_handler.reset_weather_resources()
 	$TileMap.reset_resource_list()

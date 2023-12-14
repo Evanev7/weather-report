@@ -34,3 +34,8 @@ func upgrade_summer():
 	match summer_resource.upgrade_level:
 		1:
 			summer_resource.damage_multiplier = 1.5
+		2:
+			summer_resource.damage_multiplier = 2
+			
+	get_tree().call_group("plant", "reset_resource")
+	get_tree().call_group("plant", "modify_weather")

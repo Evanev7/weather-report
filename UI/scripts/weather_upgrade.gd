@@ -7,12 +7,12 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
 func upgrade_summer():
-	print("upgrades summer")
+	GameState.weather_handler.upgrade_summer()
 
 
 func back_button_pressed():

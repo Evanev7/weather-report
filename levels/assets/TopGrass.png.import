@@ -4,7 +4,7 @@ importer="texture_atlas"
 type="Texture2D"
 uid="uid://dpn0s8yvmujey"
 path="res://.godot/imported/TopGrass.png-f97c6dee68996c30953610b20d25b924.res"
-group_file="res://levels/assets/tilemaps/tilemap_grass_3.png"
+group_file="res://levels/assets/tilemaps/tilemap_grass_5.png"
 valid=true
 [deps]
 
@@ -14,7 +14,7 @@ dest_files=["res://.godot/imported/TopGrass.png-f97c6dee68996c30953610b20d25b924
 
 [params]
 
-atlas_file="res://levels/assets/tilemaps/tilemap_grass_3.png"
+atlas_file="res://levels/assets/tilemaps/tilemap_grass_5.png"
 import_mode=0
 crop_to_region=true
 trim_alpha_border_from_region=false
