@@ -1,5 +1,5 @@
 extends Resource
-class_name WeatherUpgrade
+class_name WeatherUpgradeResource
 
 @export var name: String
 @export var upgrade_script: Script

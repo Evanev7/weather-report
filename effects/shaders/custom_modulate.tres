@@ -1,0 +1,67 @@
+[gd_resource type="VisualShader" load_steps=5 format=3 uid="uid://14xptp8qrnsm"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_ojdfu"]
+expanded_output_ports = [0]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_bww3l"]
+expanded_output_ports = [0]
+parameter_name = "target_blend"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_b7bj3"]
+parameter_name = "FloatParameter"
+hint = 1
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_jeob5"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1), 2, 0.5]
+expanded_output_ports = [0]
+op_type = 4
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform vec4 target_blend : source_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
+uniform float FloatParameter : hint_range(0, 1) = 0;
+
+
+
+void fragment() {
+// Input:2
+	vec4 n_out2p0 = COLOR;
+	float n_out2p4 = n_out2p0.a;
+
+
+// ColorParameter:3
+	vec4 n_out3p0 = target_blend;
+
+
+// FloatParameter:4
+	float n_out4p0 = FloatParameter;
+
+
+// Mix:5
+	vec3 n_out5p0 = mix(vec3(n_out2p0.xyz), vec3(n_out3p0.xyz), n_out4p0);
+
+
+// Output:0
+	COLOR.rgb = n_out5p0;
+	COLOR.a = n_out2p4;
+
+
+}
+"
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2(320, 780)
+nodes/fragment/2/node = SubResource("VisualShaderNodeInput_ojdfu")
+nodes/fragment/2/position = Vector2(-340, 1040)
+nodes/fragment/3/node = SubResource("VisualShaderNodeColorParameter_bww3l")
+nodes/fragment/3/position = Vector2(-340, 680)
+nodes/fragment/4/node = SubResource("VisualShaderNodeFloatParameter_b7bj3")
+nodes/fragment/4/position = Vector2(-340, 320)
+nodes/fragment/5/node = SubResource("VisualShaderNodeMix_jeob5")
+nodes/fragment/5/position = Vector2(60, 760)
+nodes/fragment/connections = PackedInt32Array(4, 0, 5, 2, 5, 0, 0, 0, 2, 0, 5, 0, 3, 0, 5, 1, 2, 4, 0, 1)

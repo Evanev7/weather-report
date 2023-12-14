@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcr683khtcjmf"]
+
+[ext_resource type="StyleBox" uid="uid://5oc2mmptjfjd" path="res://UI/resources/wood_style_box.tres" id="1_x6ny7"]
+[ext_resource type="PackedScene" uid="uid://cudgp4r2n8npu" path="res://UI/scenes/stat_window.tscn" id="2_lele1"]
+
+[node name="PanelContainer" type="PanelContainer"]
+theme_override_styles/panel = ExtResource("1_x6ny7")
+
+[node name="StatScreen" parent="." instance=ExtResource("2_lele1")]
+layout_mode = 2

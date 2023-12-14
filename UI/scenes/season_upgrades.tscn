@@ -1,0 +1,80 @@
+[gd_scene load_steps=14 format=3 uid="uid://cxgelc4wqu2fk"]
+
+[ext_resource type="StyleBox" uid="uid://5oc2mmptjfjd" path="res://UI/resources/wood_style_box.tres" id="1_nubsw"]
+[ext_resource type="Script" path="res://UI/scripts/season_upgrades.gd" id="1_vaxel"]
+[ext_resource type="PackedScene" uid="uid://btyidw7j3wn58" path="res://UI/scenes/season_upgrade_holder.tscn" id="2_1s32d"]
+[ext_resource type="Shader" uid="uid://14xptp8qrnsm" path="res://effects/shaders/custom_modulate.tres" id="3_4gm4w"]
+[ext_resource type="PackedScene" uid="uid://bcr683khtcjmf" path="res://UI/scenes/upgrade_text_display.tscn" id="3_8yve7"]
+[ext_resource type="Resource" uid="uid://cwwdqk840prg7" path="res://UI/resources/summer_upgrade_group.tres" id="5_bqqg5"]
+[ext_resource type="Resource" uid="uid://cctash5jmtrdq" path="res://UI/resources/autumn_upgrade_group.tres" id="6_7k2yk"]
+[ext_resource type="Resource" uid="uid://c6cb2fe17icl" path="res://UI/resources/winter_upgrade_group.tres" id="7_1hw12"]
+[ext_resource type="Resource" uid="uid://dynljv1dh0yau" path="res://UI/resources/spring_upgrade_group.tres" id="8_te2it"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8fs83"]
+shader = ExtResource("3_4gm4w")
+shader_parameter/target_blend = Color(1, 0, 0, 1)
+shader_parameter/FloatParameter = 0.33
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jl565"]
+shader = ExtResource("3_4gm4w")
+shader_parameter/target_blend = Color(0.619608, 0.321569, 0.0588235, 1)
+shader_parameter/FloatParameter = 0.33
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vfvqk"]
+shader = ExtResource("3_4gm4w")
+shader_parameter/target_blend = Color(0, 1, 1, 1)
+shader_parameter/FloatParameter = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_41188"]
+shader = ExtResource("3_4gm4w")
+shader_parameter/target_blend = Color(0, 1, 0, 1)
+shader_parameter/FloatParameter = 0.33
+
+[node name="season_upgrades" type="CanvasLayer"]
+script = ExtResource("1_vaxel")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1149, 408)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="PanelContainer" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_nubsw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="VBoxContainer" parent="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_1s32d")]
+material = SubResource("ShaderMaterial_8fs83")
+layout_mode = 2
+upgrade_group = ExtResource("5_bqqg5")
+
+[node name="VBoxContainer2" parent="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_1s32d")]
+material = SubResource("ShaderMaterial_jl565")
+layout_mode = 2
+upgrade_group = ExtResource("6_7k2yk")
+
+[node name="VBoxContainer3" parent="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_1s32d")]
+material = SubResource("ShaderMaterial_vfvqk")
+layout_mode = 2
+upgrade_group = ExtResource("7_1hw12")
+
+[node name="VBoxContainer4" parent="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_1s32d")]
+material = SubResource("ShaderMaterial_41188")
+layout_mode = 2
+upgrade_group = ExtResource("8_te2it")
+
+[node name="PanelContainer" parent="CenterContainer/HBoxContainer" instance=ExtResource("3_8yve7")]
+layout_mode = 2
