@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d4klrgmrciins"]
+[gd_scene load_steps=19 format=3 uid="uid://d4klrgmrciins"]
 
 [ext_resource type="PackedScene" uid="uid://b2euuv7n3vu4j" path="res://levels/scenes/main_menu.tscn" id="1_vgi8s"]
 [ext_resource type="PackedScene" uid="uid://c2wpjv5nffmco" path="res://UI/scenes/pause_menu.tscn" id="2_ao0h5"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b4nyijv5gecll" path="res://UI/scenes/weather_upgrade.tscn" id="9_bj4nl"]
 [ext_resource type="Shader" uid="uid://o1ssx2ckepn0" path="res://effects/shaders/season_shader.tres" id="11_0k2lg"]
 [ext_resource type="Texture2D" uid="uid://dm0i0csgslhuh" path="res://icon.svg" id="11_4o0rh"]
+[ext_resource type="PackedScene" uid="uid://cxgelc4wqu2fk" path="res://UI/scenes/season_upgrades.tscn" id="12_5i2kh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_131c2"]
 shader = ExtResource("11_0k2lg")
@@ -49,13 +50,17 @@ emitting = false
 
 [node name="TopBar" parent="World" node_paths=PackedStringArray("weather_upgrades") instance=ExtResource("4_uudau")]
 visible = false
-weather_upgrades = NodePath("../WeatherUpgrade")
+weather_upgrades = NodePath("../SeasonUpgrade")
 
 [node name="PauseMenu" parent="World" instance=ExtResource("2_ao0h5")]
 unique_name_in_owner = true
 visible = false
 
 [node name="WeatherUpgrade" parent="World" instance=ExtResource("9_bj4nl")]
+process_mode = 2
+visible = false
+
+[node name="SeasonUpgrade" parent="World" instance=ExtResource("12_5i2kh")]
 process_mode = 2
 visible = false
 

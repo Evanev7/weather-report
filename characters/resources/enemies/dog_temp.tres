@@ -42,6 +42,7 @@ NAME = "Dog_temp"
 ANIMATION = SubResource("SpriteFrames_alq6t")
 FLIP_H = true
 FLOATING = false
+FLYING = false
 SPEED = 50.0
 MAX_HP = 100.0
 DAMAGE = 10.0
