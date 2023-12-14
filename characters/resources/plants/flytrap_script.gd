@@ -1,9 +1,13 @@
 extends WeatherScript
 
-func modify_summer(_plant: Plant):
+func modify_summer(plant: Plant):
+	plant.play("se")
+	plant.damage *= GameState.weather_handler.summer_resource.damage_multiplier
+	plant.shot_size *= (2 * GameState.weather_handler.summer_resource.size_multiplier)
 	pass
 
-func modify_autumn(_plant: Plant):
+func modify_autumn(plant: Plant):
+	plant.play("se")
 	pass
 	
 func modify_winter(plant: Plant):

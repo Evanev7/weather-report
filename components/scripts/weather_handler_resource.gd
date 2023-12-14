@@ -6,3 +6,5 @@ class_name WeatherResource
 @export var fire_rate_multiplier: float = 1
 @export var range_multiplier: float = 1
 @export var size_multiplier: float = 1
+@export var lifetime_multiplier: float = 1
+@export var duration_multiplier: float = 1
