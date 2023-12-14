@@ -8,6 +8,7 @@ class_name EnemyResource
 @export var FLOATING: bool
 
 @export_category("Stats")
+@export var FLYING: bool = false
 @export var SPEED: float
 @export var MAX_HP: float
 @export var DAMAGE: float

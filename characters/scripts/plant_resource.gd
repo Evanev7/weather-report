@@ -2,6 +2,7 @@ extends Resource
 class_name PlantResource
 
 enum BULLET_TYPE {Normal, AOE, ACTIVATED}
+enum WEATHER {Summer, Autumn, Winter, Spring, none}
 
 @export_category("Metadata")
 @export var NAME: String
@@ -16,11 +17,13 @@ enum BULLET_TYPE {Normal, AOE, ACTIVATED}
 @export var FIRE_RATE: float = 10
 
 @export_category("Weather Script")
+@export var FAVOURITE_WEATHER: WEATHER
 @export var WEATHER_SCRIPT: Script
 
 @export_category("Bullet Metadata")
 @export var BULLET_ANIMATION: SpriteFrames
 @export var TYPE: PlantResource.BULLET_TYPE = BULLET_TYPE.Normal
+@export var FLYING: bool = false
 @export var COLLISION_RADIUS: float = 10
 @export var BULLET_PARTICLES: ParticleProcessMaterial
 @export var BULLET_PARTICLE_LIFETIME: float = 1

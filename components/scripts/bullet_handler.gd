@@ -21,6 +21,7 @@ func fire_from(plant, direction):
 	bullet.slow_duration = plant.slow_duration
 
 	bullet.direction = direction.normalized()
+	bullet.flying = plant.flying
 	bullet.global_position = plant.position + bullet.direction * plant.starting_distance
 	bullet.collision.shape.radius = plant.bullet_collision_radius
 	bullet.sprite.sprite_frames = plant.bullet_animation

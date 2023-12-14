@@ -19,6 +19,7 @@ var bullet_collision_radius: float
 var bullet_particles: ParticleProcessMaterial
 var bullet_particle_lifetime: float
 var bullet_particle_texture
+var flying: bool
 var fire_timer: float
 var fire_rate: float
 var wilting_rate: float = 1
@@ -90,6 +91,7 @@ func reset_resource(resource = default_resource):
 	bullet_particle_lifetime = resource.BULLET_PARTICLE_LIFETIME
 	bullet_particle_texture = resource.BULLET_PARTICLE_TEXTURE
 	bullet_type = resource.TYPE
+	flying = resource.FLYING
 	fire_rate = resource.FIRE_RATE
 	shot_speed = resource.SHOT_SPEED
 	angular_velocity = resource.ANGULAR_VELOCITY
@@ -133,17 +135,18 @@ func _physics_process(_delta):
 func fire_bullet():
 	var targeted_enemy = select_enemy()
 	var direction = targeted_enemy.global_position - global_position
-	GameState.fire_from.emit(self, direction)
-	can_fire = false
-	fire_timer = fire_timer_max
-	
-	if sprite_frames.has_animation("shooting_se"):
-		play("shooting_se")
-	await get_tree().create_timer(10/fire_rate).timeout
-	if sprite_frames.has_animation("se"):
-		play("se")
+	if not targeted_enemy.flying or (targeted_enemy.flying and flying):
+		GameState.fire_from.emit(self, direction)
+		can_fire = false
+		fire_timer = fire_timer_max
+		
+		if sprite_frames.has_animation("shooting_se"):
+			play("shooting_se")
+		await get_tree().create_timer(10/fire_rate).timeout
+		if sprite_frames.has_animation("se"):
+			play("se")
 
-func select_enemy() -> PathFollow2D:
+func select_enemy() -> Enemy:
 	var enemy_progress_array = []
 	#Should this be enemy_array? so it targets enemies in range?
 	for enemy in enemy_array:

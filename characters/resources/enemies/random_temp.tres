@@ -28,6 +28,7 @@ NAME = "Random"
 ANIMATION = SubResource("SpriteFrames_ty3v6")
 FLIP_H = true
 FLOATING = false
+FLYING = true
 SPEED = 400.0
 MAX_HP = 1.0
 DAMAGE = 1.0

@@ -17,6 +17,7 @@ signal add_water_credits(value: int)
 @onready var path = get_parent()
 
 var health: float
+var flying: bool
 var default_speed: float
 var speed: float
 var value: float
@@ -38,6 +39,9 @@ func set_enemy_as_resource(resource: EnemyResource):
 	bounce_anim.speed_scale = randf_range(0.9, 1.1)
 	dead_anim.play("spawn")
 	health = resource.MAX_HP
+	flying = resource.FLYING
+	if flying:
+		sprite.offset.y -= 1000
 	hp_bar.max_value = health
 	hp_bar.value = health
 	default_speed = resource.SPEED

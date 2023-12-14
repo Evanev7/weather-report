@@ -14,6 +14,7 @@ var slow_amount: float = 0
 var slow_duration: float = 0
 
 var direction: Vector2 = Vector2(0, 0)
+var flying: bool
 var speed: float
 var angular_velocity: float
 var max_lifetime: float
@@ -36,7 +37,8 @@ func _physics_process(delta):
 	for area in get_overlapping_areas():
 		if area.owner is Enemy:
 			var target = area.owner
-			check_for_hit(target)
+			if not target.flying or (target.flying and flying):
+				check_for_hit(target)
 			
 	current_piercing_cooldown += 1
 
