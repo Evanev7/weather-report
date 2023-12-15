@@ -31,7 +31,6 @@ func can_select_script() -> bool:
 	if pressed:
 		discount = pressed.upgrade_resource.credit_value
 	
-	print(discount)
 	if GameState.level.water_credits < upgrade_resource.credit_value - discount:
 		return false
 	
