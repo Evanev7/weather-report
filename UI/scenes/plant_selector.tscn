@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://b6x3510ma53a"]
+[gd_scene load_steps=32 format=3 uid="uid://b6x3510ma53a"]
 
 [ext_resource type="Script" path="res://UI/scripts/plant_selector.gd" id="1_jjaxe"]
 [ext_resource type="PackedScene" uid="uid://dn4p6k1ntjewn" path="res://components/scenes/error_message.tscn" id="2_586kn"]
 [ext_resource type="Texture2D" uid="uid://b3fhgrn2kl8q2" path="res://UI/assets/ui_box_half.png" id="3_j7n8a"]
 [ext_resource type="PackedScene" uid="uid://cnyexo8p0o1f1" path="res://UI/scenes/selectable.tscn" id="3_pctsd"]
+[ext_resource type="Texture2D" uid="uid://dcqevuwwf3i5u" path="res://UI/assets/droplets.png" id="5_8r0mu"]
 [ext_resource type="Texture2D" uid="uid://5juxf7t345s2" path="res://levels/assets/S4_grass.png" id="7_tisxl"]
 [ext_resource type="Texture2D" uid="uid://c1t7mgit0x1mw" path="res://levels/assets/left_grass.png" id="7_u3mih"]
 [ext_resource type="Texture2D" uid="uid://cda5x36kr5tgy" path="res://UI/assets/temp/pause_menu_top_button.png" id="9_73php"]
@@ -138,40 +139,48 @@ columns = 2
 
 [node name="PlantSlot1" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
+fav_weather = 0
 
 [node name="PlantSlot2" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_adsfv")
 selection = 1
+fav_weather = 0
 
 [node name="PlantSlot3" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_ecky8")
 selection = 2
+fav_weather = 0
 
 [node name="PlantSlot4" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_mhq7t")
 selection = 3
+fav_weather = 0
 
 [node name="PlantSlot5" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_dscpp")
 selection = 4
+fav_weather = 0
 
 [node name="PlantSlot6" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_m7yqk")
 selection = 5
+fav_weather = 0
 
 [node name="PlantSlot7" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_e7ari")
 selection = 6
+fav_weather = 0
 
 [node name="PlantSlot8" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_m5jld")
+fav_weather = 0
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 anchors_preset = 1
@@ -196,33 +205,28 @@ layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer/HBoxContainer"]
+[node name="RichTextLabel" type="TextureRect" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_offset_y = 5
-theme_override_constants/shadow_outline_size = 5
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/normal_font_size = 39
-text = "WW"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
+texture = ExtResource("5_8r0mu")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="Credits" type="RichTextLabel" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.321569, 0.607843, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_offset_y = 5
-theme_override_constants/shadow_outline_size = 5
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/normal_font_size = 39
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 1
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 69
 bbcode_enabled = true
 text = "[center]100[/center]"
 fit_content = true
@@ -242,15 +246,18 @@ layout_mode = 2
 shortcut = SubResource("Shortcut_wu8xn")
 selection = 2
 thumbnail = ExtResource("7_tisxl")
+fav_weather = 0
 
 [node name="ToolSlot2" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_s2p8r")
 thumbnail = ExtResource("7_u3mih")
+fav_weather = 0
 
 [node name="ToolSlot3" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
 shortcut = null
+fav_weather = 0
 
 [node name="Container" type="Control" parent="MarginContainer2/PanelContainer/HBoxContainer"]
 custom_minimum_size = Vector2(380, 0)

@@ -23,6 +23,7 @@ func set_level(level):
 	add_child(level_to_set)
 	move_child(level_to_set, 0)
 	$TopBar.visible = true
+	SoundManager.BG_audio.play()
 
 func _input(event):
 	if event is InputEventMouseMotion:

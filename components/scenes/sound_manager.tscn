@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8v6la1xm2oci"]
+
+[ext_resource type="Script" path="res://components/scripts/sound_manager.gd" id="1_3ej65"]
+[ext_resource type="AudioStream" uid="uid://blw86hqycvmgu" path="res://sfx/select.wav" id="2_xdcje"]
+[ext_resource type="AudioStream" uid="uid://60otk282rkfc" path="res://sfx/small_select.wav" id="3_2lj87"]
+[ext_resource type="AudioStream" uid="uid://lc4fv86x05wy" path="res://sfx/bg_audio.ogg" id="4_jyfqf"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_x2x0n"]
+random_pitch = 1.05
+streams_count = 1
+stream_0/stream = ExtResource("2_xdcje")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3qx0r"]
+random_pitch = 1.05
+streams_count = 1
+stream_0/stream = ExtResource("3_2lj87")
+stream_0/weight = 1.0
+
+[node name="SoundManager" type="Node"]
+process_mode = 3
+script = ExtResource("1_3ej65")
+
+[node name="SelectButton" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = SubResource("AudioStreamRandomizer_x2x0n")
+bus = &"SFX"
+
+[node name="SmallSelect" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_3qx0r")
+bus = &"SFX"
+
+[node name="BG_audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jyfqf")
+bus = &"Music"

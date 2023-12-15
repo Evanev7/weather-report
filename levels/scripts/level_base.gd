@@ -10,6 +10,7 @@ signal game_over(won: bool)
 
 @onready var plant_resource_list: Array[PlantResource] = $TileMap.plant_resource_list
 @onready var HUD: CanvasLayer = get_parent().get_node("TopBar")
+@onready var ysort: Node2D = $YSort
 
 @export_category("Level Start Stats")
 
@@ -39,8 +40,8 @@ func start():
 	send_plant_resource_list.emit(plant_resource_list)
 	weather_handler.reset_weather_resources()
 	$TileMap.reset_resource_list()
-	$EnemySpawner.end_wave()
-	$EnemySpawner.reset(waves)
+	$YSort/EnemySpawner.end_wave()
+	$YSort/EnemySpawner.reset(waves)
 	update_wave_label_on_hud(0)
 	water_credits = starting_credits
 	update_hud_credits.emit(water_credits)
@@ -50,7 +51,7 @@ func end_wave():
 	enable_wave_button.emit()
 
 func next_wave():
-	$EnemySpawner.start_wave()
+	$YSort/EnemySpawner.start_wave()
 
 func update_wave_label_on_hud(wave):
 	update_wave_label.emit(wave)

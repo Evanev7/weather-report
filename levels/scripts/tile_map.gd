@@ -47,10 +47,12 @@ func place_plant_at_location(plant_resource, pos):
 	placed_plant.position = pos
 	if owner.water_credits >= plant_resource.COST:
 		owner.add_water_credits(-plant_resource.COST)
+		owner.ysort.add_child(placed_plant)
 		placed_plant.set_plant_as_resource(plant_resource)
 		placed_plant.connect("remove_from_node_array", remove_plant_from_array)
 		placed_plant.add_to_group("plant")
-		owner.add_child(placed_plant)
+		$AudioStreamPlayer.play()
+		placed_plant.play_spawn_sound()
 	else:
 		remove_plant_from_array(placed_plant)
 		GameState.show_error("You can't afford this!")
@@ -59,13 +61,17 @@ func update_weather_decorations(weather):
 	#set_tileset()
 	match weather:
 		GameState.WEATHER.Summer:
+			modulate = Color(1, 1, 1)
 			randomise_decorations()
 		GameState.WEATHER.Autumn:
+			modulate = Color(1, 0.87, 0.87)
 			clear_decorations()
 			randomise_decorations(0.4)
 		GameState.WEATHER.Winter:
 			clear_decorations()
+			modulate = Color(0.7, 1, 1)
 		GameState.WEATHER.Spring:
+			modulate = Color(1, 1, 1)
 			randomise_decorations(0.7)
 
 func get_decoratable_cells():

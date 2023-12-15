@@ -8,10 +8,18 @@ signal remove_from_node_array(plant)
 @export var radius: CollisionPolygon2D
 @export var fire_timer_max: float = 1000
 
+@export var summer_spawn: AudioStreamPlayer
+@export var autumn_spawn: AudioStreamPlayer
+@export var winter_spawn: AudioStreamPlayer
+@export var spring_spawn: AudioStreamPlayer
+@export var mushroom_spawn: AudioStreamPlayer
+@onready var spawn_audio: Array[AudioStreamPlayer] = [summer_spawn, autumn_spawn, winter_spawn, spring_spawn, mushroom_spawn]
+@onready var fav_particles: GPUParticles2D = $favourite
 var icon: CompressedTexture2D
 
 var default_resource: PlantResource
 var personal_weather: GameState.WEATHER
+var favourite_weather: int
 
 ## Bullet Stats
 var starting_distance: float
@@ -63,6 +71,10 @@ func set_weather(weather):
 	while (personal_weather % 4) != weather:
 		personal_weather += 1
 		modify_weather(personal_weather)
+	if favourite_weather == weather:
+		fav_particles.emitting = true
+	else:
+		fav_particles.emitting = false
 
 func modify_weather(_weather = GameState.weather):
 	match (_weather % 4):
@@ -83,6 +95,7 @@ func reset_resource(resource = default_resource):
 	durability_bar.value = resource.DURABILITY
 	radius.scale *= resource.RANGE
 	radius.position.y += (1 / (resource.RANGE ** 8))
+	favourite_weather = resource.FAVOURITE_WEATHER
 	
 	starting_distance = resource.STARTING_DISTANCE
 	bullet_collision_radius = resource.COLLISION_RADIUS
@@ -105,6 +118,9 @@ func reset_resource(resource = default_resource):
 	piercing_amount = resource.PIERCING_AMOUNT
 	piercing_cooldown = resource.PIERCING_COOLDOWN
 
+func play_spawn_sound():
+	spawn_audio[favourite_weather].play()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
 	## Fire towards nearest enemy

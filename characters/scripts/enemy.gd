@@ -2,6 +2,7 @@ extends PathFollow2D
 class_name Enemy
 
 signal removed()
+signal play_hurt_sound()
 signal attack_greenhouse(damage: float)
 signal add_water_credits(value: int)
 
@@ -11,6 +12,7 @@ signal add_water_credits(value: int)
 @export var bounce_anim: AnimationPlayer
 @export var hurt_anim: AnimationPlayer
 @export var dead_anim: AnimationPlayer
+@export var death: AudioStreamPlayer2D
 @export var poison_timer: Timer
 @export var slow_timer: Timer
 
@@ -41,7 +43,7 @@ func set_enemy_as_resource(resource: EnemyResource):
 	health = resource.MAX_HP
 	flying = resource.FLYING
 	if flying:
-		sprite.offset.y -= 500
+		sprite.offset.y -= 300
 	hp_bar.max_value = health
 	hp_bar.value = health
 	default_speed = resource.SPEED
@@ -97,6 +99,7 @@ func hurt(damage_taken, _poison_damage: float = 0, poison_duration: float = 0, s
 		update_health()
 		hurt_anim.stop()
 		hurt_anim.play("hurt")
+		play_hurt_sound.emit()
 		
 		if _poison_damage:
 			poison_damage = _poison_damage
@@ -129,7 +132,9 @@ func update_health():
 		set_process(false)
 		add_water_credits.emit(value)
 		
-		
+func death_sound():
+	death.play()
+	
 func remove():
 	remove_from_group("enemy")
 	removed.emit()

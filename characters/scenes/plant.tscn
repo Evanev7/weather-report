@@ -1,7 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://crva7xrk1jbo4"]
+[gd_scene load_steps=20 format=3 uid="uid://crva7xrk1jbo4"]
 
 [ext_resource type="SpriteFrames" uid="uid://dfrv5rrn0lhrb" path="res://characters/assets/plants/mushroom_spriteframes.tres" id="1_b7uoe"]
 [ext_resource type="Script" path="res://characters/scripts/plant.gd" id="2_nfrcv"]
+[ext_resource type="AudioStream" uid="uid://btcfhrtkl4x6u" path="res://sfx/summer_spawn.wav" id="3_vg1pm"]
+[ext_resource type="AudioStream" uid="uid://5ob8orx8f6g" path="res://sfx/autumn_spawn.wav" id="4_n5vml"]
+[ext_resource type="AudioStream" uid="uid://cip4t816tcjpl" path="res://sfx/winter_spawn.wav" id="5_lfi7t"]
+[ext_resource type="AudioStream" uid="uid://cmutawocais4b" path="res://sfx/spring_spawn.wav" id="6_4pty1"]
+[ext_resource type="AudioStream" uid="uid://6gdrfonly2cm" path="res://sfx/mushroom_spawn.wav" id="7_8drj1"]
+[ext_resource type="Texture2D" uid="uid://b0vc2kwpnt5jj" path="res://UI/assets/summer.png" id="8_dvc7q"]
 
 [sub_resource type="Animation" id="Animation_n2q3f"]
 length = 0.001
@@ -78,7 +84,54 @@ _data = {
 "wilt": SubResource("Animation_4xnp8")
 }
 
-[node name="Plant" type="AnimatedSprite2D" node_paths=PackedStringArray("durability_bar", "animation_player", "radius")]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ukv3r"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("3_vg1pm")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_833t2"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("4_n5vml")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0mwd7"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("5_lfi7t")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xe41p"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("6_4pty1")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3mhhd"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("7_8drj1")
+stream_0/weight = 1.0
+
+[sub_resource type="Gradient" id="Gradient_7b2yn"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ykxgn"]
+gradient = SubResource("Gradient_7b2yn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w4ccv"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(500, 100, 1)
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+gravity = Vector3(0, -30, 0)
+scale_min = 0.01
+scale_max = 0.02
+color_ramp = SubResource("GradientTexture1D_ykxgn")
+
+[node name="Plant" type="AnimatedSprite2D" node_paths=PackedStringArray("durability_bar", "animation_player", "radius", "summer_spawn", "autumn_spawn", "winter_spawn", "spring_spawn", "mushroom_spawn")]
 position = Vector2(1.66893e-06, 2.38419e-07)
 scale = Vector2(0.08, 0.08)
 sprite_frames = ExtResource("1_b7uoe")
@@ -88,6 +141,11 @@ script = ExtResource("2_nfrcv")
 durability_bar = NodePath("Durability")
 animation_player = NodePath("AnimationPlayer")
 radius = NodePath("Area2D/CollisionPolygon2D")
+summer_spawn = NodePath("summer")
+autumn_spawn = NodePath("autumn")
+winter_spawn = NodePath("winter")
+spring_spawn = NodePath("spring")
+mushroom_spawn = NodePath("mushroom")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -112,6 +170,36 @@ monitorable = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(0, -470, -520, -440, -1020, -330, -1420, -170, -1750, 40, -1940, 280, -2000, 530, -1930, 790, -1720, 1040, -1410, 1240, -1000, 1400, -510, 1500, 9.99998, 1530, 520, 1500, 1020, 1390, 1430, 1230, 1740, 1020, 1930, 790, 2000, 520, 1940, 260, 1740, 30, 1420, -170, 990, -340, 530, -430)
+
+[node name="summer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_ukv3r")
+bus = &"SFX"
+
+[node name="autumn" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_833t2")
+bus = &"SFX"
+
+[node name="winter" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_0mwd7")
+volume_db = -3.782
+bus = &"SFX"
+
+[node name="spring" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_xe41p")
+volume_db = -9.455
+bus = &"SFX"
+
+[node name="mushroom" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_3mhhd")
+bus = &"SFX"
+
+[node name="favourite" type="GPUParticles2D" parent="."]
+position = Vector2(0, 637.5)
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_w4ccv")
+texture = ExtResource("8_dvc7q")
+lifetime = 3.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_range_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_range_area_exited"]

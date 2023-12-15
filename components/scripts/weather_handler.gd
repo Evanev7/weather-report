@@ -54,7 +54,8 @@ func _on_season_upgrade_visibility_changed():
 	for group in weather_groups:
 		for upgrade in group.active_resources.values():
 			print(upgrade)
+			print(upgrade.upgrade_script)
 			var script = upgrade.upgrade_script.new()
 			print(script)
-			script.modify_plant_type(summer_resource)
+			#script.modify_plant_type(summer_resource)
 			print(summer_resource.damage_multiplier)

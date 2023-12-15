@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://df0c6lteqa8bs"]
+[gd_scene load_steps=14 format=3 uid="uid://df0c6lteqa8bs"]
 
 [ext_resource type="Script" path="res://characters/scripts/enemy.gd" id="1_ekha6"]
 [ext_resource type="SpriteFrames" uid="uid://c8gi8xke7tvt4" path="res://characters/assets/enemies/rat_spriteframes.tres" id="2_7lc52"]
+[ext_resource type="AudioStream" uid="uid://kitbkgjb4ut7" path="res://sfx/enemy_death.wav" id="3_ms1u4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ttr6m"]
 radius = 50.0
@@ -178,6 +179,20 @@ tracks/4/keys = {
 "method": &"remove"
 }]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"death_sound"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_13ya0"]
 resource_name = "spawn"
@@ -213,7 +228,13 @@ _data = {
 "spawn": SubResource("Animation_13ya0")
 }
 
-[node name="Enemy" type="PathFollow2D" node_paths=PackedStringArray("sprite", "collision", "hp_bar", "bounce_anim", "hurt_anim", "dead_anim", "poison_timer", "slow_timer")]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ymufo"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("3_ms1u4")
+stream_0/weight = 1.0
+
+[node name="Enemy" type="PathFollow2D" node_paths=PackedStringArray("sprite", "collision", "hp_bar", "bounce_anim", "hurt_anim", "dead_anim", "death", "poison_timer", "slow_timer")]
 rotates = false
 loop = false
 script = ExtResource("1_ekha6")
@@ -223,11 +244,13 @@ hp_bar = NodePath("Area2D/HP")
 bounce_anim = NodePath("Area2D/bounce")
 hurt_anim = NodePath("Area2D/hurt")
 dead_anim = NodePath("Area2D/dead")
+death = NodePath("Area2D/AudioStreamPlayer2D")
 poison_timer = NodePath("Area2D/PoisonTimer")
 slow_timer = NodePath("Area2D/SlowTimer")
 
 [node name="Area2D" type="Area2D" parent="."]
 y_sort_enabled = true
+position = Vector2(0, -44)
 monitoring = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
@@ -237,10 +260,9 @@ scale = Vector2(0.05, 0.05)
 sprite_frames = ExtResource("2_7lc52")
 animation = &"sw"
 frame_progress = 0.417991
-offset = Vector2(-14.535, -950)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -24)
+position = Vector2(0, 18)
 shape = SubResource("CircleShape2D_ttr6m")
 
 [node name="bounce" type="AnimationPlayer" parent="Area2D"]
@@ -266,10 +288,14 @@ libraries = {
 [node name="HP" type="ProgressBar" parent="Area2D"]
 modulate = Color(1, 0, 0, 1)
 offset_left = -39.0
-offset_top = 4.0
+offset_top = 33.0
 offset_right = 43.0
-offset_bottom = 25.0
+offset_bottom = 54.0
 theme_override_font_sizes/font_size = 12
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Area2D"]
+stream = SubResource("AudioStreamRandomizer_ymufo")
+volume_db = -10.465
 
 [connection signal="timeout" from="Area2D/PoisonTimer" to="." method="_on_poison_timer_timeout"]
 [connection signal="timeout" from="Area2D/SlowTimer" to="." method="_on_slow_timer_timeout"]

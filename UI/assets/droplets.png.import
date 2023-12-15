@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fcyjnwe0bexk"
-path="res://.godot/imported/landscapeTilesRealigned.png-243dde0268b1ade9122af6863cdf35c0.ctex"
+uid="uid://dcqevuwwf3i5u"
+path="res://.godot/imported/droplets.png-e26529938a0c3b9095507971af33171e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://landscapeTilesRealigned.png"
-dest_files=["res://.godot/imported/landscapeTilesRealigned.png-243dde0268b1ade9122af6863cdf35c0.ctex"]
+source_file="res://UI/assets/droplets.png"
+dest_files=["res://.godot/imported/droplets.png-e26529938a0c3b9095507971af33171e.ctex"]
 
 [params]
 

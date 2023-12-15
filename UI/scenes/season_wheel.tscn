@@ -1,11 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://banxbdg3vds6r"]
+[gd_scene load_steps=7 format=3 uid="uid://banxbdg3vds6r"]
 
 [ext_resource type="Shader" path="res://effects/shaders/hahagarbage.gdshader" id="1_3rtgf"]
 [ext_resource type="Texture2D" uid="uid://dehyvbxbnix3i" path="res://UI/assets/season_wheel.png" id="2_htvq2"]
 [ext_resource type="Script" path="res://UI/scripts/wheel_spinny.gd" id="3_4wygv"]
+[ext_resource type="AudioStream" uid="uid://dymp0pxvw6mh3" path="res://sfx/wheel_turn.wav" id="4_v1v04"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_umjdv"]
 shader = ExtResource("1_3rtgf")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8w0aw"]
+random_pitch = 1.05
+streams_count = 1
+stream_0/stream = ExtResource("4_v1v04")
+stream_0/weight = 1.0
 
 [node name="Sprite2D" type="Sprite2D"]
 material = SubResource("ShaderMaterial_umjdv")
@@ -14,3 +21,7 @@ rotation = 2.0944
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("2_htvq2")
 script = ExtResource("3_4wygv")
+
+[node name="turn" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_8w0aw")
+volume_db = -10.715

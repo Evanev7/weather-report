@@ -30,7 +30,7 @@ func _ready():
 	if particles.process_material and type != PlantResource.BULLET_TYPE.ACTIVATED:
 		particles.emitting = true
 
-func _process(delta):
+func _process(_delta):
 	for area in get_overlapping_areas():
 		if area.owner is Enemy:
 			var target = area.owner

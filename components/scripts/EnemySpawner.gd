@@ -4,6 +4,7 @@ class_name EnemySpawner
 
 @export var enemy_resource_list: Array[EnemyResource]
 @export var enemy_scene: PackedScene
+@export var hurt_sound: AudioStreamPlayer
 enum ENEMY_TYPE {Rat_old, Rat, dog, temp}
 
 var spawning_disabled: bool
@@ -42,6 +43,7 @@ func spawn_enemies(wave):
 			new_enemy.set_enemy_as_resource(enemy_resource_list[clump.enemy])
 			new_enemy.attack_greenhouse.connect(owner.damage_greenhouse)
 			new_enemy.add_water_credits.connect(owner.add_water_credits)
+			new_enemy.play_hurt_sound.connect(play_hurt_sound)
 			new_enemy.sprite.modulate = Color(1, 1, 1, 0)
 			new_enemy.removed.connect(_on_enemy_removed)
 			new_enemy.add_to_group("enemy")
@@ -50,6 +52,8 @@ func spawn_enemies(wave):
 		await get_tree().create_timer(clump.end_delay).timeout
 	end_wave()
 	
+func play_hurt_sound():
+	hurt_sound.play()
 	
 func end_wave():
 	spawning_disabled = false

@@ -34,6 +34,8 @@ func _on_level_1_update_hud_credits(credits):
 func set_thumbnails(plant_list):
 	for i in range(plant_list.size()):
 		grid_container.get_child(i).thumbnail = plant_list[i].ICON
+		grid_container.get_child(i).cost = plant_list[i].COST
+		grid_container.get_child(i).fav_weather = plant_list[i].FAVOURITE_WEATHER
 		grid_container.get_child(i).set_thumbnail()
 
 func update_wave_label(wave):
@@ -48,5 +50,6 @@ func start_wave():
 
 
 func open_weather_tree():
+	SoundManager.select_button.play()
 	weather_upgrades.show()
 	GameState.paused.emit(GameState.PAUSE_STATES.SHOW_WEATHER_TREE)

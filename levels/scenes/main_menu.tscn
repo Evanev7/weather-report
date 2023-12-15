@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://UI/scripts/main_menu.gd" id="1_oem0o"]
 [ext_resource type="StyleBox" uid="uid://5oc2mmptjfjd" path="res://UI/resources/wood_style_box.tres" id="2_5uh1n"]
 [ext_resource type="Texture2D" uid="uid://ccdxbd5inbili" path="res://UI/assets/temp/pause_menu_background.png" id="2_bw7fn"]
-[ext_resource type="PackedScene" uid="uid://cqo7w1trsg30l" path="res://UI/scenes/label.tscn" id="3_5bi1t"]
+[ext_resource type="PackedScene" path="res://UI/scenes/label.tscn" id="3_5bi1t"]
 [ext_resource type="Texture2D" uid="uid://cda5x36kr5tgy" path="res://UI/assets/temp/pause_menu_top_button.png" id="4_prh7n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_manth"]
@@ -16,7 +16,7 @@ shadow_color = Color(0, 0, 0, 1)
 script = ExtResource("1_oem0o")
 
 [node name="Panel" type="Panel" parent="."]
-modulate = Color(15.385, 6.509, 0, 1)
+modulate = Color(15.3843, 6.5098, 0, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

@@ -11,6 +11,7 @@ func set_level(level):
 	GameState.paused.emit(GameState.PAUSE_STATES.UNPAUSED)
 
 func _on_level_select_pressed():
+	SoundManager.select_button.play()
 	get_parent().get_node("LevelSelect").visible = true
 	visible = false
 	

@@ -40,6 +40,7 @@ func can_select_script() -> bool:
 func _on_pressed(_who):
 	$Selector.self_modulate = float(button_pressed) * Color(1,1,1,1)
 	if button_pressed:
+		SoundManager.small_select_button.play()
 		upgrade_group.update_resources(index, upgrade_resource)
 	if not button_group.get_pressed_button():
 		upgrade_group.update_resources(index, null)

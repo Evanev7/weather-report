@@ -10,9 +10,11 @@ func _on_pause_pressed(who):
 		GameState.PAUSE_STATES.LEVEL_PAUSED:
 			visible = true
 		_:
+			SoundManager.select_button.play()
 			visible = false
 
 func _on_restart_button_pressed():
+	SoundManager.select_button.play()
 	restart_level.emit()
 	GameState.paused.emit(GameState.PAUSE_STATES.UNPAUSED)
 

@@ -8,6 +8,8 @@ func _ready():
 	GameState.weather_changed.connect(_on_weather_change)
 
 func _on_weather_change(_weather):
+	if GameState.level is Level:
+		$turn.play()
 	tween = create_tween()
 	var overshoot = randf_range(PI/24, PI/12)
 	var target_rotation = -PI/2.0 * GameState.weather + rotation_offset

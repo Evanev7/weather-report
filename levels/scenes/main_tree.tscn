@@ -34,18 +34,17 @@ script = ExtResource("2_tkr4x")
 levels = Array[PackedScene]([ExtResource("4_c6m40"), ExtResource("4_tffey")])
 
 [node name="Particles" type="Node2D" parent="World" node_paths=PackedStringArray("snow", "leaves")]
+position = Vector2(0, 10)
 script = ExtResource("4_fmg75")
 snow = NodePath("SnowParticles")
 leaves = NodePath("LeafParticles")
 
 [node name="SnowParticles" parent="World/Particles" instance=ExtResource("4_8v6di")]
-z_index = 5
 position = Vector2(0, -567)
 emitting = false
 
 [node name="LeafParticles" parent="World/Particles" instance=ExtResource("5_qxaxj")]
-z_index = 5
-position = Vector2(0, -567)
+position = Vector2(0, -528)
 emitting = false
 
 [node name="TopBar" parent="World" node_paths=PackedStringArray("weather_upgrades") instance=ExtResource("4_uudau")]

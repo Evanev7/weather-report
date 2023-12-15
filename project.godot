@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameState="*res://components/scripts/game_state.gd"
 Stats="*res://components/scripts/stats.gd"
+SoundManager="*res://components/scenes/sound_manager.tscn"
 
 [display]
 
@@ -32,9 +33,11 @@ folder_colors={
 "res://UI/": "green",
 "res://characters/": "teal",
 "res://components/": "purple",
-"res://effects/": "gray",
+"res://effects/": "red",
 "res://levels/": "blue",
-"res://objects/": "orange"
+"res://objects/": "orange",
+"res://script_templates/": "gray",
+"res://sfx/": "pink"
 }
 
 [input]
