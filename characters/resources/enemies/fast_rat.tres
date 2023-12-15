@@ -5,10 +5,11 @@
 
 [resource]
 script = ExtResource("2_lcm2c")
-NAME = "Rat_old"
+NAME = "Fast Rat"
 ANIMATION = ExtResource("1_2mvoj")
 FLIP_H = true
 FLOATING = false
+FLYING = false
 SPEED = 200.0
 MAX_HP = 5.0
 DAMAGE = 2.0

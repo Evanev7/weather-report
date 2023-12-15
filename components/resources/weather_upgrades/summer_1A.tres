@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="WeatherUpgradeResource" load_steps=4 format=3 uid="uid://bo62ruvf85332"]
 
+[ext_resource type="Texture2D" uid="uid://dleo0bxbxb3sw" path="res://characters/assets/enemies/rat_back_1.png" id="1_2wvcl"]
 [ext_resource type="Script" path="res://components/scripts/weather_upgrade_resource.gd" id="1_eigce"]
-[ext_resource type="Texture2D" uid="uid://dl20aoca0mb6k" path="res://UI/assets/ui_box.png" id="1_qls44"]
 [ext_resource type="Script" path="res://components/resources/weather_upgrades/summer_1A.gd" id="2_5w60d"]
 
 [resource]
@@ -9,7 +9,7 @@ script = ExtResource("1_eigce")
 name = "Damage Up"
 upgrade_script = ExtResource("2_5w60d")
 credit_value = 100
-icon = ExtResource("1_qls44")
+icon = ExtResource("1_2wvcl")
 description = "Increases Damage multiplier for Summer Plants
 by 50%."
 displayed_stats = {}

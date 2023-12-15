@@ -19,7 +19,7 @@ func _input(event):
 		_on_mouse_moved(event.global_position)
 
 func _on_mouse_moved(pos):
-	if GameState.level1 is Level:
+	if GameState.level is Level:
 		pos *= camera.get_viewport_transform()
 		#hacky. dont like
 		pos /= camera.zoom*camera.zoom

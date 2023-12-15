@@ -41,7 +41,7 @@ func set_enemy_as_resource(resource: EnemyResource):
 	health = resource.MAX_HP
 	flying = resource.FLYING
 	if flying:
-		sprite.offset.y -= 1000
+		sprite.offset.y -= 500
 	hp_bar.max_value = health
 	hp_bar.value = health
 	default_speed = resource.SPEED

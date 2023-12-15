@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdo2si66aje6a"]
+[gd_scene load_steps=3 format=3 uid="uid://bdo2si66aje6a"]
 
 [ext_resource type="Script" path="res://UI/scripts/skill_tree_button.gd" id="1_7lclx"]
 [ext_resource type="Texture2D" uid="uid://c2h8pa4o5yr6i" path="res://UI/assets/temp/selected!.png" id="2_7w7gl"]
-[ext_resource type="Texture2D" uid="uid://b3fhgrn2kl8q2" path="res://UI/assets/ui_box_half.png" id="3_u3t0h"]
 
 [node name="TextureButton" type="TextureButton"]
 use_parent_material = true
@@ -10,6 +9,7 @@ custom_minimum_size = Vector2(90, 90)
 toggle_mode = true
 action_mode = 0
 script = ExtResource("1_7lclx")
+index = null
 
 [node name="Selector" type="TextureRect" parent="."]
 z_index = 1
@@ -31,17 +31,6 @@ offset_top = 5.0
 offset_right = 85.0
 offset_bottom = 85.0
 expand_mode = 1
-
-[node name="TextureRect" type="TextureRect" parent="Selector/Icon"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_u3t0h")
-expand_mode = 1
-stretch_mode = 5
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="visibility_changed" from="." to="." method="_on_active_resources_changed"]

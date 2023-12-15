@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="EnemyResource" load_steps=4 format=3 uid="uid://box6hexbg3o2b"]
 
+[ext_resource type="Texture2D" uid="uid://b2rcveskwjqe8" path="res://objects/assets/bullets/bee.png" id="1_0jx36"]
 [ext_resource type="Script" path="res://characters/scripts/enemy_resource.gd" id="1_vlpxk"]
-[ext_resource type="Texture2D" uid="uid://dm8rwggau2a3x" path="res://characters/assets/plants/sunflower_se.png" id="1_w6bh1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ty3v6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_w6bh1")
+"texture": ExtResource("1_0jx36")
 }],
 "loop": true,
 "name": &"nw",
@@ -15,7 +15,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_w6bh1")
+"texture": ExtResource("1_0jx36")
 }],
 "loop": true,
 "name": &"sw",

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://crva7xrk1jbo4"]
 
-[ext_resource type="SpriteFrames" path="res://characters/assets/plants/mushroom_spriteframes.tres" id="1_b7uoe"]
+[ext_resource type="SpriteFrames" uid="uid://dfrv5rrn0lhrb" path="res://characters/assets/plants/mushroom_spriteframes.tres" id="1_b7uoe"]
 [ext_resource type="Script" path="res://characters/scripts/plant.gd" id="2_nfrcv"]
 
 [sub_resource type="Animation" id="Animation_n2q3f"]
@@ -83,6 +83,7 @@ position = Vector2(1.66893e-06, 2.38419e-07)
 scale = Vector2(0.08, 0.08)
 sprite_frames = ExtResource("1_b7uoe")
 animation = &"se"
+offset = Vector2(0, 100)
 script = ExtResource("2_nfrcv")
 durability_bar = NodePath("Durability")
 animation_player = NodePath("AnimationPlayer")
@@ -98,10 +99,10 @@ modulate = Color(1, 0, 0, 1)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -1190.0
-offset_top = -800.0
-offset_right = -410.0
-offset_bottom = -710.0
+offset_left = -1027.0
+offset_top = -550.0
+offset_right = -247.0
+offset_bottom = -460.0
 grow_horizontal = 2
 value = 36.28
 show_percentage = false
