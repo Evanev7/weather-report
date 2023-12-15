@@ -16,6 +16,12 @@ signal next_wave()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameState.spawn_error.connect(show_error)
+	GameState.paused.connect(_on_paused)
+
+func _on_paused(state):
+	match state:
+		GameState.PAUSE_STATES.MAIN_MENU:
+			visible = false
 	
 func show_error(error_msg):
 	var new_error = error_scene.instantiate()

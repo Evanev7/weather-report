@@ -20,3 +20,4 @@ func take_damage(damage):
 		
 func game_over():
 	GameState.show_error("You died!")
+	owner.game_over.emit(false)

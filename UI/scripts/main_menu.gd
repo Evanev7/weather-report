@@ -4,13 +4,11 @@ extends CanvasLayer
 
 func _ready():
 	pass
-	#if visible:
-		#world.autoplay(true)
-		#GameState.paused.emit(GameState.PAUSE_STATES.MAIN_MENU)
 		
 func set_level(level):
 	visible = false
 	world.set_level(level)
+	GameState.paused.emit(GameState.PAUSE_STATES.UNPAUSED)
 
 func _on_level_select_pressed():
 	get_parent().get_node("LevelSelect").visible = true

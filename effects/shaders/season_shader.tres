@@ -126,9 +126,10 @@ void fragment() {
 
 }
 "
+graph_offset = Vector2(-501.613, 21.3156)
 mode = 1
 flags/light_only = false
-nodes/fragment/0/position = Vector2(1080, -140)
+nodes/fragment/0/position = Vector2(1460, 100)
 nodes/fragment/3/node = SubResource("VisualShaderNodeColorConstant_giw4c")
 nodes/fragment/3/position = Vector2(-320, -120)
 nodes/fragment/6/node = SubResource("VisualShaderNodeInput_ghkgo")
@@ -162,7 +163,7 @@ nodes/fragment/32/position = Vector2(-480, -420)
 nodes/fragment/34/node = SubResource("VisualShaderNodeFloatFunc_ll7y2")
 nodes/fragment/34/position = Vector2(-320, -420)
 nodes/fragment/36/node = SubResource("VisualShaderNodeMix_rae1k")
-nodes/fragment/36/position = Vector2(760, -180)
+nodes/fragment/36/position = Vector2(1240, 100)
 nodes/fragment/38/node = SubResource("VisualShaderNodeFloatFunc_ypy7f")
 nodes/fragment/38/position = Vector2(-360, -300)
 nodes/fragment/39/node = SubResource("VisualShaderNodeSwitch_2smag")
@@ -181,4 +182,4 @@ nodes/fragment/45/node = SubResource("VisualShaderNodeCompare_rfuda")
 nodes/fragment/45/position = Vector2(240, 440)
 nodes/fragment/46/node = SubResource("VisualShaderNodeCompare_43efv")
 nodes/fragment/46/position = Vector2(240, 620)
-nodes/fragment/connections = PackedInt32Array(15, 0, 8, 1, 8, 0, 12, 0, 17, 0, 8, 0, 6, 2, 16, 0, 6, 1, 17, 0, 16, 0, 17, 1, 7, 0, 15, 1, 17, 0, 15, 0, 3, 1, 24, 0, 3, 2, 24, 1, 3, 3, 24, 2, 12, 0, 24, 3, 30, 0, 32, 0, 27, 0, 32, 1, 32, 0, 34, 0, 27, 0, 38, 0, 38, 0, 36, 2, 36, 0, 0, 0, 36, 4, 0, 1, 40, 0, 39, 0, 41, 0, 42, 0, 34, 0, 40, 0, 34, 0, 41, 0, 45, 0, 43, 0, 46, 0, 44, 0, 24, 0, 39, 1, 34, 0, 45, 0, 34, 0, 46, 0)
+nodes/fragment/connections = PackedInt32Array(15, 0, 8, 1, 8, 0, 12, 0, 17, 0, 8, 0, 6, 2, 16, 0, 6, 1, 17, 0, 16, 0, 17, 1, 7, 0, 15, 1, 17, 0, 15, 0, 3, 1, 24, 0, 3, 2, 24, 1, 3, 3, 24, 2, 12, 0, 24, 3, 30, 0, 32, 0, 27, 0, 32, 1, 32, 0, 34, 0, 27, 0, 38, 0, 38, 0, 36, 2, 36, 0, 0, 0, 36, 4, 0, 1, 40, 0, 39, 0, 41, 0, 42, 0, 34, 0, 40, 0, 34, 0, 41, 0, 45, 0, 43, 0, 46, 0, 44, 0, 24, 0, 39, 1, 34, 0, 45, 0, 34, 0, 46, 0, 28, 0, 42, 1, 28, 0, 43, 1, 28, 0, 44, 1)

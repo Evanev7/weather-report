@@ -6,6 +6,7 @@ signal send_plant_resource_list(resource_list)
 signal spawn_error(error_msg, location)
 signal update_wave_label(wave)
 signal enable_wave_button()
+signal game_over(won: bool)
 
 @onready var plant_resource_list: Array[PlantResource] = $TileMap.plant_resource_list
 @onready var HUD: CanvasLayer = get_parent().get_node("TopBar")

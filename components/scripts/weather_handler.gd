@@ -25,7 +25,11 @@ func reset_weather_resources():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Input.is_action_just_pressed("change_weather") and weather_can_change:
+	if Input.is_action_just_pressed("change_weather"):
+		try_change_weather()
+
+func try_change_weather():
+	if weather_can_change:
 		GameState.weather = (GameState.weather + 1) % 4 as GameState.WEATHER
 		weather_can_change = false
 		$Timer.start()

@@ -43,6 +43,7 @@ func spawn_enemies(wave):
 			new_enemy.attack_greenhouse.connect(owner.damage_greenhouse)
 			new_enemy.add_water_credits.connect(owner.add_water_credits)
 			new_enemy.sprite.modulate = Color(1, 1, 1, 0)
+			new_enemy.removed.connect(_on_enemy_removed)
 			new_enemy.add_to_group("enemy")
 			add_child(new_enemy)
 			await get_tree().create_timer(clump.spawn_gap).timeout
@@ -54,3 +55,6 @@ func end_wave():
 	spawning_disabled = false
 	owner.end_wave()
 	
+func _on_enemy_removed():
+	if get_child_count() == 0 and current_batch >= wave_data.size():
+		owner.game_over.emit(true)

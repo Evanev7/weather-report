@@ -31,9 +31,15 @@ func _ready():
 func _on_paused(state):
 	pause_state = state
 	match state:
-		PAUSE_STATES.UNPAUSED, PAUSE_STATES.MAIN_MENU:
+		PAUSE_STATES.UNPAUSED:
 			get_tree().paused = false
-		PAUSE_STATES.SHOW_WEATHER_TREE:
+		PAUSE_STATES.MAIN_MENU:
+			get_tree().paused = false
+			if level:
+				level.queue_free()
+				level = null
+			get_parent().get_node("main/MainMenu").visible = true
+		PAUSE_STATES.SHOW_WEATHER_TREE, PAUSE_STATES.LEVEL_PAUSED:
 			get_tree().paused = true
 
 func _input(event):
@@ -42,10 +48,8 @@ func _input(event):
 			PAUSE_STATES.MAIN_MENU:
 				get_tree().quit()
 			PAUSE_STATES.UNPAUSED:
-				get_tree().paused = true
 				paused.emit(PAUSE_STATES.LEVEL_PAUSED)
 			PAUSE_STATES.LEVEL_PAUSED:
-				get_tree().paused = false
 				paused.emit(PAUSE_STATES.UNPAUSED)
 
 func show_error(msg):

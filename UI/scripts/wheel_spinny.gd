@@ -17,3 +17,8 @@ func _on_weather_change(_weather):
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(self, "rotation", overshoot, 0.3).as_relative()\
 		.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+
+func _input(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if get_rect().has_point(to_local(event.position)):
+			GameState.weather_handler.try_change_weather()
