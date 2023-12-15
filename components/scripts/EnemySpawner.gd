@@ -28,6 +28,7 @@ func start_wave():
 	current_batch += 1
 	owner.update_wave_label_on_hud(current_batch)
 	if current_batch < wave_data.size():
+		spawning_disabled = false
 		spawn_enemies(wave_data[current_batch].waves)
 	else:
 		GameState.show_error("No more waves to spawn!")
@@ -48,15 +49,15 @@ func spawn_enemies(wave):
 			new_enemy.removed.connect(_on_enemy_removed)
 			new_enemy.add_to_group("enemy")
 			add_child(new_enemy)
-			await get_tree().create_timer(clump.spawn_gap).timeout
-		await get_tree().create_timer(clump.end_delay).timeout
+			await get_tree().create_timer(clump.spawn_gap, false).timeout
+		await get_tree().create_timer(clump.end_delay, false).timeout
 	end_wave()
 	
 func play_hurt_sound():
 	hurt_sound.play()
 	
 func end_wave():
-	spawning_disabled = false
+	spawning_disabled = true
 	owner.end_wave()
 	
 func _on_enemy_removed():

@@ -74,7 +74,7 @@ func hit(target):
 		PlantResource.BULLET_TYPE.AOE:
 			target.hurt(damage, poison_damage, poison_duration, slow_amount, slow_duration)
 		PlantResource.BULLET_TYPE.ACTIVATED:
-			await get_tree().create_timer(2.0).timeout
+			await get_tree().create_timer(2.0, false).timeout
 			target.hurt(damage, poison_damage, poison_duration, slow_amount, slow_duration)
 	
 func remove():

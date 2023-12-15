@@ -28,9 +28,11 @@ var water_credits:
 @onready var greenhouse = $Greenhouse
 
 func _ready():
+	get_parent().get_node("PauseMenu").restart_level.connect(start)
 	start()
 	
 func start():
+	print("a")
 	get_tree().call_group("plant", "wilt")
 	get_tree().call_group("enemy", "remove")
 	get_tree().call_group("bullet", "remove")
@@ -39,6 +41,7 @@ func start():
 	GameState.weather_handler.reset_weather_resources()
 	send_plant_resource_list.emit(plant_resource_list)
 	weather_handler.reset_weather_resources()
+	greenhouse.restart()
 	$TileMap.reset_resource_list()
 	$YSort/EnemySpawner.end_wave()
 	$YSort/EnemySpawner.reset(waves)

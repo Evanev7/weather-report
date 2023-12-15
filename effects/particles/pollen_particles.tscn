@@ -1,9 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://wvi5ybmc0a7v"]
+[gd_scene load_steps=5 format=3 uid="uid://wvi5ybmc0a7v"]
+
+[ext_resource type="Texture2D" uid="uid://dson5nl2e23dg" path="res://objects/assets/particles/pollen.png" id="1_3s3bh"]
+
+[sub_resource type="Gradient" id="Gradient_2lo8b"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ejf1l"]
+gradient = SubResource("Gradient_2lo8b")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hbmp5"]
 particle_flag_disable_z = true
-gravity = Vector3(0, 98, 0)
+emission_shape = 3
+emission_box_extents = Vector3(960, 540, 1)
+angle_max = 20.1
+spread = 109.196
+initial_velocity_min = 50.0
+initial_velocity_max = 270.0
+angular_velocity_min = -140.98
+angular_velocity_max = 140.98
+gravity = Vector3(10, 0, 0)
+scale_min = 0.01
+scale_max = 0.03
+color_ramp = SubResource("GradientTexture1D_ejf1l")
+turbulence_noise_strength = 1.29
+turbulence_noise_scale = 1.172
+turbulence_noise_speed_random = 0.34
+turbulence_influence_min = 0.053
+turbulence_influence_max = 0.066
+turbulence_initial_displacement_min = 16.1
+turbulence_initial_displacement_max = 100.0
 
 [node name="PollenParticles" type="GPUParticles2D"]
-emitting = false
+position = Vector2(-274, 0)
+amount = 30
 process_material = SubResource("ParticleProcessMaterial_hbmp5")
+texture = ExtResource("1_3s3bh")
+lifetime = 9.0

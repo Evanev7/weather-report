@@ -25,7 +25,6 @@ texture_pressed = ExtResource("2_mwydp")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("3_mg1t5")
-fav_weather = null
 weather_icon = Array[Texture2D]([ExtResource("4_hwy6h"), ExtResource("5_35dfp"), ExtResource("6_jpojm"), ExtResource("7_xs3j2")])
 
 [node name="TextureRect" type="TextureRect" parent="."]

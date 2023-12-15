@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cudgp4r2n8npu"]
+[gd_scene load_steps=4 format=3 uid="uid://dostipp1sooa0"]
 
 [ext_resource type="Script" path="res://UI/scripts/stat_window.gd" id="1_6mbvn"]
-[ext_resource type="PackedScene" uid="uid://cqo7w1trsg30l" path="res://UI/scenes/label.tscn" id="2_c6slq"]
-[ext_resource type="LabelSettings" uid="uid://cxhnob11v1ncv" path="res://UI/resources/label_settings.tres" id="2_vc5vi"]
+[ext_resource type="PackedScene" path="res://UI/scenes/label.tscn" id="2_c6slq"]
+[ext_resource type="LabelSettings" path="res://UI/resources/label_settings.tres" id="2_vc5vi"]
 
 [node name="StatScreen" type="MarginContainer"]
 theme_override_constants/margin_left = 40

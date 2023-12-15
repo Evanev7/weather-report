@@ -139,48 +139,40 @@ columns = 2
 
 [node name="PlantSlot1" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
-fav_weather = 0
 
 [node name="PlantSlot2" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_adsfv")
 selection = 1
-fav_weather = 0
 
 [node name="PlantSlot3" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_ecky8")
 selection = 2
-fav_weather = 0
 
 [node name="PlantSlot4" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_mhq7t")
 selection = 3
-fav_weather = 0
 
 [node name="PlantSlot5" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_dscpp")
 selection = 4
-fav_weather = 0
 
 [node name="PlantSlot6" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_m7yqk")
 selection = 5
-fav_weather = 0
 
 [node name="PlantSlot7" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_e7ari")
 selection = 6
-fav_weather = 0
 
 [node name="PlantSlot8" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_m5jld")
-fav_weather = 0
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 anchors_preset = 1
@@ -246,18 +238,15 @@ layout_mode = 2
 shortcut = SubResource("Shortcut_wu8xn")
 selection = 2
 thumbnail = ExtResource("7_tisxl")
-fav_weather = 0
 
 [node name="ToolSlot2" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_s2p8r")
 thumbnail = ExtResource("7_u3mih")
-fav_weather = 0
 
 [node name="ToolSlot3" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer" instance=ExtResource("3_pctsd")]
 layout_mode = 2
 shortcut = null
-fav_weather = 0
 
 [node name="Container" type="Control" parent="MarginContainer2/PanelContainer/HBoxContainer"]
 custom_minimum_size = Vector2(380, 0)

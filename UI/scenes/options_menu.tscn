@@ -1,0 +1,121 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfevqj75qc3w7"]
+
+[ext_resource type="StyleBox" uid="uid://diqqusgcws1uy" path="res://UI/resources/ui_stylebox_texture.tres" id="1_p51xb"]
+[ext_resource type="Texture2D" uid="uid://ccdxbd5inbili" path="res://UI/assets/temp/pause_menu_background.png" id="2_v8jio"]
+[ext_resource type="LabelSettings" path="res://UI/resources/label_settings.tres" id="3_ghrav"]
+[ext_resource type="PackedScene" uid="uid://bcev4t6kkw8wy" path="res://UI/scenes/volume_slider.tscn" id="4_qshxo"]
+[ext_resource type="Texture2D" uid="uid://cdt1wfeg2mswb" path="res://UI/assets/temp/pause_menu_middle_button.png" id="5_qbu4t"]
+[ext_resource type="Script" path="res://UI/scripts/ContinueButton.gd" id="6_k8vav"]
+
+[node name="OptionsMenu" type="CanvasLayer"]
+visible = false
+
+[node name="PauseMenu" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PauseMenu"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_p51xb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PauseMenu/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture = ExtResource("2_v8jio")
+expand_mode = 1
+
+[node name="Title" type="Label" parent="PauseMenu/PanelContainer/VBoxContainer/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -374.5
+offset_top = -21.0
+offset_right = 374.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Volume Control"
+label_settings = ExtResource("3_ghrav")
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/PanelContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PauseMenu/PanelContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.627451, 0.839216, 0.611765, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 27
+text = "Master"
+
+[node name="master" parent="PauseMenu/PanelContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource("4_qshxo")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="Label2" type="Label" parent="PauseMenu/PanelContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.627451, 0.839216, 0.611765, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 27
+text = "SFX"
+
+[node name="sfx" parent="PauseMenu/PanelContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource("4_qshxo")]
+layout_mode = 2
+bus_name = "SFX"
+
+[node name="Label3" type="Label" parent="PauseMenu/PanelContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.627451, 0.839216, 0.611765, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 27
+text = "Music"
+
+[node name="music" parent="PauseMenu/PanelContainer/VBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource("4_qshxo")]
+layout_mode = 2
+bus_name = "Music"
+
+[node name="ContinueButton" type="TextureButton" parent="PauseMenu/PanelContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(345, 108)
+layout_mode = 2
+texture_normal = ExtResource("5_qbu4t")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("6_k8vav")
+
+[node name="ContinueLabel" type="Label" parent="PauseMenu/PanelContainer/VBoxContainer/CenterContainer/VBoxContainer/ContinueButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Continue
+"
+label_settings = ExtResource("3_ghrav")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/CenterContainer/VBoxContainer/ContinueButton" to="PauseMenu/PanelContainer/VBoxContainer/CenterContainer/VBoxContainer/ContinueButton" method="_on_pressed"]

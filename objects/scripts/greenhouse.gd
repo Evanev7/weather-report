@@ -11,6 +11,10 @@ func _ready():
 	hp_bar.max_value = HP_MAX
 	hp_bar.value = health
 
+func restart():
+	health = HP_MAX
+	hp_bar.max_value = HP_MAX
+	hp_bar.value = health
 
 func take_damage(damage):
 	health -= damage

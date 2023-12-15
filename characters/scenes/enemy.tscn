@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://df0c6lteqa8bs"]
+[gd_scene load_steps=15 format=3 uid="uid://df0c6lteqa8bs"]
 
 [ext_resource type="Script" path="res://characters/scripts/enemy.gd" id="1_ekha6"]
 [ext_resource type="SpriteFrames" uid="uid://c8gi8xke7tvt4" path="res://characters/assets/enemies/rat_spriteframes.tres" id="2_7lc52"]
+[ext_resource type="Texture2D" uid="uid://dwy5hjrq4668u" path="res://objects/assets/shadow.png" id="3_mjpdd"]
 [ext_resource type="AudioStream" uid="uid://kitbkgjb4ut7" path="res://sfx/enemy_death.wav" id="3_ms1u4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ttr6m"]
@@ -193,6 +194,18 @@ tracks/5/keys = {
 "method": &"death_sound"
 }]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.478431), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_13ya0"]
 resource_name = "spawn"
@@ -254,12 +267,18 @@ position = Vector2(0, -44)
 monitoring = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
-y_sort_enabled = true
-position = Vector2(-20, 10)
+position = Vector2(0, -6)
 scale = Vector2(0.05, 0.05)
 sprite_frames = ExtResource("2_7lc52")
 animation = &"sw"
 frame_progress = 0.417991
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+modulate = Color(1, 1, 1, 0.478431)
+z_index = -1
+position = Vector2(0, 44)
+scale = Vector2(0.106667, 0.1)
+texture = ExtResource("3_mjpdd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 18)

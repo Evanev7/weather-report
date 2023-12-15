@@ -158,7 +158,7 @@ func fire_bullet():
 		
 		if sprite_frames.has_animation("shooting_se"):
 			play("shooting_se")
-		await get_tree().create_timer(10/fire_rate).timeout
+		await get_tree().create_timer(10/fire_rate, false).timeout
 		if sprite_frames.has_animation("se"):
 			play("se")
 

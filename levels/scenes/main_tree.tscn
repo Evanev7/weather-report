@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d4klrgmrciins"]
+[gd_scene load_steps=20 format=3 uid="uid://d4klrgmrciins"]
 
 [ext_resource type="PackedScene" uid="uid://b2euuv7n3vu4j" path="res://levels/scenes/main_menu.tscn" id="1_vgi8s"]
 [ext_resource type="PackedScene" uid="uid://c2wpjv5nffmco" path="res://UI/scenes/pause_menu.tscn" id="2_ao0h5"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://components/scripts/ShaderManager.gd" id="6_74lkg"]
 [ext_resource type="PackedScene" uid="uid://cie2aurt3mq2y" path="res://components/scenes/weather_handler.tscn" id="8_dsu4c"]
 [ext_resource type="PackedScene" uid="uid://b4nyijv5gecll" path="res://UI/scenes/weather_upgrade.tscn" id="9_bj4nl"]
+[ext_resource type="PackedScene" uid="uid://wvi5ybmc0a7v" path="res://effects/particles/pollen_particles.tscn" id="9_ebegu"]
 [ext_resource type="Shader" uid="uid://o1ssx2ckepn0" path="res://effects/shaders/season_shader.tres" id="11_0k2lg"]
 [ext_resource type="Texture2D" uid="uid://dm0i0csgslhuh" path="res://icon.svg" id="11_4o0rh"]
 [ext_resource type="PackedScene" uid="uid://cxgelc4wqu2fk" path="res://UI/scenes/season_upgrades.tscn" id="12_5i2kh"]
@@ -33,19 +34,25 @@ visible = false
 script = ExtResource("2_tkr4x")
 levels = Array[PackedScene]([ExtResource("4_c6m40"), ExtResource("4_tffey")])
 
-[node name="Particles" type="Node2D" parent="World" node_paths=PackedStringArray("snow", "leaves")]
+[node name="Particles" type="Node2D" parent="World" node_paths=PackedStringArray("snow", "leaves", "pollen")]
 position = Vector2(0, 10)
 script = ExtResource("4_fmg75")
 snow = NodePath("SnowParticles")
 leaves = NodePath("LeafParticles")
+pollen = NodePath("PollenParticles")
 
 [node name="SnowParticles" parent="World/Particles" instance=ExtResource("4_8v6di")]
-position = Vector2(0, -567)
+position = Vector2(0, -529)
 emitting = false
 
 [node name="LeafParticles" parent="World/Particles" instance=ExtResource("5_qxaxj")]
 position = Vector2(0, -528)
 emitting = false
+
+[node name="PollenParticles" parent="World/Particles" instance=ExtResource("9_ebegu")]
+position = Vector2(-217, -10)
+emitting = false
+preprocess = 1.0
 
 [node name="TopBar" parent="World" node_paths=PackedStringArray("weather_upgrades") instance=ExtResource("4_uudau")]
 visible = false

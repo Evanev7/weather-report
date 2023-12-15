@@ -119,9 +119,10 @@ waves = Array[ExtResource("4_j2ewg")]([ExtResource("2_lksn5"), ExtResource("3_bw
 
 [node name="TileMap" type="TileMap" parent="." node_paths=PackedStringArray("ghost", "ghost_radius")]
 modulate = Color(1, 0.870588, 0.87451, 1)
+z_index = -1
 y_sort_enabled = true
 material = SubResource("ShaderMaterial_087hg")
-position = Vector2(264, 53.95)
+position = Vector2(264, 54)
 scale = Vector2(0.1, 0.1)
 tile_set = ExtResource("5_3wjyb")
 format = 2
