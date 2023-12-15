@@ -18,7 +18,11 @@ signal enable_wave_button()
 
 var weather_handler: Node
 
-var water_credits
+var water_credits:
+	set(val):
+		water_credits = val
+		update_hud_credits.emit(water_credits)
+
 @onready var greenhouse = $Greenhouse
 
 func _ready():
