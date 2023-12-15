@@ -1,11 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://cie2aurt3mq2y"]
+[gd_scene load_steps=7 format=3 uid="uid://cie2aurt3mq2y"]
 
 [ext_resource type="Script" path="res://components/scripts/weather_handler.gd" id="1_ngx4e"]
 [ext_resource type="Resource" uid="uid://dmwx4ufoqc7k1" path="res://components/resources/default.tres" id="2_jtrtt"]
+[ext_resource type="Resource" uid="uid://cwwdqk840prg7" path="res://UI/resources/summer_upgrade_group.tres" id="3_kr5rj"]
+[ext_resource type="Resource" uid="uid://cctash5jmtrdq" path="res://UI/resources/autumn_upgrade_group.tres" id="4_j6n2v"]
+[ext_resource type="Resource" uid="uid://c6cb2fe17icl" path="res://UI/resources/winter_upgrade_group.tres" id="5_hmecs"]
+[ext_resource type="Resource" uid="uid://dynljv1dh0yau" path="res://UI/resources/spring_upgrade_group.tres" id="6_knnj2"]
 
 [node name="WeatherHandler" type="Node"]
 script = ExtResource("1_ngx4e")
 default_weather_resource = ExtResource("2_jtrtt")
+summer_resource_group = ExtResource("3_kr5rj")
+autumn_resource_group = ExtResource("4_j6n2v")
+winter_resource_group = ExtResource("5_hmecs")
+spring_resource_group = ExtResource("6_knnj2")
 
 [node name="Timer" type="Timer" parent="."]
 

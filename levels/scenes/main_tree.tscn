@@ -94,3 +94,4 @@ camera = NodePath("../../Camera2D")
 [node name="WeatherHandler" parent="World/LogicComponents" instance=ExtResource("8_dsu4c")]
 
 [connection signal="set_level" from="LevelSelect" to="MainMenu" method="set_level"]
+[connection signal="visibility_changed" from="World/SeasonUpgrade" to="World/LogicComponents/WeatherHandler" method="_on_season_upgrade_visibility_changed"]

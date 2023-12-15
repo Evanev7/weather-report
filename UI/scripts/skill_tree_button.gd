@@ -27,9 +27,9 @@ func can_select_script() -> bool:
 		return true
 	
 	var discount: int = 0
-	var pressed = button_group.get_pressed_button()
-	if pressed:
-		discount = pressed.upgrade_resource.credit_value
+	var _pressed = button_group.get_pressed_button()
+	if _pressed:
+		discount = _pressed.upgrade_resource.credit_value
 	
 	if GameState.level.water_credits < upgrade_resource.credit_value - discount:
 		return false

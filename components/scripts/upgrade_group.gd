@@ -7,7 +7,7 @@ var active_resources: Dictionary = {}
 var locked_index: int = 0
 
 func update_resources(index: int,resource):
-	var credits_diff: int
+	var credits_diff: int = 0
 	if resource:
 		credits_diff -= resource.credit_value
 	if active_resources.has(index) and active_resources[index]:

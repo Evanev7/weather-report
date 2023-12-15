@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WeatherUpgradeResource" load_steps=4 format=3 uid="uid://b51py46rm8n5j"]
+
+[ext_resource type="Texture2D" uid="uid://dleo0bxbxb3sw" path="res://characters/assets/enemies/rat_back_1.png" id="1_v0qst"]
+[ext_resource type="Script" path="res://components/scripts/weather_upgrade_resource.gd" id="2_cpljj"]
+[ext_resource type="Script" path="res://components/resources/weather_upgrades/level 1/fire_rate_1.gd" id="3_did30"]
+
+[resource]
+script = ExtResource("2_cpljj")
+name = "Damage Up"
+upgrade_script = ExtResource("3_did30")
+credit_value = 100
+icon = ExtResource("1_v0qst")
+description = "Increases Fire Rate multiplier for Spring Plants
+by 50%."
+displayed_stats = {}

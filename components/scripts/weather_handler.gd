@@ -2,6 +2,11 @@ extends Node
 
 @export var default_weather_resource: WeatherResource
 var weather_can_change: bool = true
+@export var summer_resource_group: UpgradeGroup
+@export var autumn_resource_group: UpgradeGroup
+@export var winter_resource_group: UpgradeGroup
+@export var spring_resource_group: UpgradeGroup
+@onready var weather_groups: Array[UpgradeGroup] = [summer_resource_group, autumn_resource_group, winter_resource_group, spring_resource_group]
 var summer_resource: WeatherResource
 var autumn_resource: WeatherResource
 var winter_resource: WeatherResource
@@ -29,13 +34,23 @@ func _on_timer_timeout():
 	weather_can_change = true
 
 
-func upgrade_summer():
-	summer_resource.upgrade_level += 1
-	match summer_resource.upgrade_level:
-		1:
-			summer_resource.damage_multiplier = 1.5
-		2:
-			summer_resource.damage_multiplier = 2
-			
-	get_tree().call_group("plant", "reset_resource")
-	get_tree().call_group("plant", "modify_weather")
+#func upgrade_summer():
+	#summer_resource.upgrade_level += 1
+	#match summer_resource.upgrade_level:
+		#1:
+			#summer_resource.damage_multiplier = 1.5
+		#2:
+			#summer_resource.damage_multiplier = 2
+			#
+	#get_tree().call_group("plant", "reset_resource")
+	#get_tree().call_group("plant", "modify_weather")
+
+
+func _on_season_upgrade_visibility_changed():
+	for group in weather_groups:
+		for upgrade in group.active_resources.values():
+			print(upgrade)
+			var script = upgrade.upgrade_script.new()
+			print(script)
+			script.modify_plant_type(summer_resource)
+			print(summer_resource.damage_multiplier)

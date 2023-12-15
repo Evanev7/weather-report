@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://UI/scripts/season_upgrade_holder.gd" id="2_qfh5v"]
 [ext_resource type="Script" path="res://components/scripts/upgrade_group.gd" id="3_prcyp"]
 [ext_resource type="PackedScene" uid="uid://bdo2si66aje6a" path="res://UI/scenes/skill_tree_button.tscn" id="5_gcith"]
-[ext_resource type="Resource" uid="uid://bo62ruvf85332" path="res://components/resources/weather_upgrades/summer_1A.tres" id="6_1gj37"]
+[ext_resource type="Resource" uid="uid://bo62ruvf85332" path="res://components/resources/weather_upgrades/level 1/summer_1A.tres" id="6_1gj37"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tmf0n"]
 shader = ExtResource("1_8c3r5")

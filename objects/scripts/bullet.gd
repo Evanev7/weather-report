@@ -30,16 +30,17 @@ func _ready():
 	if particles.process_material and type != PlantResource.BULLET_TYPE.ACTIVATED:
 		particles.emitting = true
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
-	transport(delta)
+func _process(delta):
 	for area in get_overlapping_areas():
 		if area.owner is Enemy:
 			var target = area.owner
 			if not target.flying or (target.flying and flying):
 				check_for_hit(target)
-			
+	
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta):
+	transport(delta)
 	current_piercing_cooldown += 1
 
 func transport(delta) -> void:
