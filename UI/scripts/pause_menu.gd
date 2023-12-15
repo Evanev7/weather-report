@@ -9,11 +9,11 @@ func _on_pause_pressed(who):
 	match who:
 		GameState.PAUSE_STATES.LEVEL_PAUSED:
 			visible = true
-			$PauseMenu/HBoxContainer/PanelContainer2/OptionsMenu.visible = true
+			#$PauseMenu/HBoxContainer/PanelContainer2/OptionsMenu.visible = true
 		_:
 			SoundManager.select_button.play()
 			visible = false
-			$PauseMenu/HBoxContainer/PanelContainer2/OptionsMenu.visible = false
+			#$PauseMenu/HBoxContainer/PanelContainer2/OptionsMenu.visible = false
 
 func _on_restart_button_pressed():
 	SoundManager.select_button.play()

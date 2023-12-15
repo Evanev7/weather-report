@@ -18,10 +18,10 @@ func _on_value_changed(new_value: float) -> void:
 		linear_to_db(new_value)
 	)
 	
-	#match bus_index:
-		#0:
-			#GameState.player_data.master_volume = new_value
-		#1:
-			#GameState.player_data.sfx_volume = new_value
-		#2:
-			#GameState.player_data.music_volume = new_value
+	match bus_index:
+		0:
+			Stats.player_data.master_volume = new_value
+		1:
+			Stats.player_data.sfx_volume = new_value
+		2:
+			Stats.player_data.music_volume = new_value

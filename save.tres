@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SaveGame" load_steps=4 format=3 uid="uid://stuq2e0joikr"]
+
+[ext_resource type="Script" path="res://components/scripts/player_data.gd" id="1_0uk6x"]
+[ext_resource type="Script" path="res://components/scripts/save_game.gd" id="2_6w7ac"]
+
+[sub_resource type="Resource" id="Resource_gnqo6"]
+script = ExtResource("1_0uk6x")
+credits = 0
+credits_spent = 0
+credits_gained = 0
+waves_completed = 0
+enemies_killed = 0
+damage_dealt = 0
+master_volume = 0.7
+sfx_volume = 0.7
+music_volume = 0.7
+
+[resource]
+script = ExtResource("2_6w7ac")
+version = 0.1
+player_data = SubResource("Resource_gnqo6")
