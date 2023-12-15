@@ -12,7 +12,6 @@ func _ready():
 	#if not tilemap:
 		#level = GameState.level1
 		#tilemap = level.get_node("TileMap")
-	pass
 
 func _input(event):
 	if event is InputEventMouseMotion:

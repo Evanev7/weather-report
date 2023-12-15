@@ -24,7 +24,7 @@ animations = [{
 
 [resource]
 script = ExtResource("1_vlpxk")
-NAME = "Random"
+NAME = "Bee"
 ANIMATION = SubResource("SpriteFrames_ty3v6")
 FLIP_H = true
 FLOATING = false
