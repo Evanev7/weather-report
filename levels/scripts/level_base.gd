@@ -22,7 +22,14 @@ var weather_handler: Node
 
 var water_credits:
 	set(val):
+		var old_val = val
+		if water_credits:
+			old_val = water_credits
 		water_credits = val
+		if old_val > water_credits:
+			Stats.player_data.credits_spent += old_val - water_credits
+		elif old_val < water_credits:
+			Stats.player_data.credits_gained += water_credits - old_val
 		update_hud_credits.emit(water_credits)
 
 @onready var greenhouse = $Greenhouse
@@ -32,7 +39,6 @@ func _ready():
 	start()
 	
 func start():
-	print("a")
 	get_tree().call_group("plant", "wilt")
 	get_tree().call_group("enemy", "remove")
 	get_tree().call_group("bullet", "remove")
@@ -43,7 +49,8 @@ func start():
 	weather_handler.reset_weather_resources()
 	greenhouse.restart()
 	$TileMap.reset_resource_list()
-	$YSort/EnemySpawner.end_wave()
+	$YSort/EnemySpawner.spawning_disabled = true
+	end_wave()
 	$YSort/EnemySpawner.reset(waves)
 	update_wave_label_on_hud(0)
 	water_credits = starting_credits

@@ -13,6 +13,7 @@ func _on_pause_pressed(who):
 		_:
 			SoundManager.select_button.play()
 			visible = false
+			Stats.save_game()
 			#$PauseMenu/HBoxContainer/PanelContainer2/OptionsMenu.visible = false
 
 func _on_restart_button_pressed():

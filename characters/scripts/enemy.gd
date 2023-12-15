@@ -96,6 +96,7 @@ func move(delta):
 func hurt(damage_taken, _poison_damage: float = 0, poison_duration: float = 0, slow_amount: float = 0, slow_duration: float = 0):
 	if not dead:
 		health -= damage_taken
+		Stats.damage_dealt += damage_taken
 		update_health()
 		hurt_anim.stop()
 		hurt_anim.play("hurt")
@@ -125,6 +126,7 @@ func update_health():
 	hp_bar.value = health
 	if health <= 0 and not dead:
 		dead = true
+		Stats.enemies_killed += 1
 		hurt_anim.stop()
 		bounce_anim.stop()
 		dead_anim.play("dead")

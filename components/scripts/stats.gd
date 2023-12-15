@@ -6,8 +6,12 @@ var _save: SaveGame
 
 var player_data = PlayerData: set = set_stats
 
-@export var global_stats: Dictionary
-@export var local_stats: Dictionary
+## LOCAL STATS
+var credits_spent: int = 0
+var credits_gained: int = 0
+var waves_completed: int = 0
+var enemies_killed: int = 0
+var damage_dealt: float = 0
 
 func _ready():
 	GameState.level_completed.connect(_on_level_completed)
@@ -25,12 +29,14 @@ func _on_display_stats(_who):
 			pass
 
 func _on_level_completed():
-	for key in local_stats.keys():
-		global_stats[key] += local_stats[key]
+	player_data.credits_spent += credits_spent
+	player_data.credits_gained += credits_gained
+	player_data.waves_completed += waves_completed
+	player_data.enemies_killed += enemies_killed
+	player_data.damage_dealt += damage_dealt
 		
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		print("quit")
 		save_game()
 		get_tree().quit()
 		
@@ -48,4 +54,5 @@ func create_or_load_save():
 	AudioServer.set_bus_volume_db(2, linear_to_db(player_data.music_volume))
 	
 func save_game():
+	print("what's goin on on")
 	_save.write_savegame()

@@ -57,6 +57,8 @@ func play_hurt_sound():
 	hurt_sound.play()
 	
 func end_wave():
+	if not spawning_disabled:
+		Stats.waves_completed += 1
 	spawning_disabled = true
 	owner.end_wave()
 	

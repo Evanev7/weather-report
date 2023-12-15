@@ -13,7 +13,6 @@ func update_weather(weather):
 			stop_particles()
 		GameState.WEATHER.Autumn:
 			stop_particles()
-			print(leaves)
 			leaves.emitting = true
 			for child in leaves.get_children():
 				child.emitting = true
