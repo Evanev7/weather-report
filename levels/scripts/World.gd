@@ -11,7 +11,7 @@ func _ready():
 	
 func set_level(level):
 	var level_to_set = levels[level].instantiate()
-	GameState.level1 = level_to_set
+	GameState.level = level_to_set
 	level_to_set.update_hud_credits.connect(HUD._on_level_1_update_hud_credits)
 	level_to_set.send_plant_resource_list.connect(HUD.set_thumbnails)
 	level_to_set.update_wave_label.connect(HUD.update_wave_label)

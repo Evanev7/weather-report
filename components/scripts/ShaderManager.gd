@@ -12,14 +12,13 @@ func _ready():
 	#if not tilemap:
 		#level = GameState.level1
 		#tilemap = level.get_node("TileMap")
-	pass
 
 func _input(event):
 	if event is InputEventMouseMotion:
 		_on_mouse_moved(event.global_position)
 
 func _on_mouse_moved(pos):
-	if GameState.level1 is Level:
+	if GameState.level is Level:
 		pos *= camera.get_viewport_transform()
 		#hacky. dont like
 		pos /= camera.zoom*camera.zoom

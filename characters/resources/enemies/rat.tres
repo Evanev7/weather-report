@@ -9,6 +9,7 @@ NAME = "Rat"
 ANIMATION = ExtResource("1_cwsji")
 FLIP_H = false
 FLOATING = false
+FLYING = false
 SPEED = 50.0
 MAX_HP = 5.0
 DAMAGE = 5.0

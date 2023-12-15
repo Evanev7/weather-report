@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://crva7xrk1jbo4" path="res://characters/scenes/plant.tscn" id="5_s8enx"]
 [ext_resource type="Texture2D" uid="uid://c2q0if4ne2t8m" path="res://UI/assets/temp/plant_ghost_radius.png" id="7_luhic"]
 [ext_resource type="Script" path="res://components/scripts/EnemySpawner.gd" id="7_ptumx"]
-[ext_resource type="Resource" uid="uid://c02tdx26rtr44" path="res://characters/resources/enemies/rat_old.tres" id="8_7bhfa"]
+[ext_resource type="Resource" uid="uid://c02tdx26rtr44" path="res://characters/resources/enemies/fast_rat.tres" id="8_7bhfa"]
 [ext_resource type="Resource" uid="uid://30wycomjos6g" path="res://characters/resources/enemies/rat.tres" id="9_7jknr"]
 [ext_resource type="PackedScene" uid="uid://df0c6lteqa8bs" path="res://characters/scenes/enemy.tscn" id="10_l1h4w"]
 [ext_resource type="PackedScene" uid="uid://bh38xjlsp4d3u" path="res://objects/scenes/greenhouse.tscn" id="11_0gdpa"]

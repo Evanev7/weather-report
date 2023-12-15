@@ -23,7 +23,7 @@ func can_select_script() -> bool:
 	if upgrade_group.size() not in [index, index+1]:
 		return false
 	
-	if not GameState.level1:
+	if not GameState.level:
 		return true
 	
 	var discount: int = 0
@@ -31,7 +31,8 @@ func can_select_script() -> bool:
 	if pressed:
 		discount = pressed.upgrade_resource.credit_value
 	
-	if GameState.level1.water_credits < upgrade_resource.credit_value - discount:
+	print(discount)
+	if GameState.level.water_credits < upgrade_resource.credit_value - discount:
 		return false
 	
 	return true

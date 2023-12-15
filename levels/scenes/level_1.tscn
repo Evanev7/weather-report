@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://levels/scripts/tile_map.gd" id="2_t7qm4"]
 [ext_resource type="Script" path="res://components/scripts/EnemySpawner.gd" id="2_ykttw"]
 [ext_resource type="Resource" uid="uid://bli8u0w3s3lk" path="res://characters/resources/waves/level_1_waves/wave_2.tres" id="3_bwpoa"]
-[ext_resource type="Resource" uid="uid://c02tdx26rtr44" path="res://characters/resources/enemies/rat_old.tres" id="3_ldlrt"]
+[ext_resource type="Resource" uid="uid://c02tdx26rtr44" path="res://characters/resources/enemies/fast_rat.tres" id="3_ldlrt"]
 [ext_resource type="Shader" uid="uid://cx2nextjcjhre" path="res://effects/shaders/selectable_tile_shader.tres" id="4_ff3wl"]
 [ext_resource type="Script" path="res://characters/scripts/enemy_wave.gd" id="4_j2ewg"]
 [ext_resource type="PackedScene" uid="uid://df0c6lteqa8bs" path="res://characters/scenes/enemy.tscn" id="4_poe43"]
@@ -22,8 +22,8 @@
 [ext_resource type="Resource" uid="uid://dqfvvrdm40p5e" path="res://characters/resources/plants/flytrap.tres" id="13_6pvds"]
 [ext_resource type="Resource" uid="uid://bso3djdfaftsd" path="res://characters/resources/plants/vines.tres" id="14_0tdqd"]
 [ext_resource type="Texture2D" uid="uid://c2q0if4ne2t8m" path="res://UI/assets/temp/plant_ghost_radius.png" id="17_07vus"]
-[ext_resource type="Resource" uid="uid://bmxhhjq4w35fj" path="res://characters/resources/enemies/dog_temp.tres" id="20_gajni"]
-[ext_resource type="Resource" uid="uid://box6hexbg3o2b" path="res://characters/resources/enemies/random_temp.tres" id="21_omura"]
+[ext_resource type="Resource" uid="uid://bmxhhjq4w35fj" path="res://characters/resources/enemies/big.tres" id="20_gajni"]
+[ext_resource type="Resource" uid="uid://box6hexbg3o2b" path="res://characters/resources/enemies/bee.tres" id="21_omura"]
 
 [sub_resource type="Resource" id="Resource_oadwl"]
 script = ExtResource("5_spy1r")
@@ -94,7 +94,7 @@ shader = ExtResource("4_ff3wl")
 
 [sub_resource type="Curve2D" id="Curve2D_3ekch"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1038, 304, 0, 0, 0, 0, 925, 360, 0, 0, 0, 0, 1166, 486, 0, 0, 0, 0, 1053, 548, 0, 0, 0, 0, 741, 398, 0, 0, 0, 0, 625, 453, 0, 0, 0, 0, 720, 519, 0, 0, 0, 0, 425, 676)
+"points": PackedVector2Array(0, 0, 0, 0, 1038, 304, 0, 0, 0, 0, 918, 367, 0, 0, 0, 0, 1166, 486, 0, 0, 0, 0, 1045, 560, 0, 0, 0, 0, 735, 396, 0, 0, 0, 0, 600, 458, 0, 0, 0, 0, 720, 519, 0, 0, 0, 0, 425, 676)
 }
 point_count = 8
 

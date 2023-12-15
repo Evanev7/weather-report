@@ -12,8 +12,8 @@ func update_resources(index: int,resource):
 		credits_diff -= resource.credit_value
 	if active_resources.has(index) and active_resources[index]:
 		credits_diff += active_resources[index].credit_value
-	if GameState.level1:
-		GameState.level1.water_credits += credits_diff
+	if GameState.level:
+		GameState.level.water_credits += credits_diff
 	active_resources[index] = resource
 	active_resources_changed.emit()
 

@@ -10,9 +10,7 @@ signal level_completed
 signal paused(state: PAUSE_STATES)
 signal weather_changed(weather: WEATHER)
 
-enum LEVEL {MAIN_MENU, LEVEL}
-var level: LEVEL
-var level1 
+var level
 
 enum WEATHER {Summer, Autumn, Winter, Spring}
 const weather_names = ["Summer", "Autumn", "Winter", "Spring"]
