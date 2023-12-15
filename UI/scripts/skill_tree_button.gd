@@ -26,7 +26,11 @@ func can_select_script() -> bool:
 	if not GameState.level1:
 		return true
 	
-	if GameState.level1.water_credits < upgrade_resource.credit_value:
+	var discount: int = 0
+	var other = button_group.get_pressed_button()
+	if other != self:
+		discount = other.upgrade_resource.credit_value
+	if GameState.level1.water_credits - discount < upgrade_resource.credit_value:
 		return false
 	
 	return true
@@ -42,3 +46,4 @@ func _on_pressed(_who):
 
 func _on_mouse_entered():
 	owner.display_resource.emit(upgrade_resource)
+	
