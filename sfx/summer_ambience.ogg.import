@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/summer_ambience.ogg-38c7904a823082c96a9cbac4c
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
 bpm=0
 beat_count=0
