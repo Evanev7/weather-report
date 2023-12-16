@@ -34,7 +34,7 @@ func refresh_labels():
 		var key = stats_to_display.keys()[index]
 		var value = stats_to_display[key]
 		active_labels[2*index].text = key
-		active_labels[2*index + 1].text = value
+		active_labels[2*index + 1].text = str(value)
 
 
 func _on_visibility_changed():

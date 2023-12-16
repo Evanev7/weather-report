@@ -3,12 +3,7 @@
 [sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_in0m2"]
 output_port_for_preview = 0
 size = Vector2(220, 360)
-expression = "out = pow(sin(fma(20.,in,0.5*TIME)),4) * 0.15 + 0.1;"
-
-[sub_resource type="VisualShaderNodeMultiplyAdd" id="VisualShaderNodeMultiplyAdd_xw18n"]
-output_port_for_preview = 0
-default_input_values = [0, Vector2(0, 0), 1, Vector2(1, 1), 2, Vector2(0, 0)]
-op_type = 1
+expression = "out = pow(sin(20.*in+0.5*TIME),4) * 0.15 + 0.1;"
 
 [sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_etv6d"]
 function = 31
@@ -92,6 +87,9 @@ op_type = 2
 
 [sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_q1ri5"]
 
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_a7i6h"]
+operator = 2
+
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_ghkgo"]
 output_port_for_preview = 0
 expanded_output_ports = [0]
@@ -159,20 +157,19 @@ void fragment() {
 	vec2 n_out7p0 = vec2(0.367000, -0.114000);
 
 
-// MultiplyAdd:15
-	vec2 n_in15p2 = vec2(0.00000, 0.00000);
-	vec2 n_out15p0 = fma(n_out17p0, n_out7p0, n_in15p2);
+// VectorOp:52
+	vec3 n_out52p0 = vec3(n_out17p0, 0.0) * vec3(n_out7p0, 0.0);
 
 
 // DotProduct:8
-	float n_out8p0 = dot(vec3(n_out17p0, 0.0), vec3(n_out15p0, 0.0));
+	float n_out8p0 = dot(vec3(n_out17p0, 0.0), n_out52p0);
 
 
 	float n_out12p0;
 // Expression:12
 	n_out12p0 = 0.0;
 	{
-		n_out12p0 = pow(sin(fma(20.,n_out8p0,0.5*TIME)),4) * 0.15 + 0.1;
+		n_out12p0 = pow(sin(20.*n_out8p0+0.5*TIME),4) * 0.15 + 0.1;
 	}
 
 
@@ -251,6 +248,7 @@ void fragment() {
 
 }
 "
+graph_offset = Vector2(-1557.16, -28.3658)
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(1460, 100)
@@ -267,9 +265,7 @@ nodes/fragment/12/position = Vector2(-820, -120)
 nodes/fragment/12/size = Vector2(220, 360)
 nodes/fragment/12/input_ports = "0,0,in;"
 nodes/fragment/12/output_ports = "0,0,out;"
-nodes/fragment/12/expression = "out = pow(sin(fma(20.,in,0.5*TIME)),4) * 0.15 + 0.1;"
-nodes/fragment/15/node = SubResource("VisualShaderNodeMultiplyAdd_xw18n")
-nodes/fragment/15/position = Vector2(-1220, -80)
+nodes/fragment/12/expression = "out = pow(sin(20.*in+0.5*TIME),4) * 0.15 + 0.1;"
 nodes/fragment/16/node = SubResource("VisualShaderNodeFloatFunc_etv6d")
 nodes/fragment/16/position = Vector2(-1600, -80)
 nodes/fragment/17/node = SubResource("VisualShaderNodeVectorCompose_3inrk")
@@ -312,4 +308,6 @@ nodes/fragment/50/node = SubResource("VisualShaderNodeColorConstant_hychh")
 nodes/fragment/50/position = Vector2(-280, 560)
 nodes/fragment/51/node = SubResource("VisualShaderNodeColorConstant_q1ri5")
 nodes/fragment/51/position = Vector2(-280, 660)
-nodes/fragment/connections = PackedInt32Array(15, 0, 8, 1, 8, 0, 12, 0, 17, 0, 8, 0, 6, 2, 16, 0, 6, 1, 17, 0, 16, 0, 17, 1, 7, 0, 15, 1, 17, 0, 15, 0, 3, 1, 24, 0, 3, 2, 24, 1, 3, 3, 24, 2, 12, 0, 24, 3, 30, 0, 32, 0, 27, 0, 32, 1, 32, 0, 34, 0, 40, 0, 39, 0, 41, 0, 42, 0, 34, 0, 40, 0, 34, 0, 41, 0, 45, 0, 43, 0, 46, 0, 44, 0, 24, 0, 39, 1, 34, 0, 45, 0, 34, 0, 46, 0, 28, 0, 42, 1, 39, 0, 47, 0, 42, 0, 47, 1, 43, 0, 48, 0, 44, 0, 48, 1, 48, 0, 49, 1, 47, 0, 49, 0, 49, 0, 0, 0, 49, 4, 0, 1, 50, 0, 43, 1, 51, 0, 44, 1)
+nodes/fragment/52/node = SubResource("VisualShaderNodeVectorOp_a7i6h")
+nodes/fragment/52/position = Vector2(-1200, -100)
+nodes/fragment/connections = PackedInt32Array(8, 0, 12, 0, 17, 0, 8, 0, 6, 2, 16, 0, 6, 1, 17, 0, 16, 0, 17, 1, 3, 1, 24, 0, 3, 2, 24, 1, 3, 3, 24, 2, 12, 0, 24, 3, 30, 0, 32, 0, 27, 0, 32, 1, 32, 0, 34, 0, 40, 0, 39, 0, 41, 0, 42, 0, 34, 0, 40, 0, 34, 0, 41, 0, 45, 0, 43, 0, 46, 0, 44, 0, 24, 0, 39, 1, 34, 0, 45, 0, 34, 0, 46, 0, 28, 0, 42, 1, 39, 0, 47, 0, 42, 0, 47, 1, 43, 0, 48, 0, 44, 0, 48, 1, 48, 0, 49, 1, 47, 0, 49, 0, 49, 0, 0, 0, 49, 4, 0, 1, 50, 0, 43, 1, 51, 0, 44, 1, 17, 0, 52, 0, 7, 0, 52, 1, 52, 0, 8, 1)

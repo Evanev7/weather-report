@@ -3,7 +3,7 @@
 [ext_resource type="StyleBox" uid="uid://diqqusgcws1uy" path="res://UI/resources/ui_stylebox_texture.tres" id="1_p51xb"]
 [ext_resource type="Texture2D" uid="uid://cr8w5nwm6svwy" path="res://UI/assets/small_wood_ui_box.png" id="2_hujbk"]
 [ext_resource type="LabelSettings" uid="uid://cgcxvxdbt1cws" path="res://UI/resources/label_settings.tres" id="3_ghrav"]
-[ext_resource type="PackedScene" uid="uid://bcev4t6kkw8wy" path="res://UI/scenes/volume_slider.tscn" id="4_qshxo"]
+[ext_resource type="PackedScene" path="res://UI/scenes/volume_slider.tscn" id="4_qshxo"]
 
 [node name="OptionsMenu" type="CanvasLayer"]
 

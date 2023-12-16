@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://c2wpjv5nffmco"]
+[gd_scene load_steps=11 format=3 uid="uid://c2wpjv5nffmco"]
 
 [ext_resource type="Script" path="res://UI/scripts/pause_menu.gd" id="1_c8wnc"]
 [ext_resource type="StyleBox" uid="uid://5oc2mmptjfjd" path="res://UI/resources/wood_style_box.tres" id="2_q6ns7"]
 [ext_resource type="Texture2D" uid="uid://ccdxbd5inbili" path="res://UI/assets/temp/pause_menu_background.png" id="2_xrl41"]
-[ext_resource type="Texture2D" uid="uid://buqxpg2bqse63" path="res://objects/assets/bullets/rose_thorn.png" id="3_io4xm"]
 [ext_resource type="LabelSettings" uid="uid://cgcxvxdbt1cws" path="res://UI/resources/label_settings.tres" id="3_odvfv"]
-[ext_resource type="PackedScene" uid="uid://dostipp1sooa0" path="res://UI/scenes/stat_window.tscn" id="4_t8koj"]
+[ext_resource type="PackedScene" uid="uid://cudgp4r2n8npu" path="res://UI/scenes/stat_window.tscn" id="4_t8koj"]
 [ext_resource type="Texture2D" uid="uid://c2h8pa4o5yr6i" path="res://UI/assets/temp/selected!.png" id="6_0c1qo"]
 [ext_resource type="Script" path="res://UI/scripts/ContinueButton.gd" id="7_7y1dh"]
 [ext_resource type="Texture2D" uid="uid://dsavjbfw5hw4t" path="res://UI/assets/wood_ui_box_third.png" id="7_ryevp"]
@@ -31,10 +30,10 @@ script = ExtResource("1_c8wnc")
 [node name="OptionsMenu" parent="." instance=ExtResource("10_l0t31")]
 layer = 2
 visible = false
-offset = Vector2(-600, 300)
+offset = Vector2(-670, 300)
 rotation = -0.174533
 scale = Vector2(1, 1)
-transform = Transform2D(0.984808, -0.173648, 0.173648, 0.984808, -600, 300)
+transform = Transform2D(0.984808, -0.173648, 0.173648, 0.984808, -670, 300)
 
 [node name="PauseMenu" type="CenterContainer" parent="."]
 anchors_preset = 15
@@ -79,10 +78,11 @@ horizontal_alignment = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu/PanelContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="StatScreen??" parent="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("4_t8koj")]
+[node name="StatScreen" parent="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_t8koj")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer"]
@@ -95,6 +95,33 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_wy2ju")
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
+
+[node name="ContinueButton" type="TextureButton" parent="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(345, 70)
+layout_mode = 2
+texture_hover = ExtResource("6_0c1qo")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("7_7y1dh")
+
+[node name="ContinueLabel" type="Label" parent="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/PanelContainer/VBoxContainer/ContinueButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Continue
+"
+label_settings = ExtResource("3_odvfv")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="RestartButton" type="TextureButton" parent="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(345, 70)
@@ -117,31 +144,6 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Restart"
-label_settings = ExtResource("3_odvfv")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="OptionsButton" type="TextureButton" parent="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(345, 70)
-layout_mode = 2
-texture_hover = ExtResource("6_0c1qo")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="OptionsLabel" type="Label" parent="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/PanelContainer/VBoxContainer/OptionsButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Options"
 label_settings = ExtResource("3_odvfv")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -172,17 +174,6 @@ label_settings = ExtResource("3_odvfv")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ContinueButton" type="TextureButton" parent="PauseMenu/PanelContainer"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture_normal = ExtResource("3_io4xm")
-ignore_texture_size = true
-stretch_mode = 5
-flip_h = true
-script = ExtResource("7_7y1dh")
-
+[connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/PanelContainer/VBoxContainer/ContinueButton" to="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/PanelContainer/VBoxContainer/ContinueButton" method="_on_pressed"]
 [connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/PanelContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/HBoxContainer/CenterContainer/PanelContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
-[connection signal="pressed" from="PauseMenu/PanelContainer/ContinueButton" to="PauseMenu/PanelContainer/ContinueButton" method="_on_pressed"]

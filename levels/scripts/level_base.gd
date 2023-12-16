@@ -35,7 +35,6 @@ var water_credits:
 @onready var greenhouse = $Greenhouse
 
 func _ready():
-	get_parent().get_node("PauseMenu").restart_level.connect(start)
 	start()
 	
 func start():

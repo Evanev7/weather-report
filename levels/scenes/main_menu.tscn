@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://UI/scripts/main_menu.gd" id="1_oem0o"]
 [ext_resource type="StyleBox" uid="uid://5oc2mmptjfjd" path="res://UI/resources/wood_style_box.tres" id="2_5uh1n"]
-[ext_resource type="PackedScene" path="res://UI/scenes/label.tscn" id="3_5bi1t"]
+[ext_resource type="PackedScene" uid="uid://cqo7w1trsg30l" path="res://UI/scenes/label.tscn" id="3_5bi1t"]
 [ext_resource type="Texture2D" uid="uid://dxer3mtld6e5o" path="res://UI/assets/ui_box_quarter.png" id="5_e3boq"]
-[ext_resource type="StyleBox" path="res://UI/resources/small_wood_stylebox.tres" id="5_rlr0b"]
+[ext_resource type="StyleBox" uid="uid://hrv4y580cxu6" path="res://UI/resources/small_wood_stylebox.tres" id="5_rlr0b"]
 [ext_resource type="PackedScene" uid="uid://cfevqj75qc3w7" path="res://UI/scenes/options_menu.tscn" id="6_q8jam"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_manth"]
