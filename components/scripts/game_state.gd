@@ -23,7 +23,7 @@ var weather: WEATHER:
 
 
 enum PAUSE_STATES {MAIN_MENU, UNPAUSED, LEVEL_PAUSED, SHOW_WEATHER_TREE, TUTORIAL_SHOWN}
-var pause_state: PAUSE_STATES = PAUSE_STATES.UNPAUSED
+var pause_state: PAUSE_STATES = PAUSE_STATES.MAIN_MENU
 
 func _ready():
 	weather_changed.connect(_on_weather_changed)

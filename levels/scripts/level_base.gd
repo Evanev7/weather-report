@@ -27,9 +27,9 @@ var water_credits:
 			old_val = water_credits
 		water_credits = val
 		if old_val > water_credits:
-			Stats.player_data.credits_spent += old_val - water_credits
+			Stats.credits_spent += old_val - water_credits
 		elif old_val < water_credits:
-			Stats.player_data.credits_gained += water_credits - old_val
+			Stats.credits_gained += water_credits - old_val
 		update_hud_credits.emit(water_credits)
 
 @onready var greenhouse = $Greenhouse
