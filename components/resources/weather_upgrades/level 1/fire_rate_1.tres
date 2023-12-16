@@ -6,10 +6,10 @@
 
 [resource]
 script = ExtResource("2_f2jyu")
-name = "Damage Up"
+name = "Fire Rate Up"
 upgrade_script = ExtResource("3_mfsjo")
 credit_value = 100
 icon = ExtResource("1_cxncu")
-description = "Increases Fire Rate multiplier for Summer Plants
-by 50%."
+description = "Increases Fire Rate multiplier for %s Plants
+by 50%%."
 displayed_stats = {}

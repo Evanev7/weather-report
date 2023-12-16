@@ -10,6 +10,6 @@ name = "Damage Up"
 upgrade_script = ExtResource("3_g2rtj")
 credit_value = 100
 icon = ExtResource("1_c5p4k")
-description = "Increases Damage multiplier for Summer Plants
-by 50%."
+description = "Increases Damage multiplier for %s Plants
+by 50%%."
 displayed_stats = {}

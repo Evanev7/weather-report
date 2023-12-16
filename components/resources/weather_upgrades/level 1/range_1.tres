@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WeatherUpgradeResource" load_steps=4 format=3 uid="uid://bapxco0eh4jq6"]
+
+[ext_resource type="Texture2D" uid="uid://jf04s1bjd8lx" path="res://objects/assets/bullets/pollen 1.png" id="1_l2o12"]
+[ext_resource type="Script" path="res://components/scripts/weather_upgrade_resource.gd" id="2_p0mpv"]
+[ext_resource type="Script" path="res://components/resources/weather_upgrades/level 1/range_1.gd" id="3_tu5fx"]
+
+[resource]
+script = ExtResource("2_p0mpv")
+name = "Range Up"
+upgrade_script = ExtResource("3_tu5fx")
+credit_value = 100
+icon = ExtResource("1_l2o12")
+description = "Increases Range multiplier for %s Plants
+by 50%%."
+displayed_stats = {}

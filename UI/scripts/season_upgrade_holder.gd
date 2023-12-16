@@ -1,10 +1,10 @@
 extends VBoxContainer
 
-signal display_resource(resource)
+signal display_resource(resource, weather)
 
 @export var upgrade_group: UpgradeGroup = UpgradeGroup.new()
-@export var upgrades_array_a: Array[WeatherUpgradeResource] = [preload("res://components/resources/weather_upgrades/level 1/summer_1A.tres"),preload("res://components/resources/weather_upgrades/level 1/summer_1A.tres"),preload("res://components/resources/weather_upgrades/level 1/summer_1A.tres"),preload("res://components/resources/weather_upgrades/level 1/summer_1A.tres"),preload("res://components/resources/weather_upgrades/level 1/summer_1A.tres"),preload("res://components/resources/weather_upgrades/level 1/summer_1A.tres"),preload("res://components/resources/weather_upgrades/level 1/summer_1A.tres"),preload("res://components/resources/weather_upgrades/level 1/summer_1A.tres")]
-@export var upgrades_array_b: Array[WeatherUpgradeResource] = [preload("res://components/resources/weather_upgrades/level 1/summer_1A.tres"),preload("res://components/resources/weather_upgrades/level 1/summer_1A.tres"),preload("res://components/resources/weather_upgrades/level 1/summer_1A.tres"),preload("res://components/resources/weather_upgrades/level 1/summer_1A.tres"),preload("res://components/resources/weather_upgrades/level 1/summer_1A.tres"),preload("res://components/resources/weather_upgrades/level 1/summer_1A.tres"),preload("res://components/resources/weather_upgrades/level 1/summer_1A.tres"),preload("res://components/resources/weather_upgrades/level 1/summer_1A.tres")]
+@export var upgrades_array_a: Array[WeatherUpgradeResource]
+@export var upgrades_array_b: Array[WeatherUpgradeResource]
 @export var icon: CompressedTexture2D
 
 func _ready():

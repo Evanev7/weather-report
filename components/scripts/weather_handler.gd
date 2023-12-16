@@ -11,7 +11,6 @@ var summer_resource: WeatherResource
 var autumn_resource: WeatherResource
 var winter_resource: WeatherResource
 var spring_resource: WeatherResource
-var weather_resource_group: Array[WeatherResource] 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,7 +21,6 @@ func reset_weather_resources():
 	autumn_resource = default_weather_resource.duplicate()
 	winter_resource = default_weather_resource.duplicate()
 	spring_resource = default_weather_resource.duplicate()
-	weather_resource_group = [summer_resource, autumn_resource, winter_resource, spring_resource]
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -41,8 +39,22 @@ func _on_timer_timeout():
 
 func _on_season_upgrade_visibility_changed():
 	for i in weather_groups.size():
-		var resource_to_upgrade = weather_resource_group[i]
-		resource_to_upgrade = default_weather_resource.duplicate()
+		var resource_to_upgrade: WeatherResource
+		match i:
+			0:
+				summer_resource = default_weather_resource.duplicate()
+				resource_to_upgrade = summer_resource
+			1:
+				autumn_resource = default_weather_resource.duplicate()
+				resource_to_upgrade = autumn_resource
+			2:
+				winter_resource = default_weather_resource.duplicate()
+				resource_to_upgrade = winter_resource
+			3:
+				spring_resource = default_weather_resource.duplicate()
+				resource_to_upgrade = spring_resource
 		for j in weather_groups[i].active_resources.values().size():
 			var script = weather_groups[i].active_resources.values()[j].upgrade_script.new()
 			script.modify_plant_type(resource_to_upgrade)
+	get_tree().call_group("plant", "reset_resource")
+	get_tree().call_group("plant", "modify_weather")

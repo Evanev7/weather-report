@@ -47,5 +47,12 @@ func _on_pressed(_who):
 
 
 func _on_mouse_entered():
-	owner.display_resource.emit(upgrade_resource)
+	if "2" in owner.name:
+		owner.display_resource.emit(upgrade_resource, "Autumn")
+	elif "3" in owner.name:
+		owner.display_resource.emit(upgrade_resource, "Winter")
+	elif "4" in owner.name:
+		owner.display_resource.emit(upgrade_resource, "Spring")
+	else:
+		owner.display_resource.emit(upgrade_resource, "Summer")
 	

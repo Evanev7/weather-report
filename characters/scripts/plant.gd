@@ -96,6 +96,7 @@ func reset_resource(resource = default_resource):
 	radius.scale *= resource.RANGE
 	radius.position.y += (1 / (resource.RANGE ** 8))
 	favourite_weather = resource.FAVOURITE_WEATHER
+	wilting_rate = 1
 	
 	starting_distance = resource.STARTING_DISTANCE
 	bullet_collision_radius = resource.COLLISION_RADIUS

@@ -10,11 +10,10 @@ func modify_summer(plant: Plant):
 	plant.starting_distance = 50
 	plant.damage = 1.5
 	plant.shot_speed = 0
-	plant.angular_velocity = 1
+	plant.angular_velocity = 1.5
 	plant.fire_rate = 5
-	plant.lifetime = 3
 	plant.shot_size = Vector2(2, 2)
-	plant.piercing_amount = 10
+	plant.piercing_amount = 5
 	plant.piercing_cooldown = 100
 
 func modify_autumn(plant: Plant):
@@ -23,6 +22,7 @@ func modify_autumn(plant: Plant):
 	plant.starting_distance = 0
 	plant.bullet_collision_radius = 20
 	plant.damage = (0.5 * GameState.weather_handler.autumn_resource.damage_multiplier)
+	plant.radius.scale *= GameState.weather_handler.autumn_resource.range_multiplier
 	plant.shot_speed = 200
 	plant.fire_rate = (50 * GameState.weather_handler.autumn_resource.fire_rate_multiplier)
 	plant.lifetime = 1
@@ -42,10 +42,9 @@ func modify_spring(plant: Plant):
 	plant.firing_enabled = true
 	plant.damage = 1.5
 	plant.shot_speed = 0
-	plant.angular_velocity = 1
+	plant.angular_velocity = 1.5
 	plant.fire_rate = 5
-	plant.lifetime = 3
 	plant.shot_size = Vector2(2, 2)
-	plant.piercing_amount = 10
+	plant.piercing_amount = 5
 	plant.piercing_cooldown = 100
 

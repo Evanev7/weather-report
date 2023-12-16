@@ -6,8 +6,8 @@
 [sub_resource type="Resource" id="Resource_y4kbd"]
 script = ExtResource("1_2y2vi")
 credits = 0
-credits_spent = 110
-credits_gained = 110
+credits_spent = 4880
+credits_gained = 380
 waves_completed = 0
 enemies_killed = 0
 damage_dealt = 0
