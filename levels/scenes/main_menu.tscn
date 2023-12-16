@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://UI/scripts/main_menu.gd" id="1_oem0o"]
 [ext_resource type="StyleBox" uid="uid://5oc2mmptjfjd" path="res://UI/resources/wood_style_box.tres" id="2_5uh1n"]
-[ext_resource type="Texture2D" uid="uid://bcysta8ogtiah" path="res://UI/assets/menu_bg.png" id="2_042po"]
-[ext_resource type="PackedScene" uid="uid://cm6wuapnga7nv" path="res://UI/scenes/label.tscn" id="3_5bi1t"]
+[ext_resource type="Texture2D" uid="uid://bcysta8ogtiah" path="res://UI/assets/menu_bg.png" id="2_mif41"]
+[ext_resource type="PackedScene" uid="uid://cqo7w1trsg30l" path="res://UI/scenes/label.tscn" id="3_5bi1t"]
 [ext_resource type="Texture2D" uid="uid://dxer3mtld6e5o" path="res://UI/assets/ui_box_quarter.png" id="5_e3boq"]
-[ext_resource type="StyleBox" path="res://UI/resources/small_wood_stylebox.tres" id="5_rlr0b"]
+[ext_resource type="StyleBox" uid="uid://hrv4y580cxu6" path="res://UI/resources/small_wood_stylebox.tres" id="5_rlr0b"]
 [ext_resource type="PackedScene" uid="uid://cfevqj75qc3w7" path="res://UI/scenes/options_menu.tscn" id="6_q8jam"]
 [ext_resource type="StyleBox" uid="uid://diqqusgcws1uy" path="res://UI/resources/ui_stylebox_texture.tres" id="7_lkgxd"]
-[ext_resource type="PackedScene" uid="uid://dostipp1sooa0" path="res://UI/scenes/stat_window.tscn" id="8_3wjjy"]
+[ext_resource type="PackedScene" uid="uid://cudgp4r2n8npu" path="res://UI/scenes/stat_window.tscn" id="8_3wjjy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_manth"]
 font_size = 60
@@ -33,13 +33,12 @@ axis_stretch_vertical = 1
 script = ExtResource("1_oem0o")
 
 [node name="Panel" type="TextureRect" parent="."]
-modulate = Color(0.54902, 0.54902, 0.54902, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_042po")
+texture = ExtResource("2_mif41")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
@@ -167,10 +166,17 @@ scale = Vector2(1, 1)
 transform = Transform2D(0.984808, -0.173648, 0.173648, 0.984808, -500, 450)
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-offset_left = 1196.0
-offset_top = 529.0
-offset_right = 1780.0
-offset_bottom = 843.0
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -682.0
+offset_top = 3.0
+offset_right = -98.0
+offset_bottom = 317.0
+grow_horizontal = 0
+grow_vertical = 2
 theme_override_styles/panel = ExtResource("7_lkgxd")
 
 [node name="StatScreen" parent="PanelContainer" instance=ExtResource("8_3wjjy")]

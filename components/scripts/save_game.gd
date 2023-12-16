@@ -1,7 +1,7 @@
 extends Resource
 class_name SaveGame
 
-const save_path := "res://save"
+const save_path := "user://save"
 
 @export var version := 0.1
 
