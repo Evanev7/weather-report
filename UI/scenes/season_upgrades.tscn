@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bum4rhn6m8tri" path="res://UI/assets/autumn.png" id="8_3e8x7"]
 [ext_resource type="Resource" uid="uid://dynljv1dh0yau" path="res://UI/resources/spring_upgrade_group.tres" id="8_te2it"]
 [ext_resource type="Texture2D" uid="uid://dbqsohre6hdwu" path="res://UI/assets/winter.png" id="9_2o52j"]
-[ext_resource type="Resource" path="res://components/resources/weather_upgrades/level 1/autumn_flying.tres" id="11_maf5f"]
+[ext_resource type="Resource" uid="uid://bfxufqvygtrdu" path="res://components/resources/weather_upgrades/level 1/autumn_flying.tres" id="11_maf5f"]
 [ext_resource type="Texture2D" uid="uid://ddnck6dgvf3v" path="res://UI/assets/spring.png" id="12_58p0v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ubll"]

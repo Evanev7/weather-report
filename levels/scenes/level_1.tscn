@@ -25,28 +25,28 @@
 [ext_resource type="AudioStream" uid="uid://3cm7fo417a7i" path="res://sfx/place_plant.wav" id="17_v3cch"]
 [ext_resource type="Resource" uid="uid://bmxhhjq4w35fj" path="res://characters/resources/enemies/big.tres" id="20_gajni"]
 [ext_resource type="Resource" uid="uid://box6hexbg3o2b" path="res://characters/resources/enemies/bee.tres" id="21_omura"]
-[ext_resource type="Resource" uid="uid://pksb0noxgchc" path="res://characters/resources/enemies/bat.tres" id="24_b0m5c"]
+[ext_resource type="Resource" uid="uid://mewimhkkba47" path="res://characters/resources/enemies/bat.tres" id="24_b0m5c"]
 [ext_resource type="AudioStream" uid="uid://bh2c53w37wryi" path="res://sfx/enemy_damage.wav" id="25_varkk"]
 
 [sub_resource type="Resource" id="Resource_oadwl"]
 script = ExtResource("5_spy1r")
 enemy = 0
 spawn_gap = 0.2
-quantity = 50
+quantity = 30
 end_delay = 1.0
 
 [sub_resource type="Resource" id="Resource_vgwvh"]
 script = ExtResource("5_spy1r")
 enemy = 1
 spawn_gap = 0.2
-quantity = 50
+quantity = 30
 end_delay = 1.0
 
 [sub_resource type="Resource" id="Resource_xyvwj"]
 script = ExtResource("5_spy1r")
 enemy = 3
 spawn_gap = 0.1
-quantity = 100
+quantity = 90
 end_delay = 1.0
 
 [sub_resource type="Resource" id="Resource_par4q"]
@@ -63,7 +63,7 @@ end_delay = 2.0
 [sub_resource type="Resource" id="Resource_6ofyj"]
 script = ExtResource("5_spy1r")
 enemy = 1
-spawn_gap = 1.0
+spawn_gap = 0.3
 quantity = 30
 end_delay = 1.0
 
@@ -71,7 +71,7 @@ end_delay = 1.0
 script = ExtResource("5_spy1r")
 enemy = 0
 spawn_gap = 0.5
-quantity = 30
+quantity = 50
 end_delay = 1.0
 
 [sub_resource type="Resource" id="Resource_jnact"]
@@ -84,8 +84,8 @@ end_delay = 1.0
 [sub_resource type="Resource" id="Resource_12f7b"]
 script = ExtResource("5_spy1r")
 enemy = 2
-spawn_gap = 1.0
-quantity = 5
+spawn_gap = 0.5
+quantity = 20
 end_delay = 1.0
 
 [sub_resource type="Resource" id="Resource_pmul4"]
