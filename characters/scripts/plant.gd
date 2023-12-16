@@ -143,7 +143,7 @@ func _physics_process(_delta):
 	#do we want to multiply this by delta?
 	# why?
 	if wilting_enabled:
-		durability_bar.value -= 0.05 * wilting_rate
+		durability_bar.value -= 0.02 * wilting_rate
 		
 	if durability_bar.value <= 0:
 		firing_enabled = false

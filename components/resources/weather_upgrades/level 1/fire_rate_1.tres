@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WeatherUpgradeResource" load_steps=4 format=3 uid="uid://dkv6xogdfob2v"]
 
-[ext_resource type="Texture2D" uid="uid://dleo0bxbxb3sw" path="res://characters/assets/enemies/rat_back_1.png" id="1_cxncu"]
+[ext_resource type="Texture2D" uid="uid://xu58emu07vcg" path="res://UI/assets/arrows.png" id="1_uq0sc"]
 [ext_resource type="Script" path="res://components/scripts/weather_upgrade_resource.gd" id="2_f2jyu"]
 [ext_resource type="Script" path="res://components/resources/weather_upgrades/level 1/fire_rate_1.gd" id="3_mfsjo"]
 
@@ -9,7 +9,7 @@ script = ExtResource("2_f2jyu")
 name = "Fire Rate Up"
 upgrade_script = ExtResource("3_mfsjo")
 credit_value = 100
-icon = ExtResource("1_cxncu")
+icon = ExtResource("1_uq0sc")
 description = "Increases Fire Rate multiplier for %s Plants
 by 50%%."
 displayed_stats = {}

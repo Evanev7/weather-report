@@ -10,9 +10,11 @@ func modify_autumn(_plant: Plant):
 	pass
 	
 func modify_winter(plant: Plant):
+	plant.play("winter_se")
 	plant.firing_enabled = false
 	plant.wilting_rate /= 1.5
 	
 func modify_spring(plant: Plant):
+	plant.play("se")
 	plant.firing_enabled = true
 

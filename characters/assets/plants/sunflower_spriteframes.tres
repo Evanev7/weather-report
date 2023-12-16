@@ -1,7 +1,8 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://cu3qy4cbnjby1"]
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://cu3qy4cbnjby1"]
 
 [ext_resource type="Texture2D" uid="uid://dgwkounu3ad5q" path="res://characters/assets/plants/sunnyflower_SE.png" id="1_4v43c"]
 [ext_resource type="Texture2D" uid="uid://du0221oqamjav" path="res://characters/assets/plants/shooting_sunnyflower_SE.png" id="2_kaqjy"]
+[ext_resource type="Texture2D" uid="uid://ccn2yrf0utos2" path="res://characters/assets/plants/sunnyflower_winter_SE.png" id="3_3bvru"]
 
 [resource]
 animations = [{
@@ -19,5 +20,13 @@ animations = [{
 }],
 "loop": true,
 "name": &"shooting_se",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3bvru")
+}],
+"loop": true,
+"name": &"winter_se",
 "speed": 5.0
 }]

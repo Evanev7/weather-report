@@ -54,5 +54,4 @@ func create_or_load_save():
 	AudioServer.set_bus_volume_db(2, linear_to_db(player_data.music_volume))
 	
 func save_game():
-	print("what's goin on on")
 	_save.write_savegame()

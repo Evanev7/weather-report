@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c2luhnxb8qmo4"]
+
+[node name="Credits" type="Node"]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "<a href=\"https://www.flaticon.com/free-icons/fist\" title=\"fist icons\">Fist icons created by Smashicons - Flaticon</a>
+
+<a href=\"https://www.flaticon.com/free-icons/move\" title=\"move icons\">Move icons created by imaginationlol - Flaticon</a>
+
+<a href=\"https://www.flaticon.com/free-icons/ui\" title=\"ui icons\">Ui icons created by asol_studio - Flaticon</a>
+
+Music by https://pixabay.com/users/white_records-32584949/
+
+some sfx from freesounds.org
+"

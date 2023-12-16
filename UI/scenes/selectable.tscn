@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cnyexo8p0o1f1"]
 
 [ext_resource type="ButtonGroup" uid="uid://bra1n4idaeiy7" path="res://UI/resources/plant_selector_group.tres" id="1_cv51b"]
-[ext_resource type="Material" uid="uid://bxlli74l052pl" path="res://effects/shaders/tint_shader.tres" id="1_tv5c0"]
+[ext_resource type="Material" path="res://effects/shaders/tint_shader.tres" id="1_tv5c0"]
 [ext_resource type="Texture2D" uid="uid://c2h8pa4o5yr6i" path="res://UI/assets/temp/selected!.png" id="2_mwydp"]
 [ext_resource type="Script" path="res://UI/scripts/selectable.gd" id="3_mg1t5"]
 [ext_resource type="Texture2D" uid="uid://b0vc2kwpnt5jj" path="res://UI/assets/summer.png" id="4_hwy6h"]

@@ -1,7 +1,8 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://duly7wpbv6dvi"]
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://duly7wpbv6dvi"]
 
 [ext_resource type="Texture2D" uid="uid://cf232tqissni5" path="res://characters/assets/plants/daisies_SE.png" id="1_ow8i6"]
 [ext_resource type="Texture2D" uid="uid://d0sopdjs3asnq" path="res://characters/assets/plants/shooting_daisies_SE.png" id="2_wkyj6"]
+[ext_resource type="Texture2D" uid="uid://chp6qkh5fi28h" path="res://characters/assets/plants/daisies_winter_SE.png" id="3_7ippw"]
 
 [resource]
 animations = [{
@@ -19,5 +20,13 @@ animations = [{
 }],
 "loop": true,
 "name": &"shooting_se",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7ippw")
+}],
+"loop": true,
+"name": &"winter_se",
 "speed": 5.0
 }]

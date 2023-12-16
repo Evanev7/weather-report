@@ -22,7 +22,7 @@ var weather: WEATHER:
 		weather_changed.emit(weather)
 
 
-enum PAUSE_STATES {MAIN_MENU, UNPAUSED, LEVEL_PAUSED, SHOW_WEATHER_TREE}
+enum PAUSE_STATES {MAIN_MENU, UNPAUSED, LEVEL_PAUSED, SHOW_WEATHER_TREE, TUTORIAL_SHOWN}
 var pause_state: PAUSE_STATES = PAUSE_STATES.UNPAUSED
 
 func _ready():
@@ -41,7 +41,7 @@ func _on_paused(state):
 				level.queue_free()
 				level = null
 			get_parent().get_node("main/MainMenu").visible = true
-		PAUSE_STATES.SHOW_WEATHER_TREE, PAUSE_STATES.LEVEL_PAUSED:
+		PAUSE_STATES.SHOW_WEATHER_TREE, PAUSE_STATES.LEVEL_PAUSED, PAUSE_STATES.TUTORIAL_SHOWN:
 			get_tree().paused = true
 
 func _input(event):

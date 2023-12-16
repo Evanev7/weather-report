@@ -1,0 +1,248 @@
+[gd_scene load_steps=6 format=3 uid="uid://br538rwbayul6"]
+
+[ext_resource type="Script" path="res://UI/scripts/tutorial.gd" id="1_6s7rm"]
+[ext_resource type="Texture2D" uid="uid://cr8w5nwm6svwy" path="res://UI/assets/small_wood_ui_box.png" id="3_bej4u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ns7lh"]
+font_size = 75
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xmp0p"]
+font_size = 30
+font_color = Color(1, 1, 0.407843, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_74k5w"]
+font_size = 30
+font_color = Color(1, 0.517647, 0.407843, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Tutorial" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_6s7rm")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.443137)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="Panel"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Panel/Control"]
+top_level = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -842.5
+offset_top = -186.5
+offset_right = 842.5
+offset_bottom = -81.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 76
+text = "Do you want to view the tutorial? (30 seconds)"
+label_settings = SubResource("LabelSettings_ns7lh")
+horizontal_alignment = 1
+
+[node name="TextureButton2" type="TextureButton" parent="Panel/Control"]
+top_level = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -64.0
+offset_right = 764.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_bej4u")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Panel/Control/TextureButton2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.0
+offset_top = -51.5
+offset_right = 197.0
+offset_bottom = 51.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "No thanks!"
+label_settings = SubResource("LabelSettings_ns7lh")
+
+[node name="TextureButton3" type="TextureButton" parent="Panel/Control"]
+top_level = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -715.0
+offset_top = -64.0
+offset_right = 24.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_bej4u")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Panel/Control/TextureButton3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.0
+offset_top = -51.5
+offset_right = 197.0
+offset_bottom = 51.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Yes please!"
+label_settings = SubResource("LabelSettings_ns7lh")
+
+[node name="Control2" type="Control" parent="Panel"]
+top_level = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Panel/Control2"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 466.0
+offset_right = 689.0
+offset_bottom = 508.0
+rotation = -0.261799
+text = "Protect your house from the invaders!
+
+The Plants will help you!"
+label_settings = SubResource("LabelSettings_xmp0p")
+
+[node name="Label7" type="Label" parent="Panel/Control2"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 139.0
+offset_right = 598.0
+offset_bottom = 181.0
+rotation = -0.0182103
+text = "When your plants are placed, click here!"
+label_settings = SubResource("LabelSettings_74k5w")
+
+[node name="Label3" type="Label" parent="Panel/Control2"]
+layout_mode = 0
+offset_left = 1108.0
+offset_top = 501.0
+offset_right = 1685.0
+offset_bottom = 588.0
+rotation = 0.0837499
+scale = Vector2(1.1, 1.1)
+text = "Pick a Plant; the colour of the overlay
+corresponds to the Season it likes most!"
+label_settings = SubResource("LabelSettings_xmp0p")
+
+[node name="Label4" type="Label" parent="Panel/Control2"]
+layout_mode = 0
+offset_left = 1119.0
+offset_top = 620.0
+offset_right = 1697.0
+offset_bottom = 707.0
+rotation = 0.0837499
+scale = Vector2(1.1, 1.1)
+text = "Gain Water credits by stopping invaders
+in their tracks!"
+label_settings = SubResource("LabelSettings_xmp0p")
+
+[node name="Label5" type="Label" parent="Panel/Control2"]
+layout_mode = 0
+offset_left = 1111.0
+offset_top = 875.0
+offset_right = 1734.0
+offset_bottom = 962.0
+rotation = -0.0747892
+scale = Vector2(1.1, 1.1)
+text = "Upgrade each Season using Water credits!!!
+Open up the Season Upgrade Tree!"
+label_settings = SubResource("LabelSettings_xmp0p")
+
+[node name="Label6" type="Label" parent="Panel/Control2"]
+layout_mode = 0
+offset_left = 1261.0
+offset_top = 978.0
+offset_right = 1884.0
+offset_bottom = 1065.0
+rotation = 0.00296812
+text = "Pick one of two upgrades in the path,
+ and then continue on!"
+label_settings = SubResource("LabelSettings_xmp0p")
+
+[node name="Label2" type="Label" parent="Panel/Control2"]
+layout_mode = 0
+offset_left = 810.0
+offset_top = 102.0
+offset_right = 1491.0
+offset_bottom = 234.0
+rotation = 0.0425874
+scale = Vector2(1.5, 1.5)
+text = "Cycle the Season MODE with \"E\"!
+Different Plants get different buffs and debuffs
+depending on the Season!"
+label_settings = SubResource("LabelSettings_xmp0p")
+
+[node name="TextureButton" type="TextureButton" parent="Panel/Control2"]
+layout_mode = 0
+offset_left = 289.0
+offset_top = 752.0
+offset_right = 643.0
+offset_bottom = 858.0
+rotation = 0.13293
+texture_normal = ExtResource("3_bej4u")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label2" type="Label" parent="Panel/Control2/TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -21.0
+offset_right = 95.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start Playing!"
+label_settings = SubResource("LabelSettings_xmp0p")
+
+[connection signal="pressed" from="Panel/Control/TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="Panel/Control/TextureButton3" to="." method="_on_texture_button_3_pressed"]
+[connection signal="pressed" from="Panel/Control2/TextureButton" to="." method="_on_texture_button_pressed"]

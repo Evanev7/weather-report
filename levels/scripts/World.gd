@@ -9,6 +9,11 @@ func _ready():
 	pass
 	
 func set_level(level):
+	if Stats.player_data.tutorial_shown:
+		$Tutorial.hide()
+	else:
+		$Tutorial.show()
+	
 	var level_to_set = levels[level].instantiate()
 	GameState.level = level_to_set
 	level_to_set.update_hud_credits.connect(HUD._on_level_1_update_hud_credits)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://UI/scripts/stat_window.gd" id="1_6mbvn"]
 [ext_resource type="PackedScene" path="res://UI/scenes/label.tscn" id="2_c6slq"]
-[ext_resource type="LabelSettings" path="res://UI/resources/label_settings.tres" id="2_vc5vi"]
+[ext_resource type="LabelSettings" uid="uid://cgcxvxdbt1cws" path="res://UI/resources/label_settings.tres" id="2_vc5vi"]
 
 [node name="StatScreen" type="MarginContainer"]
 theme_override_constants/margin_left = 40

@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://drs23karvcl7n"]
 
 [ext_resource type="Script" path="res://UI/scripts/level_select.gd" id="1_f4112"]
-[ext_resource type="StyleBox" uid="uid://hrv4y580cxu6" path="res://UI/resources/small_wood_stylebox.tres" id="2_fugn8"]
+[ext_resource type="StyleBox" path="res://UI/resources/small_wood_stylebox.tres" id="2_fugn8"]
 [ext_resource type="Texture2D" uid="uid://dsavjbfw5hw4t" path="res://UI/assets/wood_ui_box_third.png" id="4_42i74"]
-[ext_resource type="PackedScene" uid="uid://cqo7w1trsg30l" path="res://UI/scenes/label.tscn" id="4_hqa2r"]
+[ext_resource type="PackedScene" path="res://UI/scenes/label.tscn" id="4_hqa2r"]
 [ext_resource type="Texture2D" uid="uid://c2h8pa4o5yr6i" path="res://UI/assets/temp/selected!.png" id="5_2a84y"]
 [ext_resource type="Texture2D" uid="uid://cr8w5nwm6svwy" path="res://UI/assets/small_wood_ui_box.png" id="6_6354p"]
 

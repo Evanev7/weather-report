@@ -10,10 +10,11 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tmf0n"]
 shader = ExtResource("1_8c3r5")
 shader_parameter/target_blend = Color(1, 1, 1, 1)
-shader_parameter/FloatParameter = 0.0
+shader_parameter/intensity = 0.0
 
 [sub_resource type="Resource" id="Resource_2l3f1"]
 script = ExtResource("3_prcyp")
+represented_weather = 0
 
 [node name="VBoxContainer" type="VBoxContainer"]
 material = SubResource("ShaderMaterial_tmf0n")
