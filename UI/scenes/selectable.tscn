@@ -18,7 +18,6 @@ events = [SubResource("InputEventAction_yrvgk")]
 [node name="PlantSlot1" type="TextureButton"]
 material = ExtResource("1_tv5c0")
 custom_minimum_size = Vector2(90, 90)
-tooltip_text = "WEFIUJNnwieuonfguiowneoifg"
 toggle_mode = true
 action_mode = 0
 button_group = ExtResource("1_cv51b")

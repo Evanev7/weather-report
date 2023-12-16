@@ -5,7 +5,6 @@ extends Sprite2D
 var weather_amount 
 
 func _ready():
-	print(position)
 	GameState.weather_changed.connect(_on_weather_change)
 
 func _on_weather_change(_weather):

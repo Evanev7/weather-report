@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=7 format=3 uid="uid://mewimhkkba47"]
+
+[ext_resource type="Texture2D" uid="uid://djpao354026x6" path="res://characters/assets/enemies/bat_nw_1.png" id="1_71hfq"]
+[ext_resource type="Script" path="res://characters/scripts/enemy_resource.gd" id="1_hfmo2"]
+[ext_resource type="Texture2D" uid="uid://c6e2okltshkxn" path="res://characters/assets/enemies/bat_nw_2.png" id="2_6wm1r"]
+[ext_resource type="Texture2D" uid="uid://dbw8mlu4dngwv" path="res://characters/assets/enemies/bat_sw_1.png" id="3_l3n4i"]
+[ext_resource type="Texture2D" uid="uid://b6w7k5kwf374g" path="res://characters/assets/enemies/bat_sw_2.png" id="4_ra0w7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2vtp0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_71hfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6wm1r")
+}],
+"loop": true,
+"name": &"nw",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_l3n4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ra0w7")
+}],
+"loop": true,
+"name": &"sw",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_hfmo2")
+NAME = "Bat"
+ANIMATION = SubResource("SpriteFrames_2vtp0")
+FLIP_H = false
+FLOATING = false
+FLYING = true
+SPEED = 200.0
+MAX_HP = 50.0
+DAMAGE = 10.0
+VALUE = 20.0
+STRENGTH = 1.0
+SCALE = Vector2(1, 1)
+HITBOX_RADIUS = 50.0
+UNIQUE_MULTIPLIER = 1.0
+OVERALL_MULTIPLIER = 1.0

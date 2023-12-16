@@ -7,12 +7,12 @@ var active_resources: Dictionary = {}
 var locked_index: int = 0
 @export var represented_weather: GameState.WEATHER
 
-func update_resources(index: int,resource):
+func update_resources(index: int, resource, value):
 	var credits_diff: int = 0
 	if resource:
-		credits_diff -= resource.credit_value
+		credits_diff -= value
 	if active_resources.has(index) and active_resources[index]:
-		credits_diff += active_resources[index].credit_value
+		credits_diff += value
 	if GameState.level:
 		GameState.level.water_credits += credits_diff
 	active_resources[index] = resource

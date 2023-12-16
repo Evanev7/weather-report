@@ -211,7 +211,8 @@ offset_right = 1491.0
 offset_bottom = 234.0
 rotation = 0.0425874
 scale = Vector2(1.5, 1.5)
-text = "Cycle the Season MODE with \"E\"!
+text = "Cycle the Season MODE by clicking the wheel!
+(Alternatively, press \"E\")
 Different Plants get different buffs and debuffs
 depending on the Season!"
 label_settings = SubResource("LabelSettings_xmp0p")

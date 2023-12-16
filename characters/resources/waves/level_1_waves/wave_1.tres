@@ -5,7 +5,7 @@
 
 [sub_resource type="Resource" id="Resource_dbpls"]
 script = ExtResource("2_q6y77")
-enemy = 3
+enemy = 0
 spawn_gap = 1.0
 quantity = 5
 end_delay = 1.0

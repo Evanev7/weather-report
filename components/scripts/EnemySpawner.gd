@@ -5,7 +5,7 @@ class_name EnemySpawner
 @export var enemy_resource_list: Array[EnemyResource]
 @export var enemy_scene: PackedScene
 @export var hurt_sound: AudioStreamPlayer
-enum ENEMY_TYPE {Rat_old, Rat, dog, temp}
+enum ENEMY_TYPE {Fast_Rat, Rat, BigDog, Bee, Bat}
 
 var spawning_disabled: bool
 var current_batch: int

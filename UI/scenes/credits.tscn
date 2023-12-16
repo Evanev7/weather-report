@@ -16,10 +16,10 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 1305.0
-offset_top = 842.0
-offset_right = 1894.0
-offset_bottom = 1038.0
+offset_left = 1290.0
+offset_top = 753.0
+offset_right = 1879.0
+offset_bottom = 989.0
 rotation = -0.00655772
 
 [node name="Label" type="RichTextLabel" parent="VBoxContainer"]
@@ -55,6 +55,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 26
 text = "Ui icons created by asol_studio - Flaticon"
 uri = "https://www.flaticon.com/free-icons/ui"
+
+[node name="LinkButton5" type="LinkButton" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Army icons created by Freepik - Flaticon"
+uri = "https://www.flaticon.com/free-icons/army"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 clip_contents = false
@@ -137,6 +143,7 @@ fit_content = true
 scroll_active = false
 
 [node name="LinkButton4" type="LinkButton" parent="RichTextLabel6"]
+layout_mode = 0
 offset_left = -23.158
 offset_top = 76.4768
 offset_right = 82.842
@@ -161,6 +168,7 @@ fit_content = true
 scroll_active = false
 
 [node name="LinkButton4" type="LinkButton" parent="RichTextLabel7"]
+layout_mode = 0
 offset_left = 126.29
 offset_top = 89.5139
 offset_right = 254.29

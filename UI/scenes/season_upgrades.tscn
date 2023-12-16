@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cxgelc4wqu2fk"]
+[gd_scene load_steps=22 format=3 uid="uid://cxgelc4wqu2fk"]
 
 [ext_resource type="StyleBox" uid="uid://5oc2mmptjfjd" path="res://UI/resources/wood_style_box.tres" id="1_nubsw"]
 [ext_resource type="Script" path="res://UI/scripts/season_upgrades.gd" id="1_vaxel"]
@@ -15,9 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://bum4rhn6m8tri" path="res://UI/assets/autumn.png" id="8_3e8x7"]
 [ext_resource type="Resource" uid="uid://dynljv1dh0yau" path="res://UI/resources/spring_upgrade_group.tres" id="8_te2it"]
 [ext_resource type="Texture2D" uid="uid://dbqsohre6hdwu" path="res://UI/assets/winter.png" id="9_2o52j"]
+[ext_resource type="Resource" uid="uid://bfxufqvygtrdu" path="res://components/resources/weather_upgrades/level 1/autumn_flying.tres" id="11_maf5f"]
 [ext_resource type="Texture2D" uid="uid://ddnck6dgvf3v" path="res://UI/assets/spring.png" id="12_58p0v"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_y4d06"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wg3cb"]
 resource_local_to_scene = true
 shader = ExtResource("3_4gm4w")
 shader_parameter/target_blend = Color(1, 1, 0, 1)
@@ -70,7 +71,7 @@ layout_mode = 2
 theme_override_constants/separation = 50
 
 [node name="VBoxContainer" parent="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("2_1s32d")]
-material = SubResource("ShaderMaterial_y4d06")
+material = SubResource("ShaderMaterial_wg3cb")
 layout_mode = 2
 upgrade_group = ExtResource("5_bqqg5")
 upgrades_array_a = Array[Resource("res://components/scripts/weather_upgrade_resource.gd")]([ExtResource("7_jt3i8"), ExtResource("7_jt3i8"), ExtResource("7_ikup5"), ExtResource("7_jt3i8"), ExtResource("6_7g5sg"), ExtResource("6_7g5sg"), ExtResource("7_ikup5"), ExtResource("7_jt3i8")])
@@ -81,8 +82,8 @@ icon = ExtResource("6_cpykd")
 material = SubResource("ShaderMaterial_jl565")
 layout_mode = 2
 upgrade_group = ExtResource("6_7k2yk")
-upgrades_array_a = Array[Resource("res://components/scripts/weather_upgrade_resource.gd")]([ExtResource("7_jt3i8"), ExtResource("7_jt3i8"), ExtResource("7_ikup5"), ExtResource("7_jt3i8"), ExtResource("6_7g5sg"), ExtResource("6_7g5sg"), ExtResource("7_ikup5"), ExtResource("7_jt3i8")])
-upgrades_array_b = Array[Resource("res://components/scripts/weather_upgrade_resource.gd")]([ExtResource("6_7g5sg"), ExtResource("7_ikup5"), ExtResource("6_7g5sg"), ExtResource("7_ikup5"), ExtResource("7_jt3i8"), ExtResource("7_ikup5"), ExtResource("6_7g5sg"), ExtResource("7_jt3i8")])
+upgrades_array_a = Array[Resource("res://components/scripts/weather_upgrade_resource.gd")]([ExtResource("7_jt3i8"), ExtResource("7_jt3i8"), ExtResource("7_ikup5"), ExtResource("7_jt3i8"), ExtResource("6_7g5sg"), ExtResource("6_7g5sg"), ExtResource("7_ikup5"), ExtResource("11_maf5f")])
+upgrades_array_b = Array[Resource("res://components/scripts/weather_upgrade_resource.gd")]([ExtResource("6_7g5sg"), ExtResource("7_ikup5"), ExtResource("6_7g5sg"), ExtResource("11_maf5f"), ExtResource("7_jt3i8"), ExtResource("7_ikup5"), ExtResource("6_7g5sg"), ExtResource("7_jt3i8")])
 icon = ExtResource("8_3e8x7")
 
 [node name="VBoxContainer3" parent="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("2_1s32d")]

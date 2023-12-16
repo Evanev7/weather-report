@@ -8,3 +8,4 @@ class_name WeatherResource
 @export var size_multiplier: float = 1
 @export var lifetime_multiplier: float = 1
 @export var duration_multiplier: float = 1
+@export var is_flying: bool = false

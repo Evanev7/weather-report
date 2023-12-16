@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeatherUpgradeResource" load_steps=4 format=3 uid="uid://bfxufqvygtrdu"]
+
+[ext_resource type="Script" path="res://components/scripts/weather_upgrade_resource.gd" id="1_3rpte"]
+[ext_resource type="Texture2D" uid="uid://bchwty65ndeuw" path="res://UI/assets/shield with wings.png" id="1_auxe6"]
+[ext_resource type="Script" path="res://components/resources/weather_upgrades/level 1/autumn_flying.gd" id="3_jpqye"]
+
+[resource]
+script = ExtResource("1_3rpte")
+name = "Air Defense"
+upgrade_script = ExtResource("3_jpqye")
+credit_value = 150
+icon = ExtResource("1_auxe6")
+description = "Allows Mushrooms and Trees to attack Flying enemies."
+displayed_stats = {}

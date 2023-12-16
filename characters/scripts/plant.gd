@@ -61,6 +61,7 @@ func set_plant_as_resource(_resource: PlantResource):
 	add_child(weather_script)
 	
 	default_resource = _resource
+	durability_bar.value = _resource.DURABILITY
 	reset_resource(default_resource)
 	
 	personal_weather = -1
@@ -92,7 +93,6 @@ func reset_resource(resource = default_resource):
 	flip_h = resource.FLIP_H
 	icon = resource.ICON
 	durability_bar.max_value = resource.DURABILITY
-	durability_bar.value = resource.DURABILITY
 	radius.scale *= resource.RANGE
 	radius.position.y += (1 / (resource.RANGE ** 8))
 	favourite_weather = resource.FAVOURITE_WEATHER

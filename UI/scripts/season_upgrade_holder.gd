@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-signal display_resource(resource, weather)
+signal display_resource(resource, weather, value)
 
 @export var upgrade_group: UpgradeGroup = UpgradeGroup.new()
 @export var upgrades_array_a: Array[WeatherUpgradeResource]
