@@ -1,10 +1,12 @@
-[gd_scene load_steps=32 format=3 uid="uid://b6x3510ma53a"]
+[gd_scene load_steps=45 format=3 uid="uid://b6x3510ma53a"]
 
 [ext_resource type="Script" path="res://UI/scripts/plant_selector.gd" id="1_jjaxe"]
 [ext_resource type="PackedScene" uid="uid://dn4p6k1ntjewn" path="res://components/scenes/error_message.tscn" id="2_586kn"]
 [ext_resource type="Texture2D" uid="uid://b3fhgrn2kl8q2" path="res://UI/assets/ui_box_half.png" id="3_j7n8a"]
 [ext_resource type="PackedScene" uid="uid://cnyexo8p0o1f1" path="res://UI/scenes/selectable.tscn" id="3_pctsd"]
 [ext_resource type="Texture2D" uid="uid://dcqevuwwf3i5u" path="res://UI/assets/droplets.png" id="5_8r0mu"]
+[ext_resource type="Texture2D" uid="uid://cr8w5nwm6svwy" path="res://UI/assets/small_wood_ui_box.png" id="5_ae54m"]
+[ext_resource type="Shader" uid="uid://14xptp8qrnsm" path="res://effects/shaders/custom_modulate.tres" id="5_g4sn5"]
 [ext_resource type="Texture2D" uid="uid://5juxf7t345s2" path="res://levels/assets/S4_grass.png" id="7_tisxl"]
 [ext_resource type="Texture2D" uid="uid://c1t7mgit0x1mw" path="res://levels/assets/left_grass.png" id="7_u3mih"]
 [ext_resource type="Texture2D" uid="uid://cda5x36kr5tgy" path="res://UI/assets/temp/pause_menu_top_button.png" id="9_73php"]
@@ -25,11 +27,29 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 164, 483)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bnxrl"]
+resource_local_to_scene = true
+shader = ExtResource("5_g4sn5")
+shader_parameter/target_blend = Color(1, 1, 0, 1)
+shader_parameter/intensity = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uwr1p"]
+resource_local_to_scene = true
+shader = ExtResource("5_g4sn5")
+shader_parameter/target_blend = Color(1, 1, 0, 1)
+shader_parameter/intensity = 0.0
+
 [sub_resource type="InputEventAction" id="InputEventAction_3jut8"]
 action = &"plant_2"
 
 [sub_resource type="Shortcut" id="Shortcut_adsfv"]
 events = [SubResource("InputEventAction_3jut8")]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jneoi"]
+resource_local_to_scene = true
+shader = ExtResource("5_g4sn5")
+shader_parameter/target_blend = Color(1, 1, 0, 1)
+shader_parameter/intensity = 0.0
 
 [sub_resource type="InputEventAction" id="InputEventAction_6tdm4"]
 action = &"plant_3"
@@ -37,11 +57,23 @@ action = &"plant_3"
 [sub_resource type="Shortcut" id="Shortcut_ecky8"]
 events = [SubResource("InputEventAction_6tdm4")]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_66gdp"]
+resource_local_to_scene = true
+shader = ExtResource("5_g4sn5")
+shader_parameter/target_blend = Color(1, 1, 0, 1)
+shader_parameter/intensity = 0.0
+
 [sub_resource type="InputEventAction" id="InputEventAction_2efqe"]
 action = &"plant_4"
 
 [sub_resource type="Shortcut" id="Shortcut_mhq7t"]
 events = [SubResource("InputEventAction_2efqe")]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s58fc"]
+resource_local_to_scene = true
+shader = ExtResource("5_g4sn5")
+shader_parameter/target_blend = Color(1, 1, 0, 1)
+shader_parameter/intensity = 0.0
 
 [sub_resource type="InputEventAction" id="InputEventAction_gfukc"]
 action = &"plant_5"
@@ -49,17 +81,35 @@ action = &"plant_5"
 [sub_resource type="Shortcut" id="Shortcut_dscpp"]
 events = [SubResource("InputEventAction_gfukc")]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8kso7"]
+resource_local_to_scene = true
+shader = ExtResource("5_g4sn5")
+shader_parameter/target_blend = Color(1, 1, 0, 1)
+shader_parameter/intensity = 0.0
+
 [sub_resource type="InputEventAction" id="InputEventAction_ae1jr"]
 action = &"plant_6"
 
 [sub_resource type="Shortcut" id="Shortcut_m7yqk"]
 events = [SubResource("InputEventAction_ae1jr")]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ih2u1"]
+resource_local_to_scene = true
+shader = ExtResource("5_g4sn5")
+shader_parameter/target_blend = Color(1, 1, 0, 1)
+shader_parameter/intensity = 0.0
+
 [sub_resource type="InputEventAction" id="InputEventAction_jem85"]
 action = &"plant_7"
 
 [sub_resource type="Shortcut" id="Shortcut_e7ari"]
 events = [SubResource("InputEventAction_jem85")]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8601r"]
+resource_local_to_scene = true
+shader = ExtResource("5_g4sn5")
+shader_parameter/target_blend = Color(1, 1, 0, 1)
+shader_parameter/intensity = 0.0
 
 [sub_resource type="InputEventAction" id="InputEventAction_nytgi"]
 action = &"plant_8"
@@ -80,17 +130,35 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 311, 483, 172)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4o0hs"]
+resource_local_to_scene = true
+shader = ExtResource("5_g4sn5")
+shader_parameter/target_blend = Color(1, 1, 0, 1)
+shader_parameter/intensity = 0.0
+
 [sub_resource type="InputEventAction" id="InputEventAction_2t7bu"]
 action = &"shovel"
 
 [sub_resource type="Shortcut" id="Shortcut_wu8xn"]
 events = [SubResource("InputEventAction_2t7bu")]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sa0u6"]
+resource_local_to_scene = true
+shader = ExtResource("5_g4sn5")
+shader_parameter/target_blend = Color(1, 1, 0, 1)
+shader_parameter/intensity = 0.0
+
 [sub_resource type="InputEventAction" id="InputEventAction_77ja1"]
 action = &"water"
 
 [sub_resource type="Shortcut" id="Shortcut_s2p8r"]
 events = [SubResource("InputEventAction_77ja1")]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_40mw0"]
+resource_local_to_scene = true
+shader = ExtResource("5_g4sn5")
+shader_parameter/target_blend = Color(1, 1, 0, 1)
+shader_parameter/intensity = 0.0
 
 [node name="TopBar" type="CanvasLayer" node_paths=PackedStringArray("credits_label", "waves_label", "next_wave_button", "grid_container")]
 script = ExtResource("1_jjaxe")
@@ -106,7 +174,7 @@ anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -256.0
-offset_bottom = -265.0
+offset_bottom = -90.0
 grow_horizontal = 0
 grow_vertical = 2
 pivot_offset = Vector2(-549, 193)
@@ -138,41 +206,77 @@ layout_mode = 2
 columns = 2
 
 [node name="PlantSlot1" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
+material = SubResource("ShaderMaterial_bnxrl")
 layout_mode = 2
 
 [node name="PlantSlot2" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
+material = SubResource("ShaderMaterial_uwr1p")
 layout_mode = 2
 shortcut = SubResource("Shortcut_adsfv")
 selection = 1
 
 [node name="PlantSlot3" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
+material = SubResource("ShaderMaterial_jneoi")
 layout_mode = 2
 shortcut = SubResource("Shortcut_ecky8")
 selection = 2
 
 [node name="PlantSlot4" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
+material = SubResource("ShaderMaterial_66gdp")
 layout_mode = 2
 shortcut = SubResource("Shortcut_mhq7t")
 selection = 3
 
 [node name="PlantSlot5" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
+material = SubResource("ShaderMaterial_s58fc")
 layout_mode = 2
 shortcut = SubResource("Shortcut_dscpp")
 selection = 4
 
 [node name="PlantSlot6" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
+material = SubResource("ShaderMaterial_8kso7")
 layout_mode = 2
 shortcut = SubResource("Shortcut_m7yqk")
 selection = 5
 
 [node name="PlantSlot7" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
+material = SubResource("ShaderMaterial_ih2u1")
 layout_mode = 2
 shortcut = SubResource("Shortcut_e7ari")
 selection = 6
 
 [node name="PlantSlot8" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("3_pctsd")]
+material = SubResource("ShaderMaterial_8601r")
 layout_mode = 2
 shortcut = SubResource("Shortcut_m5jld")
+
+[node name="MarginContainer5" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer5"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+texture_normal = ExtResource("5_ae54m")
+texture_disabled = ExtResource("10_hxi27")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer5/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0.705882, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "[center]Season Upgrades[/center]"
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 anchors_preset = 1
@@ -234,17 +338,20 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 
 [node name="ToolSlot1" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer" instance=ExtResource("3_pctsd")]
+material = SubResource("ShaderMaterial_4o0hs")
 layout_mode = 2
 shortcut = SubResource("Shortcut_wu8xn")
 selection = 2
 thumbnail = ExtResource("7_tisxl")
 
 [node name="ToolSlot2" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer" instance=ExtResource("3_pctsd")]
+material = SubResource("ShaderMaterial_sa0u6")
 layout_mode = 2
 shortcut = SubResource("Shortcut_s2p8r")
 thumbnail = ExtResource("7_u3mih")
 
 [node name="ToolSlot3" parent="MarginContainer2/PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer" instance=ExtResource("3_pctsd")]
+material = SubResource("ShaderMaterial_40mw0")
 layout_mode = 2
 shortcut = null
 
@@ -305,37 +412,6 @@ theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
 text = "[center]Next Wave[/center]"
 
-[node name="MarginContainer5" type="MarginContainer" parent="."]
-offset_left = 1624.0
-offset_top = 859.0
-offset_right = 1906.0
-offset_bottom = 1008.0
-
-[node name="TextureButton" type="TextureButton" parent="MarginContainer5"]
-layout_mode = 2
-texture_normal = ExtResource("9_73php")
-texture_hover = ExtResource("10_g1753")
-texture_disabled = ExtResource("10_hxi27")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer5"]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/margin_top = 15
-
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer5/MarginContainer"]
-layout_mode = 2
-mouse_filter = 2
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0.705882, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 3
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/normal_font_size = 38
-bbcode_enabled = true
-text = "[center]Upgrade Seasons[/center]"
-
 [node name="Anchor" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 1
@@ -343,7 +419,7 @@ anchor_left = 1.0
 anchor_right = 1.0
 grow_horizontal = 0
 
-[node name="Sprite2D" parent="Anchor" instance=ExtResource("13_mdogf")]
+[node name="SpinnyWheel" parent="Anchor" instance=ExtResource("13_mdogf")]
 position = Vector2(-121, 40)
 rotation = 0.0
 rotation_offset = 3.927
@@ -351,5 +427,5 @@ rotation_offset = 3.927
 [node name="ErrorSpawner" type="Marker2D" parent="."]
 position = Vector2(960, 960)
 
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer5/TextureButton" to="." method="open_weather_tree"]
 [connection signal="pressed" from="MarginContainer4/TextureButton" to="." method="start_wave"]
-[connection signal="pressed" from="MarginContainer5/TextureButton" to="." method="open_weather_tree"]

@@ -1,16 +1,29 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2euuv7n3vu4j"]
+[gd_scene load_steps=8 format=3 uid="uid://b2euuv7n3vu4j"]
 
 [ext_resource type="Script" path="res://UI/scripts/main_menu.gd" id="1_oem0o"]
 [ext_resource type="StyleBox" uid="uid://5oc2mmptjfjd" path="res://UI/resources/wood_style_box.tres" id="2_5uh1n"]
-[ext_resource type="Texture2D" uid="uid://ccdxbd5inbili" path="res://UI/assets/temp/pause_menu_background.png" id="2_bw7fn"]
-[ext_resource type="PackedScene" path="res://UI/scenes/label.tscn" id="3_5bi1t"]
-[ext_resource type="Texture2D" uid="uid://cda5x36kr5tgy" path="res://UI/assets/temp/pause_menu_top_button.png" id="4_prh7n"]
+[ext_resource type="PackedScene" uid="uid://cqo7w1trsg30l" path="res://UI/scenes/label.tscn" id="3_5bi1t"]
+[ext_resource type="Texture2D" uid="uid://dxer3mtld6e5o" path="res://UI/assets/ui_box_quarter.png" id="5_e3boq"]
+[ext_resource type="StyleBox" uid="uid://hrv4y580cxu6" path="res://UI/resources/small_wood_stylebox.tres" id="5_rlr0b"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_manth"]
 font_size = 60
-outline_size = 4
+outline_size = 25
 outline_color = Color(0, 0, 0, 1)
 shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y5rjm"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("5_e3boq")
+texture_margin_left = 54.0
+texture_margin_top = 51.0
+texture_margin_right = 66.0
+texture_margin_bottom = 48.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_oem0o")
@@ -32,92 +45,115 @@ grow_vertical = 2
 pivot_offset = Vector2(27, 106)
 mouse_filter = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("2_5uh1n")
+theme_override_constants/separation = 40
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("5_rlr0b")
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer/PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(900, 190)
+[node name="CenterContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
-texture = ExtResource("2_bw7fn")
-expand_mode = 1
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 80
 
-[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/PanelContainer/VBoxContainer/TextureRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(-548, 39)
-
-[node name="Label1" parent="CenterContainer/PanelContainer/VBoxContainer/TextureRect/CenterContainer" instance=ExtResource("3_5bi1t")]
+[node name="Label1" parent="CenterContainer/VBoxContainer/PanelContainer/CenterContainer" instance=ExtResource("3_5bi1t")]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Weather Report"
 label_settings = SubResource("LabelSettings_manth")
 
-[node name="LevelSelect" type="TextureButton" parent="CenterContainer/PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(400, 150)
+[node name="PanelContainer2" type="PanelContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("4_prh7n")
+theme_override_styles/panel = ExtResource("2_5uh1n")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MarginContainer" type="PanelContainer" parent="CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_y5rjm")
+
+[node name="LevelSelect" type="TextureButton" parent="CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(350, 120)
+layout_mode = 2
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/PanelContainer/VBoxContainer/LevelSelect"]
+[node name="Label1" parent="CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/MarginContainer/LevelSelect" instance=ExtResource("3_5bi1t")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -21.0
+offset_right = 450.0
+offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Label1" parent="CenterContainer/PanelContainer/VBoxContainer/LevelSelect/CenterContainer" instance=ExtResource("3_5bi1t")]
-layout_mode = 2
 text = "Level Select"
 horizontal_alignment = 1
 
-[node name="Options" type="TextureButton" parent="CenterContainer/PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(400, 150)
+[node name="MarginContainer2" type="PanelContainer" parent="CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("4_prh7n")
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_y5rjm")
+
+[node name="Options" type="TextureButton" parent="CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(350, 120)
+layout_mode = 2
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/PanelContainer/VBoxContainer/Options"]
+[node name="Label1" parent="CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/MarginContainer2/Options" instance=ExtResource("3_5bi1t")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -21.0
+offset_right = 450.0
+offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Label1" parent="CenterContainer/PanelContainer/VBoxContainer/Options/CenterContainer" instance=ExtResource("3_5bi1t")]
-layout_mode = 2
 text = "Options"
 horizontal_alignment = 1
 
-[node name="QuitButton" type="TextureButton" parent="CenterContainer/PanelContainer/VBoxContainer"]
-custom_minimum_size = Vector2(400, 150)
+[node name="MarginContainer3" type="PanelContainer" parent="CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("4_prh7n")
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_y5rjm")
+
+[node name="QuitButton" type="TextureButton" parent="CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(350, 120)
+layout_mode = 2
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/PanelContainer/VBoxContainer/QuitButton"]
+[node name="Label1" parent="CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/MarginContainer3/QuitButton" instance=ExtResource("3_5bi1t")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -21.0
+offset_right = 450.0
+offset_bottom = 21.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Label1" parent="CenterContainer/PanelContainer/VBoxContainer/QuitButton/CenterContainer" instance=ExtResource("3_5bi1t")]
-layout_mode = 2
 text = "Quit"
 horizontal_alignment = 1
 
-[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/LevelSelect" to="." method="_on_level_select_pressed"]
-[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/MarginContainer/LevelSelect" to="." method="_on_level_select_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/MarginContainer3/QuitButton" to="." method="_on_quit_button_pressed"]

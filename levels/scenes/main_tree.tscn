@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d4klrgmrciins"]
+[gd_scene load_steps=21 format=3 uid="uid://d4klrgmrciins"]
 
 [ext_resource type="PackedScene" uid="uid://b2euuv7n3vu4j" path="res://levels/scenes/main_menu.tscn" id="1_vgi8s"]
 [ext_resource type="PackedScene" uid="uid://c2wpjv5nffmco" path="res://UI/scenes/pause_menu.tscn" id="2_ao0h5"]
@@ -14,10 +14,11 @@
 [ext_resource type="Script" path="res://components/scripts/ShaderManager.gd" id="6_74lkg"]
 [ext_resource type="PackedScene" uid="uid://cie2aurt3mq2y" path="res://components/scenes/weather_handler.tscn" id="8_dsu4c"]
 [ext_resource type="PackedScene" uid="uid://b4nyijv5gecll" path="res://UI/scenes/weather_upgrade.tscn" id="9_bj4nl"]
-[ext_resource type="PackedScene" uid="uid://wvi5ybmc0a7v" path="res://effects/particles/pollen_particles.tscn" id="9_ebegu"]
+[ext_resource type="PackedScene" path="res://effects/particles/pollen_particles.tscn" id="9_ebegu"]
 [ext_resource type="Shader" uid="uid://o1ssx2ckepn0" path="res://effects/shaders/season_shader.tres" id="11_0k2lg"]
 [ext_resource type="Texture2D" uid="uid://dm0i0csgslhuh" path="res://icon.svg" id="11_4o0rh"]
 [ext_resource type="PackedScene" uid="uid://cxgelc4wqu2fk" path="res://UI/scenes/season_upgrades.tscn" id="12_5i2kh"]
+[ext_resource type="ButtonGroup" uid="uid://bra1n4idaeiy7" path="res://UI/resources/plant_selector_group.tres" id="18_dnwq1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_131c2"]
 shader = ExtResource("11_0k2lg")
@@ -96,6 +97,7 @@ texture = ExtResource("11_4o0rh")
 script = ExtResource("6_74lkg")
 world = NodePath("../..")
 camera = NodePath("../../Camera2D")
+selector_group = ExtResource("18_dnwq1")
 
 [node name="WeatherHandler" parent="World/LogicComponents" instance=ExtResource("8_dsu4c")]
 

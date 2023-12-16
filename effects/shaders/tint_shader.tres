@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bxlli74l052pl"]
+
+[ext_resource type="Shader" uid="uid://14xptp8qrnsm" path="res://effects/shaders/custom_modulate.tres" id="1_lacfj"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_lacfj")
+shader_parameter/target_blend = Color(1, 1, 0, 1)
+shader_parameter/intensity = 0.0

@@ -14,6 +14,8 @@ var level
 
 enum WEATHER {Summer, Autumn, Winter, Spring}
 const weather_names = ["Summer", "Autumn", "Winter", "Spring"]
+const weather_colours = [Color(1,1,0,1),Color(0.72,0.29,0.03,1),Color(0,1,1,1),Color(1,0,1,1)]
+const weather_intensities = [0.33,0.66,0.33,0.33]
 var weather: WEATHER:
 	set(value):
 		weather = value

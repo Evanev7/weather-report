@@ -123,3 +123,7 @@ weather={
 "type": "float",
 "value": 0.0
 }
+highlight_colour={
+"type": "color",
+"value": Color(0, 0, 0, 1)
+}

@@ -4,3 +4,4 @@
 
 [resource]
 script = ExtResource("1_viwb3")
+represented_weather = 2

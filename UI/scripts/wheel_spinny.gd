@@ -5,6 +5,7 @@ extends Sprite2D
 var weather_amount 
 
 func _ready():
+	print(position)
 	GameState.weather_changed.connect(_on_weather_change)
 
 func _on_weather_change(_weather):
@@ -22,5 +23,5 @@ func _on_weather_change(_weather):
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if get_rect().has_point(to_local(event.position)):
+		if (to_local(event.position) - position).length() < 1000:
 			GameState.weather_handler.try_change_weather()

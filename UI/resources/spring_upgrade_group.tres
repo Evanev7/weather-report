@@ -4,3 +4,4 @@
 
 [resource]
 script = ExtResource("1_onru1")
+represented_weather = 3

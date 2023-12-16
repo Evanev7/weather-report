@@ -10,7 +10,7 @@ parameter_name = "target_blend"
 default_value_enabled = true
 
 [sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_b7bj3"]
-parameter_name = "FloatParameter"
+parameter_name = "intensity"
 hint = 1
 default_value_enabled = true
 
@@ -24,7 +24,7 @@ code = "shader_type canvas_item;
 render_mode blend_mix;
 
 uniform vec4 target_blend : source_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
-uniform float FloatParameter : hint_range(0, 1) = 0;
+uniform float intensity : hint_range(0, 1) = 0;
 
 
 
@@ -39,7 +39,7 @@ void fragment() {
 
 
 // FloatParameter:4
-	float n_out4p0 = FloatParameter;
+	float n_out4p0 = intensity;
 
 
 // Mix:5
@@ -53,6 +53,7 @@ void fragment() {
 
 }
 "
+graph_offset = Vector2(-809.822, 233.552)
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(320, 780)

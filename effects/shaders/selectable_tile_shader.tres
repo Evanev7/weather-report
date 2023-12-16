@@ -8,6 +8,7 @@ render_mode blend_mix;
 varying flat vec2 vertex_pos;
 
 global uniform vec2 active_tile;
+global uniform vec4 highlight_colour;
 
 const float tolerance = 0.05;
 
@@ -18,7 +19,7 @@ void vertex() {
 void fragment() {
 	if (active_tile.x - tolerance <= vertex_pos.x && vertex_pos.x <= active_tile.x + tolerance) {
 		if (active_tile.y - tolerance <= vertex_pos.y && vertex_pos.y <= active_tile.y + tolerance) {
-			COLOR.rgb /= 2.;
+			COLOR.rgb = mix(COLOR.rgb, highlight_colour.rgb, 0.5);
 		}
 	}
 }

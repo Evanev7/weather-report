@@ -14,5 +14,6 @@ func _ready():
 func set_thumbnail():
 	$TextureRect.texture = thumbnail
 	if fav_weather != 4:
-		$TextureRect/TextureRect2.texture = weather_icon[fav_weather]
+		material.set_shader_parameter("target_blend", GameState.weather_colours[fav_weather])
+		material.set_shader_parameter("intensity", GameState.weather_intensities[fav_weather]+0.33)
 	$TextureRect/Label.text = str(cost)

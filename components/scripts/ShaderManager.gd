@@ -4,11 +4,13 @@ extends Node
 
 @export var world: Node
 @export var camera: Camera2D
+@export var selector_group: ButtonGroup
 var level: Node
 var tilemap: TileMap
 
 func _ready():
 	GameState.weather_changed.connect(_on_weather_changed)
+	selector_group.pressed.connect(_on_selector_changed)
 	#if not tilemap:
 		#level = GameState.level1
 		#tilemap = level.get_node("TileMap")
@@ -16,6 +18,15 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseMotion:
 		_on_mouse_moved(event.global_position)
+
+func _on_selector_changed(_who):
+	if selector_group.get_pressed_button():
+		var fav_weather = selector_group.get_pressed_button().fav_weather
+		var set_colour: Color = Color(0,0,0,1)
+		if fav_weather != 4:
+			set_colour = GameState.weather_colours[fav_weather]
+		RenderingServer.global_shader_parameter_set("highlight_colour", set_colour)
+
 
 func _on_mouse_moved(pos):
 	if GameState.level is Level:

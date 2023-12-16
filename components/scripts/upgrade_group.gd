@@ -5,6 +5,7 @@ signal active_resources_changed
 
 var active_resources: Dictionary = {}
 var locked_index: int = 0
+@export var represented_weather: GameState.WEATHER
 
 func update_resources(index: int,resource):
 	var credits_diff: int = 0

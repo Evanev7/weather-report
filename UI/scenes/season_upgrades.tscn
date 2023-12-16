@@ -20,25 +20,26 @@
 [ext_resource type="Resource" uid="uid://cs4ra8yrhhjce" path="res://components/resources/weather_upgrades/level 1/winter_1A.tres" id="14_lsoqk"]
 [ext_resource type="Resource" uid="uid://jqefhrayig8c" path="res://components/resources/weather_upgrades/level 1/winter_1B.tres" id="15_qb25c"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8fs83"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ua2yy"]
+resource_local_to_scene = true
 shader = ExtResource("3_4gm4w")
 shader_parameter/target_blend = Color(1, 1, 0, 1)
-shader_parameter/FloatParameter = 0.33
+shader_parameter/intensity = 0.33
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jl565"]
 shader = ExtResource("3_4gm4w")
 shader_parameter/target_blend = Color(0.729412, 0.290196, 0.0352941, 1)
-shader_parameter/FloatParameter = 0.66
+shader_parameter/intensity = 0.66
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vfvqk"]
 shader = ExtResource("3_4gm4w")
 shader_parameter/target_blend = Color(0, 1, 1, 1)
-shader_parameter/FloatParameter = 0.5
+shader_parameter/intensity = 0.33
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_41188"]
 shader = ExtResource("3_4gm4w")
 shader_parameter/target_blend = Color(1, 0, 1, 1)
-shader_parameter/FloatParameter = 0.33
+shader_parameter/intensity = 0.33
 
 [node name="season_upgrades" type="CanvasLayer"]
 script = ExtResource("1_vaxel")
@@ -72,7 +73,7 @@ layout_mode = 2
 theme_override_constants/separation = 50
 
 [node name="VBoxContainer" parent="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("2_1s32d")]
-material = SubResource("ShaderMaterial_8fs83")
+material = SubResource("ShaderMaterial_ua2yy")
 layout_mode = 2
 upgrade_group = ExtResource("5_bqqg5")
 upgrades_array_b = Array[Resource("res://components/scripts/weather_upgrade_resource.gd")]([ExtResource("6_7g5sg"), ExtResource("6_7g5sg"), ExtResource("7_jt3i8"), ExtResource("7_jt3i8"), ExtResource("7_jt3i8"), ExtResource("7_jt3i8"), ExtResource("7_jt3i8"), ExtResource("7_jt3i8")])
