@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2luhnxb8qmo4"]
+[gd_scene load_steps=4 format=3 uid="uid://lp2owogy0q3v"]
 
 [ext_resource type="Texture2D" uid="uid://cr8w5nwm6svwy" path="res://UI/assets/small_wood_ui_box.png" id="1_86puj"]
 [ext_resource type="Script" path="res://UI/scripts/credits.gd" id="1_pidk8"]

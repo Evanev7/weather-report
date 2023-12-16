@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyResource" load_steps=7 format=3 uid="uid://mewimhkkba47"]
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=7 format=3 uid="uid://pksb0noxgchc"]
 
 [ext_resource type="Texture2D" uid="uid://djpao354026x6" path="res://characters/assets/enemies/bat_nw_1.png" id="1_71hfq"]
 [ext_resource type="Script" path="res://characters/scripts/enemy_resource.gd" id="1_hfmo2"]

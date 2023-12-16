@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="PlantResource" load_steps=5 format=3 uid="uid://dqfvvrdm40p5e"]
 
 [ext_resource type="Script" path="res://characters/scripts/plant_resource.gd" id="1_efxw0"]
-[ext_resource type="SpriteFrames" uid="uid://cmwd753714otd" path="res://characters/assets/plants/flytrap_spriteframes.tres" id="1_o63k3"]
+[ext_resource type="SpriteFrames" path="res://characters/assets/plants/flytrap_spriteframes.tres" id="1_o63k3"]
 [ext_resource type="Texture2D" uid="uid://dkc7kpiaijxqx" path="res://characters/assets/plants/flytrap_winter_SE.png" id="2_k4ett"]
 [ext_resource type="Script" path="res://characters/resources/plants/flytrap_script.gd" id="3_tn3hp"]
 
