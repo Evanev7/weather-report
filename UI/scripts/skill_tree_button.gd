@@ -3,6 +3,7 @@ extends TextureButton
 @export var upgrade_resource: WeatherUpgradeResource
 @export_range(0,10) var index: int = 0
 @onready var upgrade_group: UpgradeGroup = owner.upgrade_group
+var all_groups: Array[UpgradeGroup] = [preload("res://UI/resources/autumn_upgrade_group.tres"), preload("res://UI/resources/winter_upgrade_group.tres"),preload("res://UI/resources/spring_upgrade_group.tres"),preload("res://UI/resources/summer_upgrade_group.tres")]
 var credit_value: int = 0
 
 func parent_ready():
@@ -11,7 +12,8 @@ func parent_ready():
 	else:
 		credit_value = upgrade_resource.credit_value
 	button_group.pressed.connect(_on_pressed)
-	upgrade_group.active_resources_changed.connect(_on_active_resources_changed)
+	for group in all_groups:
+		group.active_resources_changed.connect(_on_active_resources_changed)
 	_on_active_resources_changed()
 	$Selector/Icon.texture = upgrade_resource.icon
 	$Selector.self_modulate = float(button_pressed) * Color(1,1,1,1)
