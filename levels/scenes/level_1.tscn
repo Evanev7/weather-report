@@ -193,7 +193,7 @@ stream_0/weight = 1.0
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_6b08r")
-starting_credits = 1000
+starting_credits = 50
 waves = Array[ExtResource("4_j2ewg")]([ExtResource("2_lksn5"), ExtResource("3_bwpoa"), SubResource("Resource_par4q"), SubResource("Resource_pmul4"), SubResource("Resource_7icq7"), SubResource("Resource_yapk2")])
 
 [node name="TileMap" type="TileMap" parent="." node_paths=PackedStringArray("ghost", "ghost_radius")]
