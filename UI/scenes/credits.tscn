@@ -1,23 +1,198 @@
-[gd_scene format=3 uid="uid://c2luhnxb8qmo4"]
+[gd_scene load_steps=4 format=3 uid="uid://c2luhnxb8qmo4"]
 
-[node name="Credits" type="Node"]
+[ext_resource type="Texture2D" uid="uid://cr8w5nwm6svwy" path="res://UI/assets/small_wood_ui_box.png" id="1_86puj"]
+[ext_resource type="Script" path="res://UI/scripts/credits.gd" id="1_pidk8"]
+[ext_resource type="LabelSettings" uid="uid://cgcxvxdbt1cws" path="res://UI/resources/label_settings.tres" id="2_sk76n"]
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Credits" type="CanvasLayer"]
+script = ExtResource("1_pidk8")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.811765)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 1305.0
+offset_top = 842.0
+offset_right = 1894.0
+offset_bottom = 1038.0
+rotation = -0.00655772
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer"]
+clip_contents = false
 layout_mode = 2
-
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "<a href=\"https://www.flaticon.com/free-icons/fist\" title=\"fist icons\">Fist icons created by Smashicons - Flaticon</a>
-
-<a href=\"https://www.flaticon.com/free-icons/move\" title=\"move icons\">Move icons created by imaginationlol - Flaticon</a>
-
-<a href=\"https://www.flaticon.com/free-icons/ui\" title=\"ui icons\">Ui icons created by asol_studio - Flaticon</a>
-
-Music by https://pixabay.com/users/white_records-32584949/
-
-some sfx from freesounds.org
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "Most SFX from freesounds.org
 "
+fit_content = true
+scroll_active = false
+
+[node name="LinkButton4" type="LinkButton" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Music by White Records on PixaBay"
+uri = "https://pixabay.com/users/white_records-32584949/"
+
+[node name="LinkButton" type="LinkButton" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Fist icons created by Smashicons - Flaticon"
+uri = "https://www.flaticon.com/free-icons/fist"
+
+[node name="LinkButton2" type="LinkButton" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Move icons created by imaginationlol - Flaticon"
+uri = "https://www.flaticon.com/free-icons/move"
+
+[node name="LinkButton3" type="LinkButton" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Ui icons created by asol_studio - Flaticon"
+uri = "https://www.flaticon.com/free-icons/ui"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+clip_contents = false
+offset_left = 92.0
+offset_top = 118.0
+offset_right = 472.0
+offset_bottom = 243.0
+rotation = -0.146104
+theme_override_colors/default_color = Color(0.560784, 0.560784, 1, 1)
+theme_override_font_sizes/normal_font_size = 91
+bbcode_enabled = true
+text = "[wave]CREDITS[/wave]"
+fit_content = true
+scroll_active = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+clip_contents = false
+offset_left = 291.0
+offset_top = 207.0
+offset_right = 862.0
+offset_bottom = 298.0
+theme_override_font_sizes/normal_font_size = 66
+bbcode_enabled = true
+text = "[wave]PROGRAMMING:[/wave]"
+fit_content = true
+scroll_active = false
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+clip_contents = false
+offset_left = 84.0
+offset_top = 345.0
+offset_right = 470.0
+offset_bottom = 527.0
+rotation = -0.0815916
+theme_override_colors/default_color = Color(0, 0.501961, 0.501961, 1)
+theme_override_font_sizes/normal_font_size = 66
+bbcode_enabled = true
+text = "[wave]Turquoise / truq.itch.io[/wave]"
+fit_content = true
+scroll_active = false
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+clip_contents = false
+offset_left = 633.0
+offset_top = 328.0
+offset_right = 980.0
+offset_bottom = 510.0
+rotation = 0.0394242
+theme_override_colors/default_color = Color(0.615686, 0.00392157, 0.988235, 1)
+theme_override_font_sizes/normal_font_size = 66
+bbcode_enabled = true
+text = "[wave]Evan / caedesyth[/wave]"
+fit_content = true
+scroll_active = false
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="."]
+clip_contents = false
+offset_left = 462.0
+offset_top = 552.0
+offset_right = 744.0
+offset_bottom = 643.0
+theme_override_font_sizes/normal_font_size = 66
+bbcode_enabled = true
+text = "[wave]ART:[/wave]"
+fit_content = true
+scroll_active = false
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="."]
+clip_contents = false
+offset_left = 210.0
+offset_top = 706.0
+offset_right = 492.0
+offset_bottom = 797.0
+rotation = -0.143287
+theme_override_colors/default_color = Color(0.807843, 0.145098, 0.188235, 1)
+theme_override_font_sizes/normal_font_size = 66
+bbcode_enabled = true
+text = "[wave]Karo[/wave]"
+fit_content = true
+scroll_active = false
+
+[node name="LinkButton4" type="LinkButton" parent="RichTextLabel6"]
+offset_left = -23.158
+offset_top = 76.4768
+offset_right = 82.842
+offset_bottom = 112.477
+rotation = 0.0486477
+theme_override_font_sizes/font_size = 26
+text = "Instagram"
+uri = "https://www.instagram.com/g_karoart/"
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="."]
+clip_contents = false
+offset_left = 605.0
+offset_top = 685.0
+offset_right = 887.0
+offset_bottom = 776.0
+rotation = 0.0773073
+theme_override_colors/default_color = Color(0.231373, 0.752941, 0.796078, 1)
+theme_override_font_sizes/normal_font_size = 66
+bbcode_enabled = true
+text = "[wave]Kongi[/wave]"
+fit_content = true
+scroll_active = false
+
+[node name="LinkButton4" type="LinkButton" parent="RichTextLabel7"]
+offset_left = 126.29
+offset_top = 89.5139
+offset_right = 254.29
+offset_bottom = 125.514
+rotation = -0.238631
+theme_override_font_sizes/font_size = 26
+text = "Instagram"
+uri = "https://www.instagram.com/kongi_art/"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 94.0
+offset_top = 914.0
+offset_right = 243.0
+offset_bottom = 994.0
+texture_normal = ExtResource("1_86puj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.5
+offset_top = -21.0
+offset_right = 34.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back"
+label_settings = ExtResource("2_sk76n")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

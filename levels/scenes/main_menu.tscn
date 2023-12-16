@@ -163,4 +163,5 @@ scale = Vector2(1, 1)
 transform = Transform2D(0.984808, -0.173648, 0.173648, 0.984808, -500, 450)
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/MarginContainer/LevelSelect" to="." method="_on_level_select_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/MarginContainer2/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/PanelContainer2/VBoxContainer/MarginContainer3/QuitButton" to="." method="_on_quit_button_pressed"]

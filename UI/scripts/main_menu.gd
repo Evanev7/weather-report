@@ -18,3 +18,8 @@ func _on_level_select_pressed():
 	
 func _on_quit_button_pressed():
 	get_tree().quit()
+
+
+func _on_options_pressed():
+	SoundManager.select_button.play()
+	get_parent().get_node("Credits").visible = true
