@@ -17,6 +17,8 @@ func _ready():
 	GameState.level_completed.connect(_on_level_completed)
 	Stats.display_stats.connect(_on_display_stats)
 	create_or_load_save()
+	
+	_on_display_stats(get_node("/root/main/MainMenu").get_node("%StatScreen"))
 
 func set_stats(new_stats: PlayerData):
 	player_data = new_stats
@@ -31,7 +33,7 @@ func _on_display_stats(who):
 					"Credits gained": player_data.credits_gained,
 					"Waves completed": player_data.waves_completed,
 					"Enemies killed": player_data.enemies_killed,
-					"Damage dealth": player_data.damage_dealt
+					"Damage dealt": player_data.damage_dealt
 				}
 		GameState.PAUSE_STATES.LEVEL_PAUSED:
 			var stat_screen = who.get_node_or_null("%StatScreen") 
@@ -41,7 +43,7 @@ func _on_display_stats(who):
 					"Credits gained": credits_gained,
 					"Waves completed": waves_completed,
 					"Enemies killed": enemies_killed,
-					"Damage dealth": damage_dealt
+					"Damage dealt": damage_dealt
 				}
 
 func _on_level_completed():

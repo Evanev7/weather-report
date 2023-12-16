@@ -3,8 +3,8 @@ extends CanvasLayer
 @export var world: Node
 
 func _ready():
-	pass
-		
+	visibility_changed.connect(func(): Stats.display_stats.emit(%StatScreen))
+
 func set_level(level):
 	visible = false
 	world.set_level(level)
