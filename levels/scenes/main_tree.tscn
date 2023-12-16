@@ -75,7 +75,6 @@ visible = false
 zoom = Vector2(1.2, 1.2)
 
 [node name="SeasonShader" type="TextureRect" parent="World"]
-visible = false
 material = SubResource("ShaderMaterial_131c2")
 anchors_preset = 15
 anchor_right = 1.0
