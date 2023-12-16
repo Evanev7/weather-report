@@ -51,7 +51,7 @@ func _input(event):
 				get_tree().quit()
 			PAUSE_STATES.UNPAUSED:
 				paused.emit(PAUSE_STATES.LEVEL_PAUSED)
-			PAUSE_STATES.LEVEL_PAUSED:
+			_:
 				paused.emit(PAUSE_STATES.UNPAUSED)
 
 func show_error(msg):
