@@ -21,12 +21,28 @@ func _ready():
 func set_stats(new_stats: PlayerData):
 	player_data = new_stats
 	
-func _on_display_stats(_who):
+func _on_display_stats(who):
 	match GameState.pause_state:
 		GameState.PAUSE_STATES.MAIN_MENU:
-			pass
+			var stat_screen = who.get_node_or_null("%StatScreen") 
+			if stat_screen:
+				stat_screen.stats_to_display = {
+					"Credits spent": player_data.credits_spent,
+					"Credits gained": player_data.credits_gained,
+					"Waves completed": player_data.waves_completed,
+					"Enemies killed": player_data.enemies_killed,
+					"Damage dealth": player_data.damage_dealt
+				}
 		GameState.PAUSE_STATES.LEVEL_PAUSED:
-			pass
+			var stat_screen = who.get_node_or_null("%StatScreen") 
+			if stat_screen:
+				stat_screen.stats_to_display = {
+					"Credits spent": credits_spent,
+					"Credits gained": credits_gained,
+					"Waves completed": waves_completed,
+					"Enemies killed": enemies_killed,
+					"Damage dealth": damage_dealt
+				}
 
 func _on_level_completed():
 	player_data.credits_spent += credits_spent

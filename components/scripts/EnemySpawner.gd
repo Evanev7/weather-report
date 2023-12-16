@@ -63,5 +63,5 @@ func end_wave():
 	owner.end_wave()
 	
 func _on_enemy_removed():
-	if get_child_count() == 0 and current_batch >= wave_data.size():
+	if get_child_count() == 0 and current_batch >= wave_data.size()-1:
 		owner.game_over.emit(true)

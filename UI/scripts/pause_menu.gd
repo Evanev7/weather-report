@@ -10,6 +10,7 @@ func _on_pause_pressed(who):
 		GameState.PAUSE_STATES.LEVEL_PAUSED:
 			visible = true
 			$OptionsMenu.visible = true
+			Stats.display_stats.emit(self)
 		_:
 			SoundManager.select_button.play()
 			visible = false

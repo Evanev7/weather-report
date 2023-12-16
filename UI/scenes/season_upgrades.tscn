@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dbqsohre6hdwu" path="res://UI/assets/winter.png" id="9_2o52j"]
 [ext_resource type="Texture2D" uid="uid://ddnck6dgvf3v" path="res://UI/assets/spring.png" id="12_58p0v"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_y4d06"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kof5w"]
 resource_local_to_scene = true
 shader = ExtResource("3_4gm4w")
 shader_parameter/target_blend = Color(1, 1, 0, 1)
@@ -70,7 +70,7 @@ layout_mode = 2
 theme_override_constants/separation = 50
 
 [node name="VBoxContainer" parent="CenterContainer/HBoxContainer/ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("2_1s32d")]
-material = SubResource("ShaderMaterial_y4d06")
+material = SubResource("ShaderMaterial_kof5w")
 layout_mode = 2
 upgrade_group = ExtResource("5_bqqg5")
 upgrades_array_a = Array[Resource("res://components/scripts/weather_upgrade_resource.gd")]([ExtResource("7_jt3i8"), ExtResource("7_jt3i8"), ExtResource("7_ikup5"), ExtResource("7_jt3i8"), ExtResource("6_7g5sg"), ExtResource("6_7g5sg"), ExtResource("7_ikup5"), ExtResource("7_jt3i8")])
